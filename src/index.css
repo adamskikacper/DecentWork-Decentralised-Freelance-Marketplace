@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+ /* Light Theme Variables */
+ :root {
+  --background: 0 0% 100%; /* White */
+  --foreground: 224 71% 4%; /* Dark Blue-Gray */
+
+  --card: 0 0% 100%;
+  --card-foreground: 224 71% 4%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 71% 4%;
+
+  /* Using a vibrant blue as primary */
+  --primary: 217 91% 60%; /* Vibrant Blue HSL */
+  --primary-foreground: 0 0% 100%; /* White */
+
+  /* Slightly off-white secondary */
+  --secondary: 220 14% 96%; /* Light Gray */
+  --secondary-foreground: 224 71% 4%; /* Dark Blue-Gray */
+
+  --muted: 220 14% 96%; /* Light Gray */
+  --muted-foreground: 220 9% 46%; /* Medium Gray */
+
+  /* Using a subtle green as accent */
+  --accent: 142 76% 96%; /* Very Light Green */
+  --accent-foreground: 142 71% 15%; /* Dark Green */
+
+  --destructive: 0 84% 60%; /* Red */
+  --destructive-foreground: 0 0% 100%; /* White */
+
+  --border: 220 13% 91%; /* Light Gray Border */
+  --input: 220 13% 91%; /* Light Gray Input */
+  --ring: 217 91% 60%; /* Vibrant Blue Ring */
+
+  --radius: 0.75rem;
+
+  /* Sidebar specific variables (can be adjusted further) */
+  --sidebar-background: 220 14% 98%; /* Slightly off-white */
+  --sidebar-foreground: 224 71% 4%;
+  --sidebar-primary: 217 91% 60%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 142 76% 96%;
+  --sidebar-accent-foreground: 142 71% 15%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217 91% 60%;
+
+  /* Define hex colors as CSS variables for easier gradient use */
+  --color-vibrantBlue: #3b82f6;
+  --color-emeraldGreen: #10b981;
+  --color-sunnyYellow: #f59e0b;
+  --color-deepPurple: #8b5cf6;
+ }
+
+ /* Dark Theme Variables */
+ .dark {
+  --background: 224 71% 4%; /* Dark Blue-Gray */
+  --foreground: 210 20% 98%; /* Very Light Gray */
+
+  --card: 224 71% 10%; /* Darker Blue-Gray */
+  --card-foreground: 210 20% 98%;
+
+  --popover: 224 71% 10%;
+  --popover-foreground: 210 20% 98%;
+
+  /* Keep vibrant blue primary */
+  --primary: 217 91% 60%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Darker secondary */
+  --secondary: 224 71% 10%;
+  --secondary-foreground: 210 20% 98%;
+
+  --muted: 224 71% 10%;
+  --muted-foreground: 215 14% 65%; /* Lighter Gray */
+
+  /* Darker green accent */
+  --accent: 142 71% 15%;
+  --accent-foreground: 142 76% 96%;
+
+  --destructive: 0 63% 31%; /* Darker Red */
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 215 28% 17%; /* Dark Gray Border */
+  --input: 215 28% 17%; /* Dark Gray Input */
+  --ring: 217 91% 60%; /* Keep Vibrant Blue Ring */
+
+  /* Sidebar dark theme */
+  --sidebar-background: 224 71% 6%; /* Even Darker Blue-Gray */
+  --sidebar-foreground: 210 20% 98%;
+  --sidebar-primary: 217 91% 60%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 142 71% 15%;
+  --sidebar-accent-foreground: 142 76% 96%;
+  --sidebar-border: 215 28% 17%;
+  --sidebar-ring: 217 91% 60%;
+
+  /* Hex colors remain the same, just used in dark context */
+  --color-vibrantBlue: #3b82f6;
+  --color-emeraldGreen: #10b981;
+  --color-sunnyYellow: #f59e0b;
+  --color-deepPurple: #8b5cf6;
+ }
+
+ * {
+  @apply border-border transition-colors duration-300 ease-in-out; /* Add smooth color transition */
+ }
+
+ body {
+  @apply bg-background text-foreground antialiased;
+  font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+ }
+
+ html {
+  @apply scroll-smooth;
+ }
+}
+
+@layer components {
+ /* Updated Glass Card for better dark mode compatibility */
+ .glass-card {
+  @apply bg-card/70 dark:bg-card/50 backdrop-blur-lg border border-border/20 shadow-lg rounded-lg;
+ }
+
+ /* Keep existing buttons, they use theme variables */
+ .button-primary {
+  @apply px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:brightness-110;
+ }
+
+ .button-secondary {
+  @apply px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:bg-accent;
+ }
+
+ /* New Vibrant Button */
+ .button-vibrant {
+  @apply px-6 py-3 bg-gradient-to-r from-vibrantBlue to-emeraldGreen text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
+ }
+
+ /* New Accent Button */
+ .button-accent-gradient {
+  @apply px-6 py-3 bg-gradient-to-r from-sunnyYellow to-deepPurple text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
+ }
+
+ /* Enhanced Input Field Style */
+ .input-enhanced {
+  @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-300;
+ }
+
+ /* Card with Gradient Border */
+ .card-gradient-border {
+  @apply relative rounded-lg border border-transparent bg-card p-6 shadow-sm;
+  /* Pseudo-element for border */
+  &::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   border-radius: inherit; /* Use parent's border radius */
+   padding: 1px; /* Border width */
+   background: linear-gradient(
+    to right,
+    var(--color-vibrantBlue),
+    var(--color-emeraldGreen)
+   );
+   -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+   -webkit-mask-composite: xor;
+   mask-composite: exclude;
+   z-index: -1; /* Place behind content */
+  }
+ }
+
+ /* Card with Accent Gradient Background */
+ .card-accent-gradient {
+  @apply rounded-lg p-6 text-white shadow-lg bg-gradient-accent-highlight; /* Use gradient from config */
+ }
+
+ .page-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+ }
+
+ .section {
+  @apply py-12 md:py-24;
+ }
+
+ .heading-1 {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+ }
+
+ .heading-2 {
+  @apply text-3xl md:text-4xl font-bold tracking-tight;
+ }
+
+ .heading-3 {
+  @apply text-2xl md:text-3xl font-bold tracking-tight;
+ }
+
+ .body-text {
+  @apply text-base md:text-lg text-muted-foreground;
+ }
+
+ .label-text {
+  @apply text-sm font-medium;
+ }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+ width: 8px;
+ height: 8px;
+}
+
+::-webkit-scrollbar-track {
+ background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+ background: hsl(var(--muted-foreground) / 0.3);
+ border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+ background: hsl(var(--muted-foreground) / 0.5);
+}
