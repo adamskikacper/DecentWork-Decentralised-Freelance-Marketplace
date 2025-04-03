@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Memory Bank - Local development documentation
+memory-bank/
+
+# Environment variables
+.env
