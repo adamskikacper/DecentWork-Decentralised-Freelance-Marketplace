@@ -25,6 +25,7 @@ dist-ssr
 
 # Memory Bank - Local development documentation
 memory-bank/
+.cursorrules
 
 # Environment variables
 .env
