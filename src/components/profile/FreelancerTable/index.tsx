@@ -1,6 +1,6 @@
 import React from "react";
-import { FreelancerSummary } from "../types";
-import FreelancerCard from "./FreelancerCard";
+import { FreelancerSummary } from "@/types";
+import FreelancerCard from "../ProfileCard/FreelancerCard";
 
 interface FreelancerTableProps {
  freelancers: FreelancerSummary[];

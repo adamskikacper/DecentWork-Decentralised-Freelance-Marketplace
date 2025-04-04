@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import Navbar from "../../components/layout/Header";
+import Footer from "../../components/layout/Footer";
 import { useAuth } from "../../hooks/useAuth";
 import { Navigate } from "react-router-dom";
 import LoadingScreen from "@/components/common/LoadingScreen";

@@ -5,7 +5,7 @@ import { isValidUser } from "../../utils/userValidation";
 import LoadingScreen from "@/components/common/LoadingScreen";
 import ClientDashboard from "./client/ClientDashboard";
 import FreelancerDashboard from "./freelancer/FreelancerDashboard";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { NAV_LINKS } from "@/constants";
 
 /**
