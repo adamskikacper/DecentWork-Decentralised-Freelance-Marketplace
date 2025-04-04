@@ -44,6 +44,7 @@ Creating a global, decentralized marketplace where talent can connect directly w
   - Ethereum/Polygon smart contracts
   - Solidity for contract development
   - Hardhat for testing and deployment
+  - Polygon Amoy testnet for development testing
 
 - **Web3 Integration**:
 
@@ -51,12 +52,18 @@ Creating a global, decentralized marketplace where talent can connect directly w
   - wagmi for React hooks
   - WalletConnect for multi-wallet support
 
+- **File Storage**:
+  - IPFS via NFT.Storage for decentralized file storage
+  - Project attachments and documents stored on IPFS
+
 ### Prerequisites
 
 - Node.js (v18+)
 - npm
 - Supabase CLI
 - Metamask or compatible wallet
+- Infura account (or other RPC provider)
+- NFT.Storage account for IPFS file uploads
 
 ### Setup
 
@@ -67,6 +74,21 @@ cd Decentralised-Freelance-Marketplace
 
 # Install dependencies
 npm install
+
+# Compile smart contracts
+npm run compile
+
+# Test smart contracts
+npm run test:contracts
+
+# Deploy to local network
+npm run deploy:local
+
+# Deploy to Polygon Amoy testnet
+npm run deploy:amoy
+
+# Deploy to Polygon mainnet
+npm run deploy:polygon
 
 # Start local development server
 npm run dev
