@@ -3,11 +3,11 @@ import * as Slider from "@radix-ui/react-slider";
 import * as Popover from "@radix-ui/react-popover";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
-import SkillSelect from "../../../components/SkillSelect";
-import SectionHeader from "../../../components/SectionHeader";
-import FormSelect from "../../../components/FormSelect";
-import AttachmentList from "../../../components/AttachmentList";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import SkillSelect from "../../../components/profile/SkillsList/SkillSelect";
+import SectionHeader from "../../../components/layout/SectionHeader";
+import FormSelect from "../../../components/common/Form/FormSelect";
+import AttachmentList from "../../../components/project/AttachmentList";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import {
  PROJECT_DURATIONS,
  PROJECT_TYPES,

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import SearchFilterBar from "../../components/SearchFilterBar";
-import JobCard from "../../components/JobCard";
+import Navbar from "../../components/layout/Header";
+import Footer from "../../components/layout/Footer";
+import SearchFilterBar from "../../components/project/SearchFilterBar";
+import JobCard from "../../components/project/ProjectCard/JobCard";
 
 const JobList = () => {
  const [searchQuery, setSearchQuery] = useState("");

@@ -1,7 +1,7 @@
 import React, { memo, useState } from "react";
 import { Search } from "lucide-react";
-import SectionHeader from "../../../components/SectionHeader";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import SectionHeader from "../../../components/layout/SectionHeader";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { NAV_LINKS } from "@/constants";
 
 // Sample job data

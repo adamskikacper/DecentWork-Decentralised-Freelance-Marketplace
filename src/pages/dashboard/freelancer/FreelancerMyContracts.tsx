@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { ProjectSummary } from "../../../types";
-import SectionHeader from "../../../components/SectionHeader";
-import ProjectsList from "../../../components/ProjectsList";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import SectionHeader from "../../../components/layout/SectionHeader";
+import ProjectsList from "../../../components/project/ProjectList/ProjectsList";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { NAV_LINKS } from "@/constants";
 
 interface FreelancerMyContractsProps {

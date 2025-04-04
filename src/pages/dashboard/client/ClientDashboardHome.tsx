@@ -5,11 +5,11 @@ import {
  ProjectSummary,
  FreelancerSummary,
 } from "../../../types";
-import SectionHeader from "../../../components/SectionHeader";
-import FreelancerTable from "../../../components/FreelancerTable";
-import ProjectsList from "../../../components/ProjectsList";
-import StatsGrid from "../../../components/StatsGrid";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import SectionHeader from "../../../components/layout/SectionHeader";
+import FreelancerTable from "../../../components/profile/FreelancerTable";
+import ProjectsList from "../../../components/project/ProjectList/ProjectsList";
+import StatsGrid from "../../../components/common/StatsGrid";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { NAV_LINKS } from "@/constants";
 
 interface ClientDashboardHomeProps {
