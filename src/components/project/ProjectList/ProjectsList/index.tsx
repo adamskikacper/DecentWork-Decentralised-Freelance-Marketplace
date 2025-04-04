@@ -1,6 +1,6 @@
 import React from "react";
-import { ProjectSummary } from "../types";
-import ProjectCard from "./ProjectCard";
+import { ProjectSummary } from "@/types";
+import ProjectCard from "../../ProjectCard/ProjectCard";
 
 interface ProjectsListProps {
  projects: ProjectSummary[];

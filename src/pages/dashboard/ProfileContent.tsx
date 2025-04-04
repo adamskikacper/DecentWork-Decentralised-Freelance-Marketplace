@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { User } from "../../types";
-import SectionHeader from "../../components/SectionHeader";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import SectionHeader from "../../components/layout/SectionHeader";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { DASHBOARD_LINKS } from "@/constants";
 
 interface ProfileContentProps {

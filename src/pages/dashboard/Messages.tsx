@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { DASHBOARD_LINKS, NAV_LINKS } from "@/constants";
-import MessageList, { Conversation } from "@/components/MessageList";
+import MessageList, { Conversation } from "@/components/contract/MessageList";
 import { Input } from "@/components/ui/input";
 import { Search, MessageCircle } from "lucide-react";
 

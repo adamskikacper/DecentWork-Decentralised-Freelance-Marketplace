@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { User as UserType, ProjectSummary } from "../../../types";
-import SectionHeader from "../../../components/SectionHeader";
-import StatsGrid from "../../../components/StatsGrid";
-import ProjectsList from "../../../components/ProjectsList";
+import SectionHeader from "../../../components/layout/SectionHeader";
+import StatsGrid from "../../../components/common/StatsGrid";
+import ProjectsList from "../../../components/project/ProjectList/ProjectsList";
 
 interface FreelancerDashboardHomeProps {
  user: Partial<UserType>;

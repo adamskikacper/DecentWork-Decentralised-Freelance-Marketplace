@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import JobDetailHeader from "../../components/JobDetailHeader";
-import JobDescription from "../../components/JobDescription";
-import BidForm from "../../components/BidForm";
-import ClientInfo from "../../components/ClientInfo";
+import Navbar from "../../components/layout/Header";
+import Footer from "../../components/layout/Footer";
+import JobDetailHeader from "../../components/project/JobDetailHeader";
+import JobDescription from "../../components/project/JobDescription";
+import BidForm from "../../components/project/ProjectForm/BidForm";
+import ClientInfo from "../../components/profile/ClientInfo";
 
-import SimilarJobsSection from "../../components/SimilarJobsSection";
-import Breadcrumbs from "../../components/Breadcrumbs";
+import SimilarJobsSection from "../../components/project/SimilarJobsSection";
+import Breadcrumbs from "../../components/layout/Breadcrumbs";
 
 // Mock jobs data - would be fetched from an API in a real application
 const MOCK_JOBS = [

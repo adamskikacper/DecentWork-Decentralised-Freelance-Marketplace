@@ -26,17 +26,35 @@ Creating a global, decentralized marketplace where talent can connect directly w
 
 ## 💻 Tech Stack
 
-- **Frontend**: React 18, TypeScript, Vite, Tailwind CSS
-- **Backend**: Supabase (PostgreSQL, Auth, Edge Functions)
-- **Blockchain**: Ethereum/Polygon smart contracts, ERC-721 for identity
-- **Web3**: ethers.js, wagmi, WalletConnect
+- **Frontend**:
 
-## 🛠️ Development
+  - React 18 with TypeScript
+  - Vite
+  - Tailwind CSS with shadcn/ui components
+  - React Router for navigation
+  - React Query for data fetching
+
+- **Backend**:
+
+  - Supabase (PostgreSQL database)
+  - Supabase Auth with wallet authentication
+
+- **Blockchain**:
+
+  - Ethereum/Polygon smart contracts
+  - Solidity for contract development
+  - Hardhat for testing and deployment
+
+- **Web3 Integration**:
+
+  - ethers.js for blockchain interactions
+  - wagmi for React hooks
+  - WalletConnect for multi-wallet support
 
 ### Prerequisites
 
 - Node.js (v18+)
-- pnpm
+- npm
 - Supabase CLI
 - Metamask or compatible wallet
 
@@ -44,14 +62,11 @@ Creating a global, decentralized marketplace where talent can connect directly w
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/decentralized-freelance-marketplace.git
-cd decentralized-freelance-marketplace
+git clone https://github.com/adamskikacper/Decentralised-Freelance-Marketplace
+cd Decentralised-Freelance-Marketplace
 
 # Install dependencies
 npm install
-
-# Set up environment variables
-cp .env.example .env.local
 
 # Start local development server
 npm run dev
@@ -68,4 +83,4 @@ The project is currently in the initial development phase. I'm working on:
 
 ## 📧 Contact
 
-For questions or feedback, please open an issue or contact the team at [contact@kacperadamski.dev](mailto:contact@kacperadamski.dev).
+For questions, contact me at [contact@kacperadamski.dev](mailto:contact@kacperadamski.dev).

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import JobCard from "./JobCard";
 
 interface SimilarJob {
  id: number;
