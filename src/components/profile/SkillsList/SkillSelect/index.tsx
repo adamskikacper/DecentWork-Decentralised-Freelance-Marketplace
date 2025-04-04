@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Skill } from "../types";
-import { DEFAULT_SKILLS } from "../constants";
+import { Skill } from "@/types";
+import { DEFAULT_SKILLS } from "@/constants";
 
 interface SkillSelectProps {
  selectedSkills: string[];

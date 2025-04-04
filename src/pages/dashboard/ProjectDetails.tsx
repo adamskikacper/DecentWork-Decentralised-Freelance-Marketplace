@@ -1,5 +1,5 @@
-import ProjectDetailsComponent from "../../components/ProjectDetails";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import ProjectDetailsComponent from "../../components/project/ProjectDetails";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { DASHBOARD_LINKS } from "@/constants";
 import { useParams } from "react-router-dom";
 

@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { FreelancerSummary } from "../../../types";
-import SectionHeader from "../../../components/SectionHeader";
-import FreelancerTable from "../../../components/FreelancerTable";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import SectionHeader from "../../../components/layout/SectionHeader";
+import FreelancerTable from "../../../components/profile/FreelancerTable";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { DASHBOARD_LINKS, NAV_LINKS } from "@/constants";
 
 interface ClientMyFreelancersProps {
