@@ -1,0 +1,315 @@
+[
+ {
+  "inputs": [
+   {
+    "internalType": "address",
+    "name": "initialOwner",
+    "type": "address"
+   },
+   {
+    "internalType": "address",
+    "name": "marketplaceAddress",
+    "type": "address"
+   }
+  ],
+  "stateMutability": "nonpayable",
+  "type": "constructor"
+ },
+ {
+  "anonymous": false,
+  "inputs": [
+   {
+    "indexed": true,
+    "internalType": "address",
+    "name": "reviewer",
+    "type": "address"
+   },
+   {
+    "indexed": true,
+    "internalType": "address",
+    "name": "reviewee",
+    "type": "address"
+   },
+   {
+    "indexed": true,
+    "internalType": "uint256",
+    "name": "projectId",
+    "type": "uint256"
+   },
+   {
+    "indexed": false,
+    "internalType": "uint8",
+    "name": "rating",
+    "type": "uint8"
+   },
+   {
+    "indexed": false,
+    "internalType": "string",
+    "name": "comment",
+    "type": "string"
+   }
+  ],
+  "name": "NewReview",
+  "type": "event"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "uint256",
+    "name": "projectId",
+    "type": "uint256"
+   },
+   {
+    "internalType": "address",
+    "name": "reviewee",
+    "type": "address"
+   },
+   {
+    "internalType": "uint8",
+    "name": "rating",
+    "type": "uint8"
+   },
+   {
+    "internalType": "string",
+    "name": "comment",
+    "type": "string"
+   }
+  ],
+  "name": "createReview",
+  "outputs": [
+   {
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+   }
+  ],
+  "stateMutability": "nonpayable",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "address",
+    "name": "user",
+    "type": "address"
+   }
+  ],
+  "name": "getAverageRating",
+  "outputs": [
+   {
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+   }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+ },
+ {
+  "inputs": [],
+  "name": "getMarketplace",
+  "outputs": [
+   {
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+   }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "uint256",
+    "name": "reviewId",
+    "type": "uint256"
+   }
+  ],
+  "name": "getReview",
+  "outputs": [
+   {
+    "components": [
+     {
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+     },
+     {
+      "internalType": "uint256",
+      "name": "projectId",
+      "type": "uint256"
+     },
+     {
+      "internalType": "address",
+      "name": "reviewer",
+      "type": "address"
+     },
+     {
+      "internalType": "address",
+      "name": "reviewee",
+      "type": "address"
+     },
+     {
+      "internalType": "uint8",
+      "name": "rating",
+      "type": "uint8"
+     },
+     {
+      "internalType": "string",
+      "name": "comment",
+      "type": "string"
+     },
+     {
+      "internalType": "uint256",
+      "name": "timestamp",
+      "type": "uint256"
+     }
+    ],
+    "internalType": "struct IReputationSystem.Review",
+    "name": "",
+    "type": "tuple"
+   }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "address",
+    "name": "user",
+    "type": "address"
+   }
+  ],
+  "name": "getReviewCount",
+  "outputs": [
+   {
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+   }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "address",
+    "name": "user",
+    "type": "address"
+   }
+  ],
+  "name": "getReviewIds",
+  "outputs": [
+   {
+    "internalType": "uint256[]",
+    "name": "",
+    "type": "uint256[]"
+   }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "address",
+    "name": "user",
+    "type": "address"
+   }
+  ],
+  "name": "getUserReputation",
+  "outputs": [
+   {
+    "components": [
+     {
+      "internalType": "uint256",
+      "name": "totalRating",
+      "type": "uint256"
+     },
+     {
+      "internalType": "uint256",
+      "name": "reviewCount",
+      "type": "uint256"
+     }
+    ],
+    "internalType": "struct IReputationSystem.Reputation",
+    "name": "",
+    "type": "tuple"
+   }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "address",
+    "name": "user",
+    "type": "address"
+   }
+  ],
+  "name": "getUserReviews",
+  "outputs": [
+   {
+    "components": [
+     {
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+     },
+     {
+      "internalType": "uint256",
+      "name": "projectId",
+      "type": "uint256"
+     },
+     {
+      "internalType": "address",
+      "name": "reviewer",
+      "type": "address"
+     },
+     {
+      "internalType": "address",
+      "name": "reviewee",
+      "type": "address"
+     },
+     {
+      "internalType": "uint8",
+      "name": "rating",
+      "type": "uint8"
+     },
+     {
+      "internalType": "string",
+      "name": "comment",
+      "type": "string"
+     },
+     {
+      "internalType": "uint256",
+      "name": "timestamp",
+      "type": "uint256"
+     }
+    ],
+    "internalType": "struct IReputationSystem.Review[]",
+    "name": "",
+    "type": "tuple[]"
+   }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "address",
+    "name": "marketplaceAddress",
+    "type": "address"
+   }
+  ],
+  "name": "setMarketplace",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+ }
+]
