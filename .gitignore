@@ -32,3 +32,5 @@ tasks/
 
 # Environment variables
 .env
+
+*storybook.log

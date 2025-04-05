@@ -33,6 +33,7 @@ Creating a global, decentralized marketplace where talent can connect directly w
   - Tailwind CSS with shadcn/ui components
   - React Router for navigation
   - React Query for data fetching
+  - Storybook for component development and documentation
 
 - **Backend**:
 
@@ -51,10 +52,6 @@ Creating a global, decentralized marketplace where talent can connect directly w
   - ethers.js for blockchain interactions
   - wagmi for React hooks
   - WalletConnect for multi-wallet support
-
-- **File Storage**:
-  - IPFS via NFT.Storage for decentralized file storage
-  - Project attachments and documents stored on IPFS
 
 ### Prerequisites
 
@@ -92,7 +89,22 @@ npm run deploy:polygon
 
 # Start local development server
 npm run dev
+
+# Start Storybook component explorer
+npm run storybook
 ```
+
+## 📚 Storybook Component Library
+
+This project includes a Storybook component library documenting UI components:
+
+To run Storybook:
+
+```bash
+npm run storybook
+```
+
+This will start Storybook on [http://localhost:6006](http://localhost:6006).
 
 ## 📊 Current Status
 
@@ -102,6 +114,7 @@ The project is currently in the initial development phase. I'm working on:
 - Frontend prototype
 - Database schema implementation
 - Authentication system integration
+- UI component library via Storybook
 
 ## 📧 Contact
 
