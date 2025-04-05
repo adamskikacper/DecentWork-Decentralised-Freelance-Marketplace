@@ -4,6 +4,11 @@ import SectionHeader from "../../../components/layout/SectionHeader";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { NAV_LINKS } from "@/constants";
 
+// Define component props
+interface FreelancerFindJobsProps {
+ onJobDetails?: (jobId: string) => void;
+}
+
 // Sample job data
 const AVAILABLE_JOBS = [
  {
@@ -19,7 +24,7 @@ const AVAILABLE_JOBS = [
   skills: ["UI Design", "Figma", "Web3", "DeFi"],
   budget: "1.5-2.0 ETH",
   posted: "2 days ago",
-  duration: "10-15 day project",
+  duration: "10-15 day job",
   proposals: 7,
  },
  {
@@ -35,7 +40,7 @@ const AVAILABLE_JOBS = [
   skills: ["Solidity", "Smart Contracts", "Staking", "Security Audits"],
   budget: "3.0-4.5 ETH",
   posted: "5 days ago",
-  duration: "5-7 day project",
+  duration: "5-7 day job",
   proposals: 12,
  },
  {
@@ -51,7 +56,7 @@ const AVAILABLE_JOBS = [
   skills: ["Web3.js", "Ethereum", "Payment Integration", "E-commerce"],
   budget: "5.0-8.0 ETH",
   posted: "1 week ago",
-  duration: "20+ day project",
+  duration: "20+ day job",
   proposals: 15,
  },
  {
@@ -67,12 +72,12 @@ const AVAILABLE_JOBS = [
   skills: ["NFT Design", "Digital Art", "Metadata", "JSON"],
   budget: "4.0-6.0 ETH",
   posted: "2 weeks ago",
-  duration: "30 day project",
+  duration: "30 day job",
   proposals: 22,
  },
 ];
 
-const FreelancerFindJobs = memo(() => {
+const FreelancerFindJobs = memo(({ onJobDetails }: FreelancerFindJobsProps) => {
  const [searchTerm, setSearchTerm] = useState("");
  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
@@ -105,7 +110,7 @@ const FreelancerFindJobs = memo(() => {
    />
    <SectionHeader
     title="Find Jobs"
-    description="Browse available projects and submit proposals."
+    description="Browse available jobs and submit proposals."
    />
 
    {/* Search and Filter Bar */}
@@ -175,7 +180,13 @@ const FreelancerFindJobs = memo(() => {
        </div>
       </div>
 
-      <div className="flex justify-end">
+      <div className="flex justify-end gap-2">
+       <button
+        className="px-4 py-2 text-sm font-medium rounded-md bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
+        onClick={() => onJobDetails && onJobDetails(job.id)}
+       >
+        View Details
+       </button>
        <button className="px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
         Submit Proposal
        </button>

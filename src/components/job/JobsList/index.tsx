@@ -1,8 +1,8 @@
 import React from "react";
 import { JobSummary } from "@/types";
-import ProjectCard from "../../ProjectCard/ProjectCard";
+import JobCard from "../JobCard";
 
-interface ProjectsListProps {
+interface JobsListProps {
  jobs: JobSummary[];
  onMessage?: (userId: string) => void;
  onDetails?: (jobId: string) => void;
@@ -13,7 +13,7 @@ interface ProjectsListProps {
  className?: string;
 }
 
-const ProjectsList: React.FC<ProjectsListProps> = ({
+const JobsList: React.FC<JobsListProps> = ({
  jobs,
  onMessage,
  onDetails,
@@ -38,7 +38,7 @@ const ProjectsList: React.FC<ProjectsListProps> = ({
 
    <div className="space-y-4">
     {jobs.map((job) => (
-     <ProjectCard
+     <JobCard
       key={job.id}
       job={job}
       onMessage={onMessage}
@@ -51,4 +51,4 @@ const ProjectsList: React.FC<ProjectsListProps> = ({
  );
 };
 
-export default ProjectsList;
+export default JobsList;

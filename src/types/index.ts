@@ -17,7 +17,7 @@ export interface WalletInfo {
  isConnected: boolean;
 }
 
-export interface ProjectSummary {
+export interface JobSummary {
  id: string;
  title: string;
  freelancer: {
@@ -36,6 +36,6 @@ export interface FreelancerSummary {
  title: string;
  specialty: string;
  rating: number;
- projectsCount: number | string;
+ jobsCount: number | string;
  status: string;
 }

@@ -1,20 +1,20 @@
 import React, { memo } from "react";
-import { User as UserType, ProjectSummary } from "../../../types";
+import { User as UserType, JobSummary } from "../../../types";
 import SectionHeader from "../../../components/layout/SectionHeader";
 import StatsGrid from "../../../components/common/StatsGrid";
-import ProjectsList from "../../../components/project/ProjectList/ProjectsList";
+import JobsList from "../../../components/job/JobsList";
 
 interface FreelancerDashboardHomeProps {
  user: Partial<UserType>;
  onMessage: (userId: string) => void;
- onProjectDetails: (projectId: string) => void;
+ onJobDetails: (jobId: string) => void;
  onClientDetails?: (clientId: string) => void;
 }
 
-// Sample project data
-const SAMPLE_PROJECTS: ProjectSummary[] = [
+// Sample job data
+const SAMPLE_JOBS: JobSummary[] = [
  {
-  id: "project1",
+  id: "job1",
   title: "Frontend Development for DEX Platform",
   freelancer: {
    id: "current-user",
@@ -26,7 +26,7 @@ const SAMPLE_PROJECTS: ProjectSummary[] = [
   progress: 75,
  },
  {
-  id: "project2",
+  id: "job2",
   title: "Smart Contract Audit for NFT Marketplace",
   freelancer: {
    id: "current-user",
@@ -50,7 +50,7 @@ const AVAILABLE_JOBS = [
   },
   budget: "1.5-2.0 ETH",
   posted: "2 days ago",
-  duration: "10-15 day project",
+  duration: "10-15 day job",
  },
  {
   id: "job2",
@@ -61,7 +61,7 @@ const AVAILABLE_JOBS = [
   },
   budget: "3.0-4.5 ETH",
   posted: "5 days ago",
-  duration: "5-7 day project",
+  duration: "5-7 day job",
  },
  {
   id: "job3",
@@ -72,12 +72,12 @@ const AVAILABLE_JOBS = [
   },
   budget: "5.0-8.0 ETH",
   posted: "1 week ago",
-  duration: "20+ day project",
+  duration: "20+ day job",
  },
 ];
 
 const FreelancerDashboardHome = memo(
- ({ user, onMessage, onProjectDetails }: FreelancerDashboardHomeProps) => {
+ ({ user, onMessage, onJobDetails }: FreelancerDashboardHomeProps) => {
   // Stats configuration
   const dashboardStats = [
    {
@@ -159,12 +159,12 @@ const FreelancerDashboardHome = memo(
     {/* Summary Cards */}
     <StatsGrid stats={dashboardStats} columns={2} className="mb-8" />
 
-    {/* Active Projects */}
-    <ProjectsList
-     title="Active Projects"
-     projects={SAMPLE_PROJECTS}
+    {/* Active Jobs */}
+    <JobsList
+     title="Active Jobs"
+     jobs={SAMPLE_JOBS}
      onMessage={onMessage}
-     onDetails={onProjectDetails}
+     onDetails={onJobDetails}
      showViewAll={true}
      className="mb-10"
     />
