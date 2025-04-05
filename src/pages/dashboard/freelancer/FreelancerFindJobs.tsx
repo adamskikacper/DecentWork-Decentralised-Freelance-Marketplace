@@ -20,7 +20,7 @@ const AVAILABLE_JOBS = [
    rating: 4.8,
   },
   description:
-   "We are looking for an experienced UI designer to create a modern, intuitive dashboard for our decentralized finance platform. The ideal candidate has experience with Web3 projects and understands DeFi user needs.",
+   "We are looking for an experienced UI designer to create a modern, intuitive dashboard for our decentralized finance platform. The ideal candidate has experience with Web3 jobs and understands DeFi user needs.",
   skills: ["UI Design", "Figma", "Web3", "DeFi"],
   budget: "1.5-2.0 ETH",
   posted: "2 days ago",
