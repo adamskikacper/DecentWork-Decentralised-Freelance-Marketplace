@@ -74,7 +74,7 @@ const features = [
   ),
   title: "Secure Smart Contracts",
   description:
-   "Funds locked in escrow until project completion, protecting both parties.",
+   "Funds locked in escrow until job completion, protecting both parties.",
  },
  {
   icon: (
@@ -221,7 +221,7 @@ const Index = () => {
        <h2 className="heading-2 mb-4">Trusted by Blockchain Professionals</h2>
        <p className="body-text">
         Join thousands of freelancers and clients who trust DecentWork for Web3
-        projects.
+        jobs.
        </p>
       </div>
 
@@ -242,7 +242,7 @@ const Index = () => {
         style={{ animationDelay: "0.2s" }}
        >
         <div className="text-3xl font-bold mb-2">10,000+</div>
-        <div className="text-muted-foreground">Projects</div>
+        <div className="text-muted-foreground">Jobs</div>
        </div>
        <div
         className="glass-card rounded-xl p-6 slide-up"
@@ -256,10 +256,10 @@ const Index = () => {
       <div className="flex overflow-x-auto gap-6 pb-6 no-scrollbar">
        <TestimonialCard
         rating={5.0}
-        text="DecentWork transformed how I hire blockchain developers. The smart contract escrow system gives me peace of mind for every project."
+        text="DecentWork transformed how I hire blockchain developers. The smart contract escrow system gives me peace of mind for every job."
         authorInitial="J"
         authorName="James Chen"
-        authorRole="DeFi Project Founder"
+        authorRole="DeFi Job Founder"
        />
 
        <TestimonialCard
