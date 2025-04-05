@@ -1,0 +1,66 @@
+import { Meta, Story, Canvas, Controls } from "@storybook/blocks";
+import * as ButtonStories from "./Button.stories";
+
+<Meta title="UI/Button/Documentation" of={ButtonStories} />
+
+# Button Component
+
+The Button component is a versatile UI element used to trigger actions when clicked.
+It supports various styles, sizes, and can include icons.
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button";
+
+// Basic usage
+<Button>Click me</Button>
+
+// With variants
+<Button variant="destructive">Delete</Button>
+<Button variant="outline">Cancel</Button>
+
+// With sizes
+<Button size="sm">Small</Button>
+<Button size="lg">Large</Button>
+
+// With icons
+<Button>
+  <Heart />
+  Like
+</Button>
+```
+
+## Examples
+
+### Default Button
+
+<Canvas of={ButtonStories.Default} />
+
+### Variants
+
+<Canvas of={ButtonStories.Destructive} />
+<Canvas of={ButtonStories.Outline} />
+<Canvas of={ButtonStories.Secondary} />
+<Canvas of={ButtonStories.Ghost} />
+<Canvas of={ButtonStories.Link} />
+
+### Sizes
+
+<Canvas of={ButtonStories.Small} />
+<Canvas of={ButtonStories.Large} />
+
+### With Icons
+
+<Canvas of={ButtonStories.WithIcon} />
+<Canvas of={ButtonStories.IconRight} />
+<Canvas of={ButtonStories.IconOnly} />
+
+### States
+
+<Canvas of={ButtonStories.Disabled} />
+<Canvas of={ButtonStories.Loading} />
+
+## Component API
+
+<Controls />
