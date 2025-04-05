@@ -59,15 +59,15 @@ export const WithForm: Story = {
  render: () => (
   <Card className="w-[350px]">
    <CardHeader>
-    <CardTitle>Create project</CardTitle>
-    <CardDescription>Deploy your new project in one-click.</CardDescription>
+    <CardTitle>Create job</CardTitle>
+    <CardDescription>Deploy your new job in one-click.</CardDescription>
    </CardHeader>
    <CardContent>
     <form>
      <div className="grid w-full items-center gap-4">
       <div className="flex flex-col space-y-1.5">
        <label htmlFor="name">Name</label>
-       <input id="name" placeholder="Name of your project" />
+       <input id="name" placeholder="Name of your job" />
       </div>
       <div className="flex flex-col space-y-1.5">
        <label htmlFor="framework">Framework</label>

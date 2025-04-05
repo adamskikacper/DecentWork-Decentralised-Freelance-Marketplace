@@ -5,8 +5,6 @@ import { isValidUser } from "../../utils/userValidation";
 import LoadingScreen from "@/components/common/LoadingScreen";
 import ClientDashboard from "./client/ClientDashboard";
 import FreelancerDashboard from "./freelancer/FreelancerDashboard";
-import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import { NAV_LINKS } from "@/constants";
 
 /**
  * Dashboard - Unified dashboard page for both client and freelancer users
@@ -21,9 +19,9 @@ const Dashboard = () => {
   setActiveSection(section);
  }, []);
 
- const handleProjectDetails = useCallback(
-  (projectId: string) => {
-   navigate(`/dashboard/projects/${projectId}`);
+ const handleJobDetails = useCallback(
+  (jobId: string) => {
+   navigate(`/dashboard/jobs/${jobId}`);
   },
   [navigate]
  );
@@ -84,7 +82,7 @@ const Dashboard = () => {
      activeSection={activeSection}
      user={user}
      onMessage={handleMessage}
-     onProjectDetails={handleProjectDetails}
+     onJobDetails={handleJobDetails}
      onFreelancerDetails={handleFreelancerDetails}
     />
    ) : (
@@ -92,7 +90,7 @@ const Dashboard = () => {
      activeSection={activeSection}
      user={user}
      onMessage={handleMessage}
-     onProjectDetails={handleProjectDetails}
+     onJobDetails={handleJobDetails}
      onClientDetails={handleClientDetails}
     />
    )}

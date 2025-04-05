@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
-import SearchFilterBar from "../../components/project/SearchFilterBar";
-import JobCard from "../../components/project/ProjectCard/JobCard";
+import SearchFilterBar from "../../components/job/SearchFilterBar";
+import JobCard from "../../components/job/JobCard";
 
 const JobList = () => {
  const [searchQuery, setSearchQuery] = useState("");
@@ -113,7 +113,7 @@ const JobList = () => {
       <h1 className="text-3xl font-bold mb-2">Find Work</h1>
       <p className="text-muted-foreground max-w-3xl">
        Discover opportunities to collaborate with clients from around the world
-       on blockchain and web3 projects.
+       on blockchain and web3 jobs.
       </p>
      </div>
 

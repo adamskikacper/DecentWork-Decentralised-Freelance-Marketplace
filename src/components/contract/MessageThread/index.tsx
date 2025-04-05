@@ -27,7 +27,7 @@ const MessageThread = () => {
  const [messages] = useState<Message[]>([
   {
    id: "1",
-   content: "Hi, I'd like to discuss the project progress.",
+   content: "Hi, I'd like to discuss the job progress.",
    sender: "You",
    timestamp: "10:30 AM",
    isCurrentUser: true,

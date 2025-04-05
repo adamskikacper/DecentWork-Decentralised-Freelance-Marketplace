@@ -1,11 +1,11 @@
 import React from "react";
-import { ProjectSummary } from "@/types";
-import ProjectCard from "../../ProjectCard/ProjectCard";
+import { JobSummary } from "@/types";
+import JobCard from "../JobCard";
 
-interface ProjectsListProps {
- projects: ProjectSummary[];
+interface JobsListProps {
+ jobs: JobSummary[];
  onMessage?: (userId: string) => void;
- onDetails?: (projectId: string) => void;
+ onDetails?: (jobId: string) => void;
  showCreationDate?: boolean;
  title?: string;
  showViewAll?: boolean;
@@ -13,8 +13,8 @@ interface ProjectsListProps {
  className?: string;
 }
 
-const ProjectsList: React.FC<ProjectsListProps> = ({
- projects,
+const JobsList: React.FC<JobsListProps> = ({
+ jobs,
  onMessage,
  onDetails,
  showCreationDate = false,
@@ -37,10 +37,10 @@ const ProjectsList: React.FC<ProjectsListProps> = ({
    )}
 
    <div className="space-y-4">
-    {projects.map((project) => (
-     <ProjectCard
-      key={project.id}
-      project={project}
+    {jobs.map((job) => (
+     <JobCard
+      key={job.id}
+      job={job}
       onMessage={onMessage}
       onDetails={onDetails}
       showCreationDate={showCreationDate}
@@ -51,4 +51,4 @@ const ProjectsList: React.FC<ProjectsListProps> = ({
  );
 };
 
-export default ProjectsList;
+export default JobsList;
