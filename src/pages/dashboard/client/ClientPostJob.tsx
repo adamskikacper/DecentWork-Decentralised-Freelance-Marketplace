@@ -6,25 +6,24 @@ import { format } from "date-fns";
 import SkillSelect from "../../../components/profile/SkillsList/SkillSelect";
 import SectionHeader from "../../../components/layout/SectionHeader";
 import FormSelect from "../../../components/common/Form/FormSelect";
-import AttachmentList from "../../../components/project/AttachmentList";
+import AttachmentList from "../../../components/job/AttachmentList";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import {
- PROJECT_DURATIONS,
- PROJECT_TYPES,
  EXPERIENCE_LEVELS,
- NAV_LINKS,
+ JOB_DURATIONS,
+ JOB_TYPES,
  DASHBOARD_LINKS,
-} from "../../../constants";
+} from "@/constants";
 
 interface PostJobFormData {
  title: string;
  description: string;
  skills: string[];
- deadline?: Date;
  experienceLevel: string;
- projectDuration: string;
- projectType: string;
  budget: number;
+ deadline: Date | null;
+ jobDuration: string;
+ jobType: string;
  attachments: File[];
 }
 
@@ -34,9 +33,10 @@ const ClientPostJob = memo(() => {
   description: "",
   skills: [],
   experienceLevel: "intermediate",
-  projectDuration: "1-3_months",
-  projectType: "full_time",
   budget: 5,
+  deadline: null,
+  jobDuration: "1-3_months",
+  jobType: "full_time",
   attachments: [],
  });
 
@@ -46,8 +46,8 @@ const ClientPostJob = memo(() => {
   setFormData((prev) => ({ ...prev, skills }));
  };
 
- const handleDateSelect = (date?: Date) => {
-  setFormData((prev) => ({ ...prev, deadline: date }));
+ const handleDateSelect = (date: Date | undefined) => {
+  setFormData((prev) => ({ ...prev, deadline: date || null }));
  };
 
  const handleBudgetChange = (value: number[]) => {
@@ -141,9 +141,7 @@ const ClientPostJob = memo(() => {
 
      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
-       <label className="block text-sm font-medium mb-2">
-        Project Deadline
-       </label>
+       <label className="block text-sm font-medium mb-2">Job Deadline</label>
        <Popover.Root>
         <Popover.Trigger asChild>
          <button
@@ -181,18 +179,18 @@ const ClientPostJob = memo(() => {
 
      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <FormSelect
-       label="Project Duration"
-       name="projectDuration"
-       value={formData.projectDuration}
-       options={PROJECT_DURATIONS}
+       label="Job Duration"
+       name="jobDuration"
+       value={formData.jobDuration}
+       options={JOB_DURATIONS}
        onChange={handleInputChange}
       />
 
       <FormSelect
-       label="Project Type"
-       name="projectType"
-       value={formData.projectType}
-       options={PROJECT_TYPES}
+       label="Job Type"
+       name="jobType"
+       value={formData.jobType}
+       options={JOB_TYPES}
        onChange={handleInputChange}
       />
      </div>
@@ -245,7 +243,7 @@ const ClientPostJob = memo(() => {
          onChange={handleFileChange}
         />
         <span className="text-sm text-muted-foreground">
-         Upload project files, documentation, or examples
+         Upload job files, documentation, or examples
         </span>
        </div>
 

@@ -1,20 +1,20 @@
 import React, { memo } from "react";
-import { ProjectSummary } from "../../../types";
+import { JobSummary } from "../../../types";
 import SectionHeader from "../../../components/layout/SectionHeader";
-import ProjectsList from "../../../components/project/ProjectList/ProjectsList";
+import JobsList from "../../../components/job/JobsList";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { NAV_LINKS } from "@/constants";
 
 interface FreelancerMyContractsProps {
  onMessage: (userId: string) => void;
- onProjectDetails: (projectId: string) => void;
+ onJobDetails: (jobId: string) => void;
  onClientDetails: (clientId: string) => void;
 }
 
-// Sample project data for freelancer
-const FREELANCER_PROJECTS: ProjectSummary[] = [
+// Sample job data for freelancer
+const FREELANCER_JOBS: JobSummary[] = [
  {
-  id: "project1",
+  id: "job1",
   title: "Frontend Development for DEX Platform",
   freelancer: {
    id: "current-user",
@@ -26,7 +26,7 @@ const FREELANCER_PROJECTS: ProjectSummary[] = [
   progress: 75,
  },
  {
-  id: "project2",
+  id: "job2",
   title: "Smart Contract Audit for NFT Marketplace",
   freelancer: {
    id: "current-user",
@@ -38,7 +38,7 @@ const FREELANCER_PROJECTS: ProjectSummary[] = [
   progress: 25,
  },
  {
-  id: "project3",
+  id: "job3",
   title: "DApp UI/UX Design",
   freelancer: {
    id: "current-user",
@@ -52,11 +52,7 @@ const FREELANCER_PROJECTS: ProjectSummary[] = [
 ];
 
 const FreelancerMyContracts = memo(
- ({
-  onMessage,
-  onProjectDetails,
-  onClientDetails,
- }: FreelancerMyContractsProps) => {
+ ({ onMessage, onJobDetails, onClientDetails }: FreelancerMyContractsProps) => {
   return (
    <>
     <Breadcrumbs
@@ -71,11 +67,11 @@ const FreelancerMyContracts = memo(
      description="View and manage your active and completed contracts."
     />
 
-    <ProjectsList
-     projects={FREELANCER_PROJECTS}
+    <JobsList
+     jobs={FREELANCER_JOBS}
      showCreationDate={true}
      onMessage={onMessage}
-     onDetails={onProjectDetails}
+     onDetails={onJobDetails}
     />
    </>
   );

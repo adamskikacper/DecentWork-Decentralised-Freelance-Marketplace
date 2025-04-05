@@ -39,8 +39,7 @@ const mockUser = {
 // Mock handlers
 const mockHandlers = {
  onMessage: (userId: string) => console.log("Message user:", userId),
- onProjectDetails: (projectId: string) =>
-  console.log("View project:", projectId),
+ onJobDetails: (jobId: string) => console.log("View job:", jobId),
  onClientDetails: (clientId: string) => console.log("View client:", clientId),
 };
 
@@ -60,9 +59,9 @@ export const FindJobs: Story = {
  },
 };
 
-export const MyProjects: Story = {
+export const MyJobs: Story = {
  args: {
-  activeSection: "myProjects",
+  activeSection: "myJobs",
   user: mockUser,
   ...mockHandlers,
  },

@@ -1,6 +1,6 @@
 import React from "react";
 import { User } from "lucide-react";
-import { FreelancerSummary } from "../types";
+import { FreelancerSummary } from "@/types";
 
 interface FreelancerCardProps {
  freelancer: FreelancerSummary;
@@ -51,11 +51,16 @@ const FreelancerCard = ({
      </div>
     </td>
    )}
-   {freelancer.projectsCount !== undefined && (
+   {freelancer.jobsCount !== undefined && (
     <td className="py-4 px-4">
-     {typeof freelancer.projectsCount === "number"
-      ? freelancer.projectsCount
-      : freelancer.projectsCount}
+     <div className="mt-2 space-y-1">
+      <div className="text-sm">
+       <span className="text-muted-foreground">Jobs: </span>
+       {typeof freelancer.jobsCount === "number"
+        ? freelancer.jobsCount
+        : freelancer.jobsCount}
+      </div>
+     </div>
     </td>
    )}
    {freelancer.status && (

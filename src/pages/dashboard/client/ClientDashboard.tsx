@@ -2,7 +2,7 @@ import React from "react";
 import { User as UserType } from "../../../types";
 import ClientDashboardHome from "./ClientDashboardHome";
 import ClientMyFreelancers from "./ClientMyFreelancers";
-import ClientMyProjects from "./ClientMyProjects";
+import ClientMyJobs from "./ClientMyJobs";
 import ClientPostJob from "./ClientPostJob";
 
 import ProfileContent from "../../dashboard/ProfileContent";
@@ -11,7 +11,7 @@ interface ClientDashboardProps {
  activeSection: string;
  user: Partial<UserType>;
  onMessage: (userId: string) => void;
- onProjectDetails: (projectId: string) => void;
+ onJobDetails: (jobId: string) => void;
  onFreelancerDetails: (freelancerId: string) => void;
 }
 
@@ -19,7 +19,7 @@ const ClientDashboard: React.FC<ClientDashboardProps> = ({
  activeSection,
  user,
  onMessage,
- onProjectDetails,
+ onJobDetails,
  onFreelancerDetails,
 }) => {
  // Render different content based on the active section
@@ -29,7 +29,7 @@ const ClientDashboard: React.FC<ClientDashboardProps> = ({
     <ClientDashboardHome
      user={user}
      onMessage={onMessage}
-     onProjectDetails={onProjectDetails}
+     onJobDetails={onJobDetails}
     />
    );
   case "myFreelancers":
@@ -39,13 +39,8 @@ const ClientDashboard: React.FC<ClientDashboardProps> = ({
      onFreelancerDetails={onFreelancerDetails}
     />
    );
-  case "myProjects":
-   return (
-    <ClientMyProjects
-     onMessage={onMessage}
-     onProjectDetails={onProjectDetails}
-    />
-   );
+  case "myJobs":
+   return <ClientMyJobs onMessage={onMessage} onJobDetails={onJobDetails} />;
   case "postJob":
    return <ClientPostJob />;
   case "profile":

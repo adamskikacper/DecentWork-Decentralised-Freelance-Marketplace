@@ -19,12 +19,12 @@ const FreelancerDetails = ({ onClose }: FreelancerDetailsProps) => {
   name: "Alex K.",
   role: "Frontend Developer",
   rating: 4.9,
-  totalProjects: 23,
-  completedProjects: 18,
+  totalJobs: 23,
+  completedJobs: 18,
   joinedDate: "January 2023",
   skills: ["React", "Web3", "TypeScript", "Solidity", "UI/UX"],
   bio: "Experienced frontend developer specializing in Web3 applications and blockchain integration. Strong focus on creating intuitive and responsive user interfaces.",
-  recentProjects: [
+  recentJobs: [
    {
     id: "1",
     title: "NFT Marketplace UI",
@@ -84,9 +84,9 @@ const FreelancerDetails = ({ onClose }: FreelancerDetailsProps) => {
     <div className="p-4 bg-secondary/30 rounded-lg">
      <div className="flex items-center gap-2 mb-2">
       <Briefcase className="h-4 w-4 text-primary" />
-      <span className="font-medium">Total Projects</span>
+      <span className="font-medium">Total Jobs</span>
      </div>
-     <p className="text-2xl font-bold">{freelancer.totalProjects}</p>
+     <p className="text-2xl font-bold">{freelancer.totalJobs}</p>
     </div>
 
     <div className="p-4 bg-secondary/30 rounded-lg">
@@ -94,7 +94,7 @@ const FreelancerDetails = ({ onClose }: FreelancerDetailsProps) => {
       <Award className="h-4 w-4 text-primary" />
       <span className="font-medium">Completed</span>
      </div>
-     <p className="text-2xl font-bold">{freelancer.completedProjects}</p>
+     <p className="text-2xl font-bold">{freelancer.completedJobs}</p>
     </div>
 
     <div className="p-4 bg-secondary/30 rounded-lg">
@@ -120,18 +120,18 @@ const FreelancerDetails = ({ onClose }: FreelancerDetailsProps) => {
     </div>
 
     <div>
-     <h3 className="text-lg font-semibold mb-4">Recent Projects</h3>
+     <h3 className="text-lg font-semibold mb-4">Recent Jobs</h3>
      <div className="space-y-4">
-      {freelancer.recentProjects.map((project) => (
+      {freelancer.recentJobs.map((job) => (
        <div
-        key={project.id}
-        className="p-4 bg-secondary/30 rounded-lg flex items-center justify-between"
+        key={job.id}
+        className="flex justify-between items-center p-3 rounded-lg hover:bg-primary/5 transition-all"
        >
         <div>
-         <p className="font-medium">{project.title}</p>
-         <p className="text-sm text-muted-foreground">{project.status}</p>
+         <p className="font-medium">{job.title}</p>
+         <p className="text-sm text-muted-foreground">{job.status}</p>
         </div>
-        {project.rating && <RatingDisplay rating={project.rating} size="sm" />}
+        {job.rating && <RatingDisplay rating={job.rating} size="sm" />}
        </div>
       ))}
      </div>
