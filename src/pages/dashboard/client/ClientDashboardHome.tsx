@@ -2,12 +2,12 @@ import React, { memo } from "react";
 import { FileText } from "lucide-react";
 import {
  User as UserType,
- ProjectSummary,
+ JobSummary,
  FreelancerSummary,
 } from "../../../types";
 import SectionHeader from "../../../components/layout/SectionHeader";
 import FreelancerTable from "../../../components/profile/FreelancerTable";
-import ProjectsList from "../../../components/project/ProjectList/ProjectsList";
+import JobsList from "../../../components/job/JobsList";
 import StatsGrid from "../../../components/common/StatsGrid";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { NAV_LINKS } from "@/constants";
@@ -15,13 +15,13 @@ import { NAV_LINKS } from "@/constants";
 interface ClientDashboardHomeProps {
  user: Partial<UserType>;
  onMessage: (userId: string) => void;
- onProjectDetails: (projectId: string) => void;
+ onJobDetails: (jobId: string) => void;
 }
 
-// Sample project data - in a real app, this would come from an API
-const SAMPLE_PROJECTS: ProjectSummary[] = [
+// Sample job data - in a real app, this would come from an API
+const SAMPLE_JOBS: JobSummary[] = [
  {
-  id: "project1",
+  id: "job1",
   title: "Wallet Integration for NFT Marketplace",
   freelancer: {
    id: "alex123",
@@ -33,7 +33,7 @@ const SAMPLE_PROJECTS: ProjectSummary[] = [
   progress: 60,
  },
  {
-  id: "project2",
+  id: "job2",
   title: "Smart Contract for Token Vesting",
   freelancer: {
    id: "maria123",
@@ -54,7 +54,7 @@ const TOP_FREELANCERS: FreelancerSummary[] = [
   title: "Frontend Developer",
   specialty: "React, Web3",
   rating: 4.9,
-  projectsCount: 23,
+  jobsCount: 23,
   status: "Available",
  },
  {
@@ -63,7 +63,7 @@ const TOP_FREELANCERS: FreelancerSummary[] = [
   title: "Smart Contract Developer",
   specialty: "Solidity, Audits",
   rating: 4.8,
-  projectsCount: 18,
+  jobsCount: 18,
   status: "Available",
  },
  {
@@ -72,13 +72,13 @@ const TOP_FREELANCERS: FreelancerSummary[] = [
   title: "Blockchain Architect",
   specialty: "DeFi, Tokenomics",
   rating: 4.7,
-  projectsCount: 27,
+  jobsCount: 27,
   status: "Available",
  },
 ];
 
 const ClientDashboardHome = memo(
- ({ user, onMessage, onProjectDetails }: ClientDashboardHomeProps) => {
+ ({ user, onMessage, onJobDetails }: ClientDashboardHomeProps) => {
   // Freelancer hire handler
   const handleHireFreelancer = (freelancerId: string) => {
    console.log(`Hiring freelancer: ${freelancerId}`);
@@ -88,7 +88,7 @@ const ClientDashboardHome = memo(
   // Stats configuration
   const dashboardStats = [
    {
-    title: "Active Projects",
+    title: "Active Jobs",
     value: "3",
     icon: (
      <svg
@@ -187,18 +187,18 @@ const ClientDashboardHome = memo(
     {/* Header */}
     <SectionHeader
      title="Client Dashboard"
-     description="Find and manage your projects with top freelancers."
+     description="Find and manage your jobs with top freelancers."
     />
 
     {/* Summary Cards */}
     <StatsGrid stats={dashboardStats} className="mb-8" />
 
-    {/* Active Projects */}
-    <ProjectsList
-     title="Active Projects"
-     projects={SAMPLE_PROJECTS}
+    {/* Active Jobs */}
+    <JobsList
+     title="Active Jobs"
+     jobs={SAMPLE_JOBS}
      onMessage={onMessage}
-     onDetails={onProjectDetails}
+     onDetails={onJobDetails}
      showViewAll={true}
      className="mb-10"
     />

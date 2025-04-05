@@ -26,27 +26,13 @@ const App = () => (
       <Route path="/" element={<Index />} />
       <Route path="/home" element={<Navigate to="/" replace />} />
       <Route path="/jobs" element={<JobList />} />
-      <Route path="/jobs/:id" element={<JobDetails />} />
+      <Route path="/jobs/:jobId" element={<JobDetails />} />
       <Route path="/login" element={<Login />} />
 
       {/* Dashboard routes - nested under the DashboardLayout */}
       <Route path="/dashboard/*" element={<DashboardLayout />}>
        <Route path="*" element={<DashboardRoutes />} />
       </Route>
-
-      {/* Redirect old routes to new dashboard structure */}
-      <Route
-       path="/projects/:projectId"
-       element={<Navigate to="/dashboard/projects/:projectId" replace />}
-      />
-      <Route
-       path="/messages/:userId"
-       element={<Navigate to="/dashboard/messages/:userId" replace />}
-      />
-      <Route
-       path="/freelancers/:freelancerId"
-       element={<Navigate to="/dashboard/freelancers/:freelancerId" replace />}
-      />
 
       {/* Catch-all route */}
       <Route path="*" element={<NotFound />} />

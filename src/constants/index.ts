@@ -14,7 +14,7 @@ export const NAV_LINKS = {
 export const DASHBOARD_LINKS = {
  HOME: "/dashboard",
  FREELANCERS: "/dashboard/freelancers",
- PROJECTS: "/dashboard/projects",
+ JOBS: "/dashboard/jobs",
  POST_JOB: "/dashboard/post-job",
  CHATS: "/dashboard/chats",
  CHAT: "/dashboard/chats/:id",
@@ -42,16 +42,16 @@ export const DEFAULT_SKILLS = [
  { value: "typescript", label: "TypeScript" },
 ];
 
-// Project durations
-export const PROJECT_DURATIONS = [
+// Job durations
+export const JOB_DURATIONS = [
  { value: "less_than_1_month", label: "Less than 1 month" },
  { value: "1-3_months", label: "1-3 months" },
  { value: "3-6_months", label: "3-6 months" },
  { value: "more_than_6_months", label: "More than 6 months" },
 ];
 
-// Project types
-export const PROJECT_TYPES = [
+// Job types
+export const JOB_TYPES = [
  { value: "full_time", label: "Full Time" },
  { value: "part_time", label: "Part Time" },
  { value: "hourly", label: "Hourly" },
@@ -149,7 +149,7 @@ export const HOW_IT_WORKS_DEFAULTS = {
    number: 1,
    title: "Post a Job",
    description:
-    "Clients create detailed job listings specifying requirements, timeline, and budget for their projects.",
+    "Clients create detailed job listings specifying requirements, timeline, and budget for their jobs.",
    link: {
     text: "Browse Jobs →",
     url: "/jobs",

@@ -5,7 +5,7 @@ import FreelancerCard from "../ProfileCard/FreelancerCard";
 interface FreelancerTableProps {
  freelancers: FreelancerSummary[];
  showRating?: boolean;
- showProjectsCount?: boolean;
+ showJobsCount?: boolean;
  showStatus?: boolean;
  onMessage?: (userId: string) => void;
  onView?: (freelancerId: string) => void;
@@ -15,7 +15,7 @@ interface FreelancerTableProps {
 const FreelancerTable: React.FC<FreelancerTableProps> = ({
  freelancers,
  showRating = true,
- showProjectsCount = true,
+ showJobsCount = true,
  showStatus = true,
  onMessage,
  onView,
@@ -32,8 +32,8 @@ const FreelancerTable: React.FC<FreelancerTableProps> = ({
        {showRating && (
         <th className="text-left py-4 px-4 text-sm font-medium">Rating</th>
        )}
-       {showProjectsCount && (
-        <th className="text-left py-4 px-4 text-sm font-medium">Projects</th>
+       {showJobsCount && (
+        <th className="text-left py-4 px-4 text-sm font-medium">Jobs</th>
        )}
        {showStatus && (
         <th className="text-left py-4 px-4 text-sm font-medium">Status</th>

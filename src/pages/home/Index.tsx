@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/layout/Header";
 import Hero from "../../components/home/Hero";
 import Footer from "../../components/layout/Footer";
-import JobCard from "../../components/project/ProjectCard/JobCard";
+import JobCard from "../../components/job/JobCard";
 import HowItWorks from "../../components/home/HowItWorks";
 import FeaturesSection from "../../components/home/FeaturesSection";
 import TestimonialCard from "../../components/profile/Reviews/TestimonialCard";

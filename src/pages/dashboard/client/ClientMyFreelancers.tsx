@@ -17,7 +17,7 @@ const HIRED_FREELANCERS: FreelancerSummary[] = [
   name: "Alex Kotov",
   title: "Frontend Developer",
   specialty: "React, Web3",
-  projectsCount: "2 Active",
+  jobsCount: "2 Active",
   status: "Active",
   rating: 4.9,
  },
@@ -26,7 +26,7 @@ const HIRED_FREELANCERS: FreelancerSummary[] = [
   name: "Maria Solovey",
   title: "Smart Contract Developer",
   specialty: "Solidity, Audits",
-  projectsCount: "1 Active",
+  jobsCount: "1 Active",
   status: "Active",
   rating: 4.8,
  },
@@ -43,16 +43,18 @@ const ClientMyFreelancers = memo(
      ]}
     />
 
-    <SectionHeader
-     title="My Freelancers"
-     description="Manage your hired freelancers and their projects."
-    />
+    <div className="space-y-8">
+     <SectionHeader
+      title="My Freelancers"
+      description="Manage your hired freelancers and their jobs."
+     />
 
-    <FreelancerTable
-     freelancers={HIRED_FREELANCERS}
-     onMessage={onMessage}
-     onView={onFreelancerDetails}
-    />
+     <FreelancerTable
+      freelancers={HIRED_FREELANCERS}
+      onMessage={onMessage}
+      onView={onFreelancerDetails}
+     />
+    </div>
    </>
   );
  }

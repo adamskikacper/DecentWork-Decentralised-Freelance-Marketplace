@@ -1,4 +1,4 @@
-export enum ProjectStatus {
+export enum JobStatus {
  Open = 0,
  InProgress = 1,
  Completed = 2,
@@ -24,7 +24,7 @@ export enum ExperienceLevel {
  Expert = 2,
 }
 
-export enum ProjectDuration {
+export enum JobDuration {
  LessThanOneWeek = 0,
  OneToTwoWeeks = 1,
  TwoToFourWeeks = 2,
@@ -33,12 +33,12 @@ export enum ProjectDuration {
  MoreThanSixMonths = 5,
 }
 
-export enum ProjectType {
+export enum JobType {
  OneTime = 0,
  Ongoing = 1,
 }
 
-export interface Project {
+export interface Job {
  id: string;
  title: string;
  description: string;
@@ -50,14 +50,14 @@ export interface Project {
  status: string;
  requiredSkills: string[];
  experienceLevel: number;
- projectDuration: number;
- projectType: number;
+ jobDuration: number;
+ jobType: number;
  attachmentHashes: string[];
 }
 
 export interface Proposal {
  id: string;
- projectId: string;
+ jobId: string;
  freelancer: string;
  description: string;
  price: string;
@@ -66,18 +66,9 @@ export interface Proposal {
  timestamp: Date;
 }
 
-export interface Milestone {
- id: string;
- projectId: string;
- description: string;
- amount: string;
- deadline: Date;
- status: string;
-}
-
 export interface EscrowPayment {
  id: string;
- projectId: string;
+ jobId: string;
  milestoneId: string;
  client: string;
  freelancer: string;
@@ -88,7 +79,7 @@ export interface EscrowPayment {
 
 export interface Review {
  id: string;
- projectId: string;
+ jobId: string;
  reviewer: string;
  reviewee: string;
  rating: number;
@@ -102,7 +93,7 @@ export interface Reputation {
 }
 
 // Form data interfaces
-export interface CreateProjectFormData {
+export interface CreateJobFormData {
  title: string;
  description: string;
  budget: string;
@@ -110,8 +101,8 @@ export interface CreateProjectFormData {
  requiredSkills: string[];
  skillInput?: string;
  experienceLevel: ExperienceLevel;
- projectDuration: ProjectDuration;
- projectType: ProjectType;
+ jobDuration: JobDuration;
+ jobType: JobType;
  files: File[];
 }
 
@@ -120,13 +111,6 @@ export interface SubmitProposalFormData {
  price: string;
  estimatedTime: number;
 }
-
-export interface CreateMilestoneFormData {
- description: string;
- amount: string;
- deadline: string;
-}
-
 export interface SubmitReviewFormData {
  rating: number;
  comment: string;

@@ -1,8 +1,10 @@
 import React from "react";
 import { FileText } from "lucide-react";
 
+type AttachmentType = File | { name: string; size: string };
+
 interface AttachmentListProps {
- attachments: File[];
+ attachments: AttachmentType[];
  onRemove: (index: number) => void;
 }
 
@@ -23,7 +25,9 @@ const AttachmentList: React.FC<AttachmentListProps> = ({
       <FileText className="h-4 w-4" />
       <span className="text-sm">{file.name}</span>
       <span className="text-xs text-muted-foreground">
-       ({(file.size / 1024).toFixed(1)} KB)
+       {file instanceof File
+        ? `(${(file.size / 1024).toFixed(1)} KB)`
+        : `(${file.size})`}
       </span>
      </div>
      <button
