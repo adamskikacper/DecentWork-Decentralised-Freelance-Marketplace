@@ -77,12 +77,20 @@ const Navbar = () => {
        Find Work
       </Link>
       {user && (
-       <Link
-        to={getDashboardLink()}
-        className="text-sm font-medium transition-colors hover:text-primary"
-       >
-        Dashboard
-       </Link>
+       <>
+        <Link
+         to={getDashboardLink()}
+         className="text-sm font-medium transition-colors hover:text-primary"
+        >
+         Dashboard
+        </Link>
+        <Link
+         to={NAV_LINKS.DASHBOARDV2}
+         className="text-sm font-medium transition-colors hover:text-primary"
+        >
+         Dashboard v2
+        </Link>
+       </>
       )}
       {user ? (
        <button
@@ -146,7 +154,7 @@ const Navbar = () => {
     <div className="px-4 py-8 space-y-6">
      <Link
       to={NAV_LINKS.HOME}
-      className="block py-2 text-base font-medium transition-colors hover:text-primary flex items-center gap-2"
+      className="py-2 text-base font-medium transition-colors hover:text-primary flex items-center gap-2"
       onClick={() => setMobileMenuOpen(false)}
      >
       <Home size={18} />
@@ -160,13 +168,22 @@ const Navbar = () => {
       Find Work
      </Link>
      {user && (
-      <Link
-       to={getDashboardLink()}
-       className="block py-2 text-base font-medium transition-colors hover:text-primary"
-       onClick={() => setMobileMenuOpen(false)}
-      >
-       Dashboard
-      </Link>
+      <>
+       <Link
+        to={getDashboardLink()}
+        className="block py-2 text-base font-medium transition-colors hover:text-primary"
+        onClick={() => setMobileMenuOpen(false)}
+       >
+        Dashboard
+       </Link>
+       <Link
+        to={NAV_LINKS.DASHBOARDV2}
+        className="block py-2 text-base font-medium transition-colors hover:text-primary"
+        onClick={() => setMobileMenuOpen(false)}
+       >
+        Dashboard v2
+       </Link>
+      </>
      )}
      {user ? (
       <button

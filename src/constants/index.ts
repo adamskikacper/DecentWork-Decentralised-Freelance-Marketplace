@@ -7,6 +7,7 @@ export const NAV_LINKS = {
  HOME: "/",
  JOBS: "/jobs",
  DASHBOARD: "/dashboard",
+ DASHBOARDV2: "/dashboardv2",
  PROFILE: "/profile",
  LOGIN: "/login",
 };
