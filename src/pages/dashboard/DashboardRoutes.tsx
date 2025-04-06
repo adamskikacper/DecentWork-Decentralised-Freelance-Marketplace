@@ -6,7 +6,7 @@ import ProfileContent from "./ProfileContent";
 import FreelancerDetails from "./FreelancerDetails";
 import Messages from "./Messages";
 import { useAuth } from "../../hooks/useAuth";
-import { AuthGuard, ClientGuard, FreelancerGuard } from "@/components/auth";
+import { AuthGuard, ClientGuard, FreelancerGuard } from "@/components/Auth";
 
 // Client pages
 import ClientMyFreelancers from "./client/ClientMyFreelancers";
