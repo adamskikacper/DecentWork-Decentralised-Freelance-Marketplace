@@ -1,12 +1,11 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/layout/Header";
-import Hero from "../../components/home/Hero";
-import Footer from "../../components/layout/Footer";
-import JobCard from "../../components/job/JobCard";
-import HowItWorks from "../../components/home/HowItWorks";
-import FeaturesSection from "../../components/home/FeaturesSection";
-import TestimonialCard from "../../components/profile/Reviews/TestimonialCard";
+import Navbar from "../../components/Layout/Header";
+import Hero from "./Hero";
+import Footer from "../../components/Layout/Footer";
+import JobCard from "../../components/Job/JobCard";
+import HowItWorks from "./HowItWorks";
+import FeaturesSection from "./FeaturesSection";
+import TestimonialCard from "../../components/Profile/Reviews/TestimonialCard";
 
 // Mock featured jobs data
 const featuredJobs = [
@@ -135,7 +134,7 @@ const features = [
  },
 ];
 
-const Index = () => {
+const Home = () => {
  return (
   <div className="min-h-screen flex flex-col">
    <Navbar />
@@ -295,4 +294,4 @@ const Index = () => {
  );
 };
 
-export default Index;
+export default Home;

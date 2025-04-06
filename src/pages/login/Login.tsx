@@ -4,11 +4,11 @@ import {
  CardDescription,
  CardHeader,
  CardTitle,
-} from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from "@/components/UI/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/UI/tabs";
 import { useAuth } from "../../hooks/useAuth";
-import LoginForm from "../../components/auth/LoginForm";
-import SignupForm from "../../components/auth/SignupForm";
+import LoginForm from "../../components/Auth/LoginForm";
+import SignupForm from "../../components/Auth/SignupForm";
 
 const Login = () => {
  const { user, userType, redirectToDashboard } = useAuth();

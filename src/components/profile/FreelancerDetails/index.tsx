@@ -1,9 +1,8 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/UI/button";
 import { User, Star, Briefcase, Clock, Award } from "lucide-react";
-import RatingDisplay from "@/components/common/RatingDisplay";
-import SkillTag from "@/components/common/SkillTag";
+import { RatingDisplay, SkillTag } from "@/components/Common";
 
 interface FreelancerDetailsProps {
  onClose?: () => void;

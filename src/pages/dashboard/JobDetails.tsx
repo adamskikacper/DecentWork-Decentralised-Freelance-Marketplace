@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import JobDetailsComponent from "../../components/job/JobDetails";
-import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import JobDetailsComponent from "../../components/Job/JobDetails";
+import Breadcrumbs from "@/components/Layout/Breadcrumbs";
 import { DASHBOARD_LINKS } from "@/constants";
 
 /**
