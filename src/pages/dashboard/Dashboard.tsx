@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { Navigate, useNavigate } from "react-router-dom";
 import { isValidUser } from "../../utils/userValidation";
-import LoadingScreen from "@/components/common/LoadingScreen";
+import LoadingScreen from "@/components/Common/LoadingScreen";
 import ClientDashboard from "./client/ClientDashboard";
 import FreelancerDashboard from "./freelancer/FreelancerDashboard";
 

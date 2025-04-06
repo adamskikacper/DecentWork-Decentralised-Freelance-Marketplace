@@ -1,16 +1,16 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/UI/toaster";
+import { Toaster as Sonner } from "@/components/UI/sonner";
+import { TooltipProvider } from "@/components/UI/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
-import Index from "./pages/home/Index";
-import JobList from "./pages/jobs/JobList";
-import JobDetails from "./pages/jobs/JobDetails";
-import Login from "./pages/login/Login";
-import NotFound from "./pages/404/NotFound";
-import DashboardLayout from "./pages/dashboard/DashboardLayout";
-import DashboardRoutes from "./pages/dashboard/DashboardRoutes";
+import Index from "./pages/Home/Index";
+import JobList from "./pages/Jobs/JobList";
+import JobDetails from "./pages/Jobs/JobDetails";
+import Login from "./pages/Login/Login";
+import NotFound from "./pages/NotFound/NotFound";
+import DashboardLayout from "./pages/Dashboard/DashboardLayout";
+import DashboardRoutes from "./pages/Dashboard/DashboardRoutes";
 
 const queryClient = new QueryClient();
 
