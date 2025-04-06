@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
 import DashboardLayout from "./pages/Dashboard/DashboardLayout";
 import DashboardRoutes from "./pages/Dashboard/DashboardRoutes";
+import Dashboardv2 from "./pages/Dashboardv2";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,9 @@ const App = () => (
       <Route path="/dashboard/*" element={<DashboardLayout />}>
        <Route path="*" element={<DashboardRoutes />} />
       </Route>
+
+      {/* Dashboardv2 routes - using the new component structure */}
+      <Route path="/dashboardv2/*" element={<Dashboardv2 />} />
 
       {/* Catch-all route */}
       <Route path="*" element={<NotFound />} />

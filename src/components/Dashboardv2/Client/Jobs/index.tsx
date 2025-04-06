@@ -1,0 +1,147 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/UI/button";
+import { DashboardSection } from "../../Common";
+import { JobsList } from "@/components/Job";
+import Breadcrumbs from "@/components/Layout/Breadcrumbs";
+
+export interface JobsProps {
+ /**
+  * Whether the component is in a loading state
+  * @default false
+  */
+ isLoading?: boolean;
+ /**
+  * Callback when a message button is clicked
+  */
+ onMessage?: (userId: string) => void;
+ /**
+  * Callback when a job details button is clicked
+  */
+ onJobDetails?: (jobId: string) => void;
+}
+
+/**
+ * Jobs - Client jobs component
+ * Displays a list of the client's jobs
+ */
+const Jobs: React.FC<JobsProps> = ({
+ isLoading = false,
+ onMessage,
+ onJobDetails,
+}) => {
+ // Sample jobs data - would come from API in a real app
+ const clientJobs = [
+  {
+   id: "job1",
+   title: "Wallet Integration for NFT Marketplace",
+   freelancer: {
+    id: "alex123",
+    name: "Alex K.",
+   },
+   dueDate: "Due in 8 days",
+   status: "In Progress",
+   cost: "3.5 ETH",
+   progress: 60,
+  },
+  {
+   id: "job2",
+   title: "Smart Contract for Token Vesting",
+   freelancer: {
+    id: "maria123",
+    name: "Maria S.",
+   },
+   dueDate: "Due in 15 days",
+   status: "Just Started",
+   cost: "5.0 ETH",
+   progress: 15,
+  },
+  {
+   id: "job3",
+   title: "DeFi Interface Redesign",
+   freelancer: {
+    id: "david123",
+    name: "David C.",
+   },
+   dueDate: "Completed on April 2, 2023",
+   status: "Completed",
+   cost: "4.0 ETH",
+   progress: 100,
+  },
+  {
+   id: "job4",
+   title: "Blockchain Analytics Dashboard",
+   freelancer: {
+    id: "sarah123",
+    name: "Sarah L.",
+   },
+   dueDate: "Due in 20 days",
+   status: "In Progress",
+   cost: "6.0 ETH",
+   progress: 35,
+  },
+  {
+   id: "job5",
+   title: "Smart Contract Audit",
+   freelancer: {
+    id: "james123",
+    name: "James W.",
+   },
+   dueDate: "Completed on March 15, 2023",
+   status: "Completed",
+   cost: "3.0 ETH",
+   progress: 100,
+  },
+ ];
+
+ return (
+  <div className="space-y-8">
+   <Breadcrumbs
+    items={[{ label: "Dashboard", path: "/dashboard" }, { label: "Jobs" }]}
+   />
+
+   {/* Header */}
+   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div>
+     <h1 className="text-2xl font-bold tracking-tight">Jobs</h1>
+     <p className="text-muted-foreground mt-1">
+      View and manage all your current and past jobs.
+     </p>
+    </div>
+    <Button asChild>
+     <Link to="/dashboard/post-job">Post a Job</Link>
+    </Button>
+   </div>
+
+   {/* Active Jobs Section */}
+   <DashboardSection
+    title="Active Jobs"
+    description="Your current jobs in progress"
+    isLoading={isLoading}
+   >
+    <JobsList
+     jobs={clientJobs.filter((job) => job.status !== "Completed")}
+     showCreationDate={true}
+     onMessage={onMessage}
+     onDetails={onJobDetails}
+    />
+   </DashboardSection>
+
+   {/* Completed Jobs Section */}
+   <DashboardSection
+    title="Completed Jobs"
+    description="Your past completed jobs"
+    isLoading={isLoading}
+   >
+    <JobsList
+     jobs={clientJobs.filter((job) => job.status === "Completed")}
+     showCreationDate={true}
+     onMessage={onMessage}
+     onDetails={onJobDetails}
+    />
+   </DashboardSection>
+  </div>
+ );
+};
+
+export default Jobs;
