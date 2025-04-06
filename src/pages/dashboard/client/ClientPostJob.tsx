@@ -5,7 +5,7 @@ import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
 import SkillSelect from "../../../components/Profile/SkillsList/SkillSelect";
 import SectionHeader from "../../../components/Layout/SectionHeader";
-import FormSelect from "../../../components/Common/Form/FormSelect";
+import { FormSelect } from "@/components/Common";
 import AttachmentList from "../../../components/Job/AttachmentList";
 import Breadcrumbs from "@/components/Layout/Breadcrumbs";
 import {

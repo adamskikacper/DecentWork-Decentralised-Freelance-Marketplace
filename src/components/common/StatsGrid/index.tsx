@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import StatCard from "@/components/Common/Card/StatCard";
+import { StatCard } from "@/components/Common";
 
 interface StatItem {
  title: string;

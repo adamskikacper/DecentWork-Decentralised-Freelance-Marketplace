@@ -7,7 +7,7 @@ import StatsCard from "./index";
  * Similar to StatCard but with additional customization options.
  */
 const meta = {
-  title: "Common/Card/StatsCard",
+  title: "Common/StatsCard",
   component: StatsCard,
   parameters: {
     layout: "centered",
