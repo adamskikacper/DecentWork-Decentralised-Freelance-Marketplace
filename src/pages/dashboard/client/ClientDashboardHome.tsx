@@ -8,7 +8,7 @@ import {
 import SectionHeader from "../../../components/Layout/SectionHeader";
 import FreelancerTable from "../../../components/Profile/FreelancerTable";
 import JobsList from "../../../components/Job/JobsList";
-import StatsGrid from "../../../components/Common/StatsGrid";
+import { StatsGrid } from "@/components/Common";
 import Breadcrumbs from "@/components/Layout/Breadcrumbs";
 import { NAV_LINKS } from "@/constants";
 

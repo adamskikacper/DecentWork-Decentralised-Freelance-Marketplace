@@ -7,7 +7,7 @@ import StatCard from "./index";
  * It's commonly used in dashboards to show key metrics.
  */
 const meta = {
-  title: "Common/Card/StatCard",
+  title: "Common/StatCard",
   component: StatCard,
   parameters: {
     layout: "centered",

@@ -7,7 +7,7 @@ import FeatureCard from "./index";
  * It's commonly used in marketing sections or feature lists.
  */
 const meta = {
-  title: "Common/Card/FeatureCard",
+  title: "Common/FeatureCard",
   component: FeatureCard,
   parameters: {
     layout: "centered",

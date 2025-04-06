@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FeatureCard from "@/components/Common/Card/FeatureCard";
+import { FeatureCard } from "@/components/Common";
 import {
  FEATURES_SECTION_DEFAULTS,
  ANIMATION_DELAYS,

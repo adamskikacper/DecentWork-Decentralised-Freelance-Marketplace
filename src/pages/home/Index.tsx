@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Layout/Header";
 import Hero from "./Hero";
@@ -135,7 +134,7 @@ const features = [
  },
 ];
 
-const Index = () => {
+const Home = () => {
  return (
   <div className="min-h-screen flex flex-col">
    <Navbar />
@@ -295,4 +294,4 @@ const Index = () => {
  );
 };
 
-export default Index;
+export default Home;
