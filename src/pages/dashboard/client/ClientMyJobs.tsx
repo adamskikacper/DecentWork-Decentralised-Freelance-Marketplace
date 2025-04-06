@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { JobSummary } from "../../../types";
-import SectionHeader from "../../../components/layout/SectionHeader";
-import JobsList from "../../../components/job/JobsList";
-import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import SectionHeader from "../../../components/Layout/SectionHeader";
+import JobsList from "../../../components/Job/JobsList";
+import Breadcrumbs from "@/components/Layout/Breadcrumbs";
 import { DASHBOARD_LINKS, NAV_LINKS } from "@/constants";
 
 interface ClientMyJobsProps {

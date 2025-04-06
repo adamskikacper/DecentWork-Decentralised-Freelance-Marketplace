@@ -1,6 +1,6 @@
 import React from "react";
-import MessageThreadComponent from "../../components/contract/MessageThread";
-import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import MessageThreadComponent from "../../components/Contract/MessageThread";
+import Breadcrumbs from "@/components/Layout/Breadcrumbs";
 import { DASHBOARD_LINKS } from "@/constants";
 import { useParams } from "react-router-dom";
 

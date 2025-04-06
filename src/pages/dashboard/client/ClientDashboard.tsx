@@ -5,7 +5,7 @@ import ClientMyFreelancers from "./ClientMyFreelancers";
 import ClientMyJobs from "./ClientMyJobs";
 import ClientPostJob from "./ClientPostJob";
 
-import ProfileContent from "../../dashboard/ProfileContent";
+import ProfileContent from "../ProfileContent";
 
 interface ClientDashboardProps {
  activeSection: string;

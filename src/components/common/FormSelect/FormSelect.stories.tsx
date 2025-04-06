@@ -7,7 +7,7 @@ import FormSelect from "./index";
  * It provides a simple, styled select element with a label.
  */
 const meta = {
-  title: "Common/Form/FormSelect",
+  title: "Common/FormSelect",
   component: FormSelect,
   parameters: {
     layout: "centered",

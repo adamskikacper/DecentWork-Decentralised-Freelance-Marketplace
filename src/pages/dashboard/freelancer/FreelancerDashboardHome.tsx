@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { User as UserType, JobSummary } from "../../../types";
-import SectionHeader from "../../../components/layout/SectionHeader";
-import StatsGrid from "../../../components/common/StatsGrid";
-import JobsList from "../../../components/job/JobsList";
+import SectionHeader from "../../../components/Layout/SectionHeader";
+import StatsGrid from "../../../components/Common/StatsGrid";
+import JobsList from "../../../components/Job/JobsList";
 
 interface FreelancerDashboardHomeProps {
  user: Partial<UserType>;
