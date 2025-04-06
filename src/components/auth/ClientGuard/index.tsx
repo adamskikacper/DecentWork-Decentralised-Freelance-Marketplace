@@ -1,5 +1,5 @@
 import React from "react";
-import RoleGuard from "./RoleGuard";
+import RoleGuard from "../RoleGuard";
 
 /**
  * ClientGuard - Ensures the user is a client before rendering children
