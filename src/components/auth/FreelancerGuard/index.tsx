@@ -1,5 +1,5 @@
 import React from "react";
-import RoleGuard from "./RoleGuard";
+import RoleGuard from "../RoleGuard";
 
 /**
  * FreelancerGuard - Ensures the user is a freelancer before rendering children
