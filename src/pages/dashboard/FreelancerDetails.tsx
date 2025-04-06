@@ -1,6 +1,6 @@
 import React from "react";
-import FreelancerDetailsComponent from "../../components/profile/FreelancerDetails";
-import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import FreelancerDetailsComponent from "../../components/Profile/FreelancerDetails";
+import Breadcrumbs from "@/components/Layout/Breadcrumbs";
 import { DASHBOARD_LINKS, NAV_LINKS } from "@/constants";
 import { useParams } from "react-router-dom";
 

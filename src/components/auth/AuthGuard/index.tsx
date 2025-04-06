@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
-import LoadingScreen from "@/components/common/LoadingScreen";
+import LoadingScreen from "@/components/Common/LoadingScreen";
 
 /**
  * AuthGuard - Ensures the user is authenticated before rendering children

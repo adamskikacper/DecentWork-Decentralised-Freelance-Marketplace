@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { Clock } from "lucide-react";
-import SectionHeader from "../../../components/layout/SectionHeader";
-import JobsList from "../../../components/job/JobsList";
-import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import SectionHeader from "../../../components/Layout/SectionHeader";
+import JobsList from "../../../components/Job/JobsList";
+import Breadcrumbs from "@/components/Layout/Breadcrumbs";
 import { NAV_LINKS } from "@/constants";
 
 interface FreelancerMyJobsProps {

@@ -1,7 +1,7 @@
 import React, { memo, useState } from "react";
 import { Search } from "lucide-react";
-import SectionHeader from "../../../components/layout/SectionHeader";
-import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import SectionHeader from "../../../components/Layout/SectionHeader";
+import Breadcrumbs from "@/components/Layout/Breadcrumbs";
 import { NAV_LINKS } from "@/constants";
 
 // Define component props

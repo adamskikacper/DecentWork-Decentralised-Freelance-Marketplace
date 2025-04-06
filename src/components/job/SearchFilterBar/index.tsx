@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryPill from "@/components/common/CategoryPill";
+import CategoryPill from "@/components/Common/CategoryPill";
 
 interface SearchFilterBarProps {
  searchQuery: string;
