@@ -77,20 +77,12 @@ const Navbar = () => {
        Find Work
       </Link>
       {user && (
-       <>
-        <Link
-         to={getDashboardLink()}
-         className="text-sm font-medium transition-colors hover:text-primary"
-        >
-         Dashboard
-        </Link>
-        <Link
-         to={NAV_LINKS.DASHBOARDV2}
-         className="text-sm font-medium transition-colors hover:text-primary"
-        >
-         Dashboard v2
-        </Link>
-       </>
+       <Link
+        to={getDashboardLink()}
+        className="text-sm font-medium transition-colors hover:text-primary"
+       >
+        Dashboard
+       </Link>
       )}
       {user ? (
        <button
@@ -168,22 +160,13 @@ const Navbar = () => {
       Find Work
      </Link>
      {user && (
-      <>
-       <Link
-        to={getDashboardLink()}
-        className="block py-2 text-base font-medium transition-colors hover:text-primary"
-        onClick={() => setMobileMenuOpen(false)}
-       >
-        Dashboard
-       </Link>
-       <Link
-        to={NAV_LINKS.DASHBOARDV2}
-        className="block py-2 text-base font-medium transition-colors hover:text-primary"
-        onClick={() => setMobileMenuOpen(false)}
-       >
-        Dashboard v2
-       </Link>
-      </>
+      <Link
+       to={getDashboardLink()}
+       className="block py-2 text-base font-medium transition-colors hover:text-primary"
+       onClick={() => setMobileMenuOpen(false)}
+      >
+       Dashboard
+      </Link>
      )}
      {user ? (
       <button
