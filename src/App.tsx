@@ -10,8 +10,7 @@ import JobDetails from "./pages/Jobs/JobDetails";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
 import DashboardLayout from "./pages/Dashboard/DashboardLayout";
-import DashboardRoutes from "./pages/Dashboard/DashboardRoutes";
-import Dashboardv2 from "./pages/Dashboardv2";
+import { DashboardRoutes } from "./components/Dashboard";
 
 const queryClient = new QueryClient();
 
@@ -30,13 +29,16 @@ const App = () => (
       <Route path="/jobs/:jobId" element={<JobDetails />} />
       <Route path="/login" element={<Login />} />
 
-      {/* Dashboard routes - nested under the DashboardLayout */}
+      {/* Dashboard routes - using the new dashboard implementation */}
       <Route path="/dashboard/*" element={<DashboardLayout />}>
        <Route path="*" element={<DashboardRoutes />} />
       </Route>
 
-      {/* Dashboardv2 routes - using the new component structure */}
-      <Route path="/dashboardv2/*" element={<Dashboardv2 />} />
+      {/* Redirect dashboardv2 paths to standard dashboard paths */}
+      <Route
+       path="/dashboardv2/*"
+       element={<Navigate to="/dashboard" replace />}
+      />
 
       {/* Catch-all route */}
       <Route path="*" element={<NotFound />} />
