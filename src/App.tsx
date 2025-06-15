@@ -7,7 +7,7 @@ import { AuthProvider } from "./hooks/useAuth";
 import Home from "./pages/Home";
 import JobList from "./pages/Jobs/JobList";
 import JobDetails from "./pages/Jobs/JobDetails";
-import Login from "./pages/Login/Login";
+import Login from "./pages/Login";
 import NotFound from "./pages/NotFound/NotFound";
 import DashboardLayout from "./pages/Dashboard/DashboardLayout";
 import { DashboardRoutes } from "./components/Dashboard";
