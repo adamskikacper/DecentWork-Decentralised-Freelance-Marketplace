@@ -12,7 +12,6 @@ import {
 import { DashboardRoutes } from "./components/Dashboard";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { Toaster } from "sonner";
-import { Sonner } from "./components/UI";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +21,6 @@ const App = () => (
    <AuthProvider>
     <TooltipProvider>
      <Toaster />
-     <Sonner />
      <Routes>
       {/* Public routes */}
       <Route path="/" element={<Home />} />
