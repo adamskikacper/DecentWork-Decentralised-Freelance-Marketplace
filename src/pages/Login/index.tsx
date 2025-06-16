@@ -4,8 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 
-import LoginForm from "@/components/Auth/LoginForm";
-import SignupForm from "@/components/Auth/SignupForm";
+import { LoginForm, SignupForm } from "@/components/Auth";
 import {
  Card,
  CardHeader,
