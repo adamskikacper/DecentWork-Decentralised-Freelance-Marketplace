@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
 import {
- // Home,
+ Home,
  JobList,
  JobDetails,
  Login,
@@ -23,7 +23,7 @@ const App = () => (
      <Toaster />
      <Routes>
       {/* Public routes */}
-      {/* <Route path="/" element={<Home />} /> */}
+      <Route path="/" element={<Home />} />
       <Route path="/home" element={<Navigate to="/" replace />} />
       <Route path="/jobs" element={<JobList />} />
       <Route path="/jobs/:jobId" element={<JobDetails />} />
