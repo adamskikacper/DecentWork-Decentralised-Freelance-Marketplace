@@ -1,6 +1,7 @@
-export { default as Home } from "./Home";
-export { default as Login } from "./Login";
-export { default as NotFound } from "./NotFound";
-export { default as JobList } from "./Jobs/JobList";
-export { default as JobDetails } from "./Jobs/JobDetails";
-export { default as DashboardLayout } from "./DashboardLayout";
+export * from "./DashboardLayout";
+export * from "./Home";
+export * from "./Login";
+export * from "./NotFound";
+export * from "./Jobs/JobList";
+export * from "./Jobs/JobDetails";
+export * from "./DashboardLayout";
