@@ -6,9 +6,9 @@ import {
  CardTitle,
 } from "@/components/UI/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/UI/tabs";
-import { useAuth } from "../../hooks/useAuth";
-import LoginForm from "../../components/Auth/LoginForm";
-import SignupForm from "../../components/Auth/SignupForm";
+import { useAuth } from "@/hooks/useAuth";
+import LoginForm from "@/components/Auth/LoginForm";
+import SignupForm from "@/components/Auth/SignupForm";
 
 const Login = () => {
  const { user, userType, redirectToDashboard } = useAuth();

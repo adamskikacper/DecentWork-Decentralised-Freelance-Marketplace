@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../../../components/Layout/Header";
-import Footer from "../../../components/Layout/Footer";
-import JobDetails from "../../../components/Job/JobDetails";
+import Navbar from "@/components/Layout/Header";
+import Footer from "@/components/Layout/Footer";
+import JobDetails from "@/components/Job/JobDetails";
 
 const JobDetailsPage = () => {
  return (
