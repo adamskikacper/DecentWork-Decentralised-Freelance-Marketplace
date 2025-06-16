@@ -11,6 +11,8 @@ import {
 } from "./pages";
 import { DashboardRoutes } from "./components/Dashboard";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
+import { Toaster } from "sonner";
+import { Sonner } from "./components/UI";
 
 const queryClient = new QueryClient();
 
