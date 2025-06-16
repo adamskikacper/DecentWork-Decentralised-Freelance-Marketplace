@@ -3,7 +3,12 @@ import React, { useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { LoginForm, SignupForm } from "@/components/Auth";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/UI";
+import {
+ Card,
+ CardDescription,
+ CardHeader,
+ CardTitle,
+} from "@/components/UI/card";
 
 const Login = () => {
  const { user, userType, redirectToDashboard } = useAuth();
