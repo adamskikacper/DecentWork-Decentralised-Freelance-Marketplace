@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 
 import { useAuth } from "@/hooks/useAuth";
-import LoginForm from "@/components/Auth/LoginForm";
-import SignupForm from "@/components/Auth/SignupForm";
+import { LoginForm, SignupForm } from "@/components/Auth";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/UI";
 
