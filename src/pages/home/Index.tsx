@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Layout/Header";
+import Navbar from "@/components/Layout/Header";
 import Hero from "./Hero";
-import Footer from "../../components/Layout/Footer";
-import JobCard from "../../components/Job/JobCard";
+import Footer from "@/components/Layout/Footer";
+import JobCard from "@/components/Job/JobCard";
 import HowItWorks from "./HowItWorks";
 import FeaturesSection from "./FeaturesSection";
-import TestimonialCard from "../../components/Profile/Reviews/TestimonialCard";
+import TestimonialCard from "@/components/Profile/Reviews/TestimonialCard";
 
 // Mock featured jobs data
 const featuredJobs = [
