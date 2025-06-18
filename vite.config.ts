@@ -15,11 +15,4 @@ export default defineConfig(({ mode }) => ({
   },
   extensions: [".tsx", ".ts", ".jsx", ".js"],
  },
- build: {
-  rollupOptions: {
-   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js"],
-   },
-  },
- },
 }));
