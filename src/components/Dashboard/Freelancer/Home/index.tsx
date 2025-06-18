@@ -4,7 +4,7 @@ import { Briefcase, DollarSign, Star, Clock } from "lucide-react";
 import { Button } from "@/components/UI";
 import { DashboardSection, DashboardStats } from "../../Common";
 import { JobsList } from "@/components/Job";
-import Breadcrumbs from "@/components/Layout/Breadcrumbs";
+import { Breadcrumbs } from "@/components/Layout";
 export interface HomeProps {
  user?: {
   name?: string;

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "@/components/Layout/Header";
-import Footer from "@/components/Layout/Footer";
+import { Header as Navbar, Footer } from "@/components/Layout";
 import SearchFilterBar from "@/components/Job/SearchFilterBar";
 import JobCard from "@/components/Job/JobCard";
 
