@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Input } from "@/components/UI";
 import { DashboardSection } from "../../Common";
-import FreelancerTable from "@/components/Profile/FreelancerTable";
-import Breadcrumbs from "@/components/Layout/Breadcrumbs";
+import { FreelancerTable } from "@/components/Profile";
+import { Breadcrumbs } from "@/components/Layout";
 import { Search } from "lucide-react";
 export interface FreelancersProps {
  isLoading?: boolean;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/UI";
 import { DashboardSection } from "../../Common";
 import { JobsList } from "@/components/Job";
-import Breadcrumbs from "@/components/Layout/Breadcrumbs";
+import { Breadcrumbs } from "@/components/Layout";
 import { Clock, CheckCircle } from "lucide-react";
 export interface JobsProps {
  isLoading?: boolean;

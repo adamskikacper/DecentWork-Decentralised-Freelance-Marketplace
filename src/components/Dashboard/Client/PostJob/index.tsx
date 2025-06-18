@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { DashboardSection } from "../../Common";
 import { JobPostForm } from "@/components/Job";
-import Breadcrumbs from "@/components/Layout/Breadcrumbs";
+import { Breadcrumbs } from "@/components/Layout";
 import { ExperienceLevel, JobDuration, JobType } from "@/types/blockchain";
 export interface PostJobProps {
  isLoading?: boolean;

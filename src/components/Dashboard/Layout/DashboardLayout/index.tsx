@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "@/components/Layout/Header";
-import Footer from "@/components/Layout/Footer";
+import { Header as Navbar, Footer } from "@/components/Layout";
 import { DashboardSidebar } from "../";
 import { cn } from "@/lib/utils";
 export interface DashboardLayoutProps

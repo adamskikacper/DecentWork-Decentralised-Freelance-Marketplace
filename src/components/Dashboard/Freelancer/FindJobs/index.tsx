@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, Input } from "@/components/UI";
 import { DashboardSection } from "../../Common";
 import { SearchFilterBar } from "@/components/Job";
-import Breadcrumbs from "@/components/Layout/Breadcrumbs";
+import { Breadcrumbs } from "@/components/Layout";
 import { Search, Filter } from "lucide-react";
 export interface FindJobsProps {
  isLoading?: boolean;

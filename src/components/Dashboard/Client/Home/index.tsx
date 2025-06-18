@@ -4,8 +4,8 @@ import { FileText, User, DollarSign, Briefcase } from "lucide-react";
 import { Button } from "@/components/UI";
 import { DashboardSection, DashboardStats } from "../../Common";
 import { JobsList } from "@/components/Job";
-import FreelancerTable from "@/components/Profile/FreelancerTable";
-import Breadcrumbs from "@/components/Layout/Breadcrumbs";
+import { FreelancerTable } from "@/components/Profile";
+import { Breadcrumbs } from "@/components/Layout";
 export interface HomeProps {
  user?: {
   name?: string;
