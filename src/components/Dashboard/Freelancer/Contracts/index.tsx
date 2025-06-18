@@ -128,7 +128,6 @@ const Contracts: React.FC<ContractsProps> = ({
    <DashboardSection
     title="Completed Contracts"
     description="Your past completed contracts"
-    icon={<CheckCircle className="h-5 w-5 text-primary" />}
     isLoading={isLoading}
    >
     {completedContracts.length > 0 ? (
