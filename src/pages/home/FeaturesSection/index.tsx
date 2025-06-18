@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FeatureCard } from "../../../components/Common";
+import { FeatureCard } from "@/components/Common";
 import {
  FEATURES_SECTION_DEFAULTS,
  ANIMATION_DELAYS,
  DEMO_CONTENT,
-} from "../../../constants";
+} from "@/constants";
 
 interface Feature {
  icon: React.ReactNode;

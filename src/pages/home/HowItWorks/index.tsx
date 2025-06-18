@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HOW_IT_WORKS_DEFAULTS } from "../../../constants";
+import { HOW_IT_WORKS_DEFAULTS } from "@/constants";
 
 interface Step {
  number: number;
