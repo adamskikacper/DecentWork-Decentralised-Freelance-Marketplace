@@ -146,7 +146,7 @@ const Navbar = () => {
     <div className="px-4 py-8 space-y-6">
      <Link
       to={NAV_LINKS.HOME}
-      className="block py-2 text-base font-medium transition-colors hover:text-primary flex items-center gap-2"
+      className="py-2 text-base font-medium transition-colors hover:text-primary flex items-center gap-2"
       onClick={() => setMobileMenuOpen(false)}
      >
       <Home size={18} />
