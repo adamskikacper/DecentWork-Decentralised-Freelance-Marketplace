@@ -1,12 +1,12 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
-import Home from "@/pages/Home/index.tsx";
-import Login from "@/pages/Login/index.tsx";
-import NotFound from "@/pages/NotFound/index.tsx";
-import DashboardLayout from "@/pages/DashboardLayout/index.tsx";
-import JobList from "@/pages/Jobs/JobList/index.tsx";
-import JobDetails from "@/pages/Jobs/JobDetails/index.tsx";
+import Home from "@/pages/Home/index";
+import Login from "@/pages/Login/index";
+import NotFound from "@/pages/NotFound/index";
+import DashboardLayout from "@/pages/DashboardLayout/index";
+import JobList from "@/pages/Jobs/JobList/index";
+import JobDetails from "@/pages/Jobs/JobDetails/index";
 import { DashboardRoutes } from "@/components/Dashboard";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { Toaster } from "sonner";
