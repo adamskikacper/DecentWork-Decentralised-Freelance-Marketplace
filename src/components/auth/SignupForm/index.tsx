@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "@/components/UI/button";
-import { Input } from "@/components/UI/input";
-import { Label } from "@/components/UI/label";
-import { CardContent, CardFooter } from "@/components/UI/card";
+import { Button, Input, Label, CardContent, CardFooter } from "@/components/UI";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 

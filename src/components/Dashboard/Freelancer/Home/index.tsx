@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Briefcase, DollarSign, Star, Clock } from "lucide-react";
-import { Button } from "@/components/UI/button";
+import { Button } from "@/components/UI";
 import { DashboardSection, DashboardStats } from "../../Common";
 import { JobsList } from "@/components/Job";
 import Breadcrumbs from "@/components/Layout/Breadcrumbs";

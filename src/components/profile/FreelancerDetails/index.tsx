@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Button } from "@/components/UI/button";
+import { Button } from "@/components/UI";
 import { User, Star, Briefcase, Clock, Award } from "lucide-react";
 import { RatingDisplay, SkillTag } from "@/components/Common";
 

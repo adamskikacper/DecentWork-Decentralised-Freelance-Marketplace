@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Button } from "@/components/UI/button";
-import { Input } from "@/components/UI/input";
+import { Button, Input } from "@/components/UI";
 import { User, Send } from "lucide-react";
 
 interface Message {

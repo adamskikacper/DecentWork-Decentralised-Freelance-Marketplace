@@ -5,12 +5,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 
 import { LoginForm, SignupForm } from "@/components/Auth";
-import {
- Card,
- CardHeader,
- CardTitle,
- CardDescription,
-} from "@/components/UI/card";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/UI";
 
 const Login = () => {
  const { user, userType, redirectToDashboard } = useAuth();

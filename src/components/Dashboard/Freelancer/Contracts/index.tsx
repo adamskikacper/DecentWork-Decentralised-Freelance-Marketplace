@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/UI/button";
+import { Button } from "@/components/UI";
 import { DashboardSection } from "../../Common";
 import { JobsList } from "@/components/Job";
 import Breadcrumbs from "@/components/Layout/Breadcrumbs";
