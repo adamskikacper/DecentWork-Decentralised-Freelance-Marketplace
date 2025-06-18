@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FileText, User, DollarSign, Briefcase } from "lucide-react";
-import { Button } from "@/components/UI/button";
+import { Button } from "@/components/UI";
 import { DashboardSection, DashboardStats } from "../../Common";
 import { JobsList } from "@/components/Job";
 import FreelancerTable from "@/components/Profile/FreelancerTable";

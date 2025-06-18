@@ -1,6 +1,6 @@
 import React from "react";
 import { User } from "lucide-react";
-import { Badge } from "@/components/UI/badge";
+import { Badge } from "@/components/UI";
 import { cn } from "@/lib/utils";
 
 export interface Conversation {

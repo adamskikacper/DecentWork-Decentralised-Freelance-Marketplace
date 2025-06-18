@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/UI/button";
-import { Input } from "@/components/UI/input";
+import { Button, Input } from "@/components/UI";
 import { DashboardSection } from "../../Common";
 import FreelancerTable from "@/components/Profile/FreelancerTable";
 import Breadcrumbs from "@/components/Layout/Breadcrumbs";
