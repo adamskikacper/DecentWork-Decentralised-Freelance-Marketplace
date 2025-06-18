@@ -1,12 +1,5 @@
-import JobDetails from "./JobDetails";
-import FreelancerDetails from "./FreelancerDetails";
-import Messages from "./Messages";
-import MessageThread from "./MessageThread";
-import ProfileContent from "./ProfileContent";
-export {
-  JobDetails,
-  FreelancerDetails,
-  Messages,
-  MessageThread,
-  ProfileContent,
-};
+export { default as JobDetails } from "./JobDetails";
+export { default as FreelancerDetails } from "./FreelancerDetails";
+export { default as Messages } from "./Messages";
+export { default as MessageThread } from "./MessageThread";
+export { default as ProfileContent } from "./ProfileContent";

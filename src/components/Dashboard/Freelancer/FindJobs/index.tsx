@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Input } from "@/components/UI";
-import { DashboardSection } from "../../Common";
+import { DashboardSection } from "@/components/Dashboard";
 import { SearchFilterBar } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
 import { Search, Filter } from "lucide-react";

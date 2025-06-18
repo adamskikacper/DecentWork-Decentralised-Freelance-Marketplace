@@ -1,5 +1,5 @@
 import React from "react";
-import { DashboardSection } from "../../Common";
+import { DashboardSection } from "@/components/Dashboard";
 import { Breadcrumbs } from "@/components/Layout";
 const Messages: React.FC = () => {
  return (

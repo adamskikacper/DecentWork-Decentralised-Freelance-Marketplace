@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { Header as Navbar, Footer } from "@/components/Layout";
-import { DashboardSidebar } from "../";
+import { DashboardSidebar } from "@/components/Dashboard";
 import { cn } from "@/lib/utils";
 export interface DashboardLayoutProps
  extends React.HTMLAttributes<HTMLDivElement> {

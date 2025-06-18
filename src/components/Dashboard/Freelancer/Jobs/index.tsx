@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/UI";
-import { DashboardSection } from "../../Common";
+import { DashboardSection } from "@/components/Dashboard";
 import { JobsList } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
 import { Clock, CheckCircle } from "lucide-react";
@@ -101,7 +101,6 @@ const Jobs: React.FC<JobsProps> = ({
    <DashboardSection
     title="Active Jobs"
     description="Your current jobs in progress"
-    icon={<Clock className="h-5 w-5 text-primary" />}
     isLoading={isLoading}
    >
     {activeJobs.length > 0 ? (
@@ -124,7 +123,6 @@ const Jobs: React.FC<JobsProps> = ({
    <DashboardSection
     title="Completed Jobs"
     description="Your past completed jobs"
-    icon={<CheckCircle className="h-5 w-5 text-primary" />}
     isLoading={isLoading}
    >
     {completedJobs.length > 0 ? (
