@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/UI";
-import { DashboardSection } from "../../Common";
+import { DashboardSection } from "@/components/Dashboard";
 import { JobsList } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
 import { FileText, CheckCircle } from "lucide-react";
@@ -106,7 +106,6 @@ const Contracts: React.FC<ContractsProps> = ({
    <DashboardSection
     title="Active Contracts"
     description="Your current contracts in progress"
-    icon={<FileText className="h-5 w-5 text-primary" />}
     isLoading={isLoading}
    >
     {activeContracts.length > 0 ? (

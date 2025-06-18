@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { DashboardSection } from "../../Common";
+import { DashboardSection } from "@/components/Dashboard";
 import { Breadcrumbs } from "@/components/Layout";
 const FreelancerDetails: React.FC = () => {
  const { freelancerId } = useParams<{ freelancerId: string }>();

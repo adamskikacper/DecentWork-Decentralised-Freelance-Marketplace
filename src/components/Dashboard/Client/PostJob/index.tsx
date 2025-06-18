@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { DashboardSection } from "../../Common";
+import { DashboardSection } from "@/components/Dashboard";
 import { JobPostForm } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
 import { ExperienceLevel, JobDuration, JobType } from "@/types/blockchain";
