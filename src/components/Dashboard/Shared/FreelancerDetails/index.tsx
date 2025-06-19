@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { DashboardSection } from "@/components/Dashboard";
 import { Breadcrumbs } from "@/components/Layout";
-const FreelancerDetails: React.FC = () => {
+export const FreelancerDetails: React.FC = () => {
  const { freelancerId } = useParams<{ freelancerId: string }>();
  return (
   <div className="space-y-8">
@@ -32,4 +32,3 @@ const FreelancerDetails: React.FC = () => {
   </div>
  );
 };
-export default FreelancerDetails;

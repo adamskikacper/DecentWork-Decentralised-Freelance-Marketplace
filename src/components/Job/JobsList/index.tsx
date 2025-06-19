@@ -1,6 +1,6 @@
 import React from "react";
 import { JobSummary } from "@/types";
-import JobCard from "../JobCard";
+import { JobCard } from "@/components/Job";
 
 interface JobsListProps {
  jobs: JobSummary[];
@@ -13,7 +13,7 @@ interface JobsListProps {
  className?: string;
 }
 
-const JobsList: React.FC<JobsListProps> = ({
+export const JobsList: React.FC<JobsListProps> = ({
  jobs,
  onMessage,
  onDetails,
@@ -50,5 +50,3 @@ const JobsList: React.FC<JobsListProps> = ({
   </div>
  );
 };
-
-export default JobsList;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const LoadingScreen = () => {
+export const LoadingScreen = () => {
  return (
   <div className="min-h-screen flex items-center justify-center">
    <div className="text-center">
@@ -10,5 +10,3 @@ const LoadingScreen = () => {
   </div>
  );
 };
-
-export default LoadingScreen;

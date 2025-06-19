@@ -9,7 +9,7 @@ interface FreelancerCardProps {
  onHire?: (freelancerId: string) => void;
 }
 
-const FreelancerCard = ({
+export const FreelancerCard = ({
  freelancer,
  onMessage,
  onView,
@@ -101,5 +101,3 @@ const FreelancerCard = ({
   </tr>
  );
 };
-
-export default FreelancerCard;

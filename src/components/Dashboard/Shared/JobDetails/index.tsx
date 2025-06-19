@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { DashboardSection } from "@/components/Dashboard";
 import { Breadcrumbs } from "@/components/Layout";
-const JobDetails: React.FC = () => {
+export const JobDetails: React.FC = () => {
  const { jobId } = useParams<{ jobId: string }>();
  return (
   <div className="space-y-8">
@@ -30,4 +30,3 @@ const JobDetails: React.FC = () => {
   </div>
  );
 };
-export default JobDetails;

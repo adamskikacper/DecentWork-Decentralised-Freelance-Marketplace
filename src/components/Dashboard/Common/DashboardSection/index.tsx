@@ -9,7 +9,7 @@ export interface DashboardSectionProps
  glassEffect?: boolean;
  contentPadding?: boolean;
 }
-const DashboardSection = React.forwardRef<
+export const DashboardSection = React.forwardRef<
  HTMLDivElement,
  DashboardSectionProps
 >(
@@ -56,4 +56,3 @@ const DashboardSection = React.forwardRef<
  }
 );
 DashboardSection.displayName = "DashboardSection";
-export default DashboardSection;

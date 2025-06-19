@@ -15,7 +15,9 @@ interface SimilarJobsSectionProps {
  jobs: SimilarJob[];
 }
 
-const SimilarJobsSection: React.FC<SimilarJobsSectionProps> = ({ jobs }) => {
+export const SimilarJobsSection: React.FC<SimilarJobsSectionProps> = ({
+ jobs,
+}) => {
  return (
   <div className="mt-8 fade-in">
    <div className="flex justify-between items-center mb-6">
@@ -72,5 +74,3 @@ const SimilarJobsSection: React.FC<SimilarJobsSectionProps> = ({ jobs }) => {
   </div>
  );
 };
-
-export default SimilarJobsSection;

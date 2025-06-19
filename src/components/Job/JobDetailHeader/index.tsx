@@ -14,7 +14,7 @@ interface JobDetailHeaderProps {
  clientLocation: string;
 }
 
-const JobDetailHeader: React.FC<JobDetailHeaderProps> = ({
+export const JobDetailHeader: React.FC<JobDetailHeaderProps> = ({
  id,
  title,
  postedDate,
@@ -94,5 +94,3 @@ const JobDetailHeader: React.FC<JobDetailHeaderProps> = ({
   </div>
  );
 };
-
-export default JobDetailHeader;

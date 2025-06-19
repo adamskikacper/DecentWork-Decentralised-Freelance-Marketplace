@@ -15,7 +15,7 @@ interface JobPostFormProps {
  }) => void;
 }
 
-const JobPostForm: React.FC<JobPostFormProps> = ({ onSubmit }) => {
+export const JobPostForm: React.FC<JobPostFormProps> = ({ onSubmit }) => {
  const [title, setTitle] = useState("");
  const [description, setDescription] = useState("");
  const [budget, setBudget] = useState("");
@@ -284,5 +284,3 @@ const JobPostForm: React.FC<JobPostFormProps> = ({ onSubmit }) => {
   </form>
  );
 };
-
-export default JobPostForm;

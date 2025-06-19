@@ -10,7 +10,7 @@ export interface FreelancersProps {
  onMessage?: (userId: string) => void;
  onFreelancerDetails?: (freelancerId: string) => void;
 }
-const Freelancers: React.FC<FreelancersProps> = ({
+export const Freelancers: React.FC<FreelancersProps> = ({
  isLoading = false,
  onMessage,
  onFreelancerDetails,
@@ -139,4 +139,3 @@ const Freelancers: React.FC<FreelancersProps> = ({
   </div>
  );
 };
-export default Freelancers;

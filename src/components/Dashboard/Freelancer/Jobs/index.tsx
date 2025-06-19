@@ -11,7 +11,7 @@ export interface JobsProps {
  onJobDetails?: (jobId: string) => void;
  onClientDetails?: (clientId: string) => void;
 }
-const Jobs: React.FC<JobsProps> = ({
+export const Jobs: React.FC<JobsProps> = ({
  isLoading = false,
  onMessage,
  onJobDetails,
@@ -141,4 +141,3 @@ const Jobs: React.FC<JobsProps> = ({
   </div>
  );
 };
-export default Jobs;

@@ -4,7 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/useToast";
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = () => {
+export const LoginForm = () => {
  const [email, setEmail] = useState("");
  const [password, setPassword] = useState("");
  const [isSubmitting, setIsSubmitting] = useState(false);
@@ -79,5 +79,3 @@ const LoginForm = () => {
   </form>
  );
 };
-
-export default LoginForm;

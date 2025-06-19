@@ -8,7 +8,7 @@ interface AttachmentListProps {
  onRemove: (index: number) => void;
 }
 
-const AttachmentList: React.FC<AttachmentListProps> = ({
+export const AttachmentList: React.FC<AttachmentListProps> = ({
  attachments,
  onRemove,
 }) => {
@@ -42,5 +42,3 @@ const AttachmentList: React.FC<AttachmentListProps> = ({
   </div>
  );
 };
-
-export default AttachmentList;

@@ -1,7 +1,7 @@
 import React from "react";
 import { DashboardSection } from "@/components/Dashboard";
 import { Breadcrumbs } from "@/components/Layout";
-const Messages: React.FC = () => {
+export const Messages: React.FC = () => {
  return (
   <div className="space-y-8">
    <Breadcrumbs
@@ -23,4 +23,3 @@ const Messages: React.FC = () => {
   </div>
  );
 };
-export default Messages;

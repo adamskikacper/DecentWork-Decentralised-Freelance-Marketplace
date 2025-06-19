@@ -11,7 +11,7 @@ export interface RatingDisplayProps {
  className?: string;
 }
 
-const RatingDisplay: React.FC<RatingDisplayProps> = ({
+export const RatingDisplay: React.FC<RatingDisplayProps> = ({
  rating,
  showText = true,
  size = RATING_SIZES.MD,
@@ -30,5 +30,3 @@ const RatingDisplay: React.FC<RatingDisplayProps> = ({
   </div>
  );
 };
-
-export default RatingDisplay;
