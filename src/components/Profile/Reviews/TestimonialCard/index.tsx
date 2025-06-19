@@ -8,7 +8,7 @@ export interface TestimonialCardProps {
  authorRole: string;
 }
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({
+export const TestimonialCard: React.FC<TestimonialCardProps> = ({
  rating,
  text,
  authorInitial,
@@ -36,5 +36,3 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   </div>
  );
 };
-
-export default TestimonialCard;

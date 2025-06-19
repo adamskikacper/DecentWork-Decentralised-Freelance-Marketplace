@@ -1,21 +1,21 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthGuard, ClientGuard, FreelancerGuard } from "@/components/Auth";
 import { useAuth } from "@/hooks/useAuth";
-import { Client, Freelancer, Shared, Dashboard } from "./index";
-const DashboardRoutes = () => {
+import { Client, Freelancer, Views, Dashboard } from "./index";
+export const DashboardRoutes = () => {
  const { user } = useAuth();
  return (
   <Routes>
    <Route index element={<Dashboard />} />
    <Route element={<AuthGuard />}>
     {/* Shared routes available to all authenticated users */}
-    <Route path="profile" element={<Shared.ProfileContent user={user} />} />
-    <Route path="jobs/:jobId" element={<Shared.JobDetails />} />
-    <Route path="messages" element={<Shared.Messages />} />
-    <Route path="messages/:userId" element={<Shared.MessageThread />} />
+    <Route path="profile" element={<Views.ProfileContent user={user} />} />
+    <Route path="jobs/:jobId" element={<Views.JobDetails />} />
+    <Route path="messages" element={<Views.Messages />} />
+    <Route path="messages/:userId" element={<Views.MessageThread />} />
     <Route
      path="freelancers/:freelancerId"
-     element={<Shared.FreelancerDetails />}
+     element={<Views.FreelancerDetails />}
     />
     <Route element={<ClientGuard />}>
      <Route index element={<Client.Home />} />
@@ -37,4 +37,3 @@ const DashboardRoutes = () => {
   </Routes>
  );
 };
-export default DashboardRoutes;

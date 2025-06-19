@@ -6,7 +6,7 @@ export interface CategoryPillProps {
  onClick: () => void;
 }
 
-const CategoryPill: React.FC<CategoryPillProps> = ({
+export const CategoryPill: React.FC<CategoryPillProps> = ({
  category,
  isSelected,
  onClick,
@@ -24,5 +24,3 @@ const CategoryPill: React.FC<CategoryPillProps> = ({
   </button>
  );
 };
-
-export default CategoryPill;

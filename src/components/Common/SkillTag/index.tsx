@@ -7,7 +7,7 @@ export interface SkillTagProps {
  onClick?: () => void;
 }
 
-const SkillTag: React.FC<SkillTagProps> = ({
+export const SkillTag: React.FC<SkillTagProps> = ({
  skill,
  size = "md",
  className = "",
@@ -33,5 +33,3 @@ const SkillTag: React.FC<SkillTagProps> = ({
   </span>
  );
 };
-
-export default SkillTag;

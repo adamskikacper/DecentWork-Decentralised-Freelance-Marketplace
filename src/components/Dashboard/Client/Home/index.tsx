@@ -16,7 +16,7 @@ export interface HomeProps {
  onJobDetails?: (jobId: string) => void;
  onFreelancerDetails?: (freelancerId: string) => void;
 }
-const Home: React.FC<HomeProps> = ({
+export const Home: React.FC<HomeProps> = ({
  user,
  isLoading = false,
  onMessage,
@@ -192,4 +192,3 @@ const Home: React.FC<HomeProps> = ({
   </div>
  );
 };
-export default Home;

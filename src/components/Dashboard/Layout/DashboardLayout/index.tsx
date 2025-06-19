@@ -7,7 +7,7 @@ export interface DashboardLayoutProps
  extends React.HTMLAttributes<HTMLDivElement> {
  showSidebar?: boolean;
 }
-const DashboardLayout = ({
+export const DashboardLayout = ({
  showSidebar = true,
  className,
  ...props
@@ -31,4 +31,3 @@ const DashboardLayout = ({
   </div>
  );
 };
-export default DashboardLayout;

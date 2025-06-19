@@ -11,7 +11,7 @@ export interface ContractsProps {
  onJobDetails?: (jobId: string) => void;
  onClientDetails?: (clientId: string) => void;
 }
-const Contracts: React.FC<ContractsProps> = ({
+export const Contracts: React.FC<ContractsProps> = ({
  isLoading = false,
  onMessage,
  onJobDetails,
@@ -146,4 +146,3 @@ const Contracts: React.FC<ContractsProps> = ({
   </div>
  );
 };
-export default Contracts;

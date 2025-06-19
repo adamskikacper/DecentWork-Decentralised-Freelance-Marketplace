@@ -3,7 +3,7 @@ import { Button, Input, Label, CardContent, CardFooter } from "@/components/UI";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/useToast";
 
-const SignupForm = () => {
+export const SignupForm = () => {
  const [email, setEmail] = useState("");
  const [password, setPassword] = useState("");
  const [userType, setUserType] = useState<"freelancer" | "client">(
@@ -104,5 +104,3 @@ const SignupForm = () => {
   </form>
  );
 };
-
-export default SignupForm;

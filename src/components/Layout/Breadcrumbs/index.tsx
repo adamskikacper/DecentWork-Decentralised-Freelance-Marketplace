@@ -10,7 +10,7 @@ interface BreadcrumbsProps {
  items: BreadcrumbItem[];
 }
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
+export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
  return (
   <div className="mb-6 flex items-center text-sm">
    {items.map((item, index) => (
@@ -49,5 +49,3 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
   </div>
  );
 };
-
-export default Breadcrumbs;

@@ -17,7 +17,7 @@ interface UserDetails {
  title: string;
 }
 
-const MessageThread = () => {
+export const MessageThread = () => {
  const { userId } = useParams();
  const [newMessage, setNewMessage] = useState("");
  const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
@@ -146,5 +146,3 @@ const MessageThread = () => {
   </div>
  );
 };
-
-export default MessageThread;

@@ -16,7 +16,7 @@ interface JobCardProps {
  showCreationDate?: boolean;
 }
 
-const JobCard = ({
+export const JobCard = ({
  job,
  id,
  title,
@@ -161,5 +161,3 @@ const JobCard = ({
   </div>
  );
 };
-
-export default JobCard;

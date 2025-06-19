@@ -19,7 +19,7 @@ interface StatsGridProps {
  className?: string;
 }
 
-const StatsGrid: React.FC<StatsGridProps> = ({
+export const StatsGrid: React.FC<StatsGridProps> = ({
  stats,
  columns = 3,
  className = "",
@@ -41,5 +41,3 @@ const StatsGrid: React.FC<StatsGridProps> = ({
   </div>
  );
 };
-
-export default StatsGrid;

@@ -1,6 +1,6 @@
 import React from "react";
 import { FreelancerSummary } from "@/types";
-import FreelancerCard from "../ProfileCard/FreelancerCard";
+import { FreelancerCard } from "@/components/Profile";
 
 interface FreelancerTableProps {
  freelancers: FreelancerSummary[];
@@ -12,7 +12,7 @@ interface FreelancerTableProps {
  onHire?: (freelancerId: string) => void;
 }
 
-const FreelancerTable: React.FC<FreelancerTableProps> = ({
+export const FreelancerTable: React.FC<FreelancerTableProps> = ({
  freelancers,
  showRating = true,
  showJobsCount = true,
@@ -57,5 +57,3 @@ const FreelancerTable: React.FC<FreelancerTableProps> = ({
   </div>
  );
 };
-
-export default FreelancerTable;

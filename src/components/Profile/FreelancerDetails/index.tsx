@@ -8,7 +8,7 @@ interface FreelancerDetailsProps {
  onClose?: () => void;
 }
 
-const FreelancerDetails = ({ onClose }: FreelancerDetailsProps) => {
+export const FreelancerDetails = ({ onClose }: FreelancerDetailsProps) => {
  const navigate = useNavigate();
  const { freelancerId } = useParams();
 
@@ -139,5 +139,3 @@ const FreelancerDetails = ({ onClose }: FreelancerDetailsProps) => {
   </div>
  );
 };
-
-export default FreelancerDetails;

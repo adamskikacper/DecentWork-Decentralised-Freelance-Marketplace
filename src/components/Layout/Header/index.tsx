@@ -5,7 +5,7 @@ import { useToast } from "@/hooks/useToast";
 import { Home } from "lucide-react";
 import { APP_NAME, NAV_LINKS, USER_TYPES, TOAST_MESSAGES } from "@/constants";
 
-const Navbar = () => {
+export const Navbar = () => {
  const [scrolled, setScrolled] = useState(false);
  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
  const { user, userType, signOut } = useAuth();
@@ -192,5 +192,3 @@ const Navbar = () => {
   </header>
  );
 };
-
-export default Navbar;

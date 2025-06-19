@@ -18,7 +18,10 @@ export interface PostJobProps {
   files: File[];
  }) => void;
 }
-const PostJob: React.FC<PostJobProps> = ({ isLoading = false, onSubmit }) => {
+export const PostJob: React.FC<PostJobProps> = ({
+ isLoading = false,
+ onSubmit,
+}) => {
  const navigate = useNavigate();
  const handleSubmit = (formData: {
   title: string;
@@ -62,4 +65,3 @@ const PostJob: React.FC<PostJobProps> = ({ isLoading = false, onSubmit }) => {
   </div>
  );
 };
-export default PostJob;

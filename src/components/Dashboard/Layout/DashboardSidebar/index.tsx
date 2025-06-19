@@ -16,7 +16,7 @@ export interface DashboardSidebarProps
  userType?: "client" | "freelancer";
 }
 
-const DashboardSidebar = ({
+export const DashboardSidebar = ({
  userEmail,
  userType: propUserType,
  className,
@@ -127,5 +127,3 @@ const DashboardSidebar = ({
   </div>
  );
 };
-
-export default DashboardSidebar;
