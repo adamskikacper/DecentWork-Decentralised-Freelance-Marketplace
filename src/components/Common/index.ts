@@ -1,6 +1,5 @@
 export { FeatureCard } from "./FeatureCard";
 export { StatCard } from "./StatCard";
-export { StatsCard } from "./StatsCard";
 export { FormSelect } from "./FormSelect";
 export { CategoryPill } from "./CategoryPill";
 export { LoadingScreen } from "./LoadingScreen";
