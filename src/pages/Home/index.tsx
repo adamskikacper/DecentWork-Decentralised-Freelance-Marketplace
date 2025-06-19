@@ -71,8 +71,7 @@ const features = [
    </svg>
   ),
   title: "Secure Smart Contracts",
-  description:
-   "Funds locked in escrow until job completion, protecting both parties.",
+  description: "Funds locked in escrow until job completion.",
  },
  {
   icon: (
