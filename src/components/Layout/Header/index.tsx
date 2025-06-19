@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/useToast";
 import { Home } from "lucide-react";
 import { APP_NAME, NAV_LINKS, USER_TYPES, TOAST_MESSAGES } from "@/constants";
 
