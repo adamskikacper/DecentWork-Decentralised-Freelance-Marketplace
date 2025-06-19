@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 
-const Dashboard = () => {
+export const Dashboard = () => {
  const { userType } = useAuth();
 
  if (userType === "client") {
@@ -12,4 +12,3 @@ const Dashboard = () => {
   return <Navigate to="/dashboard/profile" replace />;
  }
 };
-export default Dashboard;
