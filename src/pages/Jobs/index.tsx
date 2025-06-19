@@ -1,2 +1,2 @@
-export { default as JobList } from "./job-list";
-export { default as JobDetails } from "./job-details";
+export { default as JobList } from "./JobList";
+export { default as JobDetails } from "./JobDetails";
