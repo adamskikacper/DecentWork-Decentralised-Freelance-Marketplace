@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Input, Label, CardContent, CardFooter } from "@/components/UI";
 import { useAuth } from "@/hooks/useAuth";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/useToast";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
