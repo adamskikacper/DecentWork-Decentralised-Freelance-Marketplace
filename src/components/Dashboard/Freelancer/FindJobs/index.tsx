@@ -9,7 +9,7 @@ export interface FindJobsProps {
  isLoading?: boolean;
  onJobDetails?: (jobId: string) => void;
 }
-const FindJobs: React.FC<FindJobsProps> = ({
+export const FindJobs: React.FC<FindJobsProps> = ({
  isLoading = false,
  onJobDetails,
 }) => {
@@ -190,4 +190,3 @@ const FindJobs: React.FC<FindJobsProps> = ({
   </div>
  );
 };
-export default FindJobs;

@@ -13,7 +13,7 @@ export interface StatsCardProps {
  style?: React.CSSProperties;
 }
 
-const StatsCard: React.FC<StatsCardProps> = ({
+export const StatsCard: React.FC<StatsCardProps> = ({
  title,
  value,
  icon,
@@ -68,5 +68,3 @@ const StatsCard: React.FC<StatsCardProps> = ({
   </div>
  );
 };
-
-export default StatsCard;

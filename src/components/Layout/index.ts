@@ -1,7 +1,7 @@
-export { default as Header } from "./Header";
-export { default as Footer } from "./Footer";
-export { default as Breadcrumbs } from "./Breadcrumbs";
-export { default as SectionHeader } from "./SectionHeader";
+export { Navbar as Header } from "./Header";
+export { Footer } from "./Footer";
+export { Breadcrumbs } from "./Breadcrumbs";
+export { SectionHeader } from "./SectionHeader";
 export {
  Sidebar,
  SidebarContent,

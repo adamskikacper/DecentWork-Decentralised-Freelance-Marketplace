@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryPill from "@/components/Common/CategoryPill";
+import { CategoryPill } from "@/components/Common";
 
 interface SearchFilterBarProps {
  searchQuery: string;
@@ -9,7 +9,7 @@ interface SearchFilterBarProps {
  categories: string[];
 }
 
-const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
+export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
  searchQuery,
  setSearchQuery,
  categoryFilter,
@@ -108,5 +108,3 @@ const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
   </div>
  );
 };
-
-export default SearchFilterBar;

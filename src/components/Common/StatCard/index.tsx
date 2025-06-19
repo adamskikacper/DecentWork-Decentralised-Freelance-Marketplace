@@ -12,7 +12,7 @@ interface StatCardProps {
  delay?: string;
 }
 
-const StatCard = ({
+export const StatCard = ({
  title,
  value,
  icon,
@@ -63,5 +63,3 @@ const StatCard = ({
   </div>
  );
 };
-
-export default StatCard;

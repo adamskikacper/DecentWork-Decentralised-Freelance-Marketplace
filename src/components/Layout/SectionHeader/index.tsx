@@ -5,7 +5,7 @@ interface SectionHeaderProps {
  description?: string;
 }
 
-const SectionHeader = ({ title, description }: SectionHeaderProps) => {
+export const SectionHeader = ({ title, description }: SectionHeaderProps) => {
  return (
   <div className="mb-8 slide-in">
    <h1 className="text-2xl font-bold mb-2">{title}</h1>
@@ -13,5 +13,3 @@ const SectionHeader = ({ title, description }: SectionHeaderProps) => {
   </div>
  );
 };
-
-export default SectionHeader;

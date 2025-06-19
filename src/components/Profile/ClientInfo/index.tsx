@@ -7,7 +7,7 @@ interface ClientInfoProps {
  clientRating: string;
 }
 
-const ClientInfo: React.FC<ClientInfoProps> = ({
+export const ClientInfo: React.FC<ClientInfoProps> = ({
  clientLocation,
  clientHiringRate,
  clientJobs,
@@ -40,5 +40,3 @@ const ClientInfo: React.FC<ClientInfoProps> = ({
   </div>
  );
 };
-
-export default ClientInfo;

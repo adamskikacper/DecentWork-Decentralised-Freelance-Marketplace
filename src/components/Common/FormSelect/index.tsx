@@ -14,7 +14,7 @@ interface FormSelectProps {
  className?: string;
 }
 
-const FormSelect: React.FC<FormSelectProps> = ({
+export const FormSelect: React.FC<FormSelectProps> = ({
  label,
  name,
  value,
@@ -40,5 +40,3 @@ const FormSelect: React.FC<FormSelectProps> = ({
   </div>
  );
 };
-
-export default FormSelect;

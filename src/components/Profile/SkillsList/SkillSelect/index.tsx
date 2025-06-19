@@ -8,7 +8,7 @@ interface SkillSelectProps {
  availableSkills?: Skill[];
 }
 
-const SkillSelect = ({
+export const SkillSelect = ({
  selectedSkills,
  onSkillsChange,
  availableSkills = DEFAULT_SKILLS,
@@ -105,5 +105,3 @@ const SkillSelect = ({
   </div>
  );
 };
-
-export default SkillSelect;

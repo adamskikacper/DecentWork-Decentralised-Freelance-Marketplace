@@ -1,4 +1,4 @@
-export { default as Home } from "./Home";
-export { default as Jobs } from "./Jobs";
-export { default as Freelancers } from "./Freelancers";
-export { default as PostJob } from "./PostJob";
+export { Home } from "./Home";
+export { Jobs } from "./Jobs";
+export { Freelancers } from "./Freelancers";
+export { PostJob } from "./PostJob";

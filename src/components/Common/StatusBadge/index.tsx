@@ -11,7 +11,7 @@ export interface StatusBadgeProps {
  className?: string;
 }
 
-const StatusBadge: React.FC<StatusBadgeProps> = ({
+export const StatusBadge: React.FC<StatusBadgeProps> = ({
  status,
  variant = STATUS_BADGE_VARIANTS.DEFAULT,
  icon,
@@ -43,5 +43,3 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({
   </span>
  );
 };
-
-export default StatusBadge;

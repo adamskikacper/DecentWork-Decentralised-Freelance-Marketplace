@@ -9,7 +9,10 @@ export interface DashboardCardProps
  isLoading?: boolean;
  glassEffect?: boolean;
 }
-const DashboardCard = React.forwardRef<HTMLDivElement, DashboardCardProps>(
+export const DashboardCard = React.forwardRef<
+ HTMLDivElement,
+ DashboardCardProps
+>(
  (
   {
    className,
@@ -53,4 +56,3 @@ const DashboardCard = React.forwardRef<HTMLDivElement, DashboardCardProps>(
  }
 );
 DashboardCard.displayName = "DashboardCard";
-export default DashboardCard;

@@ -23,7 +23,8 @@ export interface DashboardHeaderProps
  userName?: string;
  userAvatar?: string;
 }
-const DashboardHeader = ({
+
+export const DashboardHeader = ({
  showMobileMenu = true,
  mobileMenuOpen = false,
  onMobileMenuToggle,
@@ -120,4 +121,3 @@ const DashboardHeader = ({
   </header>
  );
 };
-export default DashboardHeader;

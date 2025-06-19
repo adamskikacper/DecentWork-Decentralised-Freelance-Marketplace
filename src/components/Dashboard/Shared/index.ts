@@ -1,5 +1,5 @@
-export { default as JobDetails } from "./JobDetails";
-export { default as FreelancerDetails } from "./FreelancerDetails";
-export { default as Messages } from "./Messages";
-export { default as MessageThread } from "./MessageThread";
-export { default as ProfileContent } from "./ProfileContent";
+export { JobDetails } from "./JobDetails";
+export { FreelancerDetails } from "./FreelancerDetails";
+export { Messages } from "./Messages";
+export { MessageThread } from "./MessageThread";
+export { ProfileContent } from "./ProfileContent";

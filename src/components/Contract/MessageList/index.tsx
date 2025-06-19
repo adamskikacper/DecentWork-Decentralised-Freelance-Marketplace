@@ -23,7 +23,7 @@ interface MessageListProps {
  selectedId?: string;
 }
 
-const MessageList: React.FC<MessageListProps> = ({
+export const MessageList: React.FC<MessageListProps> = ({
  conversations,
  onSelectConversation,
  selectedId,
@@ -74,5 +74,3 @@ const MessageList: React.FC<MessageListProps> = ({
   </div>
  );
 };
-
-export default MessageList;

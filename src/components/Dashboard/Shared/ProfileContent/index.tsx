@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/Layout";
 interface ProfileContentProps {
  user?: any;
 }
-const ProfileContent: React.FC<ProfileContentProps> = ({ user }) => {
+export const ProfileContent: React.FC<ProfileContentProps> = ({ user }) => {
  return (
   <div className="space-y-8">
    <Breadcrumbs
@@ -48,4 +48,3 @@ const ProfileContent: React.FC<ProfileContentProps> = ({ user }) => {
   </div>
  );
 };
-export default ProfileContent;

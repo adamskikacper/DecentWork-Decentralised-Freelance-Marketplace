@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { DashboardSection } from "@/components/Dashboard";
 import { Breadcrumbs } from "@/components/Layout";
-const MessageThread: React.FC = () => {
+export const MessageThread: React.FC = () => {
  const { userId } = useParams<{ userId: string }>();
  return (
   <div className="space-y-8">
@@ -27,4 +27,3 @@ const MessageThread: React.FC = () => {
   </div>
  );
 };
-export default MessageThread;

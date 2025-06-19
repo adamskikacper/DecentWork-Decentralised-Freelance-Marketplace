@@ -11,7 +11,7 @@ interface JobDescriptionProps {
  attachments: Attachment[];
 }
 
-const JobDescription: React.FC<JobDescriptionProps> = ({
+export const JobDescription: React.FC<JobDescriptionProps> = ({
  description,
  skills,
  attachments,
@@ -117,5 +117,3 @@ const JobDescription: React.FC<JobDescriptionProps> = ({
   </>
  );
 };
-
-export default JobDescription;

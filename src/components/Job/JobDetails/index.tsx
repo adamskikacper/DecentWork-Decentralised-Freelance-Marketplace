@@ -6,7 +6,7 @@ interface JobDetailsProps {
  onClose?: () => void;
 }
 
-const JobDetails = ({ onClose }: JobDetailsProps) => {
+export const JobDetails = ({ onClose }: JobDetailsProps) => {
  const navigate = useNavigate();
  const { jobId } = useParams();
 
@@ -170,5 +170,3 @@ const JobDetails = ({ onClose }: JobDetailsProps) => {
   </div>
  );
 };
-
-export default JobDetails;
