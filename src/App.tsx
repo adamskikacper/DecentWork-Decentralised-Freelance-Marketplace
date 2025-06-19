@@ -1,3 +1,6 @@
+import { Toaster } from "@/components/UI/Toaster";
+import { Toaster as Sonner } from "@/components/UI/Sonner";
+import { TooltipProvider } from "@/components/UI/Tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
@@ -9,9 +12,7 @@ import {
  NotFound,
  DashboardLayout,
 } from "./pages";
-import { DashboardRoutes } from "./components/Dashboard";
-import { TooltipProvider } from "@radix-ui/react-tooltip";
-import { Toaster } from "sonner";
+import DashboardRoutes from "./components/Dashboard/routes";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
    <AuthProvider>
     <TooltipProvider>
      <Toaster />
+     <Sonner />
      <Routes>
       {/* Public routes */}
       <Route path="/" element={<Home />} />
@@ -29,16 +31,10 @@ const App = () => (
       <Route path="/jobs/:jobId" element={<JobDetails />} />
       <Route path="/login" element={<Login />} />
 
-      {/* Dashboard routes - using the new dashboard implementation */}
+      {/* Dashboard routes - nested under the DashboardLayout */}
       <Route path="/dashboard/*" element={<DashboardLayout />}>
        <Route path="*" element={<DashboardRoutes />} />
       </Route>
-
-      {/* Redirect dashboardv2 paths to standard dashboard paths */}
-      <Route
-       path="/dashboardv2/*"
-       element={<Navigate to="/dashboard" replace />}
-      />
 
       {/* Catch-all route */}
       <Route path="*" element={<NotFound />} />
