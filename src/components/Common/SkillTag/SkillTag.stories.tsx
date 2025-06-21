@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import SkillTag from "./index";
+import { SkillTag } from "./index";
 
 /**
  * SkillTag is a component used to display skills as tags.
@@ -91,7 +91,7 @@ export const CustomStyling: Story = {
 /**
  * Multiple skill tags displayed together
  */
-export const SkillTagGroup: Story = {
+export const SkillTagGroup = {
  render: () => (
   <div className="flex flex-wrap gap-2">
    <SkillTag skill="React" size="md" />

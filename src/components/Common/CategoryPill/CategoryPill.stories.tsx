@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import CategoryPill from "./index";
+import { CategoryPill } from "./index";
 
 /**
  * CategoryPill is a component used for category selection and filtering.
@@ -57,7 +57,7 @@ export const Selected: Story = {
 /**
  * Interactive example with state management
  */
-export const Interactive: Story = {
+export const Interactive = {
  render: () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [selected, setSelected] = useState("Development");
@@ -82,7 +82,7 @@ export const Interactive: Story = {
 /**
  * Multiple category pills displayed together
  */
-export const CategoryGroup: Story = {
+export const CategoryGroup = {
  render: () => (
   <div className="flex flex-wrap gap-2">
    <CategoryPill

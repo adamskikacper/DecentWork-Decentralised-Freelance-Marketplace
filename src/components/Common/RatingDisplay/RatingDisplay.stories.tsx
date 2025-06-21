@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import RatingDisplay from "./index";
+import { RatingDisplay } from "./index";
 import { RATING_SIZES } from "@/constants";
 
 /**
@@ -96,7 +96,7 @@ export const CustomStyling: Story = {
 /**
  * Multiple rating displays with different values
  */
-export const RatingComparison: Story = {
+export const RatingComparison = {
  render: () => (
   <div className="space-y-4">
    <div className="flex items-center gap-2">

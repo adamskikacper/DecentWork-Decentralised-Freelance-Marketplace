@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import LoadingScreen from "./index";
+import { LoadingScreen } from "./index";
 
 /**
  * LoadingScreen is a full-screen loading indicator component.
