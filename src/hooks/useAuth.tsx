@@ -62,19 +62,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
      console.log(`User type from database: ${fetchedUserType}`);
      setUserType(fetchedUserType);
 
-     // Update profile if metadata doesn't match database
-     if (
-      user?.user_metadata?.user_type &&
-      user.user_metadata.user_type !== fetchedUserType
-     ) {
-      console.log(
-       `Updating profile with user type from metadata: ${user.user_metadata.user_type}`
-      );
-      await supabase
-       .from("profiles")
-       .update({ user_type: user.user_metadata.user_type })
-       .eq("id", userId);
-     }
+     // Note: Removed profile update logic since user_type should be immutable
+     // Previously this code would try to sync metadata with database, but now
+     // we treat the database as the source of truth and user_type cannot change
     } else if (!userType && user?.user_metadata?.user_type) {
      // If we couldn't get from database but have it in metadata, use that
      setUserType(user.user_metadata.user_type as UserType);
