@@ -112,10 +112,8 @@ export const DashboardSidebar = ({ className }: DashboardSidebarProps) => {
  };
 
  const handleLinkClick = () => {
-  // Auto-close on mobile after navigation
-  if (isMobile) {
-   setIsCollapsed(true);
-  }
+  // Sidebar should only close when user clicks the toggle button
+  // No auto-close behavior on navigation
  };
 
  // Animation variants

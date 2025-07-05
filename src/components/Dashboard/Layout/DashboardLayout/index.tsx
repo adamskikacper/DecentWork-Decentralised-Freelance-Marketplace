@@ -60,30 +60,31 @@ export const DashboardLayout = ({
    <Navbar />
 
    {/* Main Dashboard Container */}
-   <div className="flex-grow pt-24 pb-12 bg-background overflow-hidden relative">
+   <div className="flex-grow pt-24 bg-background overflow-hidden relative">
     {/* Fixed Sidebar */}
     {showSidebar && <DashboardSidebar />}
 
     {/* Main Content */}
     <main
      className={cn(
-      "min-w-0 overflow-hidden transition-all duration-300 ease-in-out",
+      "min-w-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col",
       showSidebar && !isMobile
-       ? "ml-[280px]"
+       ? "ml-[280px]" // Desktop: always show sidebar with full width
        : showSidebar && isMobile && !sidebarCollapsed
-       ? "ml-[80px]"
-       : "ml-0"
+       ? "ml-[80px]" // Mobile: sidebar expanded (small width)
+       : "ml-0" // Mobile: sidebar collapsed (hidden) or no sidebar
      )}
     >
-     <div className="h-full px-4 sm:px-6 lg:px-8">
+     <div className="flex-grow px-4 sm:px-6 lg:px-8">
       <div className="min-h-[calc(100vh-12rem)] overflow-auto">
        <Outlet />
       </div>
      </div>
+     
+     {/* Footer positioned to respect sidebar */}
+     <Footer />
     </main>
    </div>
-
-   <Footer />
   </div>
  );
 };
