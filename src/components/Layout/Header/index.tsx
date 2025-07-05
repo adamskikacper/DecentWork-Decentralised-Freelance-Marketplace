@@ -54,7 +54,7 @@ export const Navbar = () => {
     scrolled ? "bg-white/80 backdrop-blur-lg shadow-sm" : "bg-transparent"
    }`}
   >
-   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+   <div className="container mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center py-4 md:py-6">
      {/* Logo */}
      <Link to={NAV_LINKS.HOME} className="flex items-center space-x-2">

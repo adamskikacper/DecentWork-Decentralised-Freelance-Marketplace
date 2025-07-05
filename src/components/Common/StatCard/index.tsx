@@ -12,18 +12,9 @@ interface StatCardProps {
  delay?: string;
 }
 
-export const StatCard = ({
- title,
- value,
- icon,
- change,
- delay = "0s",
-}: StatCardProps) => {
+export const StatCard = ({ title, value, icon, change }: StatCardProps) => {
  return (
-  <div
-   className="glass-card rounded-xl p-6 slide-up"
-   style={{ animationDelay: delay }}
-  >
+  <div className="glass-card rounded-xl p-6 slide-up">
    <div className="flex justify-between items-start mb-4">
     <div>
      <p className="text-sm text-muted-foreground">{title}</p>

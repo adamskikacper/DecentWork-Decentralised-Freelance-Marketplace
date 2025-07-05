@@ -44,7 +44,6 @@ export const DashboardStats = React.forwardRef<
       "glass-card rounded-xl p-6 slide-up",
       isLoading && "animate-pulse"
      )}
-     style={{ animationDelay: stat.delay || `${index * 0.1}s` }}
     >
      <div className="flex justify-between items-start mb-4">
       <div>

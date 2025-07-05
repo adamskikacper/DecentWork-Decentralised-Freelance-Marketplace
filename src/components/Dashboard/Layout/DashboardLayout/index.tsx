@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { Header as Navbar, Footer } from "@/components/Layout";
+import { Navbar, Footer } from "@/components/Layout";
 import { DashboardSidebar } from "@/components/Dashboard";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -57,7 +57,7 @@ export const DashboardLayout = ({
    <Navbar />
 
    <div className="flex-grow pt-24 bg-background">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex min-h-[calc(100vh-6rem)]">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex min-h-[calc(100vh-6rem)]">
      {/* Sidebar */}
      {showSidebar && (
       <DashboardSidebar insideContainer={true} className="p-4" />
@@ -71,6 +71,7 @@ export const DashboardLayout = ({
      </main>
     </div>
    </div>
+   <Footer />
   </div>
  );
 };

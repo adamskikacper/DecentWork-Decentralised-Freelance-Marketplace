@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 
 import { LoginForm, SignupForm } from "@/components/Auth";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/UI";
+import { Navbar } from "@/components/Layout";
 
 const Login = () => {
  const { user, userType, redirectToDashboard } = useAuth();
@@ -20,37 +21,40 @@ const Login = () => {
  }, [user, userType, redirectToDashboard]);
 
  return (
-  <div className="min-h-screen flex items-center justify-center px-4 py-24">
-   <div className="w-full max-w-md">
-    <Tabs defaultValue="login" className="w-full">
-     <TabsList className="grid w-full grid-cols-2 mb-4">
-      <TabsTrigger value="login">Login</TabsTrigger>
-      <TabsTrigger value="register">Register</TabsTrigger>
-     </TabsList>
+  <div className="min-h-screen flex flex-col">
+   <Navbar />
+   <main className="flex-grow flex items-center justify-center pt-24 px-4 py-24">
+    <div className="w-full max-w-md">
+     <Tabs defaultValue="login" className="w-full">
+      <TabsList className="grid w-full grid-cols-2 mb-4">
+       <TabsTrigger value="login">Login</TabsTrigger>
+       <TabsTrigger value="register">Register</TabsTrigger>
+      </TabsList>
 
-     <TabsContent value="login">
-      <Card>
-       <CardHeader>
-        <CardTitle>Login</CardTitle>
-        <CardDescription>
-         Enter your credentials to access your account
-        </CardDescription>
-       </CardHeader>
-       <LoginForm />
-      </Card>
-     </TabsContent>
+      <TabsContent value="login">
+       <Card>
+        <CardHeader>
+         <CardTitle>Login</CardTitle>
+         <CardDescription>
+          Enter your credentials to access your account
+         </CardDescription>
+        </CardHeader>
+        <LoginForm />
+       </Card>
+      </TabsContent>
 
-     <TabsContent value="register">
-      <Card>
-       <CardHeader>
-        <CardTitle>Create Account</CardTitle>
-        <CardDescription>Register as a client or freelancer</CardDescription>
-       </CardHeader>
-       <SignupForm />
-      </Card>
-     </TabsContent>
-    </Tabs>
-   </div>
+      <TabsContent value="register">
+       <Card>
+        <CardHeader>
+         <CardTitle>Create Account</CardTitle>
+         <CardDescription>Register as a client or freelancer</CardDescription>
+        </CardHeader>
+        <SignupForm />
+       </Card>
+      </TabsContent>
+     </Tabs>
+    </div>
+   </main>
   </div>
  );
 };

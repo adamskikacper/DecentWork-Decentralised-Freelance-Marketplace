@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Header as Navbar, Footer } from "@/components/Layout";
+import { Navbar, Footer } from "@/components/Layout";
 import { SearchFilterBar, JobCard } from "@/components/Job";
 
 const JobList = () => {
@@ -127,12 +127,8 @@ const JobList = () => {
      {/* Job Listings */}
      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
       {filteredJobs.length > 0 ? (
-       filteredJobs.map((job, index) => (
-        <div
-         key={job.id}
-         className="slide-up"
-         style={{ animationDelay: `${0.1 * index}s` }}
-        >
+       filteredJobs.map((job) => (
+        <div key={job.id} className="slide-up">
          <JobCard
           id={job.id}
           title={job.title}

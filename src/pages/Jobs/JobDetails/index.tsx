@@ -1,5 +1,5 @@
 import React from "react";
-import { Header as Navbar, Footer } from "@/components/Layout";
+import { Navbar, Footer } from "@/components/Layout";
 import { JobDetails } from "@/components/Job";
 
 const JobDetailsPage = () => {
