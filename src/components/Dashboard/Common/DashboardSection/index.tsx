@@ -42,15 +42,7 @@ export const DashboardSection = React.forwardRef<
      </div>
      {action && <div>{action}</div>}
     </div>
-    <div
-     className={cn(
-      glassEffect ? "glass-card" : "bg-card",
-      "rounded-xl",
-      contentPadding && "p-6"
-     )}
-    >
-     {children}
-    </div>
+    {children}
    </section>
   );
  }

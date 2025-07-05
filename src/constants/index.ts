@@ -198,7 +198,7 @@ export const FOOTER_CONTENT = {
   { text: "Cookie Policy", url: "#" },
  ],
  DESCRIPTION:
-  "A decentralized freelance marketplace powered by blockchain technology, connecting clients and freelancers worldwide.",
+  "A decentralised freelance marketplace powered by blockchain technology, connecting clients and freelancers worldwide.",
  NEWSLETTER_TEXT: "Subscribe to our newsletter for updates and news.",
 };
 

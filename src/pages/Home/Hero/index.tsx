@@ -17,13 +17,13 @@ const Hero = () => {
      <div className="max-w-2xl slide-in" style={{ animationDelay: "0.2s" }}>
       <div className="mb-6 inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
        <span className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mr-2"></span>
-       <span>Decentralized Freelance Marketplace</span>
+       <span>Decentralised Freelance Marketplace</span>
       </div>
 
       <h1 className="heading-1 mb-6">
        The Future of Work is{" "}
        <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-        Decentralized
+        Decentralised
        </span>
       </h1>
 

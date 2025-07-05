@@ -8,7 +8,6 @@ export const DashboardRoutes = () => {
   <Routes>
    <Route index element={<Dashboard />} />
    <Route element={<AuthGuard />}>
-    {/* Shared routes available to all authenticated users */}
     <Route path="profile" element={<Views.ProfileContent user={user} />} />
     <Route path="jobs/:jobId" element={<Views.JobDetails />} />
     <Route path="messages" element={<Views.Messages />} />
@@ -31,7 +30,6 @@ export const DashboardRoutes = () => {
      <Route path="freelancer/find-jobs" element={<Freelancer.FindJobs />} />
      <Route path="freelancer/contracts" element={<Freelancer.Contracts />} />
     </Route>
-    {/* Fallback route */}
     <Route path="*" element={<Navigate to="/dashboard" replace />} />
    </Route>
   </Routes>

@@ -34,3 +34,6 @@ tasks/
 .env
 
 *storybook.log
+
+# React Component Preview
+previewConfig.json

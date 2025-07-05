@@ -19,7 +19,6 @@ export const DashboardLayout = ({
  const [sidebarCollapsed, setSidebarCollapsed] = useState(isMobile);
  const [hasInitialized, setHasInitialized] = useState(false);
 
- // Sync sidebar state
  useEffect(() => {
   if (isMobile) {
    setSidebarCollapsed(true);
@@ -28,7 +27,6 @@ export const DashboardLayout = ({
   }
  }, [isMobile]);
 
- // Enable animations
  useEffect(() => {
   const timer = setTimeout(() => {
    setHasInitialized(true);
@@ -37,7 +35,6 @@ export const DashboardLayout = ({
   return () => clearTimeout(timer);
  }, []);
 
- // Listen for sidebar changes
  useEffect(() => {
   const handleSidebarToggle = (event: CustomEvent) => {
    setSidebarCollapsed(event.detail.isCollapsed);
@@ -59,31 +56,20 @@ export const DashboardLayout = ({
   <div className={cn("min-h-screen flex flex-col", className)} {...props}>
    <Navbar />
 
-   {/* Main Dashboard Container */}
-   <div className="flex-grow pt-24 bg-background overflow-hidden relative">
-    {/* Fixed Sidebar */}
-    {showSidebar && <DashboardSidebar />}
-
-    {/* Main Content */}
-    <main
-     className={cn(
-      "min-w-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col",
-      showSidebar && !isMobile
-       ? "ml-[280px]" // Desktop: always show sidebar with full width
-       : showSidebar && isMobile && !sidebarCollapsed
-       ? "ml-[80px]" // Mobile: sidebar expanded (small width)
-       : "ml-0" // Mobile: sidebar collapsed (hidden) or no sidebar
+   <div className="flex-grow pt-24 bg-background">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex min-h-[calc(100vh-6rem)]">
+     {/* Sidebar */}
+     {showSidebar && (
+      <DashboardSidebar insideContainer={true} className="p-4" />
      )}
-    >
-     <div className="flex-grow px-4 sm:px-6 lg:px-8">
-      <div className="min-h-[calc(100vh-12rem)] overflow-auto">
+
+     {/* Main Content */}
+     <main className={cn("min-w-0 flex flex-col flex-grow p-0 sm:p-3 lg:p-4")}>
+      <div className="flex-grow overflow-auto p-2 sm:p-3 lg:p-4">
        <Outlet />
       </div>
-     </div>
-     
-     {/* Footer positioned to respect sidebar */}
-     <Footer />
-    </main>
+     </main>
+    </div>
    </div>
   </div>
  );
