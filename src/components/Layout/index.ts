@@ -1,4 +1,4 @@
-export { Navbar as Header } from "./Header";
+export { Navbar } from "./Header";
 export { Footer } from "./Footer";
 export { Breadcrumbs } from "./Breadcrumbs";
 export { SectionHeader } from "./SectionHeader";

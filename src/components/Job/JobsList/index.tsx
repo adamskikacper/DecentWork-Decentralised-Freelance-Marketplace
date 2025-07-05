@@ -24,7 +24,7 @@ export const JobsList: React.FC<JobsListProps> = ({
  className = "",
 }) => {
  return (
-  <div className={`slide-in ${className}`} style={{ animationDelay: "0.5s" }}>
+  <div className={`slide-in ${className}`}>
    {(title || showViewAll) && (
     <div className="flex justify-between items-center mb-6">
      {title && <h2 className="text-xl font-bold">{title}</h2>}
