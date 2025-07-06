@@ -10,3 +10,4 @@ export * as Views from "./common/pages";
 
 // Direct dashboard helper
 export { Dashboard } from "./Dashboard";
+export { DashboardSection, DashboardStats } from "./common/components";
