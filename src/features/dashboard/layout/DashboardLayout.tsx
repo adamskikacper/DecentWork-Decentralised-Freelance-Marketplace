@@ -5,9 +5,16 @@ import { DashboardSidebar } from "@/features/dashboard";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/useMobile";
 
-export interface DashboardLayoutProps
- extends React.HTMLAttributes<HTMLDivElement> {
- showSidebar?: boolean;
+export interface DashboardLayoutProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Extra Tailwind / CSS class names applied to the root wrapper.
+   * Although covered by React.HTMLAttributes, we declare it explicitly to make the prop obvious.
+   */
+  className?: string;
+  /**
+   * Whether the sidebar should be rendered. Defaults to `true`.
+   */
+  showSidebar?: boolean;
 }
 
 export const DashboardLayout = ({

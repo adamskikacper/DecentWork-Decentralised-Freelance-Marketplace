@@ -18,11 +18,21 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const defaultArgs = {
+  searchQuery: "",
+  setSearchQuery: () => {},
+  categoryFilter: "All",
+  setCategoryFilter: () => {},
+  categories: ["All"],
+};
+
 /**
  * Default SearchFilterBar with controlled state
  */
 export const Default: Story = {
-  render: (args) => {
+  args: defaultArgs,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (_args) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [categoryFilter, setCategoryFilter] = useState("All");
     
@@ -32,7 +42,16 @@ export const Default: Story = {
         setSearchQuery={setSearchQuery}
         categoryFilter={categoryFilter}
         setCategoryFilter={setCategoryFilter}
-        categories={["All", "Development", "Design", "Smart Contracts", "DApp", "NFT", "Web3", "UI/UX"]}
+        categories={[
+          "All",
+          "Development",
+          "Design",
+          "Smart Contracts",
+          "DApp",
+          "NFT",
+          "Web3",
+          "UI/UX",
+        ]}
       />
     );
   },
@@ -42,7 +61,9 @@ export const Default: Story = {
  * SearchFilterBar with pre-selected category
  */
 export const WithPreselectedCategory: Story = {
-  render: (args) => {
+  args: defaultArgs,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (_args) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [categoryFilter, setCategoryFilter] = useState("Web3");
     
@@ -62,7 +83,9 @@ export const WithPreselectedCategory: Story = {
  * SearchFilterBar with search query
  */
 export const WithSearchQuery: Story = {
-  render: (args) => {
+  args: defaultArgs,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (_args) => {
     const [searchQuery, setSearchQuery] = useState("blockchain");
     const [categoryFilter, setCategoryFilter] = useState("All");
     
