@@ -1,7 +1,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthGuard, ClientGuard, FreelancerGuard } from "@/components/Auth";
 import { useAuth } from "@/hooks/useAuth";
-import { Client, Freelancer, Views, Dashboard } from "./index";
+import { Client, Freelancer, Views, Dashboard } from "@/features/dashboard";
 export const DashboardRoutes = () => {
  const { user } = useAuth();
  return (
