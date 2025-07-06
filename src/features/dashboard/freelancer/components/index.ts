@@ -1,2 +1,1 @@
-// Placeholder for freelancer-specific components
-export {};
+// Freelancer-specific dashboard components barrel (currently empty)

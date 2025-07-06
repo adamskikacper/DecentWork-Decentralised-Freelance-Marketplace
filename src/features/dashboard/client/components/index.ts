@@ -1,2 +1,1 @@
-// Placeholder for client-specific components
-export {};
+// Client-specific dashboard components barrel (currently empty)
