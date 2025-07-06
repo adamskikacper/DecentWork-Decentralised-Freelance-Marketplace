@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { DashboardSection } from "@/components/Dashboard";
+
 import { Breadcrumbs } from "@/components/Layout";
 export const JobDetails: React.FC = () => {
  const { jobId } = useParams<{ jobId: string }>();

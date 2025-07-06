@@ -7,10 +7,11 @@ export const Messages: React.FC = () => {
    <Breadcrumbs
     items={[{ label: "Dashboard", path: "/dashboard" }, { label: "Messages" }]}
    />
-   <DashboardSection
-    title="Messages"
-    description="Your conversations"
-   ></DashboardSection>
+   <DashboardSection title="Messages" description="Your conversations">
+    <div className="p-6 text-center text-muted-foreground">
+     <p>Message functionality will be implemented in a future update.</p>
+    </div>
+   </DashboardSection>
   </div>
  );
 };
