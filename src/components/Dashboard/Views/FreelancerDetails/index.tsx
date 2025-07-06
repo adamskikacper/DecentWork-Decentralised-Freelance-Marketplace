@@ -19,16 +19,6 @@ export const FreelancerDetails: React.FC = () => {
      <p className="text-muted-foreground mt-1">Freelancer ID: {freelancerId}</p>
     </div>
    </div>
-   <DashboardSection
-    title="Freelancer Information"
-    description="Details about this freelancer"
-   >
-    <div className="p-6 text-center text-muted-foreground">
-     <p>
-      Freelancer details functionality will be implemented in a future update.
-     </p>
-    </div>
-   </DashboardSection>
   </div>
  );
 };

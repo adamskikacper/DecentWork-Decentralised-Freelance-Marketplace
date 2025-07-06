@@ -85,18 +85,6 @@ export const Jobs: React.FC<JobsProps> = ({
    <Breadcrumbs
     items={[{ label: "Dashboard", path: "/dashboard" }, { label: "Jobs" }]}
    />
-   {/* Header */}
-   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-    <div>
-     <h1 className="text-2xl font-bold tracking-tight">My Jobs</h1>
-     <p className="text-muted-foreground mt-1">
-      View and manage all your current and past jobs.
-     </p>
-    </div>
-    <Button asChild>
-     <Link to="/dashboard/freelancer/find-jobs">Find More Jobs</Link>
-    </Button>
-   </div>
    {/* Active Jobs Section */}
    <DashboardSection
     title="Active Jobs"
