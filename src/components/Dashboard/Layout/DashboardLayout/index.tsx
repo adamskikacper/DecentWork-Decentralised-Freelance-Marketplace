@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar, Footer } from "@/components/Layout";
-import { DashboardSidebar } from "@/components/Dashboard";
+import { DashboardSidebar } from "@/features/dashboard";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/useMobile";
 
