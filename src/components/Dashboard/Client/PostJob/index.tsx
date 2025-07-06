@@ -47,13 +47,7 @@ export const PostJob: React.FC<PostJobProps> = ({
    <Breadcrumbs
     items={[{ label: "Dashboard", path: "/dashboard" }, { label: "Post Job" }]}
    />
-   {/* Header */}
-   <div>
-    <h1 className="text-2xl font-bold tracking-tight">Post a New Job</h1>
-    <p className="text-muted-foreground mt-1">
-     Create a new job listing to find the perfect freelancer for your project.
-    </p>
-   </div>
+
    {/* Job Post Form Section */}
    <DashboardSection
     title="Job Details"

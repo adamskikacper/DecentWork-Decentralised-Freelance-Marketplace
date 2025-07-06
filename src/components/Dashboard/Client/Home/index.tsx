@@ -143,9 +143,9 @@ export const Home: React.FC<HomeProps> = ({
    {/* Header */}
    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
     <div>
-     <h1 className="text-2xl font-bold tracking-tight">Client Dashboard</h1>
+     <h1 className="text-2xl font-bold tracking-tight">Statistics</h1>
      <p className="text-muted-foreground mt-1">
-      Find and manage your jobs with top freelancers.
+      Information about your activity
      </p>
     </div>
     <Button asChild>

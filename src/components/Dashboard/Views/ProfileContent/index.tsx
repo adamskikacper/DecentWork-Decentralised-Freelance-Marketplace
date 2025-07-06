@@ -10,14 +10,7 @@ export const ProfileContent: React.FC<ProfileContentProps> = ({ user }) => {
    <Breadcrumbs
     items={[{ label: "Dashboard", path: "/dashboard" }, { label: "Profile" }]}
    />
-   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-    <div>
-     <h1 className="text-2xl font-bold tracking-tight">My Profile</h1>
-     <p className="text-muted-foreground mt-1">
-      Manage your personal information and settings
-     </p>
-    </div>
-   </div>
+
    <DashboardSection
     title="Profile Information"
     description="Your personal details"
@@ -33,16 +26,6 @@ export const ProfileContent: React.FC<ProfileContentProps> = ({ user }) => {
        <p>{user?.uid || "Not available"}</p>
       </div>
      </div>
-    </div>
-   </DashboardSection>
-   <DashboardSection
-    title="Account Settings"
-    description="Manage your account preferences"
-   >
-    <div className="p-6 text-center text-muted-foreground">
-     <p>
-      Account settings functionality will be implemented in a future update.
-     </p>
     </div>
    </DashboardSection>
   </div>

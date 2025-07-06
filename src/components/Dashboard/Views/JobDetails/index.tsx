@@ -19,14 +19,6 @@ export const JobDetails: React.FC = () => {
      <p className="text-muted-foreground mt-1">Job ID: {jobId}</p>
     </div>
    </div>
-   <DashboardSection
-    title="Job Information"
-    description="Details about this job"
-   >
-    <div className="p-6 text-center text-muted-foreground">
-     <p>Job details functionality will be implemented in a future update.</p>
-    </div>
-   </DashboardSection>
   </div>
  );
 };
