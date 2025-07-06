@@ -4,7 +4,6 @@ import { Button } from "@/components/UI";
 import { DashboardSection } from "@/features/dashboard";
 import { JobsList } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
-import { Clock, CheckCircle } from "lucide-react";
 export interface JobsProps {
  isLoading?: boolean;
  onMessage?: (userId: string) => void;

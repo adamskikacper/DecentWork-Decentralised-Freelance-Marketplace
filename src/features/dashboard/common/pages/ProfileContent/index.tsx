@@ -2,7 +2,7 @@ import React from "react";
 import { DashboardSection } from "@/features/dashboard";
 import { Breadcrumbs } from "@/components/Layout";
 interface ProfileContentProps {
- user?: any;
+ user?: { email?: string; uid?: string } | null;
 }
 export const ProfileContent: React.FC<ProfileContentProps> = ({ user }) => {
  return (

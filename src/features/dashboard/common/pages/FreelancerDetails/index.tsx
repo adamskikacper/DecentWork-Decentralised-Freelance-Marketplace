@@ -1,6 +1,6 @@
+/* eslint-disable unused-imports/no-unused-imports */
 import React from "react";
 import { useParams } from "react-router-dom";
-import { DashboardSection } from "@/features/dashboard";
 import { Breadcrumbs } from "@/components/Layout";
 export const FreelancerDetails: React.FC = () => {
  const { freelancerId } = useParams<{ freelancerId: string }>();

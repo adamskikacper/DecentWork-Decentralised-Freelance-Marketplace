@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Input } from "@/components/UI";
+import { Button } from "@/components/UI";
 import { DashboardSection } from "@/features/dashboard";
 import { SearchFilterBar } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
-import { Search, Filter } from "lucide-react";
 export interface FindJobsProps {
  isLoading?: boolean;
  onJobDetails?: (jobId: string) => void;

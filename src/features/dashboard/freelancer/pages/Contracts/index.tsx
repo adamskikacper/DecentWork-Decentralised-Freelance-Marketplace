@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/UI";
 import { DashboardSection } from "@/features/dashboard";
 import { JobsList } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
-import { FileText, CheckCircle } from "lucide-react";
 export interface ContractsProps {
  isLoading?: boolean;
  onMessage?: (userId: string) => void;
@@ -15,7 +15,7 @@ export const Contracts: React.FC<ContractsProps> = ({
  isLoading = false,
  onMessage,
  onJobDetails,
- onClientDetails,
+ onClientDetails: _onClientDetails,
 }) => {
  const allContracts = [
   {

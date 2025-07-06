@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { Link } from "react-router-dom";
 import { FileText, User, DollarSign, Briefcase } from "lucide-react";
@@ -17,7 +18,7 @@ export interface HomeProps {
  onFreelancerDetails?: (freelancerId: string) => void;
 }
 export const Home: React.FC<HomeProps> = ({
- user,
+ user: _user,
  isLoading = false,
  onMessage,
  onJobDetails,

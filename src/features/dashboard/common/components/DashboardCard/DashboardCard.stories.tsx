@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import DashboardCard from "./index";
-import { Activity, BarChart3, DollarSign, Users } from "lucide-react";
+import { Activity, BarChart3, Users } from "lucide-react";
 const meta = {
  title: "Dashboardv2/Common/DashboardCard",
  component: DashboardCard,

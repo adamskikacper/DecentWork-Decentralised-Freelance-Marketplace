@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { Link } from "react-router-dom";
 import { Briefcase, DollarSign, Star, Clock } from "lucide-react";
@@ -20,7 +21,7 @@ export const Home: React.FC<HomeProps> = ({
  isLoading = false,
  onMessage,
  onJobDetails,
- onClientDetails,
+ onClientDetails: _onClientDetails,
 }) => {
  const dashboardStats = [
   {

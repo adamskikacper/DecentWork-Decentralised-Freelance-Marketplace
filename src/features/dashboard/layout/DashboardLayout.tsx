@@ -16,8 +16,9 @@ export const DashboardLayout = ({
  ...props
 }: DashboardLayoutProps) => {
  const isMobile = useIsMobile();
- const [sidebarCollapsed, setSidebarCollapsed] = useState(isMobile);
- const [hasInitialized, setHasInitialized] = useState(false);
+
+ const [, setSidebarCollapsed] = useState(isMobile);
+ const [, setHasInitialized] = useState(false);
 
  useEffect(() => {
   if (isMobile) {
