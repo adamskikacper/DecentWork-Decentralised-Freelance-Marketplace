@@ -1,6 +1,6 @@
 import { Outlet, Navigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
-import { DashboardLayout as LayoutComponent } from "@/components/Dashboard";
+import { DashboardLayout as LayoutComponent } from "@/features/dashboard";
 import { LoadingScreen } from "@/components/Common";
 
 /**

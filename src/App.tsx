@@ -12,7 +12,7 @@ import {
  NotFound,
  DashboardLayout,
 } from "./pages";
-import { DashboardRoutes } from "@/components/Dashboard";
+import { DashboardRoutes } from "@/features/dashboard";
 
 const queryClient = new QueryClient();
 
