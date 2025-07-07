@@ -1,4 +1,4 @@
-import type { JobsData, JobsPageConfig } from "@/types/dashboard";
+import type { JobsData } from "@/types/dashboard";
 import * as externalJobsService from "../external/jobsService.service";
 
 export const getClientJobsInternal = async (): Promise<JobsData> => {
@@ -13,10 +13,4 @@ export const getJobsDataInternal = async (
  userType: "client" | "freelancer"
 ): Promise<JobsData> => {
  return await externalJobsService.getJobsDataExternal(userType);
-};
-
-export const getJobsPageConfigInternal = (
- userType: "client" | "freelancer"
-): JobsPageConfig => {
- return externalJobsService.getJobsPageConfigExternal(userType);
 };

@@ -167,7 +167,7 @@ const JobList = () => {
       </div>
      )}
 
-     {/* Pagination - Limited to just the UI for the demo */}
+     {/* Pagination */}
      <div className="flex justify-center">
       <nav className="inline-flex gap-1" aria-label="Pagination">
        <button className="px-3 py-2 rounded text-sm font-medium bg-primary text-white">

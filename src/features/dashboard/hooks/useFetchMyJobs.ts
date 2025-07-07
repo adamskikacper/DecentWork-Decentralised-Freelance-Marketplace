@@ -1,14 +1,19 @@
 import { useState, useEffect, useMemo } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { jobsService } from "@/services";
-import type { JobsData, MyJobs } from "@/types/dashboard";
+import type { JobsData } from "@/types/dashboard";
 
-export const useFetchMyJobs = (): MyJobs => {
+export interface MyJobsHookResult {
+ allJobs: JobsData["allJobs"];
+ activeJobs: JobsData["activeJobs"];
+ completedJobs: JobsData["completedJobs"];
+ isLoading: boolean;
+ error: string | null;
+}
+
+export const useFetchMyJobs = (): MyJobsHookResult => {
  const { userType } = useAuth();
  const [jobsData, setJobsData] = useState<JobsData | null>(null);
- const [pageConfig, setPageConfig] = useState(
-  jobsService.getJobsPageConfig(userType || "client")
- );
  const [isLoading, setIsLoading] = useState(true);
  const [error, setError] = useState<string | null>(null);
 
@@ -19,12 +24,8 @@ export const useFetchMyJobs = (): MyJobs => {
    try {
     setIsLoading(true);
     setError(null);
-    const [jobs, config] = await Promise.all([
-     jobsService.getJobsData(userType),
-     Promise.resolve(jobsService.getJobsPageConfig(userType)),
-    ]);
+    const jobs = await jobsService.getJobsData(userType);
     setJobsData(jobs);
-    setPageConfig(config);
    } catch (err) {
     setError(err instanceof Error ? err.message : "Failed to fetch jobs data");
    } finally {
@@ -37,14 +38,13 @@ export const useFetchMyJobs = (): MyJobs => {
 
  const result = useMemo(() => {
   return {
-   ...pageConfig,
    allJobs: jobsData?.allJobs || [],
    activeJobs: jobsData?.activeJobs || [],
    completedJobs: jobsData?.completedJobs || [],
    isLoading,
    error,
   };
- }, [pageConfig, jobsData, isLoading, error]);
+ }, [jobsData, isLoading, error]);
 
  return result;
 };

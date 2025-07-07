@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { Button } from "@/components/UI";
 import { DashboardSection } from "@/features/dashboard";
-import { SearchFilterBar, AvailableJobsList } from "@/components/Job";
+import { AvailableJobsList, SearchFilterBar } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
 import { LoadingScreen } from "@/components/Common/LoadingScreen";
 import { useFetchJobOpportunities } from "@/features/dashboard/hooks";
@@ -11,10 +11,7 @@ export interface FindJobsProps {
  isLoading?: boolean;
  onJobDetails?: (jobId: string) => void;
 }
-export const FindJobs: React.FC<FindJobsProps> = ({
- isLoading = false,
- onJobDetails,
-}) => {
+export const FindJobs: React.FC<FindJobsProps> = ({ isLoading = false }) => {
  const [searchQuery, setSearchQuery] = useState("");
  const [categoryFilter, setCategoryFilter] = useState("All");
  const {
@@ -85,23 +82,7 @@ export const FindJobs: React.FC<FindJobsProps> = ({
    <Breadcrumbs
     items={[{ label: "Dashboard", path: "/dashboard" }, { label: "Find Jobs" }]}
    />
-   {/* Header */}
-   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-    <div>
-     <h1 className="text-2xl font-bold tracking-tight">Find Jobs</h1>
-     <p className="text-muted-foreground mt-1">
-      Discover job opportunities that match your skills and experience.
-     </p>
-    </div>
-   </div>
-   {/* Search and Filter */}
-   <SearchFilterBar
-    searchQuery={searchQuery}
-    setSearchQuery={setSearchQuery}
-    categoryFilter={categoryFilter}
-    setCategoryFilter={setCategoryFilter}
-    categories={categories}
-   />
+
    {/* Job Opportunities Section */}
    <DashboardSection
     title="Available Jobs"
@@ -109,6 +90,14 @@ export const FindJobs: React.FC<FindJobsProps> = ({
     isLoading={isLoading}
     contentPadding={false}
    >
+    {/* Search and Filter */}
+    <SearchFilterBar
+     searchQuery={searchQuery}
+     setSearchQuery={setSearchQuery}
+     categoryFilter={categoryFilter}
+     setCategoryFilter={setCategoryFilter}
+     categories={categories}
+    />
     {filteredJobs.length > 0 ? (
      <AvailableJobsList
       jobs={filteredJobs}

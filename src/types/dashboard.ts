@@ -78,39 +78,6 @@ export interface JobsData {
  completedJobs: Job[];
 }
 
-export interface JobsPageConfig {
- pageTitle: string;
- pageDescription: string;
- breadcrumbLabel: string;
- actionButtonText: string;
- actionButtonLink: string;
- activeSectionTitle: string;
- activeSectionDescription: string;
- completedSectionTitle: string;
- completedSectionDescription: string;
- emptyActiveMessage: string;
- emptyCompletedMessage: string;
-}
-
-export interface MyJobs {
- pageTitle: string;
- pageDescription: string;
- breadcrumbLabel: string;
- actionButtonText: string;
- actionButtonLink: string;
- activeSectionTitle: string;
- activeSectionDescription: string;
- completedSectionTitle: string;
- completedSectionDescription: string;
- emptyActiveMessage: string;
- emptyCompletedMessage: string;
- allJobs: Job[];
- activeJobs: Job[];
- completedJobs: Job[];
- isLoading: boolean;
- error: string | null;
-}
-
 export interface Freelancers {
  freelancers: FreelancerSummary[];
  isLoading: boolean;

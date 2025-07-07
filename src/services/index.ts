@@ -14,5 +14,4 @@ export const jobsService = {
  getClientJobs: internalServices.getClientJobsInternal,
  getFreelancerJobs: internalServices.getFreelancerJobsInternal,
  getJobsData: internalServices.getJobsDataInternal,
- getJobsPageConfig: internalServices.getJobsPageConfigInternal,
 };

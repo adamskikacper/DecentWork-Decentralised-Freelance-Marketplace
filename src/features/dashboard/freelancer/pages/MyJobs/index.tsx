@@ -4,7 +4,6 @@ import { Button } from "@/components/UI";
 import { DashboardSection, JobsList } from "@/features/dashboard";
 import { Breadcrumbs } from "@/components/Layout";
 import { LoadingScreen } from "@/components/Common/LoadingScreen";
-import { useAuth } from "@/hooks/useAuth";
 import { useFetchMyJobs } from "@/features/dashboard/hooks";
 
 export interface MyJobsProps {
@@ -19,22 +18,9 @@ export const MyJobs: React.FC<MyJobsProps> = ({
  onMessage,
  onJobDetails,
 }) => {
- const { userType } = useAuth();
- const isClient = userType === "client";
  const {
   activeJobs,
   completedJobs,
-  pageTitle,
-  pageDescription,
-  breadcrumbLabel,
-  actionButtonText,
-  actionButtonLink,
-  activeSectionTitle,
-  activeSectionDescription,
-  completedSectionTitle,
-  completedSectionDescription,
-  emptyActiveMessage,
-  emptyCompletedMessage,
   isLoading: dataLoading,
   error,
  } = useFetchMyJobs();
@@ -47,15 +33,12 @@ export const MyJobs: React.FC<MyJobsProps> = ({
   return (
    <div className="space-y-8">
     <Breadcrumbs
-     items={[
-      { label: "Dashboard", path: "/dashboard" },
-      { label: breadcrumbLabel },
-     ]}
+     items={[{ label: "Dashboard", path: "/dashboard" }, { label: "My Jobs" }]}
     />
     <div className="flex items-center justify-center min-h-[400px]">
      <div className="text-center">
       <h2 className="text-xl font-semibold text-destructive mb-2">
-       Error Loading {pageTitle}
+       Error Loading My Jobs
       </h2>
       <p className="text-muted-foreground">{error}</p>
      </div>
@@ -67,27 +50,24 @@ export const MyJobs: React.FC<MyJobsProps> = ({
  return (
   <div className="space-y-8">
    <Breadcrumbs
-    items={[
-     { label: "Dashboard", path: "/dashboard" },
-     { label: breadcrumbLabel },
-    ]}
+    items={[{ label: "Dashboard", path: "/dashboard" }, { label: "My Jobs" }]}
    />
 
-   {!isClient && (
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-     <div>
-      <h1 className="text-2xl font-bold tracking-tight">{pageTitle}</h1>
-      <p className="text-muted-foreground mt-1">{pageDescription}</p>
-     </div>
-     <Button asChild>
-      <Link to={actionButtonLink}>{actionButtonText}</Link>
-     </Button>
+   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div>
+     <h1 className="text-2xl font-bold tracking-tight">My Jobs</h1>
+     <p className="text-muted-foreground mt-1">
+      Manage your jobs and track their progress
+     </p>
     </div>
-   )}
+    <Button asChild>
+     <Link to="/dashboard/find-jobs">Find More Work</Link>
+    </Button>
+   </div>
 
    <DashboardSection
-    title={activeSectionTitle}
-    description={activeSectionDescription}
+    title="Active Jobs"
+    description="Your ongoing projects and contracts"
     isLoading={isLoading}
    >
     {activeJobs.length > 0 ? (
@@ -99,19 +79,17 @@ export const MyJobs: React.FC<MyJobsProps> = ({
      />
     ) : (
      <div className="p-6 text-center text-muted-foreground">
-      <p>{emptyActiveMessage}</p>
+      <p>No active jobs at the moment. Start by exploring new opportunities!</p>
       <Button variant="outline" className="mt-4" asChild>
-       <Link to={actionButtonLink}>
-        {isClient ? "Post a Job" : "Find Jobs"}
-       </Link>
+       <Link to="/dashboard/find-jobs">Find Jobs</Link>
       </Button>
      </div>
     )}
    </DashboardSection>
 
    <DashboardSection
-    title={completedSectionTitle}
-    description={completedSectionDescription}
+    title="Completed Jobs"
+    description="Your completed work and past contracts"
     isLoading={isLoading}
    >
     {completedJobs.length > 0 ? (
@@ -123,7 +101,7 @@ export const MyJobs: React.FC<MyJobsProps> = ({
      />
     ) : (
      <div className="p-6 text-center text-muted-foreground">
-      <p>{emptyCompletedMessage}</p>
+      <p>No completed jobs yet. Finished projects will be shown here.</p>
      </div>
     )}
    </DashboardSection>

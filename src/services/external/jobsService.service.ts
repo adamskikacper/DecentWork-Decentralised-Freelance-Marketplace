@@ -1,4 +1,4 @@
-import type { Job, JobsData, JobsPageConfig } from "@/types/dashboard";
+import type { Job, JobsData } from "@/types/dashboard";
 
 const getClientJobsDataExternal = (): Job[] => {
  return [
@@ -176,34 +176,4 @@ export const getJobsDataExternal = async (
  return userType === "client"
   ? await getClientJobsExternal()
   : await getFreelancerJobsExternal();
-};
-
-export const getJobsPageConfigExternal = (
- userType: "client" | "freelancer"
-): JobsPageConfig => {
- const isClient = userType === "client";
-
- return {
-  pageTitle: isClient ? "Posted Jobs" : "My Jobs",
-  pageDescription: isClient
-   ? "Manage jobs you've posted and track their progress"
-   : "Track your current contracts and completed work",
-  breadcrumbLabel: isClient ? "Posted Jobs" : "My Jobs",
-  actionButtonText: isClient ? "Post New Job" : "Find More Work",
-  actionButtonLink: isClient ? "/dashboard/post-job" : "/dashboard/find-jobs",
-  activeSectionTitle: "Active Jobs",
-  activeSectionDescription: isClient
-   ? "Jobs currently being worked on by freelancers"
-   : "Your ongoing projects and contracts",
-  completedSectionTitle: "Completed Jobs",
-  completedSectionDescription: isClient
-   ? "Successfully finished projects"
-   : "Your completed work and past contracts",
-  emptyActiveMessage: isClient
-   ? "No active jobs at the moment. Start by posting your first job!"
-   : "No active contracts. Browse available opportunities to start working.",
-  emptyCompletedMessage: isClient
-   ? "No completed jobs yet. Once projects are finished, they'll appear here."
-   : "No completed work yet. Finished projects will be shown here.",
- };
 };

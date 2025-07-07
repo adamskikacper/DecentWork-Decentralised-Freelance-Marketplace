@@ -24,7 +24,7 @@ export const DashboardRoutes = () => {
      element={<CommonPages.FreelancerDetails />}
     />
     <Route path="home" element={<CommonPages.Home />} />
-    <Route path="jobs" element={<CommonPages.MyJobs />} />
+    <Route path="jobs" element={<Freelancer.MyJobs />} />
     {userType === "client" && (
      <>
       <Route path="freelancers" element={<Client.Freelancers />} />
@@ -34,7 +34,7 @@ export const DashboardRoutes = () => {
     {userType === "freelancer" && (
      <>
       <Route path="find-jobs" element={<Freelancer.FindJobs />} />
-      <Route path="my-jobs" element={<CommonPages.MyJobs />} />
+      <Route path="my-jobs" element={<Freelancer.MyJobs />} />
      </>
     )}
     <Route path="*" element={<Navigate to="/dashboard" replace />} />
