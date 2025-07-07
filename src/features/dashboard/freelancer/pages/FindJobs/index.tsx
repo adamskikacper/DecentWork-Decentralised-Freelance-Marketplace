@@ -5,6 +5,8 @@ import { SearchFilterBar, AvailableJobsList } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
 import { LoadingScreen } from "@/components/Common/LoadingScreen";
 import { useFetchJobOpportunities } from "@/features/dashboard/hooks";
+import { useNavigate } from "react-router-dom";
+
 export interface FindJobsProps {
  isLoading?: boolean;
  onJobDetails?: (jobId: string) => void;
@@ -46,6 +48,12 @@ export const FindJobs: React.FC<FindJobsProps> = ({
   return matchesSearch && matchesCategory;
  });
  const categories = ["All", "Development", "Design", "Security", "Consulting"];
+
+ const navigate = useNavigate();
+
+ const handleDetails = (jobId: string) => {
+  navigate(`/dashboard/jobs/${jobId}`);
+ };
 
  if (dataLoading) {
   return <LoadingScreen />;
@@ -104,7 +112,7 @@ export const FindJobs: React.FC<FindJobsProps> = ({
     {filteredJobs.length > 0 ? (
      <AvailableJobsList
       jobs={filteredJobs}
-      onDetails={onJobDetails}
+      onDetails={handleDetails}
       className="p-6"
      />
     ) : (

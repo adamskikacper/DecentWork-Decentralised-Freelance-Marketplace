@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Navbar, Footer } from "@/components/Layout";
 import { SearchFilterBar, AvailableJobsList } from "@/components/Job";
 
 const JobList = () => {
+ const navigate = useNavigate();
  const [searchQuery, setSearchQuery] = useState("");
  const [categoryFilter, setCategoryFilter] = useState("All");
+
+ const handleDetails = (jobId: string | number) => {
+  navigate(`/jobs/${jobId}`);
+ };
 
  // Mock categories
  const categories = [
@@ -126,7 +132,7 @@ const JobList = () => {
 
      {/* Job Listings */}
      {filteredJobs.length > 0 ? (
-      <AvailableJobsList jobs={filteredJobs} />
+      <AvailableJobsList jobs={filteredJobs} onDetails={handleDetails} />
      ) : (
       <div className="col-span-3 py-16 text-center slide-up">
        <div className="w-16 h-16 rounded-full bg-secondary/50 flex items-center justify-center mx-auto mb-4">
