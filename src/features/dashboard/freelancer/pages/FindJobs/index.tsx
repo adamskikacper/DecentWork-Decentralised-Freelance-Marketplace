@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Button } from "@/components/UI";
 import { DashboardSection } from "@/features/dashboard";
 import { SearchFilterBar, AvailableJobsList } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
+import { LoadingScreen } from "@/components/Common/LoadingScreen";
+import { useFetchJobOpportunities } from "@/features/dashboard/hooks";
 export interface FindJobsProps {
  isLoading?: boolean;
  onJobDetails?: (jobId: string) => void;
@@ -13,74 +15,24 @@ export const FindJobs: React.FC<FindJobsProps> = ({
 }) => {
  const [searchQuery, setSearchQuery] = useState("");
  const [categoryFilter, setCategoryFilter] = useState("All");
- const allJobOpportunities = [
-  {
-   id: "opp1",
-   title: "Solidity Smart Contract Developer",
-   description:
-    "Looking for an experienced Solidity developer to create a DeFi protocol with staking and yield farming features.",
-   budget: "5.0-8.0 ETH",
-   postedDate: "2 days ago",
-   proposals: 5,
-   tags: ["Solidity", "DeFi", "Smart Contracts"],
-   category: "Development",
-  },
-  {
-   id: "opp2",
-   title: "Frontend Developer for Web3 Dashboard",
-   description:
-    "Need a React developer to build a dashboard for our Web3 application with wallet integration and transaction history.",
-   budget: "3.0-5.0 ETH",
-   postedDate: "1 day ago",
-   proposals: 3,
-   tags: ["React", "Web3", "Frontend"],
-   category: "Development",
-  },
-  {
-   id: "opp3",
-   title: "Blockchain Security Auditor",
-   description:
-    "Looking for a security expert to audit our smart contracts and provide a detailed report with recommendations.",
-   budget: "4.0-6.0 ETH",
-   postedDate: "3 days ago",
-   proposals: 2,
-   tags: ["Security", "Audit", "Solidity"],
-   category: "Security",
-  },
-  {
-   id: "opp4",
-   title: "NFT Collection Designer",
-   description:
-    "We need a creative designer to create a collection of 10,000 unique NFTs for our upcoming project.",
-   budget: "2.5-4.0 ETH",
-   postedDate: "4 days ago",
-   proposals: 8,
-   tags: ["NFT", "Design", "Art"],
-   category: "Design",
-  },
-  {
-   id: "opp5",
-   title: "Tokenomics Consultant",
-   description:
-    "Looking for an expert to help design the tokenomics for our new DeFi platform.",
-   budget: "3.0-5.0 ETH",
-   postedDate: "2 days ago",
-   proposals: 4,
-   tags: ["Tokenomics", "DeFi", "Economics"],
-   category: "Consulting",
-  },
-  {
-   id: "opp6",
-   title: "Smart Contract for NFT Marketplace",
-   description:
-    "Need a Solidity developer to create smart contracts for our NFT marketplace with royalty support.",
-   budget: "4.0-7.0 ETH",
-   postedDate: "5 days ago",
-   proposals: 6,
-   tags: ["Solidity", "NFT", "Smart Contracts"],
-   category: "Development",
-  },
- ];
+ const {
+  jobOpportunities,
+  isLoading: dataLoading,
+  error,
+ } = useFetchJobOpportunities();
+
+ const allJobOpportunities = useMemo(() => {
+  return jobOpportunities.map((job) => ({
+   ...job,
+   category: job.tags.includes("Security")
+    ? "Security"
+    : job.tags.includes("Design") || job.tags.includes("NFT")
+    ? "Design"
+    : job.tags.includes("Tokenomics")
+    ? "Consulting"
+    : "Development",
+  }));
+ }, [jobOpportunities]);
  const filteredJobs = allJobOpportunities.filter((job) => {
   const matchesSearch =
    searchQuery === "" ||
@@ -94,6 +46,32 @@ export const FindJobs: React.FC<FindJobsProps> = ({
   return matchesSearch && matchesCategory;
  });
  const categories = ["All", "Development", "Design", "Security", "Consulting"];
+
+ if (dataLoading) {
+  return <LoadingScreen />;
+ }
+
+ if (error) {
+  return (
+   <div className="space-y-8">
+    <Breadcrumbs
+     items={[
+      { label: "Dashboard", path: "/dashboard" },
+      { label: "Find Jobs" },
+     ]}
+    />
+    <div className="flex items-center justify-center min-h-[400px]">
+     <div className="text-center">
+      <h2 className="text-xl font-semibold text-destructive mb-2">
+       Error Loading Jobs
+      </h2>
+      <p className="text-muted-foreground">{error}</p>
+     </div>
+    </div>
+   </div>
+  );
+ }
+
  return (
   <div className="space-y-8">
    <Breadcrumbs

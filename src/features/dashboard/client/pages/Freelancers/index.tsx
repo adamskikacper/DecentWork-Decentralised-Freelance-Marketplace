@@ -4,6 +4,8 @@ import { Button, Input } from "@/components/UI";
 import { DashboardSection } from "@/features/dashboard";
 import { FreelancerTable } from "@/components/Profile";
 import { Breadcrumbs } from "@/components/Layout";
+import { LoadingScreen } from "@/components/Common/LoadingScreen";
+import { useFetchFreelancers } from "@/features/dashboard/hooks";
 import { Search } from "lucide-react";
 export interface FreelancersProps {
  isLoading?: boolean;
@@ -16,53 +18,11 @@ export const Freelancers: React.FC<FreelancersProps> = ({
  onFreelancerDetails,
 }) => {
  const [searchQuery, setSearchQuery] = useState("");
- const allFreelancers = [
-  {
-   id: "alex123",
-   name: "Alex Kotov",
-   title: "Frontend Developer",
-   specialty: "React, Web3",
-   jobsCount: "2 Active",
-   status: "Active",
-   rating: 4.9,
-  },
-  {
-   id: "maria123",
-   name: "Maria Solovey",
-   title: "Smart Contract Developer",
-   specialty: "Solidity, Audits",
-   jobsCount: "1 Active",
-   status: "Active",
-   rating: 4.8,
-  },
-  {
-   id: "david123",
-   name: "David Chen",
-   title: "UI/UX Designer",
-   specialty: "Figma, Web Design",
-   jobsCount: "1 Active",
-   status: "Active",
-   rating: 4.7,
-  },
-  {
-   id: "sarah123",
-   name: "Sarah Lee",
-   title: "Blockchain Developer",
-   specialty: "Ethereum, Solidity",
-   jobsCount: "1 Active",
-   status: "Active",
-   rating: 4.6,
-  },
-  {
-   id: "james123",
-   name: "James Wilson",
-   title: "Smart Contract Auditor",
-   specialty: "Security, Audits",
-   jobsCount: "Completed",
-   status: "Available",
-   rating: 4.9,
-  },
- ];
+ const {
+  freelancers: allFreelancers,
+  isLoading: dataLoading,
+  error,
+ } = useFetchFreelancers();
  const filteredFreelancers = searchQuery
   ? allFreelancers.filter(
      (freelancer) =>
@@ -74,6 +34,32 @@ export const Freelancers: React.FC<FreelancersProps> = ({
  const handleHireFreelancer = (freelancerId: string) => {
   console.log(`Hiring freelancer: ${freelancerId}`);
  };
+
+ if (dataLoading) {
+  return <LoadingScreen />;
+ }
+
+ if (error) {
+  return (
+   <div className="space-y-8">
+    <Breadcrumbs
+     items={[
+      { label: "Dashboard", path: "/dashboard" },
+      { label: "Freelancers" },
+     ]}
+    />
+    <div className="flex items-center justify-center min-h-[400px]">
+     <div className="text-center">
+      <h2 className="text-xl font-semibold text-destructive mb-2">
+       Error Loading Freelancers
+      </h2>
+      <p className="text-muted-foreground">{error}</p>
+     </div>
+    </div>
+   </div>
+  );
+ }
+
  return (
   <div className="space-y-8">
    <Breadcrumbs

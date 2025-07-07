@@ -66,6 +66,11 @@ export const DashboardSidebar = ({
        icon: PlusCircle,
        label: "Post a Job",
       },
+      {
+       to: "/dashboard/jobs",
+       icon: Briefcase,
+       label: "Jobs",
+      },
      ]
    : [
       {
@@ -74,16 +79,11 @@ export const DashboardSidebar = ({
        label: "Find Jobs",
       },
       {
-       to: "/dashboard/contracts",
+       to: "/dashboard/my-jobs",
        icon: FileText,
-       label: "Contracts",
+       label: "My Jobs",
       },
      ]),
-  {
-   to: "/dashboard/jobs",
-   icon: Briefcase,
-   label: "Jobs",
-  },
   {
    to: "/dashboard/messages",
    icon: MessageCircle,
@@ -115,8 +115,6 @@ export const DashboardSidebar = ({
  };
 
  const handleLinkClick = () => {};
-
- const showLabels = !isMobile;
 
  return (
   <>

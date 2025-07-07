@@ -1,0 +1,41 @@
+import { useState, useEffect } from "react";
+import { useAuth } from "@/hooks/useAuth";
+import { dashboardService } from "@/services";
+import type { FreelancerSummary } from "@/types/dashboard";
+
+export const useFetchTopFreelancers = () => {
+ const { userType } = useAuth();
+ const [freelancers, setFreelancers] = useState<FreelancerSummary[]>([]);
+ const [isLoading, setIsLoading] = useState(true);
+ const [error, setError] = useState<string | null>(null);
+
+ useEffect(() => {
+  const fetchFreelancers = async () => {
+   if (userType !== "client") {
+    setIsLoading(false);
+    return;
+   }
+
+   try {
+    setIsLoading(true);
+    setError(null);
+    const data = await dashboardService.getTopFreelancers();
+    setFreelancers(data);
+   } catch (err) {
+    setError(
+     err instanceof Error ? err.message : "Failed to fetch top freelancers"
+    );
+   } finally {
+    setIsLoading(false);
+   }
+  };
+
+  fetchFreelancers();
+ }, [userType]);
+
+ return {
+  freelancers,
+  isLoading,
+  error,
+ };
+};
