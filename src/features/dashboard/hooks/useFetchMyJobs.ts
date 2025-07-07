@@ -7,7 +7,7 @@ export const useFetchMyJobs = (): MyJobs => {
  const { userType } = useAuth();
  const [jobsData, setJobsData] = useState<JobsData | null>(null);
  const [pageConfig, setPageConfig] = useState(
-  jobsService.getJobsPageConfig("client")
+  jobsService.getJobsPageConfig(userType || "client")
  );
  const [isLoading, setIsLoading] = useState(true);
  const [error, setError] = useState<string | null>(null);
