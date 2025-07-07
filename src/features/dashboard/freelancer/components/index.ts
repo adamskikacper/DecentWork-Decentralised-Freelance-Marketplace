@@ -1,0 +1,1 @@
+// Freelancer-specific dashboard components barrel (currently empty)

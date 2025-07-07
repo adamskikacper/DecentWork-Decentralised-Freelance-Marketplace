@@ -10,9 +10,9 @@ import {
  JobDetails,
  Login,
  NotFound,
- DashboardLayout,
+ DashboardRoute,
 } from "./pages";
-import { DashboardRoutes } from "@/components/Dashboard";
+import { DashboardRoutes } from "@/features/dashboard";
 
 const queryClient = new QueryClient();
 
@@ -24,19 +24,14 @@ const App = () => (
      <Toaster />
      <Sonner />
      <Routes>
-      {/* Public routes */}
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Navigate to="/" replace />} />
       <Route path="/jobs" element={<JobList />} />
       <Route path="/jobs/:jobId" element={<JobDetails />} />
       <Route path="/login" element={<Login />} />
-
-      {/* Dashboard routes - nested under the DashboardLayout */}
-      <Route path="/dashboard/*" element={<DashboardLayout />}>
+      <Route path="/dashboard/*" element={<DashboardRoute />}>
        <Route path="*" element={<DashboardRoutes />} />
       </Route>
-
-      {/* Catch-all route */}
       <Route path="*" element={<NotFound />} />
      </Routes>
     </TooltipProvider>

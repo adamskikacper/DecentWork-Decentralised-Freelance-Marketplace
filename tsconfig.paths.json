@@ -11,7 +11,8 @@
    "@/types/*": ["./src/types/*"],
    "@/constants/*": ["./src/constants/*"],
    "@/services/*": ["./src/services/*"],
-   "@/integrations/*": ["./src/integrations/*"]
+   "@/integrations/*": ["./src/integrations/*"],
+   "@/features/*": ["./src/features/*"]
   }
  }
 }

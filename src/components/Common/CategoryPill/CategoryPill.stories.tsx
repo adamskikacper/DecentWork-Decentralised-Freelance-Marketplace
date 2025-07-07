@@ -59,7 +59,6 @@ export const Selected: Story = {
  */
 export const Interactive: Story = {
  render: () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [selected, setSelected] = useState("Development");
 
   const categories = ["Design", "Development", "Marketing", "Writing", "Admin"];

@@ -114,7 +114,6 @@ export const CustomStyling: Story = {
  */
 export const Interactive: Story = {
   render: () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [value, setValue] = useState("");
     
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
