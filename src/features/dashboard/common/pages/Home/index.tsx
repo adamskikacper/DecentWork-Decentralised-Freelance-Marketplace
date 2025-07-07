@@ -6,7 +6,7 @@ import {
  DashboardStats,
  JobsList,
 } from "@/features/dashboard";
-import { FreelancerTable } from "@/components/Profile";
+import { FreelancerTable } from "@/features/dashboard/client/components";
 import { AvailableJobsList } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
 import { LoadingScreen } from "@/components/Common/LoadingScreen";

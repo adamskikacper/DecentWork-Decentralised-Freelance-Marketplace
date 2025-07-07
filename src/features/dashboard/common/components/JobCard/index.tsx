@@ -1,4 +1,3 @@
-import React from "react";
 import { User } from "lucide-react";
 import { JobSummary } from "@/types";
 
@@ -29,10 +28,8 @@ export const JobCard = ({
  onDetails,
  showCreationDate = false,
 }: JobCardProps) => {
- // If job object is provided, use its properties
  const jobId = job?.id || id;
  const jobTitle = job?.title || title;
- // Don't assume all properties exist on JobSummary
  const jobBudget = budget;
  const jobDueDate = postedDate;
  const jobTags = tags;
@@ -40,7 +37,6 @@ export const JobCard = ({
  return (
   <div className="glass-card rounded-xl p-6">
    {job ? (
-    // If full job object is provided, render with all details
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
      <div>
       <h3 className="text-lg font-semibold mb-1">{job.title}</h3>
@@ -68,7 +64,6 @@ export const JobCard = ({
      </div>
     </div>
    ) : (
-    // If individual props are provided, render simplified card
     <div className="flex flex-col gap-4 mb-4">
      <div>
       <h3 className="text-lg font-semibold mb-1">{jobTitle}</h3>

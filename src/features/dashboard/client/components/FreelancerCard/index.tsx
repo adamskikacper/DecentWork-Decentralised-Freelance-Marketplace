@@ -1,6 +1,7 @@
 import React from "react";
 import { User } from "lucide-react";
 import { FreelancerSummary } from "@/types";
+import { Button, Badge } from "@/components/UI";
 
 interface FreelancerCardProps {
  freelancer: FreelancerSummary;
@@ -8,6 +9,19 @@ interface FreelancerCardProps {
  onView?: (freelancerId: string) => void;
  onHire?: (freelancerId: string) => void;
 }
+
+const getStatusVariant = (status: string) => {
+ switch (status) {
+  case "Online":
+   return "default";
+  case "Offline":
+   return "destructive";
+  case "Available":
+   return "secondary";
+  default:
+   return "default";
+ }
+};
 
 export const FreelancerCard = ({
  freelancer,
@@ -17,7 +31,7 @@ export const FreelancerCard = ({
 }: FreelancerCardProps) => {
  return (
   <tr className="border-b border-border">
-   <td className="py-4 px-4">
+   <td className="py-4 px-4 w-1/4 min-w-[200px]">
     <div className="flex items-center gap-3">
      <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
       <User className="h-4 w-4" />
@@ -28,9 +42,9 @@ export const FreelancerCard = ({
      </div>
     </div>
    </td>
-   <td className="py-4 px-4">{freelancer.specialty}</td>
+   <td className="py-4 px-4 w-1/4 min-w-[180px]">{freelancer.specialty}</td>
    {freelancer.rating && (
-    <td className="py-4 px-4">
+    <td className="py-4 px-4 w-20">
      <div className="flex items-center">
       <span className="font-medium mr-1">{freelancer.rating}</span>
       <svg
@@ -52,49 +66,42 @@ export const FreelancerCard = ({
     </td>
    )}
    {freelancer.jobsCount !== undefined && (
-    <td className="py-4 px-4">
-     <div className="mt-2 space-y-1">
-      <div className="text-sm">
-       <span className="text-muted-foreground">Jobs: </span>
-       {typeof freelancer.jobsCount === "number"
-        ? freelancer.jobsCount
-        : freelancer.jobsCount}
-      </div>
+    <td className="py-4 px-4 w-20">
+     <div className="text-sm">
+      <span className="text-muted-foreground">Jobs: </span>
+      {typeof freelancer.jobsCount === "number"
+       ? freelancer.jobsCount
+       : freelancer.jobsCount}
      </div>
     </td>
    )}
    {freelancer.status && (
-    <td className="py-4 px-4">
-     <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
+    <td className="py-4 px-4 w-24">
+     <Badge variant={getStatusVariant(freelancer.status)}>
       {freelancer.status}
-     </span>
+     </Badge>
     </td>
    )}
-   <td className="py-4 px-4">
+   <td className="py-4 px-4 w-32">
     <div className="flex gap-2">
      {onMessage && (
-      <button
+      <Button
        onClick={() => onMessage(freelancer.id)}
-       className="px-3 py-1 text-xs font-medium rounded-md bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
+       size="sm"
+       variant="default"
       >
        Message
-      </button>
+      </Button>
      )}
      {onView && (
-      <button
-       onClick={() => onView(freelancer.id)}
-       className="px-3 py-1 text-xs font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-      >
+      <Button onClick={() => onView(freelancer.id)} size="sm" variant="outline">
        View
-      </button>
+      </Button>
      )}
      {onHire && (
-      <button
-       onClick={() => onHire(freelancer.id)}
-       className="px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-      >
+      <Button onClick={() => onHire(freelancer.id)} size="sm" variant="default">
        Hire
-      </button>
+      </Button>
      )}
     </div>
    </td>

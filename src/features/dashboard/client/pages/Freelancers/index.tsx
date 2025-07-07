@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Input } from "@/components/UI";
 import { DashboardSection } from "@/features/dashboard";
-import { FreelancerTable } from "@/components/Profile";
+import { FreelancerTable } from "../../components";
 import { Breadcrumbs } from "@/components/Layout";
 import { LoadingScreen } from "@/components/Common/LoadingScreen";
 import { useFetchFreelancers } from "@/features/dashboard/hooks";
@@ -31,8 +31,9 @@ export const Freelancers: React.FC<FreelancersProps> = ({
       freelancer.specialty.toLowerCase().includes(searchQuery.toLowerCase())
     )
   : allFreelancers;
- const handleHireFreelancer = (freelancerId: string) => {
-  console.log(`Hiring freelancer: ${freelancerId}`);
+
+ const handleMessageFreelancer = (freelancerId: string) => {
+  console.log(`Messaging freelancer: ${freelancerId}`);
  };
 
  if (dataLoading) {
@@ -69,29 +70,29 @@ export const Freelancers: React.FC<FreelancersProps> = ({
     ]}
    />
    {/* Header */}
-   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-    <div>
-     <h1 className="text-2xl font-bold tracking-tight">Freelancers</h1>
-     <p className="text-muted-foreground mt-1">
-      View and manage your freelancers.
-     </p>
+   <DashboardSection
+    title="Freelancers"
+    description="View and manage your freelancers."
+    action={
+     <Button asChild>
+      <Link to="/dashboard/post-job">Post a Job</Link>
+     </Button>
+    }
+    isLoading={isLoading}
+   >
+    {/* Search and Filter */}
+    <div className="flex items-center gap-4">
+     <div className="relative flex-1">
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+      <Input
+       placeholder="Search freelancers..."
+       className="pl-10"
+       value={searchQuery}
+       onChange={(e) => setSearchQuery(e.target.value)}
+      />
+     </div>
     </div>
-    <Button asChild>
-     <Link to="/dashboard/post-job">Post a Job</Link>
-    </Button>
-   </div>
-   {/* Search and Filter */}
-   <div className="flex items-center gap-4">
-    <div className="relative flex-1">
-     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-     <Input
-      placeholder="Search freelancers..."
-      className="pl-10"
-      value={searchQuery}
-      onChange={(e) => setSearchQuery(e.target.value)}
-     />
-    </div>
-   </div>
+   </DashboardSection>
    {/* Active Freelancers Section */}
    <DashboardSection
     title="Active Freelancers"
@@ -100,10 +101,10 @@ export const Freelancers: React.FC<FreelancersProps> = ({
    >
     <FreelancerTable
      freelancers={filteredFreelancers.filter(
-      (freelancer) => freelancer.status === "Active"
+      (freelancer) =>
+       freelancer.status === "Online" || freelancer.status === "Offline"
      )}
-     onHire={handleHireFreelancer}
-     onMessage={onMessage}
+     onMessage={handleMessageFreelancer}
      onView={onFreelancerDetails}
     />
    </DashboardSection>
@@ -117,8 +118,7 @@ export const Freelancers: React.FC<FreelancersProps> = ({
      freelancers={filteredFreelancers.filter(
       (freelancer) => freelancer.status === "Available"
      )}
-     onHire={handleHireFreelancer}
-     onMessage={onMessage}
+     onMessage={handleMessageFreelancer}
      onView={onFreelancerDetails}
     />
    </DashboardSection>

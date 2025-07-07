@@ -1,10 +1,4 @@
-export { AttachmentList } from "./AttachmentList";
-export { JobCard } from "./JobCard";
-export { JobDescription } from "./JobDescription";
-export { JobDetailHeader } from "./JobDetailHeader";
 export { JobDetails } from "./JobDetails";
 export { SearchFilterBar } from "./SearchFilterBar";
-export { SimilarJobsSection } from "./SimilarJobsSection";
-export { BidForm } from "./BidForm";
-export { JobPostForm } from "./JobPostForm";
+
 export { AvailableJobsList } from "./AvailableJobsList";

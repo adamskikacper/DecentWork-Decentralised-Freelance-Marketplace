@@ -1,6 +1,6 @@
 import React from "react";
 import { JobSummary } from "@/types";
-import { JobCard } from "@/components/Job";
+import { JobCard } from "@/features/dashboard/common/components/JobCard";
 
 interface JobsListProps {
  jobs: JobSummary[];
