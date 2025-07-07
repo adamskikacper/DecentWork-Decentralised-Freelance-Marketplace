@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/UI";
 import { DashboardSection } from "@/features/dashboard";
-import { SearchFilterBar } from "@/components/Job";
+import { SearchFilterBar, AvailableJobsList } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
 export interface FindJobsProps {
  isLoading?: boolean;
@@ -95,11 +94,6 @@ export const FindJobs: React.FC<FindJobsProps> = ({
   return matchesSearch && matchesCategory;
  });
  const categories = ["All", "Development", "Design", "Security", "Consulting"];
- const handleJobDetails = (jobId: string) => {
-  if (onJobDetails) {
-   onJobDetails(jobId);
-  }
- };
  return (
   <div className="space-y-8">
    <Breadcrumbs
@@ -130,46 +124,11 @@ export const FindJobs: React.FC<FindJobsProps> = ({
     contentPadding={false}
    >
     {filteredJobs.length > 0 ? (
-     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
-      {filteredJobs.map((job) => (
-       <div
-        key={job.id}
-        className="bg-card/50 rounded-lg p-4 border border-border hover:border-primary/50 transition-colors"
-       >
-        <h3 className="font-semibold mb-2 line-clamp-1">{job.title}</h3>
-        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-         {job.description}
-        </p>
-        <div className="flex justify-between items-center mb-3">
-         <span className="text-sm font-medium">{job.budget}</span>
-         <span className="text-xs text-muted-foreground">{job.postedDate}</span>
-        </div>
-        <div className="flex flex-wrap gap-1 mb-3">
-         {job.tags.map((tag) => (
-          <span
-           key={tag}
-           className="px-2 py-1 bg-secondary text-xs rounded-full"
-          >
-           {tag}
-          </span>
-         ))}
-        </div>
-        <div className="flex justify-between items-center">
-         <span className="text-xs text-muted-foreground">
-          {job.proposals} proposals
-         </span>
-         <Button
-          variant="outline"
-          size="sm"
-          onClick={() => handleJobDetails(job.id)}
-          asChild
-         >
-          <Link to={`/dashboard/jobs/${job.id}`}>View Details</Link>
-         </Button>
-        </div>
-       </div>
-      ))}
-     </div>
+     <AvailableJobsList
+      jobs={filteredJobs}
+      onDetails={onJobDetails}
+      className="p-6"
+     />
     ) : (
      <div className="p-6 text-center text-muted-foreground">
       <p>No jobs found matching your criteria.</p>

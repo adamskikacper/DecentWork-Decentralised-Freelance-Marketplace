@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import DashboardSection from "./index";
+import { DashboardSection } from "./index";
 import { Button } from "@/components/UI";
 import { PlusCircle } from "lucide-react";
 const meta = {

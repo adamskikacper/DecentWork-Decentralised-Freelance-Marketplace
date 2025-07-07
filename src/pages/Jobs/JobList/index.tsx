@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Footer } from "@/components/Layout";
-import { SearchFilterBar, JobCard } from "@/components/Job";
+import { SearchFilterBar, AvailableJobsList } from "@/components/Job";
 
 const JobList = () => {
  const [searchQuery, setSearchQuery] = useState("");
@@ -125,55 +125,41 @@ const JobList = () => {
      />
 
      {/* Job Listings */}
-     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-      {filteredJobs.length > 0 ? (
-       filteredJobs.map((job) => (
-        <div key={job.id} className="slide-up">
-         <JobCard
-          id={job.id}
-          title={job.title}
-          description={job.description}
-          postedDate={job.postedDate}
-          proposals={job.proposals}
-          tags={job.tags}
-          budget={job.budget}
+     {filteredJobs.length > 0 ? (
+      <AvailableJobsList jobs={filteredJobs} />
+     ) : (
+      <div className="col-span-3 py-16 text-center slide-up">
+       <div className="w-16 h-16 rounded-full bg-secondary/50 flex items-center justify-center mx-auto mb-4">
+        <svg
+         width="24"
+         height="24"
+         viewBox="0 0 24 24"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg"
+        >
+         <path
+          d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
          />
-        </div>
-       ))
-      ) : (
-       <div className="col-span-3 py-16 text-center">
-        <div className="w-16 h-16 rounded-full bg-secondary/50 flex items-center justify-center mx-auto mb-4">
-         <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-         >
-          <path
-           d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-           stroke="currentColor"
-           strokeWidth="2"
-           strokeLinecap="round"
-           strokeLinejoin="round"
-          />
-          <path
-           d="M21 21L16.65 16.65"
-           stroke="currentColor"
-           strokeWidth="2"
-           strokeLinecap="round"
-           strokeLinejoin="round"
-          />
-         </svg>
-        </div>
-        <h3 className="text-lg font-medium mb-2">No jobs found</h3>
-        <p className="text-muted-foreground">
-         Try adjusting your search filters or check back later for new
-         opportunities.
-        </p>
+         <path
+          d="M21 21L16.65 16.65"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+         />
+        </svg>
        </div>
-      )}
-     </div>
+       <h3 className="text-lg font-medium mb-2">No jobs found</h3>
+       <p className="text-muted-foreground">
+        Try adjusting your search filters or check back later for new
+        opportunities.
+       </p>
+      </div>
+     )}
 
      {/* Pagination - Limited to just the UI for the demo */}
      <div className="flex justify-center">

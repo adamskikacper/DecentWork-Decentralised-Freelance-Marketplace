@@ -12,6 +12,7 @@ import {
  Home as HomeIcon,
  ChevronLeft,
  ChevronRight,
+ FileText,
 } from "lucide-react";
 import { Button } from "@/components/UI/Button";
 
@@ -49,7 +50,7 @@ export const DashboardSidebar = ({
 
  const navigationItems = [
   {
-   to: isClient ? "/dashboard/home" : "/dashboard/freelancer",
+   to: "/dashboard/home",
    icon: HomeIcon,
    label: "Dashboard",
   },
@@ -68,13 +69,18 @@ export const DashboardSidebar = ({
      ]
    : [
       {
-       to: "/dashboard/freelancer/find-jobs",
+       to: "/dashboard/find-jobs",
        icon: Search,
        label: "Find Jobs",
       },
+      {
+       to: "/dashboard/contracts",
+       icon: FileText,
+       label: "Contracts",
+      },
      ]),
   {
-   to: isClient ? "/dashboard/jobs" : "/dashboard/freelancer/jobs",
+   to: "/dashboard/jobs",
    icon: Briefcase,
    label: "Jobs",
   },
@@ -157,7 +163,7 @@ export const DashboardSidebar = ({
       {/* Navigation Links */}
       <nav className="flex-1">
        <ul className="space-y-1">
-        {navigationItems.map((item, index) => {
+        {navigationItems.map((item) => {
          const IconComponent = item.icon;
          const isActive = isLinkActive(item.to);
 

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import FindJobs from "./index";
+import { FindJobs } from "./index";
 import { BrowserRouter } from "react-router-dom";
 const meta = {
  title: "Dashboardv2/Freelancer/FindJobs",

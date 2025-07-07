@@ -7,4 +7,8 @@ export * as Freelancer from "./freelancer";
 export * as Views from "./common/pages";
 
 export { Dashboard } from "./Dashboard";
-export { DashboardSection, DashboardStats } from "./common/components";
+export {
+ DashboardSection,
+ DashboardStats,
+ JobsList,
+} from "./common/components";

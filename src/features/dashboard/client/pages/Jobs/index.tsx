@@ -1,6 +1,5 @@
 import React from "react";
-import { DashboardSection } from "@/features/dashboard";
-import { JobsList } from "@/components/Job";
+import { DashboardSection, JobsList } from "@/features/dashboard";
 import { Breadcrumbs } from "@/components/Layout";
 export interface JobsProps {
  isLoading?: boolean;

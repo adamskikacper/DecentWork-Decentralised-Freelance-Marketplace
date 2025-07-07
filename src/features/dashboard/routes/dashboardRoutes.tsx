@@ -1,12 +1,23 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import { AuthGuard, ClientGuard, FreelancerGuard } from "@/components/Auth";
+import { AuthGuard } from "@/components/Auth";
 import { useAuth } from "@/hooks/useAuth";
 import * as Client from "@/features/dashboard/client";
 import * as Freelancer from "@/features/dashboard/freelancer";
 import * as Views from "@/features/dashboard/common/pages";
-import { Dashboard } from "@/features/dashboard/Dashboard";
+import { Dashboard } from "@/features/dashboard";
+
+const RoleAwareHome = () => {
+ const { userType } = useAuth();
+ return userType === "client" ? <Client.Home /> : <Freelancer.Home />;
+};
+
+const RoleAwareJobs = () => {
+ const { userType } = useAuth();
+ return userType === "client" ? <Client.Jobs /> : <Freelancer.Jobs />;
+};
+
 export const DashboardRoutes = () => {
- const { user } = useAuth();
+ const { user, userType } = useAuth();
  return (
   <Routes>
    <Route index element={<Dashboard />} />
@@ -19,20 +30,20 @@ export const DashboardRoutes = () => {
      path="freelancers/:freelancerId"
      element={<Views.FreelancerDetails />}
     />
-    <Route element={<ClientGuard />}>
-     <Route index element={<Client.Home />} />
-     <Route path="home" element={<Client.Home />} />
-     <Route path="jobs" element={<Client.Jobs />} />
-     <Route path="freelancers" element={<Client.Freelancers />} />
-     <Route path="post-job" element={<Client.PostJob />} />
-    </Route>
-    <Route element={<FreelancerGuard />}>
-     <Route path="freelancer" element={<Freelancer.Home />} />
-     <Route path="freelancer/home" element={<Freelancer.Home />} />
-     <Route path="freelancer/jobs" element={<Freelancer.Jobs />} />
-     <Route path="freelancer/find-jobs" element={<Freelancer.FindJobs />} />
-     <Route path="freelancer/contracts" element={<Freelancer.Contracts />} />
-    </Route>
+    <Route path="home" element={<RoleAwareHome />} />
+    <Route path="jobs" element={<RoleAwareJobs />} />
+    {userType === "client" && (
+     <>
+      <Route path="freelancers" element={<Client.Freelancers />} />
+      <Route path="post-job" element={<Client.PostJob />} />
+     </>
+    )}
+    {userType === "freelancer" && (
+     <>
+      <Route path="find-jobs" element={<Freelancer.FindJobs />} />
+      <Route path="contracts" element={<Freelancer.Contracts />} />
+     </>
+    )}
     <Route path="*" element={<Navigate to="/dashboard" replace />} />
    </Route>
   </Routes>

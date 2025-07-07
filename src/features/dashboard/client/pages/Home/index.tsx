@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FileText, User, DollarSign, Briefcase } from "lucide-react";
 import { Button } from "@/components/UI";
-import { DashboardSection, DashboardStats } from "@/features/dashboard";
-import { JobsList } from "@/components/Job";
+import {
+ DashboardSection,
+ DashboardStats,
+ JobsList,
+} from "@/features/dashboard";
 import { FreelancerTable } from "@/components/Profile";
 import { Breadcrumbs } from "@/components/Layout";
 export interface HomeProps {

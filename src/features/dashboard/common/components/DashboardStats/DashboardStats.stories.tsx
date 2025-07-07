@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import DashboardStats from "./index";
+import { DashboardStats } from "./index";
 import { Briefcase, DollarSign, Star, Users } from "lucide-react";
 const meta = {
  title: "Dashboardv2/Common/DashboardStats",

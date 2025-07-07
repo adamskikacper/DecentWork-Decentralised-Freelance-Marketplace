@@ -4,10 +4,8 @@ import { useAuth } from "@/hooks/useAuth";
 export const Dashboard = () => {
  const { userType } = useAuth();
 
- if (userType === "client") {
+ if (userType === "client" || userType === "freelancer") {
   return <Navigate to="/dashboard/home" replace />;
- } else if (userType === "freelancer") {
-  return <Navigate to="/dashboard/freelancer" replace />;
  } else {
   return <Navigate to="/dashboard/profile" replace />;
  }

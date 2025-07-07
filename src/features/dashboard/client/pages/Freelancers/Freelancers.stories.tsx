@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Freelancers from "./index";
+import { Freelancers } from "./index";
 import { BrowserRouter } from "react-router-dom";
 const meta = {
  title: "Dashboardv2/Client/Freelancers",

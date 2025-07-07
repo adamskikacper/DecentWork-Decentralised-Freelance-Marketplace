@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Briefcase, DollarSign, Star, Clock } from "lucide-react";
 import { Button } from "@/components/UI";
-import { DashboardSection, DashboardStats } from "@/features/dashboard";
-import { JobsList } from "@/components/Job";
+import {
+ DashboardSection,
+ DashboardStats,
+ JobsList,
+} from "@/features/dashboard";
+import { AvailableJobsList } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
 export interface HomeProps {
  user?: {
@@ -182,36 +186,7 @@ export const Home: React.FC<HomeProps> = ({
     }
     isLoading={isLoading}
    >
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-     {jobOpportunities.map((job) => (
-      <div
-       key={job.id}
-       className="bg-card/50 rounded-lg p-4 border border-border hover:border-primary/50 transition-colors"
-      >
-       <h3 className="font-semibold mb-2 line-clamp-1">{job.title}</h3>
-       <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-        {job.description}
-       </p>
-       <div className="flex justify-between items-center mb-3">
-        <span className="text-sm font-medium">{job.budget}</span>
-        <span className="text-xs text-muted-foreground">{job.postedDate}</span>
-       </div>
-       <div className="flex flex-wrap gap-1 mb-3">
-        {job.tags.map((tag) => (
-         <span
-          key={tag}
-          className="px-2 py-1 bg-secondary text-xs rounded-full"
-         >
-          {tag}
-         </span>
-        ))}
-       </div>
-       <Button variant="outline" size="sm" className="w-full" asChild>
-        <Link to={`/dashboard/jobs/${job.id}`}>View Details</Link>
-       </Button>
-      </div>
-     ))}
-    </div>
+    <AvailableJobsList jobs={jobOpportunities} onDetails={onJobDetails} />
    </DashboardSection>
   </div>
  );
