@@ -14,7 +14,6 @@ export const Contracts: React.FC<ContractsProps> = ({
  isLoading = false,
  onMessage,
  onJobDetails,
- onClientDetails: _onClientDetails,
 }) => {
  const allContracts = [
   {

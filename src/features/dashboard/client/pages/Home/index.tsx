@@ -17,7 +17,6 @@ export interface HomeProps {
  onFreelancerDetails?: (freelancerId: string) => void;
 }
 export const Home: React.FC<HomeProps> = ({
- user: _user,
  isLoading = false,
  onMessage,
  onJobDetails,

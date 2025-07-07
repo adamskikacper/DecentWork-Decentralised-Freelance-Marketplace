@@ -20,7 +20,6 @@ export const Home: React.FC<HomeProps> = ({
  isLoading = false,
  onMessage,
  onJobDetails,
- onClientDetails: _onClientDetails,
 }) => {
  const dashboardStats = [
   {

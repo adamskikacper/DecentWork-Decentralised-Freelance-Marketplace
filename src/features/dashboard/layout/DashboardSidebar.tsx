@@ -29,7 +29,7 @@ export const DashboardSidebar = ({
  const isMobile = useIsMobile();
 
  const [isCollapsed, setIsCollapsed] = useState(isMobile);
- const [_hasInitialized2, setHasInitialized] = useState(false);
+ const [, setHasInitialized] = useState(false);
 
  useEffect(() => {
   if (isMobile) {
