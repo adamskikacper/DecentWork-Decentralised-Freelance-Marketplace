@@ -40,7 +40,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
  const navigate = useNavigate();
  const { toast } = useToast();
 
- // Memoize the updateUserType function to avoid recreating it on every render
  const updateUserType = useCallback(
   async (userId: string) => {
    if (!userId) return;
@@ -48,21 +47,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
    console.log("Fetching user type for:", userId);
 
    try {
-    // First try to get user type from metadata if available
     if (user?.user_metadata?.user_type) {
      const metadataUserType = user.user_metadata.user_type as UserType;
      console.log("Found user type in metadata:", metadataUserType);
      setUserType(metadataUserType);
     }
 
-    // Then fetch from database for confirmation
     const fetchedUserType = await authService.getUserType(userId);
 
     if (fetchedUserType) {
      console.log(`User type from database: ${fetchedUserType}`);
      setUserType(fetchedUserType);
 
-     // Update profile if metadata doesn't match database
      if (
       user?.user_metadata?.user_type &&
       user.user_metadata.user_type !== fetchedUserType
@@ -76,13 +72,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
        .eq("id", userId);
      }
     } else if (!userType && user?.user_metadata?.user_type) {
-     // If we couldn't get from database but have it in metadata, use that
      setUserType(user.user_metadata.user_type as UserType);
     }
    } catch (error) {
     console.error("Error updating user type:", error);
 
-    // Fallback to metadata if fetch fails and we don't already have a userType
     if (!userType && user?.user_metadata?.user_type) {
      const fallbackType = user.user_metadata.user_type as UserType;
      console.log(`Falling back to metadata user type: ${fallbackType}`);
@@ -94,12 +88,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
  );
 
  useEffect(() => {
-  // Prevent multiple initializations
   if (authInitialized) return;
 
   let mounted = true;
 
-  // Set up the auth state change listener
   const setupAuthListener = () => {
    const {
     data: { subscription },
@@ -126,7 +118,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
    return subscription;
   };
 
-  // Initialize auth state
   const initializeAuth = async () => {
    try {
     const currentSession = await authService.getSession();
@@ -145,7 +136,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
    } catch (error) {
     console.error("Error initializing auth:", error);
-    // If there's an error, we still want to mark initialization as complete
    } finally {
     if (mounted) {
      setLoading(false);
@@ -157,7 +147,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const subscription = setupAuthListener();
   initializeAuth();
 
-  // Cleanup function
   return () => {
    mounted = false;
    subscription.unsubscribe();
@@ -176,25 +165,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     console.log("User signed in successfully:", newUser.id);
     console.log("User metadata:", newUser.user_metadata);
 
-    // Get user type information for routing
     const metadataUserType = newUser.user_metadata?.user_type as UserType;
     const dbUserType = await authService.getUserType(newUser.id);
 
     console.log("User type from metadata:", metadataUserType);
     console.log("User type from database:", dbUserType);
 
-    // Determine final user type with metadata taking precedence
     const finalUserType = metadataUserType || dbUserType;
     console.log("Setting final user type:", finalUserType);
     setUserType(finalUserType);
 
-    // Update session state
     setUser(newUser);
     setSession(newSession);
 
     console.log("Final user type for redirection:", finalUserType);
 
-    // Wait for state updates to complete
     await new Promise((resolve) => setTimeout(resolve, 100));
 
     navigate("/dashboard");
@@ -264,7 +249,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
  };
 
- // Memoize redirectToDashboard to prevent rerenders
  const redirectToDashboard = useCallback(() => {
   console.log(`Redirecting with user type: ${userType}`);
 

@@ -1,19 +1,18 @@
-import * as internalDashboard from "./internal/dashboardService";
-import * as internalJobs from "./internal/jobsService";
+import * as internalServices from "./internal";
 
 export const dashboardService = {
- getDashboardStats: internalDashboard.getDashboardStatsInternal,
- getActiveJobs: internalDashboard.getActiveJobsInternal,
- getTopFreelancers: internalDashboard.getTopFreelancersInternal,
- getJobOpportunities: internalDashboard.getJobOpportunitiesInternal,
- getDashboardData: internalDashboard.getDashboardDataInternal,
- getAllFreelancers: internalDashboard.getAllFreelancersInternal,
- getAllJobOpportunities: internalDashboard.getAllJobOpportunitiesInternal,
+ getDashboardStats: internalServices.getDashboardStatsInternal,
+ getActiveJobs: internalServices.getActiveJobsInternal,
+ getTopFreelancers: internalServices.getTopFreelancersInternal,
+ getJobOpportunities: internalServices.getJobOpportunitiesInternal,
+ getDashboardData: internalServices.getDashboardDataInternal,
+ getAllFreelancers: internalServices.getAllFreelancersInternal,
+ getAllJobOpportunities: internalServices.getAllJobOpportunitiesInternal,
 };
 
 export const jobsService = {
- getClientJobs: internalJobs.getClientJobsInternal,
- getFreelancerJobs: internalJobs.getFreelancerJobsInternal,
- getJobsData: internalJobs.getJobsDataInternal,
- getJobsPageConfig: internalJobs.getJobsPageConfigInternal,
+ getClientJobs: internalServices.getClientJobsInternal,
+ getFreelancerJobs: internalServices.getFreelancerJobsInternal,
+ getJobsData: internalServices.getJobsDataInternal,
+ getJobsPageConfig: internalServices.getJobsPageConfigInternal,
 };

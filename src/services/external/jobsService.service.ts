@@ -1,6 +1,6 @@
 import type { Job, JobsData, JobsPageConfig } from "@/types/dashboard";
 
-const getClientJobsDataInternal = (): Job[] => {
+const getClientJobsDataExternal = (): Job[] => {
  return [
   {
    id: "job1",
@@ -65,7 +65,7 @@ const getClientJobsDataInternal = (): Job[] => {
  ];
 };
 
-const getFreelancerJobsDataInternal = (): Job[] => {
+const getFreelancerJobsDataExternal = (): Job[] => {
  return [
   {
    id: "contract1",
@@ -142,8 +142,8 @@ const getFreelancerJobsDataInternal = (): Job[] => {
  ];
 };
 
-export const getClientJobsInternal = async (): Promise<JobsData> => {
- const allJobs = getClientJobsDataInternal();
+export const getClientJobsExternal = async (): Promise<JobsData> => {
+ const allJobs = getClientJobsDataExternal();
  const activeJobs = allJobs.filter(
   (job) => job.status === "In Progress" || job.status === "Just Started"
  );
@@ -156,8 +156,8 @@ export const getClientJobsInternal = async (): Promise<JobsData> => {
  };
 };
 
-export const getFreelancerJobsInternal = async (): Promise<JobsData> => {
- const allJobs = getFreelancerJobsDataInternal();
+export const getFreelancerJobsExternal = async (): Promise<JobsData> => {
+ const allJobs = getFreelancerJobsDataExternal();
  const activeJobs = allJobs.filter(
   (job) => job.status === "In Progress" || job.status === "Just Started"
  );
@@ -170,15 +170,15 @@ export const getFreelancerJobsInternal = async (): Promise<JobsData> => {
  };
 };
 
-export const getJobsDataInternal = async (
+export const getJobsDataExternal = async (
  userType: "client" | "freelancer"
 ): Promise<JobsData> => {
  return userType === "client"
-  ? await getClientJobsInternal()
-  : await getFreelancerJobsInternal();
+  ? await getClientJobsExternal()
+  : await getFreelancerJobsExternal();
 };
 
-export const getJobsPageConfigInternal = (
+export const getJobsPageConfigExternal = (
  userType: "client" | "freelancer"
 ): JobsPageConfig => {
  const isClient = userType === "client";
@@ -198,12 +198,12 @@ export const getJobsPageConfigInternal = (
   completedSectionTitle: "Completed Jobs",
   completedSectionDescription: isClient
    ? "Successfully finished projects"
-   : "Your completed work and earnings",
+   : "Your completed work and past contracts",
   emptyActiveMessage: isClient
-   ? "You haven't posted any jobs yet. Start by posting your first job!"
-   : "No active contracts at the moment. Browse available jobs to get started.",
+   ? "No active jobs at the moment. Start by posting your first job!"
+   : "No active contracts. Browse available opportunities to start working.",
   emptyCompletedMessage: isClient
    ? "No completed jobs yet. Once projects are finished, they'll appear here."
-   : "No completed work yet. Keep working on your contracts to build your portfolio.",
+   : "No completed work yet. Finished projects will be shown here.",
  };
 };

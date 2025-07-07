@@ -6,21 +6,21 @@ import type {
  JobSummary,
 } from "@/types/dashboard";
 
-export const getDashboardStatsInternal = async (
+export const getDashboardStatsExternal = async (
  userType: "client" | "freelancer"
 ): Promise<DashboardStats[]> => {
- const data = await getDashboardDataInternal(userType);
+ const data = await getDashboardDataExternal(userType);
  return data.dashboardStats;
 };
 
-export const getActiveJobsInternal = async (
+export const getActiveJobsExternal = async (
  userType: "client" | "freelancer"
 ): Promise<JobSummary[]> => {
- const data = await getDashboardDataInternal(userType);
+ const data = await getDashboardDataExternal(userType);
  return data.activeJobs;
 };
 
-export const getTopFreelancersInternal = async (): Promise<
+export const getTopFreelancersExternal = async (): Promise<
  FreelancerSummary[]
 > => {
  return [
@@ -66,7 +66,7 @@ export const getTopFreelancersInternal = async (): Promise<
  ];
 };
 
-export const getJobOpportunitiesInternal = async (): Promise<
+export const getJobOpportunitiesExternal = async (): Promise<
  JobOpportunity[]
 > => {
  return [
@@ -132,15 +132,15 @@ export const getJobOpportunitiesInternal = async (): Promise<
  ];
 };
 
-export const getDashboardDataInternal = async (
+export const getDashboardDataExternal = async (
  userType: "client" | "freelancer"
 ): Promise<DashboardHomeData> => {
  return userType === "client"
-  ? await getClientDashboardDataInternal()
-  : await getFreelancerDashboardDataInternal();
+  ? await getClientDashboardDataExternal()
+  : await getFreelancerDashboardDataExternal();
 };
 
-export const getAllFreelancersInternal = async (): Promise<
+export const getAllFreelancersExternal = async (): Promise<
  FreelancerSummary[]
 > => {
  return [
@@ -209,49 +209,10 @@ export const getAllFreelancersInternal = async (): Promise<
    skills: ["Node.js", "React", "MongoDB"],
    avatar: "/placeholder.svg",
   },
-  {
-   id: "lisa456",
-   name: "Lisa M.",
-   title: "UI/UX Designer",
-   specialty: "Figma, Adobe XD, Prototyping",
-   jobsCount: "2 Active",
-   status: "Available",
-   rating: 4.9,
-   reviewCount: 98,
-   hourlyRate: "0.06 ETH/hr",
-   skills: ["Figma", "Adobe XD", "Prototyping"],
-   avatar: "/placeholder.svg",
-  },
-  {
-   id: "john789",
-   name: "John D.",
-   title: "Backend Developer",
-   specialty: "Python, Django, PostgreSQL",
-   jobsCount: "1 Active",
-   status: "Available",
-   rating: 4.7,
-   reviewCount: 145,
-   hourlyRate: "0.05 ETH/hr",
-   skills: ["Python", "Django", "PostgreSQL"],
-   avatar: "/placeholder.svg",
-  },
-  {
-   id: "emma101",
-   name: "Emma R.",
-   title: "Mobile Developer",
-   specialty: "React Native, Flutter, iOS",
-   jobsCount: "0 Active",
-   status: "Available",
-   rating: 4.8,
-   reviewCount: 67,
-   hourlyRate: "0.07 ETH/hr",
-   skills: ["React Native", "Flutter", "iOS"],
-   avatar: "/placeholder.svg",
-  },
  ];
 };
 
-export const getAllJobOpportunitiesInternal = async (): Promise<
+export const getAllJobOpportunitiesExternal = async (): Promise<
  JobOpportunity[]
 > => {
  return [
@@ -355,7 +316,7 @@ export const getAllJobOpportunitiesInternal = async (): Promise<
  ];
 };
 
-const getClientDashboardDataInternal = async (): Promise<DashboardHomeData> => {
+const getClientDashboardDataExternal = async (): Promise<DashboardHomeData> => {
  return {
   dashboardStats: [
    {
@@ -437,12 +398,12 @@ const getClientDashboardDataInternal = async (): Promise<DashboardHomeData> => {
     progress: 100,
    },
   ],
-  topFreelancers: await getTopFreelancersInternal(),
+  topFreelancers: await getTopFreelancersExternal(),
   jobOpportunities: [],
  };
 };
 
-const getFreelancerDashboardDataInternal =
+const getFreelancerDashboardDataExternal =
  async (): Promise<DashboardHomeData> => {
   return {
    dashboardStats: [
@@ -526,6 +487,6 @@ const getFreelancerDashboardDataInternal =
     },
    ],
    topFreelancers: [],
-   jobOpportunities: await getJobOpportunitiesInternal(),
+   jobOpportunities: await getJobOpportunitiesExternal(),
   };
  };

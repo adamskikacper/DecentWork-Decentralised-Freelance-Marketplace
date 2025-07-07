@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/UI";
 import {
@@ -11,6 +11,14 @@ import { AvailableJobsList } from "@/components/Job";
 import { Breadcrumbs } from "@/components/Layout";
 import { LoadingScreen } from "@/components/Common/LoadingScreen";
 import { useAuth } from "@/hooks/useAuth";
+import {
+ FileText,
+ User,
+ DollarSign,
+ Briefcase,
+ Star,
+ Clock,
+} from "lucide-react";
 import {
  useFetchStats,
  useFetchActiveJobs,
@@ -41,6 +49,32 @@ export const Home: React.FC<HomeProps> = ({
  const isClient = userType === "client";
 
  const { stats, isLoading: statsLoading, error: statsError } = useFetchStats();
+
+ const getIconForStat = (title: string): React.ReactNode => {
+  switch (title) {
+   case "Active Jobs":
+    return <FileText className="w-5 h-5" />;
+   case "Hired Freelancers":
+    return <User className="w-5 h-5" />;
+   case "Total Spent":
+    return <DollarSign className="w-5 h-5" />;
+   case "Completed Jobs":
+    return <Briefcase className="w-5 h-5" />;
+   case "Current Balance":
+    return <DollarSign className="w-5 h-5" />;
+   case "Average Rating":
+    return <Star className="w-5 h-5" />;
+   default:
+    return <Clock className="w-5 h-5" />;
+  }
+ };
+
+ const statsWithIcons = useMemo(() => {
+  return stats.map((stat) => ({
+   ...stat,
+   icon: getIconForStat(stat.title),
+  }));
+ }, [stats]);
  const {
   jobs: activeJobs,
   isLoading: jobsLoading,
@@ -116,7 +150,7 @@ export const Home: React.FC<HomeProps> = ({
     </Button>
    </div>
 
-   <DashboardStats stats={stats} isLoading={isLoading} />
+   <DashboardStats stats={statsWithIcons} isLoading={isLoading} />
 
    <DashboardSection
     title="Active Jobs"
