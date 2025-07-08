@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
+import { useAuth } from "@/app/providers/AuthProvider";
 
 export const Dashboard = () => {
  const { userType } = useAuth();

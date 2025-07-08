@@ -1,5 +1,5 @@
 import React from "react";
-import { JobSummary } from "@/types";
+import { JobSummary } from "@/shared/types";
 import { JobCard } from "@/features/dashboard/common/components/JobCard";
 
 interface JobsListProps {

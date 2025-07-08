@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "@/hooks/useAuth";
-import { dashboardService } from "@/services";
-import type { JobSummary } from "@/types/dashboard";
+import { useAuth } from "@/app/providers/AuthProvider";
+import { getActiveJobs } from "@/shared/api/dashboardService.service";
+import type { JobSummary } from "@/shared/types/dashboard";
 
 export const useFetchActiveJobs = () => {
  const { userType } = useAuth();
@@ -16,7 +16,7 @@ export const useFetchActiveJobs = () => {
    try {
     setIsLoading(true);
     setError(null);
-    const data = await dashboardService.getActiveJobs(userType);
+    const data = await getActiveJobs(userType);
     setJobs(data);
    } catch (err) {
     setError(

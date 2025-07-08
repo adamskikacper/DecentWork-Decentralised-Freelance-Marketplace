@@ -1,16 +1,16 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/UI";
+import { Button } from "@/shared/ui";
 import {
  DashboardSection,
  DashboardStats,
  JobsList,
 } from "@/features/dashboard";
 import { FreelancerTable } from "@/features/dashboard/client/components";
-import { AvailableJobsList } from "@/components/Job";
-import { Breadcrumbs } from "@/components/Layout";
-import { LoadingScreen } from "@/components/Common/LoadingScreen";
-import { useAuth } from "@/hooks/useAuth";
+import { AvailableJobsList } from "@/features/jobs";
+import { Breadcrumbs } from "@/shared/ui";
+import { LoadingScreen } from "@/shared/ui";
+import { useAuth } from "@/app/providers/AuthProvider";
 import {
  FileText,
  User,

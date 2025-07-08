@@ -1,5 +1,5 @@
 import React from "react";
-import { FreelancerSummary } from "@/types";
+import { FreelancerSummary } from "@/shared/types";
 import { FreelancerCard } from "../FreelancerCard";
 
 interface FreelancerTableProps {

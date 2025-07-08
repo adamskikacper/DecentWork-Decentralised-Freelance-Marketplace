@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "@/hooks/useAuth";
-import { dashboardService } from "@/services";
-import type { DashboardStats } from "@/types/dashboard";
+import { useAuth } from "@/app/providers/AuthProvider";
+import { getDashboardStats } from "@/shared/api/dashboardService.service";
+import type { DashboardStats } from "@/shared/types/dashboard";
 
 export const useFetchStats = () => {
  const { userType } = useAuth();
@@ -16,7 +16,7 @@ export const useFetchStats = () => {
    try {
     setIsLoading(true);
     setError(null);
-    const data = await dashboardService.getDashboardStats(userType);
+    const data = await getDashboardStats(userType);
     setStats(data);
    } catch (err) {
     setError(

@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
-import { useAuth } from "@/hooks/useAuth";
-import { useIsMobile } from "@/hooks/useMobile";
+import { cn } from "@/shared/lib/utils";
+import { useAuth } from "@/app/providers/AuthProvider";
+import { useIsMobile } from "@/shared/lib/useMobile";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
@@ -14,7 +14,7 @@ import {
  ChevronRight,
  FileText,
 } from "lucide-react";
-import { Button } from "@/components/UI/Button";
+import { Button } from "@/shared/ui/Button";
 
 export interface DashboardSidebarProps {
  className?: string;

@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from "react";
-import { Button } from "@/components/UI";
+import { Button } from "@/shared/ui";
 import { DashboardSection } from "@/features/dashboard";
-import { AvailableJobsList, SearchFilterBar } from "@/components/Job";
-import { Breadcrumbs } from "@/components/Layout";
-import { LoadingScreen } from "@/components/Common/LoadingScreen";
+import { AvailableJobsList, SearchFilterBar } from "@/features/jobs";
+import { Breadcrumbs } from "@/shared/ui";
+import { LoadingScreen } from "@/shared/ui";
 import { useFetchJobOpportunities } from "@/features/dashboard/hooks";
 import { useNavigate } from "react-router-dom";
 

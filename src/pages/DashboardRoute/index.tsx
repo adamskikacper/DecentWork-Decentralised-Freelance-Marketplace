@@ -1,7 +1,7 @@
 import { Outlet, Navigate } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
+import { useAuth } from "@/app/providers/AuthProvider";
 import { DashboardLayout as LayoutComponent } from "@/features/dashboard";
-import { LoadingScreen } from "@/components/Common";
+import { LoadingScreen } from "@/shared/ui";
 
 const DashboardRoute = () => {
  const { user, loading } = useAuth();

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
-import { cn } from "@/lib/utils";
+import { useAuth } from "@/app/providers/AuthProvider";
+import { cn } from "@/shared/lib/utils";
 import { Bell, Menu, X } from "lucide-react";
 import {
  Button,
@@ -14,7 +14,7 @@ import {
  DropdownMenuLabel,
  DropdownMenuSeparator,
  DropdownMenuTrigger,
-} from "@/components/UI";
+} from "@/shared/ui";
 export interface DashboardHeaderProps
  extends React.HTMLAttributes<HTMLDivElement> {
  showMobileMenu?: boolean;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExperienceLevel, JobDuration, JobType } from "@/types/blockchain";
+import { ExperienceLevel, JobDuration, JobType } from "@/shared/types/blockchain";
 
 interface JobPostFormProps {
  onSubmit: (formData: {

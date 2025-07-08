@@ -1,7 +1,7 @@
 import React from "react";
 import { User } from "lucide-react";
-import { FreelancerSummary } from "@/types";
-import { Button, Badge } from "@/components/UI";
+import { FreelancerSummary } from "@/shared/types";
+import { Button, Badge } from "@/shared/ui";
 
 interface FreelancerCardProps {
  freelancer: FreelancerSummary;

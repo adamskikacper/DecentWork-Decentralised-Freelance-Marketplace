@@ -1,6 +1,6 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import { AuthGuard } from "@/components/Auth";
-import { useAuth } from "@/hooks/useAuth";
+import { AuthGuard } from "@/features/authentication";
+import { useAuth } from "@/app/providers/AuthProvider";
 import * as Client from "@/features/dashboard/client";
 import * as Freelancer from "@/features/dashboard/freelancer";
 import * as CommonPages from "@/features/dashboard/common/pages";
@@ -18,7 +18,7 @@ export const DashboardRoutes = () => {
     />
     <Route path="jobs/:jobId" element={<CommonPages.JobDetails />} />
     <Route path="messages" element={<CommonPages.Messages />} />
-    <Route path="messages/:userId" element={<CommonPages.MessageThread />} />
+    <Route path="messages/:userId" element={<CommonPages.Chat />} />
     <Route
      path="freelancers/:freelancerId"
      element={<CommonPages.FreelancerDetails />}

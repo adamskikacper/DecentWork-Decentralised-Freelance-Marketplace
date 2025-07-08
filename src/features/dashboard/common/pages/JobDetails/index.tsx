@@ -1,6 +1,6 @@
 import React from "react";
-import { Breadcrumbs } from "@/components/Layout";
-import { JobDetails as JobDetailsComponent } from "@/components/Job";
+import { Breadcrumbs } from "@/shared/ui";
+import { JobDetails as JobDetailsComponent } from "@/features/jobs";
 
 export const JobDetails: React.FC = () => {
  return (

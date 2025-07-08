@@ -1,6 +1,6 @@
 import React from "react";
-import { Breadcrumbs } from "@/components/Layout";
-import { FreelancerDetails as FreelancerDetailsComponent } from "@/components/Profile";
+import { Breadcrumbs } from "@/shared/ui";
+import { FreelancerDetails as FreelancerDetailsComponent } from "@/entities/freelancer";
 
 export const FreelancerDetails: React.FC = () => {
  return (

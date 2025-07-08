@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Input } from "@/components/UI";
+import { Button, Input } from "@/shared/ui";
 import { DashboardSection } from "@/features/dashboard";
 import { FreelancerTable } from "../../components";
-import { Breadcrumbs } from "@/components/Layout";
-import { LoadingScreen } from "@/components/Common/LoadingScreen";
+import { Breadcrumbs } from "@/shared/ui";
+import { LoadingScreen } from "@/shared/ui";
 import { useFetchFreelancers } from "@/features/dashboard/hooks";
 import { Search } from "lucide-react";
 export interface FreelancersProps {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "@/hooks/useAuth";
-import { dashboardService } from "@/services";
-import type { JobOpportunity } from "@/types/dashboard";
+import { useAuth } from "@/app/providers/AuthProvider";
+import { getJobOpportunities } from "@/shared/api/dashboardService.service";
+import type { JobOpportunity } from "@/shared/types/dashboard";
 
 export const useFetchJobOpportunities = () => {
  const { userType } = useAuth();
@@ -19,7 +19,7 @@ export const useFetchJobOpportunities = () => {
    try {
     setIsLoading(true);
     setError(null);
-    const data = await dashboardService.getJobOpportunities();
+    const data = await getJobOpportunities();
     setOpportunities(data);
    } catch (err) {
     setError(

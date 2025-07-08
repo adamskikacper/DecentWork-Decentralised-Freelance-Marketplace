@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { Navbar, Footer } from "@/components/Layout";
+import { Navbar, Footer } from "@/shared/ui";
 import { DashboardSidebar } from "@/features/dashboard";
-import { cn } from "@/lib/utils";
-import { useIsMobile } from "@/hooks/useMobile";
+import { cn } from "@/shared/lib/utils";
+import { useIsMobile } from "@/shared/lib/useMobile";
 
 export interface DashboardLayoutProps
  extends React.HTMLAttributes<HTMLDivElement> {

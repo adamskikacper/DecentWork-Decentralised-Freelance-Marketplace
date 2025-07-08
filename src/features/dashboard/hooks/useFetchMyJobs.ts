@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
-import { useAuth } from "@/hooks/useAuth";
-import { jobsService } from "@/services";
-import type { JobsData } from "@/types/dashboard";
+import { useAuth } from "@/app/providers/AuthProvider";
+import { getJobsData } from "@/shared/api/jobsService.service";
+import type { JobsData } from "@/shared/types/dashboard";
 
 export interface MyJobsHookResult {
  allJobs: JobsData["allJobs"];
@@ -24,7 +24,7 @@ export const useFetchMyJobs = (): MyJobsHookResult => {
    try {
     setIsLoading(true);
     setError(null);
-    const jobs = await jobsService.getJobsData(userType);
+    const jobs = await getJobsData(userType);
     setJobsData(jobs);
    } catch (err) {
     setError(err instanceof Error ? err.message : "Failed to fetch jobs data");

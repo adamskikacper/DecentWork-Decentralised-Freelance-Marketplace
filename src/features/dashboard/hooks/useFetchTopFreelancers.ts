@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "@/hooks/useAuth";
-import { dashboardService } from "@/services";
-import type { FreelancerSummary } from "@/types/dashboard";
+import { useAuth } from "@/app/providers/AuthProvider";
+import { getTopFreelancers } from "@/shared/api/dashboardService.service";
+import type { FreelancerSummary } from "@/shared/types/dashboard";
 
 export const useFetchTopFreelancers = () => {
  const { userType } = useAuth();
@@ -19,7 +19,7 @@ export const useFetchTopFreelancers = () => {
    try {
     setIsLoading(true);
     setError(null);
-    const data = await dashboardService.getTopFreelancers();
+    const data = await getTopFreelancers();
     setFreelancers(data);
    } catch (err) {
     setError(

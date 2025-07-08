@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Navbar, Footer } from "@/components/Layout";
-import { SearchFilterBar, AvailableJobsList } from "@/components/Job";
+import { Navbar, Footer } from "@/shared/ui";
+import { SearchFilterBar, AvailableJobsList } from "@/features/jobs";
 
 const JobList = () => {
  const navigate = useNavigate();

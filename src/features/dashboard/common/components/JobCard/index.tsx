@@ -1,5 +1,5 @@
 import { User } from "lucide-react";
-import { JobSummary } from "@/types";
+import { JobSummary } from "@/shared/types";
 
 interface JobCardProps {
  job?: JobSummary;

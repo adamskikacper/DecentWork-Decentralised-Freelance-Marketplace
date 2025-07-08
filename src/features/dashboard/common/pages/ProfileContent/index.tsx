@@ -1,6 +1,6 @@
 import React from "react";
 import { DashboardSection } from "@/features/dashboard";
-import { Breadcrumbs } from "@/components/Layout";
+import { Breadcrumbs } from "@/shared/ui";
 interface ProfileContentProps {
  user?: { email?: string; uid?: string } | null;
 }

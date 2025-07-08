@@ -3,16 +3,12 @@
   "baseUrl": ".",
   "paths": {
    "@/*": ["./src/*"],
-   "@/components/*": ["./src/components/*"],
+   "@/app/*": ["./src/app/*"],
    "@/pages/*": ["./src/pages/*"],
-   "@/hooks/*": ["./src/hooks/*"],
-   "@/lib/*": ["./src/lib/*"],
-   "@/utils/*": ["./src/utils/*"],
-   "@/types/*": ["./src/types/*"],
-   "@/constants/*": ["./src/constants/*"],
-   "@/services/*": ["./src/services/*"],
-   "@/integrations/*": ["./src/integrations/*"],
-   "@/features/*": ["./src/features/*"]
+   "@/entities/*": ["./src/entities/*"],
+   "@/features/*": ["./src/features/*"],
+   "@/shared/*": ["./src/shared/*"],
+   "@/hooks/*": ["./src/hooks/*"]
   }
  }
 }

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { DashboardSection } from "./index";
-import { Button } from "@/components/UI";
+import { Button } from "@/shared/ui";
 import { PlusCircle } from "lucide-react";
 const meta = {
  title: "Dashboardv2/Common/DashboardSection",

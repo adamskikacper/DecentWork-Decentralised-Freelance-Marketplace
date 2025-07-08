@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/UI";
+import { Button } from "@/shared/ui";
 import { DashboardSection, JobsList } from "@/features/dashboard";
-import { Breadcrumbs } from "@/components/Layout";
-import { LoadingScreen } from "@/components/Common/LoadingScreen";
+import { Breadcrumbs } from "@/shared/ui";
+import { LoadingScreen } from "@/shared/ui";
 import { useFetchMyJobs } from "@/features/dashboard/hooks";
 
 export interface MyJobsProps {
