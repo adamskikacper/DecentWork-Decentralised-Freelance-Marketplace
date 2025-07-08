@@ -1,6 +1,6 @@
 import React from "react";
-import { Navbar, Footer } from "@/components/Layout";
-import { JobDetails } from "@/components/Job";
+import { Navbar, Footer } from "@/shared/ui";
+import { JobDetails } from "@/features/jobs";
 
 const JobDetailsPage = () => {
  return (
