@@ -8,7 +8,7 @@ import {
 } from "react";
 import { Session, User } from "@supabase/supabase-js";
 import { useNavigate } from "react-router-dom";
-import { authService } from "@/services/authService";
+import { authService } from "@/api/authService";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/useToast";
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
-import { dashboardService } from "@/services";
+import { getJobOpportunities } from "@/features/dashboard/api/dashboardService";
 import type { JobOpportunity } from "@/types/dashboard";
 
 export const useFetchJobOpportunities = () => {
@@ -19,7 +19,7 @@ export const useFetchJobOpportunities = () => {
    try {
     setIsLoading(true);
     setError(null);
-    const data = await dashboardService.getJobOpportunities();
+    const data = await getJobOpportunities();
     setOpportunities(data);
    } catch (err) {
     setError(

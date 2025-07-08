@@ -20,12 +20,9 @@ export interface AvailableJobsListProps {
 export const AvailableJobsList: React.FC<AvailableJobsListProps> = ({
  jobs,
  onDetails,
- className = "",
 }) => {
  return (
-  <div
-   className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ${className}`}
-  >
+  <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 `}>
    {jobs.map((job) => (
     <JobCard
      key={job.id}

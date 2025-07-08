@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
-import { dashboardService } from "@/services";
+import { getDashboardStats } from "@/features/dashboard/api/dashboardService";
 import type { DashboardStats } from "@/types/dashboard";
 
 export const useFetchStats = () => {
@@ -16,7 +16,7 @@ export const useFetchStats = () => {
    try {
     setIsLoading(true);
     setError(null);
-    const data = await dashboardService.getDashboardStats(userType);
+    const data = await getDashboardStats(userType);
     setStats(data);
    } catch (err) {
     setError(

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
-import { dashboardService } from "@/services";
+import { getTopFreelancers } from "@/features/dashboard/api/dashboardService";
 import type { FreelancerSummary } from "@/types/dashboard";
 
 export const useFetchTopFreelancers = () => {
@@ -19,7 +19,7 @@ export const useFetchTopFreelancers = () => {
    try {
     setIsLoading(true);
     setError(null);
-    const data = await dashboardService.getTopFreelancers();
+    const data = await getTopFreelancers();
     setFreelancers(data);
    } catch (err) {
     setError(

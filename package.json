@@ -18,8 +18,7 @@
   "deploy:polygon": "hardhat run contracts/scripts/deploy.js --network polygon",
   "node": "hardhat node",
   "storybook": "storybook dev -p 6006",
-  "build-storybook": "storybook build",
-  "create-component": "node scripts/create-component.js"
+  "build-storybook": "storybook build"
  },
  "dependencies": {
   "@emotion/react": "^11.14.0",

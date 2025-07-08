@@ -99,11 +99,7 @@ export const FindJobs: React.FC<FindJobsProps> = ({ isLoading = false }) => {
      categories={categories}
     />
     {filteredJobs.length > 0 ? (
-     <AvailableJobsList
-      jobs={filteredJobs}
-      onDetails={handleDetails}
-      className="p-6"
-     />
+     <AvailableJobsList jobs={filteredJobs} onDetails={handleDetails} />
     ) : (
      <div className="p-6 text-center text-muted-foreground">
       <p>No jobs found matching your criteria.</p>
