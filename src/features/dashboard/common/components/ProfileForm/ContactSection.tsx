@@ -7,7 +7,7 @@ export const ContactSection = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Contact Information</CardTitle>
+        <CardTitle>Socials</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">

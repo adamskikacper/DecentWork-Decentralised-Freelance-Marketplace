@@ -39,19 +39,6 @@ export const ProfessionalSection = () => {
           <Input id="hourlyRate" placeholder="0.05" type="number" step="0.001" />
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="availability">Availability</Label>
-          <Select>
-            <SelectTrigger>
-              <SelectValue placeholder="Select availability" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="available">Available</SelectItem>
-              <SelectItem value="busy">Busy</SelectItem>
-              <SelectItem value="unavailable">Unavailable</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
 
         <div className="space-y-2">
           <Label>Skills</Label>

@@ -12,12 +12,10 @@ interface FreelancerCardProps {
 
 const getStatusVariant = (status: string) => {
  switch (status) {
-  case "Online":
-   return "default";
-  case "Offline":
-   return "destructive";
   case "Available":
-   return "secondary";
+   return "success";
+  case "Engaged":
+   return "outline";
   default:
    return "default";
  }

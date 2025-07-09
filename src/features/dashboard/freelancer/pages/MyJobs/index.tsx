@@ -53,18 +53,6 @@ export const MyJobs: React.FC<MyJobsProps> = ({
     items={[{ label: "Dashboard", path: "/dashboard" }, { label: "My Jobs" }]}
    />
 
-   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-    <div>
-     <h1 className="text-2xl font-bold tracking-tight">My Jobs</h1>
-     <p className="text-muted-foreground mt-1">
-      Manage your jobs and track their progress
-     </p>
-    </div>
-    <Button asChild>
-     <Link to="/dashboard/find-jobs">Find More Work</Link>
-    </Button>
-   </div>
-
    <DashboardSection
     title="Active Jobs"
     description="Your ongoing projects and contracts"

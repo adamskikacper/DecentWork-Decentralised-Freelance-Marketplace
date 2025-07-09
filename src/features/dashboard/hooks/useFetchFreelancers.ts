@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAllFreelancers } from "@/shared/api/dashboardService.service";
+import { getAllFreelancers } from "@/features/dashboard/api/freelancersService";
 import type { FreelancerSummary, Freelancers } from "@/shared/types/dashboard";
 
 export const useFetchFreelancers = (): Freelancers => {

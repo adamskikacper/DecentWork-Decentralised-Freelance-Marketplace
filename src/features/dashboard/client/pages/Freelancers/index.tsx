@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Input } from "@/shared/ui";
 import { DashboardSection } from "@/features/dashboard";
 import { FreelancerTable } from "../../components";
@@ -18,6 +18,7 @@ export const Freelancers: React.FC<FreelancersProps> = ({
  onFreelancerDetails,
 }) => {
  const [searchQuery, setSearchQuery] = useState("");
+ const navigate = useNavigate();
  const {
   freelancers: allFreelancers,
   isLoading: dataLoading,
@@ -33,7 +34,7 @@ export const Freelancers: React.FC<FreelancersProps> = ({
   : allFreelancers;
 
  const handleMessageFreelancer = (freelancerId: string) => {
-  console.log(`Messaging freelancer: ${freelancerId}`);
+  navigate(`/dashboard/messages/${freelancerId}`);
  };
 
  if (dataLoading) {
@@ -101,22 +102,35 @@ export const Freelancers: React.FC<FreelancersProps> = ({
    >
     <FreelancerTable
      freelancers={filteredFreelancers.filter(
-      (freelancer) =>
-       freelancer.status === "Online" || freelancer.status === "Offline"
+      (freelancer) => freelancer.hireHistory === "current"
      )}
      onMessage={handleMessageFreelancer}
      onView={onFreelancerDetails}
     />
    </DashboardSection>
-   {/* Available Freelancers Section */}
+   {/* Previous Freelancers Section */}
    <DashboardSection
-    title="Available Freelancers"
-    description="Freelancers you've worked with who are available for new projects"
+    title="Previous Freelancers"
+    description="Freelancers you've worked with before"
     isLoading={isLoading}
    >
     <FreelancerTable
      freelancers={filteredFreelancers.filter(
-      (freelancer) => freelancer.status === "Available"
+      (freelancer) => freelancer.hireHistory === "previous"
+     )}
+     onMessage={handleMessageFreelancer}
+     onView={onFreelancerDetails}
+    />
+   </DashboardSection>
+   {/* Browse Freelancers Section */}
+   <DashboardSection
+    title="Browse Freelancers"
+    description="Discover and hire new talent for your projects"
+    isLoading={isLoading}
+   >
+    <FreelancerTable
+     freelancers={filteredFreelancers.filter(
+      (freelancer) => freelancer.hireHistory === "never"
      )}
      onMessage={handleMessageFreelancer}
      onView={onFreelancerDetails}
