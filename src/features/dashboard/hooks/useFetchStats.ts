@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/app/providers/AuthProvider";
-import { getDashboardStats } from "@/features/dashboard/api/dashboardService";
+import { getDashboardStats } from "@/features/dashboard/api/dashboard.service";
 import type { DashboardStats } from "@/shared/types/dashboard";
 
 export const useFetchStats = () => {

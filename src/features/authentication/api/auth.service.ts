@@ -6,7 +6,7 @@ type UserType = "freelancer" | "client" | null;
 const userTypeCache = new Map<string, { type: UserType; timestamp: number }>();
 const CACHE_TTL = 60000;
 
-export const authService = {
+export const auth = {
  async signIn(email: string, password: string) {
   const { data, error } = await supabase.auth.signInWithPassword({
    email,

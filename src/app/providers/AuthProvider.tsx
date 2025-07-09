@@ -8,7 +8,7 @@ import {
 } from "react";
 import { Session, User } from "@supabase/supabase-js";
 import { useNavigate } from "react-router-dom";
-import { authService } from "@/shared/api/authService.service";
+import { auth } from "@/features/authentication/api/auth.service";
 import { supabase } from "@/shared/api/supabase/client";
 import { useToast } from "@/shared/lib/useToast";
 
@@ -53,7 +53,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
      setUserType(metadataUserType);
     }
 
-    const fetchedUserType = await authService.getUserType(userId);
+    const fetchedUserType = await auth.getUserType(userId);
 
     if (fetchedUserType) {
      console.log(`User type from database: ${fetchedUserType}`);
@@ -95,7 +95,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const setupAuthListener = () => {
    const {
     data: { subscription },
-   } = authService.onAuthStateChange(async (newSession, newUser) => {
+   } = auth.onAuthStateChange(async (newSession, newUser) => {
     if (!mounted) return;
 
     console.log(
@@ -120,7 +120,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const initializeAuth = async () => {
    try {
-    const currentSession = await authService.getSession();
+    const currentSession = await auth.getSession();
     console.log(
      "Initial session check:",
      currentSession ? "Session exists" : "No session"
@@ -156,7 +156,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
  const signIn = async (email: string, password: string) => {
   setLoading(true);
   try {
-   const { session: newSession, user: newUser } = await authService.signIn(
+   const { session: newSession, user: newUser } = await auth.signIn(
     email,
     password
    );
@@ -166,7 +166,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     console.log("User metadata:", newUser.user_metadata);
 
     const metadataUserType = newUser.user_metadata?.user_type as UserType;
-    const dbUserType = await authService.getUserType(newUser.id);
+    const dbUserType = await auth.getUserType(newUser.id);
 
     console.log("User type from metadata:", metadataUserType);
     console.log("User type from database:", dbUserType);
@@ -204,7 +204,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
  ) => {
   setLoading(true);
   try {
-   await authService.signUp(email, password, userType);
+   await auth.signUp(email, password, userType);
    setUserType(userType);
    toast({
     title: "Account Created",
@@ -227,7 +227,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
  const signOut = async () => {
   try {
    setLoading(true);
-   await authService.signOut();
+   await auth.signOut();
    setUser(null);
    setSession(null);
    setUserType(null);

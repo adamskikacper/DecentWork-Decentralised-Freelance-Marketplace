@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/app/providers/AuthProvider";
-import { getActiveJobs } from "@/features/dashboard/api/dashboardService";
+import { getActiveJobs } from "@/features/dashboard/api/dashboard.service";
 import type { JobSummary } from "@/shared/types/dashboard";
 
 export const useFetchActiveJobs = () => {

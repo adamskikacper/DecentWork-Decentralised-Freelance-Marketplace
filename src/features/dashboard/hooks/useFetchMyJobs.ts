@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useAuth } from "@/app/providers/AuthProvider";
-import { getJobsData } from "@/shared/api/jobsService.service";
+import { getJobsData } from "@/shared/api/jobs.service";
 import type { JobsData } from "@/shared/types/dashboard";
 
 export interface MyJobsHookResult {

@@ -95,7 +95,6 @@ export const getAllFreelancers = async (): Promise<FreelancerSummary[]> => {
     },
   ];
 
-  // Set status based on active jobs count
   return freelancers.map(freelancer => {
     const activeJobsCount = parseInt(freelancer.jobsCount.split(' ')[0]);
     return {
@@ -103,4 +102,63 @@ export const getAllFreelancers = async (): Promise<FreelancerSummary[]> => {
       status: activeJobsCount > 0 ? "Engaged" : "Available"
     };
   });
+};
+
+export const getTopFreelancers = async (): Promise<FreelancerSummary[]> => {
+  return [
+    {
+      id: "alex123",
+      name: "Alex K.",
+      title: "Blockchain Developer",
+      specialty: "Solidity, React, Web3",
+      jobsCount: "2 Active",
+      status: "Active",
+      rating: 4.9,
+      reviewCount: 127,
+      hourlyRate: "0.05 ETH/hr",
+      skills: ["Solidity", "React", "Web3"],
+      avatar: "/placeholder.svg",
+      hireHistory: "current",
+    },
+    {
+      id: "maria123",
+      name: "Maria S.",
+      title: "Smart Contract Auditor",
+      specialty: "Security, Solidity, Audit",
+      jobsCount: "1 Active",
+      status: "Active",
+      rating: 4.8,
+      reviewCount: 89,
+      hourlyRate: "0.08 ETH/hr",
+      skills: ["Security", "Solidity", "Audit"],
+      avatar: "/placeholder.svg",
+      hireHistory: "current",
+    },
+    {
+      id: "david123",
+      name: "David C.",
+      title: "DeFi Specialist",
+      specialty: "DeFi, TypeScript, Node.js",
+      jobsCount: "1 Active",
+      status: "Active",
+      rating: 4.7,
+      reviewCount: 156,
+      hourlyRate: "0.06 ETH/hr",
+      skills: ["DeFi", "TypeScript", "Node.js"],
+      avatar: "/placeholder.svg",
+      hireHistory: "current",
+    },
+  ];
+};
+
+export const getFreelancerDetails = async (freelancerId: string) => {
+  return null;
+};
+
+export const getFreelancerPortfolio = async (freelancerId: string) => {
+  return null;
+};
+
+export const getFreelancerReviews = async (freelancerId: string) => {
+  return null;
 };

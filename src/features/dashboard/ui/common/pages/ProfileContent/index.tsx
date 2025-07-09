@@ -1,8 +1,8 @@
 import React from "react";
 import { Breadcrumbs } from "@/shared/ui";
 import { useAuth } from "@/app/providers/AuthProvider";
-import { FreelancerProfile } from "@/features/dashboard/freelancer/components/FreelancerProfile";
-import { ClientProfile } from "@/features/dashboard/client/components/ClientProfile";
+import { FreelancerProfile } from "@/features/dashboard/ui/freelancer/components/FreelancerProfile";
+import { ClientProfile } from "@/features/dashboard/ui/client/components/ClientProfile";
 
 interface ProfileContentProps {
  user?: { email?: string; uid?: string } | null;

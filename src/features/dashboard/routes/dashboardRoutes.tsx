@@ -1,9 +1,9 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthGuard } from "@/features/authentication";
 import { useAuth } from "@/app/providers/AuthProvider";
-import * as Client from "@/features/dashboard/client";
-import * as Freelancer from "@/features/dashboard/freelancer";
-import * as CommonPages from "@/features/dashboard/common/pages";
+import * as Client from "@/features/dashboard/ui/client";
+import * as Freelancer from "@/features/dashboard/ui/freelancer";
+import * as CommonPages from "@/features/dashboard/ui/common/pages";
 import { Dashboard } from "@/features/dashboard";
 
 export const DashboardRoutes = () => {

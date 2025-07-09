@@ -1,13 +1,15 @@
-import { BasicInfoSection } from "@/features/dashboard/common/components/ProfileForm/BasicInfoSection";
-import { CompanySection } from "./CompanySection";
+import { BasicInfoSection } from "@/features/dashboard/ui/common/components/ProfileForm/BasicInfoSection";
+import { ContactSection } from "@/features/dashboard/ui/common/components/ProfileForm/ContactSection";
+import { ProfessionalSection } from "./ProfessionalSection";
+import { PortfolioSection } from "./PortfolioSection";
 import { Button } from "@/shared/ui/Button";
 import { Save, X } from "lucide-react";
 
-export const ClientProfile = () => {
+export const FreelancerProfile = () => {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Client Profile</h1>
+        <h1 className="text-2xl font-bold">Freelancer Profile</h1>
         <div className="flex gap-2">
           <Button variant="outline">
             <X className="w-4 h-4 mr-2" />
@@ -21,7 +23,9 @@ export const ClientProfile = () => {
       </div>
 
       <BasicInfoSection />
-      <CompanySection />
+      <ProfessionalSection />
+      <ContactSection />
+      <PortfolioSection />
     </div>
   );
 };

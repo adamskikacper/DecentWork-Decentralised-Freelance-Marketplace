@@ -13,7 +13,7 @@ import {
  getMessageThread,
  sendMessage,
  type Message,
-} from "@/shared/api/messagingService.service";
+} from "@/features/dashboard/api/message.service";
 
 export const Chat: React.FC = () => {
  const { userId } = useParams<{ userId: string }>();

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { DashboardSection } from "@/features/dashboard";
-import { JobPostForm } from "@/features/dashboard/client/components/JobPostForm";
+import { JobPostForm } from "@/features/dashboard/ui/client/components/JobPostForm";
 import { Breadcrumbs } from "@/shared/ui";
 import { ExperienceLevel, JobDuration, JobType } from "@/shared/types/blockchain";
 export interface PostJobProps {

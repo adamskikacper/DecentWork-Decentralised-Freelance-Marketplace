@@ -101,3 +101,47 @@ export const getAllJobOpportunities = async (): Promise<JobOpportunity[]> => {
     },
   ];
 };
+
+export const getJobDetails = async (jobId: string) => {
+  return null;
+};
+
+export const createJob = async (jobData: any) => {
+  return null;
+};
+
+export const updateJob = async (jobId: string, jobData: any) => {
+  return null;
+};
+
+export const deleteJob = async (jobId: string) => {
+  return null;
+};
+
+export const getClientJobs = async (clientId: string) => {
+  return null;
+};
+
+export const getMyJobs = async (freelancerId: string) => {
+  return null;
+};
+
+export const updateJobStatus = async (jobId: string, status: string) => {
+  return null;
+};
+
+export const getJobApplications = async (jobId: string) => {
+  return null;
+};
+
+export const updateJobProgress = async (jobId: string, progress: number) => {
+  return null;
+};
+
+export const submitDeliverable = async (jobId: string, deliverable: any) => {
+  return null;
+};
+
+export const getJobCategories = async () => {
+  return null;
+};

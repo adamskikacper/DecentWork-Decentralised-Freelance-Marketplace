@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { DashboardSection } from "@/features/dashboard/common/components/DashboardSection";
+import { DashboardSection } from "@/features/dashboard/ui/common/components/DashboardSection";
 import { Breadcrumbs, Button, Avatar, AvatarFallback, LoadingScreen } from "@/shared/ui";
-import { getConversations, type Conversation } from "@/shared/api/messagingService.service";
+import { getConversations, type Conversation } from "@/features/dashboard/api/message.service";
 
 export const Messages: React.FC = () => {
   const [conversations, setConversations] = useState<Conversation[]>([]);

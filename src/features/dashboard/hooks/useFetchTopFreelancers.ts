@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/app/providers/AuthProvider";
-import { getTopFreelancers } from "@/features/dashboard/api/dashboardService";
+import { getTopFreelancers } from "@/features/dashboard/api/freelancer.service";
 import type { FreelancerSummary } from "@/shared/types/dashboard";
 
 export const useFetchTopFreelancers = () => {
