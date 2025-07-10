@@ -1,5 +1,5 @@
 import React from "react";
-import { JobCard } from "@/features/dashboard/common/components";
+import { JobCard } from "@/features/dashboard/ui/common/components";
 
 interface AvailableJob {
  id: string | number;

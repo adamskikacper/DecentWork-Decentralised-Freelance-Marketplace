@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/app/providers/AuthProvider";
-import { getJobOpportunities } from "@/shared/api/dashboardService.service";
+import { getAllJobOpportunities } from "@/features/dashboard/api/job.service";
 import type { JobOpportunity } from "@/shared/types/dashboard";
 
 export const useFetchJobOpportunities = () => {
@@ -19,7 +19,7 @@ export const useFetchJobOpportunities = () => {
    try {
     setIsLoading(true);
     setError(null);
-    const data = await getJobOpportunities();
+    const data = await getAllJobOpportunities();
     setOpportunities(data);
    } catch (err) {
     setError(

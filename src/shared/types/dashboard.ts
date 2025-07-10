@@ -36,6 +36,7 @@ export interface FreelancerSummary {
  hourlyRate: string;
  skills: string[];
  avatar: string;
+ hireHistory?: "never" | "previous" | "current";
 }
 
 export interface JobOpportunity {
