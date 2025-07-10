@@ -13,7 +13,7 @@ interface FreelancerCardProps {
 const getStatusVariant = (status: string) => {
  switch (status) {
   case "Available":
-   return "success";
+   return "secondary";
   case "Engaged":
    return "outline";
   default:
@@ -27,8 +27,16 @@ export const FreelancerCard = ({
  onView,
  onHire,
 }: FreelancerCardProps) => {
+ const handleRowClick = (e: React.MouseEvent) => {
+  // Prevent row click if an action button was clicked
+  if ((e.target as HTMLElement).closest("button")) return;
+  if (onView) onView(freelancer.id);
+ };
  return (
-  <tr className="border-b border-border">
+  <tr
+   className="border-b border-border cursor-pointer hover:bg-primary/5 transition-colors"
+   onClick={handleRowClick}
+  >
    <td className="py-4 px-4 w-1/4 min-w-[200px]">
     <div className="flex items-center gap-3">
      <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">

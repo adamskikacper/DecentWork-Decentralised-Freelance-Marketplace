@@ -1,1 +1,0 @@
-export { FreelancerDetails } from "./FreelancerDetails";

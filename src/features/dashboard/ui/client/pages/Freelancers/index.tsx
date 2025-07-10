@@ -37,6 +37,10 @@ export const Freelancers: React.FC<FreelancersProps> = ({
   navigate(`/dashboard/messages/${freelancerId}`);
  };
 
+ const handleViewFreelancer = (freelancerId: string) => {
+  navigate(`/dashboard/freelancers/${freelancerId}`);
+ };
+
  if (dataLoading) {
   return <LoadingScreen />;
  }
@@ -105,7 +109,7 @@ export const Freelancers: React.FC<FreelancersProps> = ({
       (freelancer) => freelancer.hireHistory === "current"
      )}
      onMessage={handleMessageFreelancer}
-     onView={onFreelancerDetails}
+     onView={handleViewFreelancer}
     />
    </DashboardSection>
    {/* Previous Freelancers Section */}
@@ -119,7 +123,7 @@ export const Freelancers: React.FC<FreelancersProps> = ({
       (freelancer) => freelancer.hireHistory === "previous"
      )}
      onMessage={handleMessageFreelancer}
-     onView={onFreelancerDetails}
+     onView={handleViewFreelancer}
     />
    </DashboardSection>
    {/* Browse Freelancers Section */}
@@ -133,7 +137,7 @@ export const Freelancers: React.FC<FreelancersProps> = ({
       (freelancer) => freelancer.hireHistory === "never"
      )}
      onMessage={handleMessageFreelancer}
-     onView={onFreelancerDetails}
+     onView={handleViewFreelancer}
     />
    </DashboardSection>
   </div>
