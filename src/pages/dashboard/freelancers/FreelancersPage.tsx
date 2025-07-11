@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/shared/ui";
-import { DashboardPageLayout } from "@/components/templates";
+import { PageLayout } from "@/components/templates";
 import { DashboardSection, FreelancerTable } from "@/components";
 import { SearchInput } from "@/components/molecules";
 import { useFetchFreelancers, useSearch, useNavigation } from "@/shared/hooks";
@@ -42,7 +42,7 @@ export const FreelancersPage: React.FC<FreelancersPageProps> = ({
  );
 
  return (
-  <DashboardPageLayout
+  <PageLayout
    title="Freelancers"
    description="View and manage your freelancers."
    breadcrumbs={[
@@ -105,6 +105,6 @@ export const FreelancersPage: React.FC<FreelancersPageProps> = ({
      />
     </DashboardSection>
    </div>
-  </DashboardPageLayout>
+  </PageLayout>
  );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { DashboardPageLayout } from "@/components/templates";
+import { PageLayout } from "@/components/templates";
 import { JobPostForm } from "@/components";
 import { useNavigation } from "@/shared/hooks";
 import {
@@ -51,7 +51,7 @@ export const PostJobPage: React.FC<PostJobPageProps> = ({
  };
 
  return (
-  <DashboardPageLayout
+  <PageLayout
    title="Post a Job"
    description="Provide detailed information about your job posting"
    breadcrumbs={[
@@ -61,6 +61,6 @@ export const PostJobPage: React.FC<PostJobPageProps> = ({
    isLoading={isLoading}
   >
    <JobPostForm onSubmit={handleSubmit} />
-  </DashboardPageLayout>
+  </PageLayout>
  );
 };
