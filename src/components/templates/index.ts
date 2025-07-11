@@ -8,5 +8,8 @@ export { FormPageTemplate } from "./FormPageTemplate";
 export { ListingTemplate } from "./ListingTemplate";
 export { ProfileTemplate } from "./ProfileTemplate";
 export { PublicTemplate } from "./PublicTemplate";
+export { PageLayout } from "./PageLayout";
+export { DashboardPageLayout } from "./DashboardPageLayout";
+export { PublicPageLayout } from "./PublicPageLayout";
 
 export type * from "./types";

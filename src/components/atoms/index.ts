@@ -4,5 +4,7 @@ export { LoadingSpinner } from "./LoadingSpinner";
 export { ProgressBar } from "./ProgressBar";
 export { RatingStars } from "./RatingStars";
 export { StatusBadge } from "./StatusBadge";
+export { FilterSelect } from "./FilterSelect";
+export { MessageBubble } from "./MessageBubble";
 
 export type * from "./types";

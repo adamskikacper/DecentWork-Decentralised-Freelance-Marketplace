@@ -6,10 +6,6 @@ type RoleGuardProps = {
  allowedRoles: ("client" | "freelancer")[];
 };
 
-/**
- * RoleGuard - Ensures the user has one of the allowed roles before rendering children
- * Redirects to dashboard home if user's role is not allowed
- */
 const RoleGuard: React.FC<RoleGuardProps> = ({ allowedRoles }) => {
  const { userType } = useAuth();
 

@@ -24,5 +24,8 @@ export { PortfolioSection } from "./PortfolioSection";
 export { ProfessionalSection } from "./ProfessionalSection";
 export * from "./ProfileForm";
 export { SearchFilterBar } from "./SearchFilterBar";
+export { ListingInterface } from "./ListingInterface";
+export { ChatInterface } from "./ChatInterface";
+export { ConversationList } from "./ConversationList";
 
 export type * from "./types";
