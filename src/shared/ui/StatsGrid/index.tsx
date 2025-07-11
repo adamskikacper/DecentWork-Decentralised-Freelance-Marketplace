@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { StatCard } from "@/shared/ui";
+import { MetricCard } from "@/components/molecules/MetricCard";
 
 interface StatItem {
  title: string;
@@ -29,7 +29,7 @@ export const StatsGrid: React.FC<StatsGridProps> = ({
    className={`grid grid-cols-1 md:grid-cols-${columns} gap-6 ${className}`}
   >
    {stats.map((stat, index) => (
-    <StatCard
+    <MetricCard
      key={index}
      title={stat.title}
      value={stat.value}

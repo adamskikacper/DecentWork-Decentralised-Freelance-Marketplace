@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Footer } from "@/shared/ui";
-import { JobDetails } from "@/features/jobs";
+import { JobDetails } from "@/components/organisms/JobDetails";
 
 const JobDetailsPage = () => {
  return (
@@ -16,4 +16,4 @@ const JobDetailsPage = () => {
  );
 };
 
-export default JobDetailsPage;
+export { JobDetailsPage };

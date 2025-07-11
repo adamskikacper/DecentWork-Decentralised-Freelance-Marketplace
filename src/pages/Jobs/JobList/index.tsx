@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer } from "@/shared/ui";
-import { SearchFilterBar, AvailableJobsList } from "@/features/jobs";
+import { SearchFilterBar } from "@/components/organisms/SearchFilterBar";
+import { AvailableJobsList } from "@/components/organisms/AvailableJobsList";
 
 const JobList = () => {
  const navigate = useNavigate();
@@ -195,4 +196,4 @@ const JobList = () => {
  );
 };
 
-export default JobList;
+export { JobList };

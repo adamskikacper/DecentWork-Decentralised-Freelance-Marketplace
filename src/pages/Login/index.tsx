@@ -4,7 +4,7 @@ import { useAuth } from "@/app/providers/AuthProvider";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 
-import { LoginForm, SignupForm } from "@/features/authentication";
+import { LoginForm, SignupForm } from "@/components";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/shared/ui";
 import { Navbar } from "@/shared/ui";
 
@@ -60,3 +60,4 @@ const Login = () => {
 };
 
 export default Login;
+export { Login };

@@ -1,14 +1,16 @@
-import { Navbar, Footer } from "@/shared/ui";
-import Hero from "./Hero";
+import React from "react";
+import { Navbar } from "@/shared/ui/Header";
+import { Footer } from "@/shared/ui/Footer";
+import { Hero } from "./Hero";
 
-const Home = () => {
- return (
-  <div className="min-h-screen flex flex-col">
-   <Navbar />
-   <Hero />
-   <Footer />
-  </div>
- );
+export const Home: React.FC = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-grow">
+        <Hero />
+      </main>
+      <Footer />
+    </div>
+  );
 };
-
-export default Home;

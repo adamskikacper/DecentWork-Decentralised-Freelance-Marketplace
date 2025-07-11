@@ -1,24 +1,11 @@
-import { Outlet, Navigate } from "react-router-dom";
-import { useAuth } from "@/app/providers/AuthProvider";
-import { DashboardLayout as LayoutComponent } from "@/features/dashboard";
-import { LoadingScreen } from "@/shared/ui";
+import React from "react";
+import { Outlet } from "react-router-dom";
+import { DashboardLayout } from "@/components";
 
-const DashboardRoute = () => {
- const { user, loading } = useAuth();
-
- if (loading) {
-  return <LoadingScreen />;
- }
-
- if (!user) {
-  return <Navigate to="/login" replace />;
- }
-
- return (
-  <LayoutComponent>
-   <Outlet />
-  </LayoutComponent>
- );
+export const DashboardRoute: React.FC = () => {
+  return (
+    <DashboardLayout>
+      <Outlet />
+    </DashboardLayout>
+  );
 };
-
-export default DashboardRoute;

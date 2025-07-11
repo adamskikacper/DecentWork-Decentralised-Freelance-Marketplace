@@ -7,7 +7,7 @@ import {
   NotFound,
   DashboardRoute,
 } from "@/pages";
-import { DashboardRoutes } from "@/features/dashboard";
+import { DashboardRoutes } from "@/routes";
 
 export const AppRouter = () => (
   <BrowserRouter>
