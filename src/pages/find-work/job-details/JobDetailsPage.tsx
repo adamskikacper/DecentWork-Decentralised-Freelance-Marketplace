@@ -1,17 +1,18 @@
 import React from "react";
-import { Navbar, Footer } from "@/shared/ui";
+import { PublicPageLayout } from "@/components/templates";
 import { JobDetails } from "@/components/organisms/JobDetails";
 
 export const JobDetailsPage = () => {
  return (
-  <div className="min-h-screen flex flex-col">
-   <Navbar />
-   <main className="flex-grow pt-24 pb-12 bg-background">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-     <JobDetails />
-    </div>
-   </main>
-   <Footer />
-  </div>
+  <PublicPageLayout
+   title="Job Details"
+   description="View details and apply for this job."
+   breadcrumbs={[
+    { label: "Find Work", href: "/find-work" },
+    { label: "Job Details" },
+   ]}
+  >
+   <JobDetails />
+  </PublicPageLayout>
  );
 };

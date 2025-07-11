@@ -27,5 +27,6 @@ export { SearchFilterBar } from "./SearchFilterBar";
 export { ListingInterface } from "./ListingInterface";
 export { ChatInterface } from "./ChatInterface";
 export { ConversationList } from "./ConversationList";
+export { HeroSection } from "./HeroSection";
 
 export type * from "./types";

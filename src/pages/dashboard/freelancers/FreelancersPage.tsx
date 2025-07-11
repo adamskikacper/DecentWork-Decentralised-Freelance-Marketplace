@@ -26,9 +26,9 @@ export const FreelancersPage: React.FC<FreelancersPageProps> = ({
  const {
   query: searchQuery,
   setQuery: setSearchQuery,
-  filteredItems: filteredFreelancers
+  filteredItems: filteredFreelancers,
  } = useSearch(allFreelancers, {
-  searchFields: ['name', 'title', 'specialty']
+  searchFields: ["name", "title", "specialty"],
  });
 
  const activeFreelancers = filteredFreelancers.filter(

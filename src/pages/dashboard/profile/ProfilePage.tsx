@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumbs } from "@/shared/ui";
+import { PageLayout } from "@/components/templates";
 import { useAuth } from "@/app/providers/AuthProvider";
 import { FreelancerProfile, ClientProfile } from "@/components";
 
@@ -11,15 +11,18 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user }) => {
  const { userType } = useAuth();
 
  return (
-  <div className="space-y-8">
-   <Breadcrumbs
-    items={[{ label: "Dashboard", path: "/dashboard" }, { label: "Profile" }]}
-   />
-
+  <PageLayout
+   title="Profile"
+   description="Manage your profile and account settings."
+   breadcrumbs={[
+    { label: "Dashboard", href: "/dashboard" },
+    { label: "Profile" },
+   ]}
+  >
    <div className="pb-8">
     {userType === "freelancer" && <FreelancerProfile />}
     {userType === "client" && <ClientProfile />}
    </div>
-  </div>
+  </PageLayout>
  );
 };

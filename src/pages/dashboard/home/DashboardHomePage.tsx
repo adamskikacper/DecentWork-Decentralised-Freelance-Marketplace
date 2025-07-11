@@ -8,7 +8,7 @@ import {
  FreelancerTable,
  AvailableJobsList,
 } from "@/components";
-import { LoadingScreen } from "@/shared/ui";
+import { PageLayout } from "@/components/templates";
 import { useAuth } from "@/app/providers/AuthProvider";
 import { DASHBOARD_LINKS } from "@/shared/constants";
 import {
@@ -31,7 +31,6 @@ export interface DashboardHomePageProps {
   name?: string;
   email?: string;
  };
- isLoading?: boolean;
  onMessage?: (userId: string) => void;
  onJobDetails?: (jobId: string) => void;
  onFreelancerDetails?: (freelancerId: string) => void;
@@ -40,7 +39,6 @@ export interface DashboardHomePageProps {
 
 export const DashboardHomePage: React.FC<DashboardHomePageProps> = ({
  user,
- isLoading = false,
  onMessage,
  onJobDetails,
  onFreelancerDetails,
@@ -98,109 +96,91 @@ export const DashboardHomePage: React.FC<DashboardHomePageProps> = ({
   console.log(`Hiring freelancer: ${freelancerId}`);
  };
 
- const hasAnyError =
-  statsError || jobsError || freelancersError || opportunitiesError;
  const isAnyLoading =
   statsLoading || jobsLoading || freelancersLoading || opportunitiesLoading;
-
- if (isAnyLoading) {
-  return <LoadingScreen />;
- }
-
- if (hasAnyError) {
-  return (
-   <div className="space-y-8">
-    <div className="flex items-center justify-center min-h-[400px]">
-     <div className="text-center">
-      <h2 className="text-xl font-semibold text-destructive mb-2">
-       Error Loading Dashboard
-      </h2>
-      <p className="text-muted-foreground">
-       {statsError || jobsError || freelancersError || opportunitiesError}
-      </p>
-     </div>
-    </div>
-   </div>
-  );
- }
+ const anyError =
+  statsError || jobsError || freelancersError || opportunitiesError;
 
  return (
-  <div className="space-y-8">
-   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-    <div>
-     <h1 className="text-2xl font-bold tracking-tight">
-      {isClient
-       ? "Dashboard Overview"
-       : `Welcome back, ${user?.name || "Freelancer"} 👋`}
-     </h1>
-     <p className="text-muted-foreground mt-1">
-      {isClient
-       ? "Manage your projects and view statistics"
-       : "Here's an overview of your freelance activity."}
-     </p>
-    </div>
+  <PageLayout
+   title={
+    isClient
+     ? "Dashboard Overview"
+     : `Welcome back, ${user?.name || "Freelancer"} 👋`
+   }
+   description={
+    isClient
+     ? "Manage your projects and view statistics"
+     : "Here's an overview of your freelance activity."
+   }
+   breadcrumbs={[{ label: "Dashboard" }]}
+   actions={
     <Button asChild>
      <Link to={isClient ? DASHBOARD_LINKS.POST_JOB : DASHBOARD_LINKS.FIND_JOBS}>
       {isClient ? "Post a Job" : "Find Jobs"}
      </Link>
     </Button>
-   </div>
+   }
+   isLoading={isAnyLoading}
+   error={anyError}
+  >
+   <div className="space-y-8">
+    <DashboardStats stats={statsWithIcons} isLoading={isAnyLoading} />
 
-   <DashboardStats stats={statsWithIcons} isLoading={isLoading} />
-
-   <DashboardSection
-    title="Active Jobs"
-    description="Your current and recently completed jobs"
-    action={
-     <Button variant="outline" size="sm" asChild>
-      <Link to={isClient ? "/dashboard/jobs" : "/dashboard/my-jobs"}>
-       View All
-      </Link>
-     </Button>
-    }
-    isLoading={isLoading}
-   >
-    <JobsList
-     jobs={activeJobs}
-     onMessage={onMessage}
-     onDetails={onJobDetails}
-    />
-   </DashboardSection>
-
-   {isClient && topFreelancers && topFreelancers.length > 0 ? (
     <DashboardSection
-     title="Top Rated Freelancers"
-     description="Discover top talent for your projects"
+     title="Active Jobs"
+     description="Your current and recently completed jobs"
      action={
       <Button variant="outline" size="sm" asChild>
-       <Link to="/dashboard/freelancers">View All</Link>
+       <Link to={isClient ? "/dashboard/jobs" : "/dashboard/my-jobs"}>
+        View All
+       </Link>
       </Button>
      }
-     isLoading={isLoading}
+     isLoading={isAnyLoading}
     >
-     <FreelancerTable
-      freelancers={topFreelancers}
-      onHire={handleHireFreelancer}
+     <JobsList
+      jobs={activeJobs}
       onMessage={onMessage}
-      onView={onFreelancerDetails}
+      onDetails={onJobDetails}
      />
     </DashboardSection>
-   ) : null}
 
-   {!isClient && jobOpportunities && jobOpportunities.length > 0 ? (
-    <DashboardSection
-     title="Job Opportunities"
-     description="Recommended jobs based on your skills and experience"
-     action={
-      <Button variant="outline" size="sm" asChild>
-       <Link to={DASHBOARD_LINKS.FIND_JOBS}>View All</Link>
-      </Button>
-     }
-     isLoading={isLoading}
-    >
-     <AvailableJobsList jobs={jobOpportunities} onDetails={onJobDetails} />
-    </DashboardSection>
-   ) : null}
-  </div>
+    {isClient && topFreelancers && topFreelancers.length > 0 ? (
+     <DashboardSection
+      title="Top Rated Freelancers"
+      description="Discover top talent for your projects"
+      action={
+       <Button variant="outline" size="sm" asChild>
+        <Link to="/dashboard/freelancers">View All</Link>
+       </Button>
+      }
+      isLoading={isAnyLoading}
+     >
+      <FreelancerTable
+       freelancers={topFreelancers}
+       onHire={handleHireFreelancer}
+       onMessage={onMessage}
+       onView={onFreelancerDetails}
+      />
+     </DashboardSection>
+    ) : null}
+
+    {!isClient && jobOpportunities && jobOpportunities.length > 0 ? (
+     <DashboardSection
+      title="Job Opportunities"
+      description="Recommended jobs based on your skills and experience"
+      action={
+       <Button variant="outline" size="sm" asChild>
+        <Link to={DASHBOARD_LINKS.FIND_JOBS}>View All</Link>
+       </Button>
+      }
+      isLoading={isAnyLoading}
+     >
+      <AvailableJobsList jobs={jobOpportunities} onDetails={onJobDetails} />
+     </DashboardSection>
+    ) : null}
+   </div>
+  </PageLayout>
  );
 };

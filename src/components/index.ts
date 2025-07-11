@@ -30,7 +30,6 @@ export {
  ProfileTemplate,
  PublicTemplate,
  PageLayout,
- DashboardPageLayout,
  PublicPageLayout,
 } from "./templates";
 
