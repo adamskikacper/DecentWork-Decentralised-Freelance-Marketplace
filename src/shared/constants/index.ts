@@ -9,15 +9,39 @@ export const NAV_LINKS = {
  LOGIN: "/login",
 };
 
+export const APP_ROUTES = {
+ HOME: "/",
+ HOME_REDIRECT: "/home",
+ JOBS: "/jobs",
+ JOB_DETAILS: "/jobs/:jobId",
+ LOGIN: "/login",
+ DASHBOARD: "/dashboard/*",
+ NOT_FOUND: "*",
+};
+
 export const DASHBOARD_LINKS = {
  HOME: "/dashboard",
  FREELANCERS: "/dashboard/freelancers",
  JOBS: "/dashboard/jobs",
  POST_JOB: "/dashboard/post-job",
+ FIND_JOBS: "/dashboard/find-jobs",
+ MY_JOBS: "/dashboard/my-jobs",
+ MESSAGES: "/dashboard/messages",
  CHATS: "/dashboard/chats",
  CHAT: "/dashboard/chats/:id",
  CONTRACTS: "/dashboard/contracts",
  PROFILE: "/dashboard/profile",
+};
+
+export const DASHBOARD_ROUTES = {
+ HOME: "home",
+ FREELANCERS: "freelancers",
+ POST_JOB: "post-job",
+ FIND_JOBS: "find-jobs",
+ MY_JOBS: "my-jobs",
+ MESSAGES: "messages",
+ CHAT: "messages/chat/:userId",
+ PROFILE: "profile",
 };
 
 export const USER_TYPES = {
@@ -193,4 +217,42 @@ export const DEMO_CONTENT = {
  TITLE: "Smart Contract Demo",
  DESCRIPTION:
   "Watch how our secure escrow system works to protect both clients and freelancers.",
+};
+
+export const DASHBOARD_SIDEBAR = {
+ NAVIGATION_ITEMS: [
+  {
+   id: "dashboard",
+   label: "Dashboard",
+   href: "/dashboard",
+   icon: "Home",
+  },
+  {
+   id: "jobs",
+   label: "Jobs",
+   href: "/dashboard/jobs",
+   icon: "Briefcase",
+  },
+  {
+   id: "messages",
+   label: "Messages",
+   href: "/dashboard/messages",
+   icon: "MessageSquare",
+  },
+  {
+   id: "profile",
+   label: "Profile",
+   href: "/dashboard/profile",
+   icon: "User",
+  },
+  {
+   id: "settings",
+   label: "Settings",
+   href: "/dashboard/settings",
+   icon: "Settings",
+  },
+ ],
+ ANIMATION_DURATION: "300ms",
+ BLUR_INTENSITY: "backdrop-blur-xl",
+ GRADIENT_OPACITY: "bg-white/20",
 };

@@ -8,9 +8,9 @@ import {
 } from "react";
 import { Session, User } from "@supabase/supabase-js";
 import { useNavigate } from "react-router-dom";
-import { auth } from "@/features/authentication/api/auth.service";
-import { supabase } from "@/shared/api/supabase/client";
-import { useToast } from "@/shared/lib/useToast";
+import { auth } from "@/shared/services/auth.service";
+import { supabase } from "@/shared/services/supabase/client";
+import { useToast } from "@/shared/hooks/ui/useToast";
 
 type UserType = "freelancer" | "client" | null;
 

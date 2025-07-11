@@ -13,7 +13,6 @@ export const SkillTag: React.FC<SkillTagProps> = ({
  className = "",
  onClick,
 }) => {
- // Size mapping for padding and text
  const sizeClass = {
   sm: "px-2 py-0.5 text-xs",
   md: "px-3 py-1 text-sm",
