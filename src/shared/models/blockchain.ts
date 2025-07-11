@@ -92,7 +92,6 @@ export interface Reputation {
  reviewCount: number;
 }
 
-// Form data interfaces
 export interface CreateJobFormData {
  title: string;
  description: string;

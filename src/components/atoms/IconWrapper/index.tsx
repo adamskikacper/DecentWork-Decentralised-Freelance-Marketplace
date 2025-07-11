@@ -32,7 +32,7 @@ export const IconWrapper: React.FC<IconWrapperProps> = ({
 }) => {
   return (
     <Icon 
-      className={`${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+      className={`${sizeClasses[size]} ${variantClasses[variant]} shrink-0 ${className}`}
     />
   );
 };

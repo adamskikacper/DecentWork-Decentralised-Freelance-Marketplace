@@ -1,6 +1,8 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { User, Calendar, Clock } from "lucide-react";
+import { getJobDetails } from "@/shared/services/job.service";
+import type { JobDetails as JobDetailsType } from "@/shared/models/job/model";
 
 interface JobDetailsProps {
  onClose?: () => void;
@@ -9,52 +11,69 @@ interface JobDetailsProps {
 export const JobDetails = ({ onClose }: JobDetailsProps) => {
  const navigate = useNavigate();
  const { jobId } = useParams();
+ const [job, setJob] = useState<JobDetailsType | null>(null);
+ const [isLoading, setIsLoading] = useState(true);
+ const [error, setError] = useState<string | null>(null);
 
- // In a real app, you would fetch job details from your backend
- const job = {
-  id: jobId,
-  title: "Web3 Dashboard UI Design",
-  status: "In Progress",
-  budget: "2.5 ETH",
-  progress: 65,
-  description:
-   "Design a modern and user-friendly dashboard for our Web3 application. The design should include wallet connection, transaction history, and asset management interfaces. We need a clean, intuitive design that makes complex blockchain data easy to understand.",
-  startDate: "Mar 15, 2023",
-  dueDate: "Apr 15, 2023",
-  milestones: [
-   {
-    id: 1,
-    title: "Initial Wireframes",
-    status: "Completed",
-    payment: "0.5 ETH",
-    dueDate: "Mar 20, 2023",
-   },
-   {
-    id: 2,
-    title: "High-Fidelity Mockups",
-    status: "Completed",
-    payment: "1.0 ETH",
-    dueDate: "Apr 1, 2023",
-   },
-   {
-    id: 3,
-    title: "Final Designs & Assets",
-    status: "In Progress",
-    payment: "1.0 ETH",
-    dueDate: "Apr 15, 2023",
-   },
-  ],
-  freelancer: {
-   id: "f1",
-   name: "Alex Johnson",
-   role: "UI/UX Designer",
-   rating: 4.9,
-  },
- };
+ useEffect(() => {
+  const fetchJobDetails = async () => {
+   if (!jobId) {
+    setError("No job ID provided");
+    setIsLoading(false);
+    return;
+   }
+
+   try {
+    setIsLoading(true);
+    const jobData = await getJobDetails(jobId);
+    if (jobData) {
+     setJob(jobData);
+    } else {
+     setError("Job not found");
+    }
+   } catch (err) {
+    setError("Failed to fetch job details");
+    console.error("Error fetching job details:", err);
+   } finally {
+    setIsLoading(false);
+   }
+  };
+
+  fetchJobDetails();
+ }, [jobId]);
 
  const handleMessageClick = () => {
-  navigate(`/messages/${job.freelancer.id}`);
+  if (job) {
+   navigate(`/messages/${job.freelancer.id}`);
+  }
  };
+
+ if (isLoading) {
+  return (
+   <div className="flex justify-center items-center h-64">
+    <div className="text-center">
+     <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+     <p className="text-muted-foreground">Loading job details...</p>
+    </div>
+   </div>
+  );
+ }
+
+ if (error || !job) {
+  return (
+   <div className="flex justify-center items-center h-64">
+    <div className="text-center">
+     <p className="text-red-500 mb-2">Error: {error || "Job not found"}</p>
+     <button
+      onClick={() => navigate(-1)}
+      className="px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+     >
+      Go Back
+     </button>
+    </div>
+   </div>
+  );
+ }
 
  return (
   <div className="space-y-8">

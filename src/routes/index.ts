@@ -1,2 +1,2 @@
-// Routes Barrel Export
-export { DashboardRoutes } from './DashboardRoutes';
+export { AppRoutes } from "./AppRoutes";
+export { DashboardRoutes } from "./DashboardRoutes";

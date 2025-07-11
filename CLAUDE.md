@@ -119,3 +119,21 @@ The application supports two user types: `freelancer` and `client`. Authenticati
 - New component structure follows atomic design principles
 - Authentication flow handles both metadata and database user type synchronization
 - Dashboard routes are dynamically rendered based on user type
+
+## Post-Task Console Validation
+
+**IMPORTANT**: After completing ALL tasks in a workflow, you MUST validate the browser console for errors:
+
+1. **Always run after task completion**: Use browser MCP tools to check console logs when all todos are marked as completed
+2. **Use MCP browser tools**:
+   - `mcp__browsertools__getConsoleErrors()` - Check for console errors
+   - `mcp__browsertools__getConsoleLogs()` - Review all console output
+3. **Fix critical errors**: If console errors are found that break functionality, fix them immediately before considering the task complete
+4. **Validation workflow**:
+   - Complete all planned tasks
+   - Mark all todos as completed
+   - Run browser console validation using MCP tools
+   - Fix any critical errors found
+   - Only then consider the work finished
+
+This ensures delivered code works properly in the browser without runtime errors.

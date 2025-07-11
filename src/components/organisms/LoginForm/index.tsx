@@ -30,7 +30,6 @@ export const LoginForm = () => {
     title: "Success",
     description: "You have successfully logged in.",
    });
-   // The navigation will be handled by the signIn function in useAuth
   } catch (error) {
    console.error("Login error:", error);
    toast({

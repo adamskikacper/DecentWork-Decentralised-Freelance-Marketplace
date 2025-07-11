@@ -23,8 +23,7 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
   iconPosition = "left",
   disabled = false,
   loading = false,
-  className = "",
-  ...props
+  className = ""
 }) => {
   return (
     <Button
@@ -33,7 +32,6 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
       onClick={onClick}
       disabled={disabled || loading}
       className={className}
-      {...props}
     >
       {Icon && iconPosition === "left" && (
         <Icon className="w-4 h-4 mr-2" />

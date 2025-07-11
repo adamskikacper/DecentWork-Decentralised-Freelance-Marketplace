@@ -1,4 +1,3 @@
-// Basic Radix UI Components
 export * from "./Button";
 export * from "./Input";
 export * from "./Select";
@@ -21,8 +20,6 @@ export * from "./AspectRatio";
 export * from "./Avatar";
 export * from "./Toggle";
 export * from "./Breadcrumb";
-
-// Advanced Radix UI Components
 export * from "./Accordion";
 export * from "./AlertDialog";
 export * from "./Calendar";
@@ -48,44 +45,39 @@ export * from "./Tabs";
 export * from "./Toast";
 export { Toaster } from "./Toaster";
 export * from "./ToggleGroup";
-
-// Custom components
 export * from "./FeatureCard";
 export * from "./FormSelect";
 export * from "./LoadingScreen";
 export * from "./SkillTag";
 export * from "./StatsGrid";
-
-// Layout components
 export { Navbar } from "./Header";
 export { Footer } from "./Footer";
 export { Breadcrumbs } from "./Breadcrumbs";
 export { SectionHeader } from "./SectionHeader";
 
-// Sidebar components
 export {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarGroupAction,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarInput,
-  SidebarInset,
-  SidebarMenu,
-  SidebarMenuAction,
-  SidebarMenuBadge,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenuSkeleton,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
-  SidebarProvider,
-  SidebarRail,
-  SidebarSeparator,
-  SidebarTrigger,
-  useSidebar,
+ Sidebar,
+ SidebarContent,
+ SidebarFooter,
+ SidebarGroup,
+ SidebarGroupAction,
+ SidebarGroupContent,
+ SidebarGroupLabel,
+ SidebarHeader,
+ SidebarInput,
+ SidebarInset,
+ SidebarMenu,
+ SidebarMenuAction,
+ SidebarMenuBadge,
+ SidebarMenuButton,
+ SidebarMenuItem,
+ SidebarMenuSkeleton,
+ SidebarMenuSub,
+ SidebarMenuSubButton,
+ SidebarMenuSubItem,
+ SidebarProvider,
+ SidebarRail,
+ SidebarSeparator,
+ SidebarTrigger,
+ useSidebar,
 } from "./Sidebar";

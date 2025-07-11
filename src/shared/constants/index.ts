@@ -9,18 +9,39 @@ export const NAV_LINKS = {
  LOGIN: "/login",
 };
 
+export const APP_ROUTES = {
+ HOME: "/",
+ HOME_REDIRECT: "/home",
+ JOBS: "/jobs",
+ JOB_DETAILS: "/jobs/:jobId",
+ LOGIN: "/login",
+ DASHBOARD: "/dashboard/*",
+ NOT_FOUND: "*",
+};
+
 export const DASHBOARD_LINKS = {
  HOME: "/dashboard",
  FREELANCERS: "/dashboard/freelancers",
  JOBS: "/dashboard/jobs",
  POST_JOB: "/dashboard/post-job",
- FIND_WORK: "/dashboard/find-work",
- MY_WORK: "/dashboard/my-work",
+ FIND_JOBS: "/dashboard/find-jobs",
+ MY_JOBS: "/dashboard/my-jobs",
  MESSAGES: "/dashboard/messages",
  CHATS: "/dashboard/chats",
  CHAT: "/dashboard/chats/:id",
  CONTRACTS: "/dashboard/contracts",
  PROFILE: "/dashboard/profile",
+};
+
+export const DASHBOARD_ROUTES = {
+ HOME: "home",
+ FREELANCERS: "freelancers",
+ POST_JOB: "post-job",
+ FIND_JOBS: "find-jobs",
+ MY_JOBS: "my-jobs",
+ MESSAGES: "messages",
+ CHAT: "messages/chat/:userId",
+ PROFILE: "profile",
 };
 
 export const USER_TYPES = {

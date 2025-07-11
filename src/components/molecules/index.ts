@@ -1,4 +1,3 @@
-// Molecule Components
 export { ActionButtonGroup } from "./ActionButtonGroup";
 export { CategoryTag } from "./CategoryTag";
 export { ContentSection } from "./ContentSection";
@@ -14,5 +13,4 @@ export { SearchInput } from "./SearchInput";
 export { SkillsManager } from "./SkillsManager";
 export { UserCard } from "./UserCard";
 
-// Molecule Types
 export type * from "./types";

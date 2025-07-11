@@ -2,13 +2,14 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { useAuth } from "@/app/providers/AuthProvider";
 import {
  DashboardHomePage,
- Freelancers,
- PostJob,
- Messages,
- ProfileContent,
- JobList,
-} from "@/pages";
-import { USER_TYPES } from "@/shared/constants";
+ FreelancersPage,
+ PostJobPage,
+ MessagesPage,
+ ChatPage,
+ ProfilePage,
+} from "@/pages/dashboard";
+import { FindWorkPage } from "@/pages/find-work";
+import { USER_TYPES, DASHBOARD_LINKS, DASHBOARD_ROUTES } from "@/shared/constants";
 
 export const DashboardRoutes = () => {
  const { userType } = useAuth();
@@ -16,22 +17,23 @@ export const DashboardRoutes = () => {
  return (
   <Routes>
    <Route index element={<DashboardHomePage />} />
-   <Route path="home" element={<DashboardHomePage />} />
+   <Route path={DASHBOARD_ROUTES.HOME} element={<DashboardHomePage />} />
    {userType === USER_TYPES.CLIENT && (
     <>
-     <Route path="freelancers" element={<Freelancers />} />
-     <Route path="post-job" element={<PostJob />} />
+     <Route path={DASHBOARD_ROUTES.FREELANCERS} element={<FreelancersPage />} />
+     <Route path={DASHBOARD_ROUTES.POST_JOB} element={<PostJobPage />} />
     </>
    )}
    {userType === USER_TYPES.FREELANCER && (
     <>
-     <Route path="find-jobs" element={<JobList />} />
-     <Route path="my-jobs" element={<div>My Jobs - Coming Soon</div>} />
+     <Route path={DASHBOARD_ROUTES.FIND_JOBS} element={<FindWorkPage />} />
+     <Route path={DASHBOARD_ROUTES.MY_JOBS} element={<div>My Jobs - Coming Soon</div>} />
     </>
    )}
-   <Route path="messages" element={<Messages />} />
-   <Route path="profile" element={<ProfileContent />} />
-   <Route path="*" element={<Navigate to="/dashboard" replace />} />
+   <Route path={DASHBOARD_ROUTES.MESSAGES} element={<MessagesPage />} />
+   <Route path={DASHBOARD_ROUTES.CHAT} element={<ChatPage />} />
+   <Route path={DASHBOARD_ROUTES.PROFILE} element={<ProfilePage />} />
+   <Route path="*" element={<Navigate to={DASHBOARD_LINKS.HOME} replace />} />
   </Routes>
  );
 };

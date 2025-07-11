@@ -1,4 +1,3 @@
-// Template Components
 export { AuthTemplate } from "./AuthTemplate";
 export { DashboardHeader } from "./DashboardHeader";
 export { DashboardLayout } from "./DashboardLayout";
@@ -10,5 +9,4 @@ export { ListingTemplate } from "./ListingTemplate";
 export { ProfileTemplate } from "./ProfileTemplate";
 export { PublicTemplate } from "./PublicTemplate";
 
-// Template Types
 export type * from "./types";

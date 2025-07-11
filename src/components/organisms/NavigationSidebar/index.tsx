@@ -4,6 +4,7 @@ import { useAuth } from "@/app/providers/AuthProvider";
 import { useMobile } from "@/shared/hooks";
 import { ActionButton } from "@/components/atoms";
 import { UserCard } from "@/components/molecules";
+import { DASHBOARD_LINKS } from "@/shared/constants";
 import {
  User,
  PlusCircle,
@@ -78,7 +79,7 @@ export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
       ]
     : [
        {
-        to: "/dashboard/find-jobs",
+        to: DASHBOARD_LINKS.FIND_JOBS,
         icon: Search,
         label: "Find Jobs",
        },
