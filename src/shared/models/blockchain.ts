@@ -5,13 +5,6 @@ export enum JobStatus {
  Cancelled = 3,
 }
 
-export enum MilestoneStatus {
- Pending = 0,
- Funded = 1,
- Completed = 2,
- Cancelled = 3,
-}
-
 export enum ProposalStatus {
  Pending = 0,
  Accepted = 1,
@@ -69,7 +62,7 @@ export interface Proposal {
 export interface EscrowPayment {
  id: string;
  jobId: string;
- milestoneId: string;
+
  client: string;
  freelancer: string;
  amount: string;

@@ -116,29 +116,7 @@ const jobDetailsMockData: JobDetails = {
   "Design a modern and user-friendly dashboard for our Web3 application. The design should include wallet connection, transaction history, and asset management interfaces. We need a clean, intuitive design that makes complex blockchain data easy to understand.",
  startDate: "Mar 15, 2023",
  dueDate: "Apr 15, 2023",
- milestones: [
-  {
-   id: 1,
-   title: "Initial Wireframes",
-   status: "Completed",
-   payment: "0.5 ETH",
-   dueDate: "Mar 20, 2023",
-  },
-  {
-   id: 2,
-   title: "High-Fidelity Mockups",
-   status: "Completed",
-   payment: "1.0 ETH",
-   dueDate: "Apr 1, 2023",
-  },
-  {
-   id: 3,
-   title: "Final Designs & Assets",
-   status: "In Progress",
-   payment: "1.0 ETH",
-   dueDate: "Apr 15, 2023",
-  },
- ],
+
  freelancer: {
   id: "f1",
   name: "Alex Johnson",

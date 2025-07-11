@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/app/providers/AuthProvider";
 import { useToast } from "@/shared/hooks/ui/useToast";
 import { Home } from "lucide-react";
-import { APP_NAME, NAV_LINKS, USER_TYPES, TOAST_MESSAGES } from "@/shared/constants";
+import {
+ APP_NAME,
+ NAV_LINKS,
+ USER_TYPES,
+ TOAST_MESSAGES,
+} from "@/shared/constants";
 
 export const Navbar = () => {
  const [scrolled, setScrolled] = useState(false);
  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
  const { user, userType, signOut } = useAuth();
  const navigate = useNavigate();
- const location = useLocation();
  const { toast } = useToast();
 
  useEffect(() => {
@@ -69,12 +73,6 @@ export const Navbar = () => {
       >
        <Home size={16} />
        <span>Home</span>
-      </Link>
-      <Link
-       to={NAV_LINKS.JOBS}
-       className="text-sm font-medium transition-colors hover:text-primary"
-      >
-       Find Work
       </Link>
       {user && (
        <Link
@@ -152,13 +150,7 @@ export const Navbar = () => {
       <Home size={18} />
       <span>Home</span>
      </Link>
-     <Link
-      to={NAV_LINKS.JOBS}
-      className="block py-2 text-base font-medium transition-colors hover:text-primary"
-      onClick={() => setMobileMenuOpen(false)}
-     >
-      Find Work
-     </Link>
+
      {user && (
       <Link
        to={getDashboardLink()}

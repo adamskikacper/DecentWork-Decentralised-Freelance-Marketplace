@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "@/shared/lib/utils";
 export interface DashboardSectionProps
  extends React.HTMLAttributes<HTMLDivElement> {
- title: string;
+ title?: string;
  description?: string;
  action?: React.ReactNode;
  isLoading?: boolean;

@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { User, Calendar, Clock } from "lucide-react";
-import { getJobDetails } from "@/shared/services/job.service";
-import type { JobDetails as JobDetailsType } from "@/shared/models/job/model";
+import { useFetchJobDetails } from "@/shared/hooks";
 
 interface JobDetailsProps {
  onClose?: () => void;
@@ -11,36 +9,7 @@ interface JobDetailsProps {
 export const JobDetails = ({ onClose }: JobDetailsProps) => {
  const navigate = useNavigate();
  const { jobId } = useParams();
- const [job, setJob] = useState<JobDetailsType | null>(null);
- const [isLoading, setIsLoading] = useState(true);
- const [error, setError] = useState<string | null>(null);
-
- useEffect(() => {
-  const fetchJobDetails = async () => {
-   if (!jobId) {
-    setError("No job ID provided");
-    setIsLoading(false);
-    return;
-   }
-
-   try {
-    setIsLoading(true);
-    const jobData = await getJobDetails(jobId);
-    if (jobData) {
-     setJob(jobData);
-    } else {
-     setError("Job not found");
-    }
-   } catch (err) {
-    setError("Failed to fetch job details");
-    console.error("Error fetching job details:", err);
-   } finally {
-    setIsLoading(false);
-   }
-  };
-
-  fetchJobDetails();
- }, [jobId]);
+ const { job, isLoading, error } = useFetchJobDetails(jobId);
 
  const handleMessageClick = () => {
   if (job) {
@@ -148,42 +117,6 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
      >
       Message
      </button>
-    </div>
-   </div>
-
-   <div className="rounded-xl glass-card p-6 space-y-4">
-    <h3 className="text-lg font-semibold mb-2">Milestones</h3>
-    <div className="space-y-4">
-     {job.milestones.map((milestone, index) => (
-      <div
-       key={milestone.id}
-       className="p-4 bg-secondary/30 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-3"
-      >
-       <div>
-        <div className="flex items-center gap-2">
-         <span className="flex items-center justify-center h-6 w-6 rounded-full bg-primary text-primary-foreground text-xs">
-          {index + 1}
-         </span>
-         <p className="font-medium">{milestone.title}</p>
-        </div>
-        <p className="text-sm text-muted-foreground ml-8">
-         Due: {milestone.dueDate}
-        </p>
-       </div>
-       <div className="flex items-center gap-4">
-        <span
-         className={`px-2.5 py-1 text-xs font-medium rounded-full ${
-          milestone.status === "Completed"
-           ? "bg-green-100 text-green-800"
-           : "bg-yellow-100 text-yellow-800"
-         }`}
-        >
-         {milestone.status}
-        </span>
-        <span className="font-medium">{milestone.payment}</span>
-       </div>
-      </div>
-     ))}
     </div>
    </div>
   </div>

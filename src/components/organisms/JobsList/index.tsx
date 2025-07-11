@@ -1,5 +1,5 @@
 import React from "react";
-import { JobSummary } from "@/types";
+import { JobSummary } from "@/shared/models";
 import { JobCard } from "@/components/organisms/JobCard";
 
 interface JobsListProps {

@@ -26,7 +26,6 @@ export const Footer = () => {
      <ul className="flex flex-wrap gap-6">
       {[
        { text: "Home", url: NAV_LINKS.HOME },
-       { text: "Find Work", url: NAV_LINKS.JOBS },
        { text: "Dashboard", url: NAV_LINKS.DASHBOARD },
       ].map((link) => (
        <li key={link.text}>

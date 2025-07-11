@@ -23,7 +23,7 @@ export const HeroSection = () => {
        <Link to="/dashboard" className="button-primary text-center">
         Start Earning
        </Link>
-       <Link to="/jobs" className="button-secondary text-center">
+       <Link to="/dashboard" className="button-secondary text-center">
         Find Talent
        </Link>
       </div>

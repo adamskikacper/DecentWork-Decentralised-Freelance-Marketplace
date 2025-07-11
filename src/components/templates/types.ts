@@ -18,7 +18,7 @@ export interface LayoutTemplateProps extends BaseTemplateProps {
 }
 
 export interface PageTemplateProps extends BaseTemplateProps {
- title: string;
+ title?: string;
  description?: string;
  breadcrumbs?: BreadcrumbItem[];
  actions?: React.ReactNode;

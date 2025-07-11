@@ -5,12 +5,8 @@ import { Avatar, AvatarFallback, AvatarImage, Button } from "@/shared/ui";
 import { useConversations, useNavigation } from "@/shared/hooks";
 
 export const MessagesPage: React.FC = () => {
- const {
-  conversations,
-  isLoading,
-  error,
-  refreshConversations
- } = useConversations();
+ const { conversations, isLoading, error, refreshConversations } =
+  useConversations();
 
  const { goToMessages } = useNavigation();
 
@@ -29,7 +25,7 @@ export const MessagesPage: React.FC = () => {
    isLoading={isLoading}
    error={error}
   >
-   <DashboardSection title="Conversations" description="Your message threads">
+   <DashboardSection>
     <div className="space-y-4">
      {conversations.map((conversation) => (
       <div
@@ -50,7 +46,7 @@ export const MessagesPage: React.FC = () => {
            .slice(0, 2)}
          </AvatarFallback>
         </Avatar>
-        
+
         <div className="flex-1 min-w-0">
          <div className="flex items-center space-x-2">
           <h3 className="font-semibold truncate">{conversation.name}</h3>
@@ -66,7 +62,7 @@ export const MessagesPage: React.FC = () => {
          </p>
         </div>
        </div>
-       
+
        <Button
         variant="outline"
         size="sm"

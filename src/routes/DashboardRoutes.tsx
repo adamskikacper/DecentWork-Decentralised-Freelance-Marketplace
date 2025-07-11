@@ -3,13 +3,18 @@ import { useAuth } from "@/app/providers/AuthProvider";
 import {
  DashboardHomePage,
  FreelancersPage,
+ FindJobsPage,
+ FindJobsJobDetailsPage,
  PostJobPage,
  MessagesPage,
  ChatPage,
  ProfilePage,
 } from "@/pages/dashboard";
-import { FindWorkPage } from "@/pages/find-work";
-import { USER_TYPES, DASHBOARD_LINKS, DASHBOARD_ROUTES } from "@/shared/constants";
+import {
+ USER_TYPES,
+ DASHBOARD_LINKS,
+ DASHBOARD_ROUTES,
+} from "@/shared/constants";
 
 export const DashboardRoutes = () => {
  const { userType } = useAuth();
@@ -26,8 +31,15 @@ export const DashboardRoutes = () => {
    )}
    {userType === USER_TYPES.FREELANCER && (
     <>
-     <Route path={DASHBOARD_ROUTES.FIND_JOBS} element={<FindWorkPage />} />
-     <Route path={DASHBOARD_ROUTES.MY_JOBS} element={<div>My Jobs - Coming Soon</div>} />
+     <Route path={DASHBOARD_ROUTES.FIND_JOBS} element={<FindJobsPage />} />
+     <Route
+      path={`${DASHBOARD_ROUTES.FIND_JOBS}/:jobId`}
+      element={<FindJobsJobDetailsPage />}
+     />
+     <Route
+      path={DASHBOARD_ROUTES.MY_JOBS}
+      element={<div>My Jobs - Coming Soon</div>}
+     />
     </>
    )}
    <Route path={DASHBOARD_ROUTES.MESSAGES} element={<MessagesPage />} />
