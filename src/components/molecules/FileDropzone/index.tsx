@@ -12,7 +12,7 @@ export interface FileDropzoneProps {
  className?: string;
 }
 
-export const FileDropzone: React.FC<FileDropzoneProps> = ({
+export const FileDropzone = ({
  onFilesSelect,
  acceptedTypes = ".pdf,.doc,.docx,.jpg,.jpeg,.png",
  maxSize = 10,
@@ -20,7 +20,7 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
  maxFiles = 5,
  files = [],
  className = "",
-}) => {
+}: FileDropzoneProps) => {
  const fileInputRef = useRef<HTMLInputElement>(null);
  const [dragActive, setDragActive] = useState(false);
  const [errors, setErrors] = useState<string[]>([]);

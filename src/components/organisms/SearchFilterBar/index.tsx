@@ -1,5 +1,14 @@
 import React from "react";
 import { CategoryTag } from "@/components/molecules/CategoryTag";
+import {
+ Select,
+ SelectContent,
+ SelectItem,
+ SelectTrigger,
+ SelectValue,
+} from "@/shared/ui/Select";
+import { Button } from "@/shared/ui/Button";
+import { Input } from "@/shared/ui/Input";
 
 interface SearchFilterBarProps {
  searchQuery: string;
@@ -9,20 +18,20 @@ interface SearchFilterBarProps {
  categories: string[];
 }
 
-export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
+export const SearchFilterBar = ({
  searchQuery,
  setSearchQuery,
  categoryFilter,
  setCategoryFilter,
  categories,
-}) => {
+}: SearchFilterBarProps) => {
  return (
   <div className="glass-card rounded-xl p-6 mb-8 fade-in">
    <div className="flex flex-col md:flex-row gap-4">
     {/* Search */}
     <div className="flex-1">
      <div className="relative">
-      <input
+      <Input
        type="text"
        placeholder="Search for jobs..."
        value={searchQuery}
@@ -58,22 +67,26 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 
     {/* Category Filter */}
     <div className="w-full md:w-64">
-     <select
-      value={categoryFilter}
-      onChange={(e) => setCategoryFilter(e.target.value)}
-      className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:outline-none focus:ring-2 focus:ring-primary/20 appearance-none"
-     >
-      {categories.map((category) => (
-       <option key={category} value={category}>
-        {category}
-       </option>
-      ))}
-     </select>
+     <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+      <SelectTrigger className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:outline-none focus:ring-2 focus:ring-primary/20">
+       <SelectValue placeholder="All Categories" />
+      </SelectTrigger>
+      <SelectContent>
+       {categories.map((category) => (
+        <SelectItem key={category} value={category}>
+         {category}
+        </SelectItem>
+       ))}
+      </SelectContent>
+     </Select>
     </div>
 
     {/* Advanced Filters Button */}
     <div>
-     <button className="w-full md:w-auto px-4 py-3 rounded-lg flex items-center justify-center gap-2 bg-secondary text-foreground hover:bg-secondary/80 transition-colors">
+     <Button
+      variant="secondary"
+      className="w-full md:w-auto px-4 py-3 rounded-lg flex items-center justify-center gap-2"
+     >
       <svg
        width="20"
        height="20"
@@ -90,7 +103,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
        />
       </svg>
       <span>Filters</span>
-     </button>
+     </Button>
     </div>
    </div>
 
@@ -108,5 +121,3 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
   </div>
  );
 };
-
-export default SearchFilterBar;

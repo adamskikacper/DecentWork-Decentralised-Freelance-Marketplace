@@ -7,7 +7,7 @@ interface ProfilePageProps {
  user?: { email?: string; uid?: string } | null;
 }
 
-export const ProfilePage: React.FC<ProfilePageProps> = ({ user }) => {
+export const ProfilePage = ({ user }: ProfilePageProps) => {
  const { userType } = useAuth();
 
  return (

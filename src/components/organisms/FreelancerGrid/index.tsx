@@ -1,5 +1,5 @@
 import React from "react";
-import { FreelancerSummary } from "@/shared/models";
+import { FreelancerProfile } from "@/shared/models/freelancer";
 import { useFreelancers } from "@/shared/hooks/data/useFreelancers";
 import { UserCard } from "../../molecules/UserCard";
 import {
@@ -24,7 +24,7 @@ export interface FreelancerGridProps {
  className?: string;
 }
 
-export const FreelancerGrid: React.FC<FreelancerGridProps> = ({
+export const FreelancerGrid = ({
  searchQuery,
  skillsFilter,
  statusFilter,
@@ -32,7 +32,7 @@ export const FreelancerGrid: React.FC<FreelancerGridProps> = ({
  onView,
  onHire,
  className = "",
-}) => {
+}: FreelancerGridProps) => {
  const { filteredFreelancers, isLoading, error, refetch } = useFreelancers({
   searchQuery,
   skills: skillsFilter,
@@ -79,18 +79,18 @@ export const FreelancerGrid: React.FC<FreelancerGridProps> = ({
 };
 
 interface FreelancerCardProps {
- freelancer: FreelancerSummary;
+ freelancer: FreelancerProfile;
  onMessage?: (freelancerId: string) => void;
  onView?: (freelancerId: string) => void;
  onHire?: (freelancerId: string) => void;
 }
 
-const FreelancerCard: React.FC<FreelancerCardProps> = ({
+const FreelancerCard = ({
  freelancer,
  onMessage,
  onView,
  onHire,
-}) => {
+}: FreelancerCardProps) => {
  const actions: ActionItem[] = [
   {
    label: "View",
@@ -117,7 +117,7 @@ const FreelancerCard: React.FC<FreelancerCardProps> = ({
    <div className="space-y-4">
     <UserCard
      name={freelancer.name}
-     title={freelancer.title}
+     title={freelancer.experience_level}
      variant="detailed"
      onClick={() => onView?.(freelancer.id)}
     />
@@ -125,12 +125,10 @@ const FreelancerCard: React.FC<FreelancerCardProps> = ({
     <div className="space-y-3">
      <div className="flex items-center justify-between">
       <RatingStars rating={freelancer.rating} size="sm" />
-      <StatusBadge status={freelancer.status} />
+      <StatusBadge status={freelancer.availability} />
      </div>
 
-     <p className="text-sm text-gray-600 line-clamp-2">
-      {freelancer.specialty}
-     </p>
+     <p className="text-sm text-gray-600 line-clamp-2">{freelancer.bio}</p>
 
      {freelancer.skills && (
       <div className="flex flex-wrap gap-1">
@@ -148,8 +146,8 @@ const FreelancerCard: React.FC<FreelancerCardProps> = ({
      )}
 
      <div className="text-sm text-gray-500">
-      <p>Rate: ${freelancer.hourlyRate}/hr</p>
-      <p>Projects: {freelancer.jobsCount}</p>
+      <p>Rate: ${freelancer.hourly_rate}/hr</p>
+      <p>Projects: {freelancer.total_jobs}</p>
      </div>
     </div>
 

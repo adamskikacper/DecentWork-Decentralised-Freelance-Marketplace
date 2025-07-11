@@ -2,7 +2,7 @@ import React from "react";
 import { PageLayout } from "@/components/templates";
 import { JobDetails as JobDetailsComponent } from "@/components";
 
-export const DashboardJobDetailsPage: React.FC = () => {
+export const DashboardJobDetailsPage = () => {
  return (
   <PageLayout
    title="Job Details"

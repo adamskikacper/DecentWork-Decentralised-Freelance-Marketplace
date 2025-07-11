@@ -8,7 +8,7 @@ interface BidFormProps {
  }) => void;
 }
 
-export const BidForm: React.FC<BidFormProps> = ({ onSubmit }) => {
+export const BidForm = ({ onSubmit }: BidFormProps) => {
  const [bidAmount, setBidAmount] = useState("");
  const [deliveryDays, setDeliveryDays] = useState("");
  const [proposal, setProposal] = useState("");

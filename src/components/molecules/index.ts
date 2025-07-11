@@ -12,7 +12,6 @@ export { PageHeader } from "./PageHeader";
 export { SearchInput } from "./SearchInput";
 export { SkillsManager } from "./SkillsManager";
 export { UserCard } from "./UserCard";
-export { SearchFilterBar } from "./SearchFilterBar";
 export { PaginationControls } from "./PaginationControls";
 export { MessageInput } from "./MessageInput";
 export { DataSection } from "./DataSection";

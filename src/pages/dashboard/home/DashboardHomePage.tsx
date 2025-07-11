@@ -37,12 +37,12 @@ export interface DashboardHomePageProps {
  onClientDetails?: (clientId: string) => void;
 }
 
-export const DashboardHomePage: React.FC<DashboardHomePageProps> = ({
+export const DashboardHomePage = ({
  user,
  onMessage,
  onJobDetails,
  onFreelancerDetails,
-}) => {
+}: DashboardHomePageProps) => {
  const { userType } = useAuth();
  const isClient = userType === "client";
 

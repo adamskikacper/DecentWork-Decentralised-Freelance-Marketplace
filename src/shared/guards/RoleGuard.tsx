@@ -7,7 +7,7 @@ type RoleGuardProps = {
  allowedRoles: UserRole[];
 };
 
-export const RoleGuard: React.FC<RoleGuardProps> = ({ allowedRoles }) => {
+export const RoleGuard = ({ allowedRoles }: RoleGuardProps) => {
  const { userType } = useAuth();
 
  if (!userType || !allowedRoles.includes(userType as UserRole)) {

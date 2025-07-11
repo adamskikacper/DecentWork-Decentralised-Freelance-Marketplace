@@ -3,7 +3,7 @@ import { Navbar } from "@/shared/ui/Header";
 import { Footer } from "@/shared/ui/Footer";
 import { HeroSection } from "@/components/organisms/HeroSection";
 
-export const HomePage: React.FC = () => {
+export const HomePage = () => {
  return (
   <div className="min-h-screen flex flex-col">
    <Navbar />

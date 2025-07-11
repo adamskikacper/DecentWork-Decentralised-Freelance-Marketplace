@@ -32,12 +32,12 @@ export interface JobFormProps {
  className?: string;
 }
 
-export const JobForm: React.FC<JobFormProps> = ({
+export const JobForm = ({
  initialData,
  onSubmit,
  isLoading = false,
  className = "",
-}) => {
+}: JobFormProps) => {
  const [formData, setFormData] = useState<JobFormData>({
   title: initialData?.title || "",
   description: initialData?.description || "",

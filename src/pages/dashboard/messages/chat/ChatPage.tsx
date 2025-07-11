@@ -6,16 +6,11 @@ import { MessageBubble } from "@/components/atoms/MessageBubble";
 import { MessageInput } from "@/components/molecules/MessageInput";
 import { useMessageThread } from "@/shared/hooks";
 
-export const ChatPage: React.FC = () => {
+export const ChatPage = () => {
  const { userId } = useParams<{ userId: string }>();
- 
- const {
-  messages,
-  isLoading,
-  error,
-  sendMessage,
-  isSending
- } = useMessageThread(userId);
+
+ const { messages, isLoading, error, sendMessage, isSending } =
+  useMessageThread(userId);
 
  const handleSendMessage = async (content: string) => {
   try {
@@ -63,8 +58,8 @@ export const ChatPage: React.FC = () => {
         content={message.content}
         timestamp={message.timestamp}
         isOwn={message.senderId === "current-user"}
-        senderName={message.senderName}
-        senderAvatar={message.senderAvatar}
+        senderName={message.senderId}
+        senderAvatar=""
        />
       ))}
       {messages.length === 0 && (
@@ -73,7 +68,7 @@ export const ChatPage: React.FC = () => {
        </div>
       )}
      </div>
-     
+
      <MessageInput
       onSendMessage={handleSendMessage}
       disabled={!!error}

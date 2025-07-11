@@ -267,7 +267,6 @@ export const DashboardSidebar = ({
       isCollapsed ? "-translate-x-full" : "translate-x-0",
       className
      )}
-     role="navigation"
      aria-label="Dashboard navigation"
      onKeyDown={handleKeyDown}
     >
@@ -312,7 +311,7 @@ export const DashboardSidebar = ({
        </div>
       </div>
 
-      <nav className="flex-1" role="navigation" aria-label="Main navigation">
+      <nav className="flex-1" aria-label="Main navigation">
        <ul className="space-y-1">
         {navigationItems.map((item) => {
          const IconComponent = iconMap[item.icon];
@@ -360,7 +359,6 @@ export const DashboardSidebar = ({
     insideContainer ? "sticky top-28" : "fixed top-24 left-0",
     className
    )}
-   role="navigation"
    aria-label="Dashboard navigation"
   >
    <div className="flex flex-col p-6">
@@ -381,7 +379,7 @@ export const DashboardSidebar = ({
      </div>
     </div>
 
-    <nav className="flex-1" role="navigation" aria-label="Main navigation">
+    <nav className="flex-1" aria-label="Main navigation">
      <ul className="space-y-1">
       {navigationItems.map((item) => {
        const IconComponent = iconMap[item.icon];
@@ -417,5 +415,3 @@ export const DashboardSidebar = ({
   </aside>
  );
 };
-
-export default DashboardSidebar;

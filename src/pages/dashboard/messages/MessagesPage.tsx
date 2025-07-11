@@ -4,9 +4,8 @@ import { DashboardSection } from "@/components";
 import { Avatar, AvatarFallback, AvatarImage, Button } from "@/shared/ui";
 import { useConversations, useNavigation } from "@/shared/hooks";
 
-export const MessagesPage: React.FC = () => {
- const { conversations, isLoading, error, refreshConversations } =
-  useConversations();
+export const MessagesPage = () => {
+ const { conversations, isLoading, error } = useConversations();
 
  const { goToMessages } = useNavigation();
 

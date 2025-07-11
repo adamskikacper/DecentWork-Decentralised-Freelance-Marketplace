@@ -11,12 +11,12 @@ export interface StatusBadgeProps {
  className?: string;
 }
 
-export const StatusBadge: React.FC<StatusBadgeProps> = ({
+export const StatusBadge = ({
  status,
  variant = STATUS_BADGE_VARIANTS.DEFAULT,
  icon,
  className = "",
-}) => {
+}: StatusBadgeProps) => {
  const getColorClasses = () => {
   switch (variant) {
    case STATUS_BADGE_VARIANTS.SUCCESS:

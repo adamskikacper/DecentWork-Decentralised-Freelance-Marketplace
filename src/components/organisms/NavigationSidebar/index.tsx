@@ -31,12 +31,12 @@ export interface NavigationSidebarProps {
  onToggle?: () => void;
 }
 
-export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
+export const NavigationSidebar = ({
  className = "",
  variant = "desktop",
  isOpen = true,
  onToggle,
-}) => {
+}: NavigationSidebarProps) => {
  const { user, userType } = useAuth();
  const location = useLocation();
  const isMobile = useMobile();
@@ -149,14 +149,14 @@ interface DesktopSidebarProps {
  className: string;
 }
 
-const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
+const DesktopSidebar = ({
  items,
  user,
  isCollapsed,
  onToggle,
  isLinkActive,
  className,
-}) => {
+}: DesktopSidebarProps) => {
  return (
   <div
    className={`
@@ -237,14 +237,14 @@ interface MobileSidebarProps {
  className: string;
 }
 
-const MobileSidebar: React.FC<MobileSidebarProps> = ({
+const MobileSidebar = ({
  items,
  user,
  isOpen,
  onToggle,
  isLinkActive,
  className,
-}) => {
+}: MobileSidebarProps) => {
  return (
   <>
    {/* Overlay */}
@@ -268,7 +268,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
      <div className="flex items-center justify-between">
       <h2 className="text-lg font-semibold text-gray-900">DecentWork</h2>
       <ActionButton onClick={onToggle} variant="ghost" size="sm" icon={X}>
-       {isCollapsed ? "Close" : "Open"}
+       Close
       </ActionButton>
      </div>
     </div>

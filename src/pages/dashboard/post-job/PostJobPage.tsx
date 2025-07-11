@@ -23,12 +23,12 @@ export interface PostJobPageProps {
  }) => void;
 }
 
-export const PostJobPage: React.FC<PostJobPageProps> = ({
+export const PostJobPage = ({
  isLoading = false,
  onSubmit,
-}) => {
+}: PostJobPageProps) => {
  const { navigateTo } = useNavigation();
- 
+
  const handleSubmit = (formData: {
   title: string;
   description: string;

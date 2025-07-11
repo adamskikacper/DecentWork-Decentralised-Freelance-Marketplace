@@ -12,9 +12,9 @@ export interface FreelancersPageProps {
  onFreelancerDetails?: (freelancerId: string) => void;
 }
 
-export const FreelancersPage: React.FC<FreelancersPageProps> = ({
+export const FreelancersPage = ({
  isLoading = false,
-}) => {
+}: FreelancersPageProps) => {
  const {
   freelancers: allFreelancers,
   isLoading: dataLoading,

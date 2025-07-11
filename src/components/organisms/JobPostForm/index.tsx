@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { ExperienceLevel, JobDuration, JobType } from "@/shared/models/blockchain";
+import {
+ ExperienceLevel,
+ JobDuration,
+ JobType,
+} from "@/shared/models/blockchain";
 
 interface JobPostFormProps {
  onSubmit: (formData: {
@@ -15,7 +19,7 @@ interface JobPostFormProps {
  }) => void;
 }
 
-export const JobPostForm: React.FC<JobPostFormProps> = ({ onSubmit }) => {
+export const JobPostForm = ({ onSubmit }: JobPostFormProps) => {
  const [title, setTitle] = useState("");
  const [description, setDescription] = useState("");
  const [budget, setBudget] = useState("");

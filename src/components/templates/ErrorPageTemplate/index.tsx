@@ -11,14 +11,14 @@ export interface ErrorPageTemplateProps {
  className?: string;
 }
 
-export const ErrorPageTemplate: React.FC<ErrorPageTemplateProps> = ({
+export const ErrorPageTemplate = ({
  title,
  message,
  statusCode,
  onGoHome,
  showActions = true,
  className = "",
-}) => {
+}: ErrorPageTemplateProps) => {
  const getDefaultTitle = () => {
   if (statusCode === 404) return "Page Not Found";
   if (statusCode === 403) return "Access Denied";

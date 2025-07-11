@@ -1,5 +1,5 @@
 import React from "react";
-import { FreelancerSummary } from "@/shared/models";
+import { FreelancerSummary } from "@/shared/models/dashboard";
 import { FreelancerCard } from "../FreelancerCard";
 
 interface FreelancerTableProps {
@@ -12,15 +12,15 @@ interface FreelancerTableProps {
  onHire?: (freelancerId: string) => void;
 }
 
-export const FreelancerTable: React.FC<FreelancerTableProps> = ({
+export const FreelancerTable = ({
  freelancers,
  showRating = true,
  showJobsCount = true,
  showStatus = true,
- onMessage,
  onView,
+ onMessage,
  onHire,
-}) => {
+}: FreelancerTableProps) => {
  return (
   <div className="glass-card rounded-xl overflow-hidden">
    <div className="overflow-x-auto">

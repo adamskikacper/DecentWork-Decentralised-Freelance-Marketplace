@@ -7,12 +7,12 @@ export interface PublicTemplateProps {
  className?: string;
 }
 
-export const PublicTemplate: React.FC<PublicTemplateProps> = ({
+export const PublicTemplate = ({
  children,
  showHeader = true,
  showFooter = true,
  className = "",
-}) => {
+}: PublicTemplateProps) => {
  return (
   <div className={`min-h-screen bg-white ${className}`}>
    {showHeader && (

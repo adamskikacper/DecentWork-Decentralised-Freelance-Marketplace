@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/shared/ui";
 import { LoadingScreen } from "@/shared/ui";
 import type { PageTemplateProps } from "../types";
 
-export const PageLayout: React.FC<PageTemplateProps> = ({
+export const PageLayout = ({
  children,
  title = "",
  description = "",
@@ -12,7 +12,7 @@ export const PageLayout: React.FC<PageTemplateProps> = ({
  isLoading = false,
  error,
  className = "",
-}) => {
+}: PageTemplateProps) => {
  if (isLoading) {
   return <LoadingScreen />;
  }
