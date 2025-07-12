@@ -1,9 +1,3 @@
-export type { DashboardTemplateProps } from "./DashboardTemplate";
-export type { AuthTemplateProps } from "./AuthTemplate";
-export type { PublicTemplateProps } from "./PublicTemplate";
-export type { FormPageTemplateProps } from "./FormPageTemplate";
-export type { ListingTemplateProps } from "./ListingTemplate";
-export type { ProfileTemplateProps } from "./ProfileTemplate";
 export type { ErrorPageTemplateProps } from "./ErrorPageTemplate";
 
 export interface BaseTemplateProps {

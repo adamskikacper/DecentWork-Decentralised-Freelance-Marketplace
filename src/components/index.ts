@@ -19,16 +19,9 @@ export * from "./atoms";
 export * from "./molecules";
 export * from "./organisms";
 export {
- AuthTemplate,
- DashboardHeader,
  DashboardLayout,
  DashboardSidebar,
- DashboardTemplate,
  ErrorPageTemplate,
- FormPageTemplate,
- ListingTemplate,
- ProfileTemplate,
- PublicTemplate,
  PageLayout,
  PublicPageLayout,
 } from "./templates";
