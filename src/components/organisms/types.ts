@@ -25,12 +25,6 @@ export interface FormOrganismProps extends BaseOrganismProps {
  validation?: Record<string, any>;
 }
 
-export interface NavigationOrganismProps extends BaseOrganismProps {
- items: NavigationItem[];
- activeItem?: string;
- onItemClick?: (item: NavigationItem) => void;
-}
-
 export interface LayoutOrganismProps extends BaseOrganismProps {
  header?: React.ReactNode;
  sidebar?: React.ReactNode;

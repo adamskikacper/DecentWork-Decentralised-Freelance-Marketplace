@@ -39,14 +39,16 @@ export const ProgressBar = ({
    {(label || showPercentage) && (
     <div className="flex justify-between items-center mb-1">
      {label && (
-      <span className="text-sm font-medium text-gray-700">{label}</span>
+      <span className="text-sm font-medium text-foreground">{label}</span>
      )}
      {showPercentage && (
-      <span className="text-sm text-gray-500">{percentage.toFixed(0)}%</span>
+      <span className="text-sm text-muted-foreground">
+       {percentage.toFixed(0)}%
+      </span>
      )}
     </div>
    )}
-   <div className={`w-full bg-gray-200 rounded-full ${sizeClasses[size]}`}>
+   <div className={`w-full bg-secondary rounded-full ${sizeClasses[size]}`}>
     <div
      className={`${sizeClasses[size]} ${variantClasses[variant]} rounded-full transition-all duration-300`}
      style={{ width: `${percentage}%` }}

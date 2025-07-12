@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getJobListings } from "@/shared/services/job.service";
 import type { JobOpportunityWithCategory } from "@/shared/models/dashboard";
 
-export const useFetchJobListings = () => {
+export const useJobListings = () => {
  const [jobListings, setJobListings] = useState<JobOpportunityWithCategory[]>(
   []
  );

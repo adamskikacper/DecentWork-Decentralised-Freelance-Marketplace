@@ -1,5 +1,4 @@
 export { ActionButtonGroup } from "./ActionButtonGroup";
-export { CategoryTag } from "./CategoryTag";
 export { ContentSection } from "./ContentSection";
 export { EmptyState } from "./EmptyState";
 export { ErrorState } from "./ErrorState";

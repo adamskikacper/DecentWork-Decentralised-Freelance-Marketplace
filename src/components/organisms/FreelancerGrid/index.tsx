@@ -1,17 +1,16 @@
 import React from "react";
 import { FreelancerProfile } from "@/shared/models/freelancer";
 import { useFreelancers } from "@/shared/hooks/data/useFreelancers";
-import { UserCard } from "../../molecules/UserCard";
 import {
  ActionButtonGroup,
  ActionItem,
-} from "../../molecules/ActionButtonGroup";
-import { RatingStars } from "../../atoms/RatingStars";
-import { StatusBadge } from "../../atoms/StatusBadge";
+ ContentSection,
+ EmptyState,
+ ErrorState,
+ UserCard,
+} from "@/components/molecules";
+import { RatingStars, StatusBadge } from "@/components/atoms";
 import { Badge } from "@/shared/ui";
-import { ContentSection } from "../../molecules/ContentSection";
-import { EmptyState } from "../../molecules/EmptyState";
-import { ErrorState } from "../../molecules/ErrorState";
 import { Users, Eye, MessageCircle, UserPlus } from "lucide-react";
 
 export interface FreelancerGridProps {

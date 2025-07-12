@@ -1,6 +1,6 @@
 import React from "react";
 import { AlertTriangle, Home } from "lucide-react";
-import { ActionButton } from "../../atoms/ActionButton";
+import { ActionButton } from "@/components/atoms";
 
 export interface ErrorPageTemplateProps {
  title?: string;

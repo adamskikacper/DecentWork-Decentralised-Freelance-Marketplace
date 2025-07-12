@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getJobDetails } from "@/shared/services/job.service";
 import type { JobDetails } from "@/shared/models/job/model";
 
-export const useFetchJobDetails = (jobId?: string) => {
+export const useJobDetails = (jobId?: string) => {
  const [job, setJob] = useState<JobDetails | null>(null);
  const [isLoading, setIsLoading] = useState(true);
  const [error, setError] = useState<string | null>(null);

@@ -1,6 +1,5 @@
 import React from "react";
-import { PageHeader } from "../../molecules/PageHeader";
-import { UserCard } from "../../molecules/UserCard";
+import { PageHeader, UserCard } from "@/components/molecules";
 
 export interface ProfileTemplateProps {
  title: string;

@@ -3,7 +3,7 @@ import { useAuth } from "@/app/providers/AuthProvider";
 import { getTopFreelancers } from "@/shared/services/freelancer.service";
 import type { FreelancerSummary } from "@/shared/models/dashboard";
 
-export const useFetchTopFreelancers = () => {
+export const useTopFreelancers = () => {
  const { userType } = useAuth();
  const [freelancers, setFreelancers] = useState<FreelancerSummary[]>([]);
  const [isLoading, setIsLoading] = useState(true);

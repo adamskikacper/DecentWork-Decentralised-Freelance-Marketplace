@@ -4,14 +4,23 @@ import {
  JobDuration,
  JobType,
 } from "@/shared/models/blockchain";
-import { FormField } from "../../molecules/FormField";
-import { FormSection } from "../../molecules/FormSection";
-import { SkillsManager } from "../../molecules/SkillsManager";
-import { FileDropzone } from "../../molecules/FileDropzone";
-import { Input } from "@/shared/ui";
-import { Textarea } from "@/shared/ui";
-import { Select } from "@/shared/ui";
-import { ActionButton } from "../../atoms/ActionButton";
+import {
+ FormField,
+ FormSection,
+ SkillsManager,
+ FileDropzone,
+} from "@/components/molecules";
+import {
+ Input,
+ Textarea,
+ Select,
+ SelectContent,
+ SelectItem,
+ SelectTrigger,
+ SelectValue,
+ Button,
+} from "@/shared/ui";
+import { ActionButton } from "@/components/atoms";
 
 export interface JobFormData {
  title: string;
@@ -191,39 +200,77 @@ export const JobForm = ({
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
      <FormField label="Experience Level" id="experienceLevel" required>
       <Select
-       value={formData.experienceLevel}
+       value={formData.experienceLevel.toString()}
        onValueChange={(value) =>
-        updateField("experienceLevel", value as ExperienceLevel)
+        updateField("experienceLevel", parseInt(value, 10) as ExperienceLevel)
        }
       >
-       <option value={ExperienceLevel.Beginner}>Beginner</option>
-       <option value={ExperienceLevel.Intermediate}>Intermediate</option>
-       <option value={ExperienceLevel.Expert}>Expert</option>
+       <SelectTrigger>
+        <SelectValue placeholder="Select experience level" />
+       </SelectTrigger>
+       <SelectContent>
+        <SelectItem value={ExperienceLevel.Beginner.toString()}>
+         Beginner
+        </SelectItem>
+        <SelectItem value={ExperienceLevel.Intermediate.toString()}>
+         Intermediate
+        </SelectItem>
+        <SelectItem value={ExperienceLevel.Expert.toString()}>
+         Expert
+        </SelectItem>
+       </SelectContent>
       </Select>
      </FormField>
 
      <FormField label="Job Duration" id="jobDuration" required>
       <Select
-       value={formData.jobDuration}
+       value={formData.jobDuration.toString()}
        onValueChange={(value) =>
-        updateField("jobDuration", value as JobDuration)
+        updateField("jobDuration", parseInt(value, 10) as JobDuration)
        }
       >
-       <option value={JobDuration.LessThanOneMonth}>Less than 1 month</option>
-       <option value={JobDuration.OneToThreeMonths}>1-3 months</option>
-       <option value={JobDuration.ThreeToSixMonths}>3-6 months</option>
-       <option value={JobDuration.MoreThanSixMonths}>More than 6 months</option>
+       <SelectTrigger>
+        <SelectValue placeholder="Select job duration" />
+       </SelectTrigger>
+       <SelectContent>
+        <SelectItem value={JobDuration.LessThanOneWeek.toString()}>
+         Less than 1 week
+        </SelectItem>
+        <SelectItem value={JobDuration.OneToTwoWeeks.toString()}>
+         1-2 weeks
+        </SelectItem>
+        <SelectItem value={JobDuration.TwoToFourWeeks.toString()}>
+         2-4 weeks
+        </SelectItem>
+        <SelectItem value={JobDuration.OneToThreeMonths.toString()}>
+         1-3 months
+        </SelectItem>
+        <SelectItem value={JobDuration.ThreeToSixMonths.toString()}>
+         3-6 months
+        </SelectItem>
+        <SelectItem value={JobDuration.MoreThanSixMonths.toString()}>
+         More than 6 months
+        </SelectItem>
+       </SelectContent>
       </Select>
      </FormField>
 
      <FormField label="Job Type" id="jobType" required>
       <Select
-       value={formData.jobType}
-       onValueChange={(value) => updateField("jobType", value as JobType)}
+       value={formData.jobType.toString()}
+       onValueChange={(value) =>
+        updateField("jobType", parseInt(value, 10) as JobType)
+       }
       >
-       <option value={JobType.OneTime}>One-time project</option>
-       <option value={JobType.Ongoing}>Ongoing work</option>
-       <option value={JobType.Contract}>Contract</option>
+       <SelectTrigger>
+        <SelectValue placeholder="Select job type" />
+       </SelectTrigger>
+       <SelectContent>
+        <SelectItem value={JobType.OneTime.toString()}>
+         One-time project
+        </SelectItem>
+        <SelectItem value={JobType.Ongoing.toString()}>Ongoing work</SelectItem>
+       </SelectContent>
       </Select>
      </FormField>
     </div>
@@ -252,7 +299,6 @@ export const JobForm = ({
    {/* Submit Section */}
    <div className="flex justify-end space-x-4 pt-6 border-t border-gray-200">
     <ActionButton
-     type="button"
      variant="outline"
      onClick={() => {
       setFormData({
@@ -271,9 +317,9 @@ export const JobForm = ({
      Clear Form
     </ActionButton>
 
-    <ActionButton type="submit" loading={isLoading} disabled={isLoading}>
+    <Button type="submit" disabled={isLoading}>
      {isLoading ? "Posting Job..." : "Post Job"}
-    </ActionButton>
+    </Button>
    </div>
   </form>
  );

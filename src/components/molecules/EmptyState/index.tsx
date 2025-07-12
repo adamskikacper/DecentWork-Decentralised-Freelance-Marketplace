@@ -1,6 +1,6 @@
 import React from "react";
 import { LucideIcon } from "lucide-react";
-import { ActionButton } from "../../atoms/ActionButton";
+import { ActionButton } from "@/components/atoms";
 
 export interface EmptyStateProps {
  icon?: LucideIcon;

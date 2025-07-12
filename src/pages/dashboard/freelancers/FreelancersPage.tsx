@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/shared/ui";
 import { PageLayout } from "@/components/templates";
 import { DashboardSection, FreelancerTable } from "@/components";
 import { SearchInput } from "@/components/molecules";
-import { useFetchFreelancers, useSearch, useNavigation } from "@/shared/hooks";
+import { useFreelancers, useNavigation } from "@/shared/hooks";
 
 export interface FreelancersPageProps {
  isLoading?: boolean;
@@ -15,21 +15,15 @@ export interface FreelancersPageProps {
 export const FreelancersPage = ({
  isLoading = false,
 }: FreelancersPageProps) => {
+ const [searchQuery, setSearchQuery] = useState("");
+
  const {
-  freelancers: allFreelancers,
+  filteredFreelancers,
   isLoading: dataLoading,
   error,
- } = useFetchFreelancers();
+ } = useFreelancers({ searchQuery });
 
  const { goToMessages, goToFreelancerDetails } = useNavigation();
-
- const {
-  query: searchQuery,
-  setQuery: setSearchQuery,
-  filteredItems: filteredFreelancers,
- } = useSearch(allFreelancers, {
-  searchFields: ["name", "title", "specialty"],
- });
 
  const activeFreelancers = filteredFreelancers.filter(
   (freelancer) => freelancer.hireHistory === "current"

@@ -1,5 +1,4 @@
-import React from "react";
-import { LoadingSpinner } from "../../atoms/LoadingSpinner";
+import { LoadingSpinner } from "@/components/atoms";
 
 export interface LoadingStateProps {
  message?: string;

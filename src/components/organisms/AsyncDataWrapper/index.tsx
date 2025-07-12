@@ -1,7 +1,5 @@
 import React from "react";
-import { LoadingState } from "../../molecules/LoadingState";
-import { ErrorState } from "../../molecules/ErrorState";
-import { EmptyState } from "../../molecules/EmptyState";
+import { LoadingState, ErrorState, EmptyState } from "@/components/molecules";
 
 export interface AsyncDataWrapperProps {
  isLoading: boolean;

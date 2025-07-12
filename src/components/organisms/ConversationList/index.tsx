@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage, Button } from "@/shared/ui";
-import { DataSection } from "../../molecules/DataSection";
+import { DataSection } from "@/components/molecules";
 import { useConversations, useNavigation } from "@/shared/hooks";
 
 export interface ConversationListProps {

@@ -1,10 +1,10 @@
 import { PageLayout } from "@/components/templates";
 import { JobCard } from "@/components/organisms/JobCard";
 import { DataSection } from "@/components/molecules/DataSection";
-import { useFetchJobListings, useNavigation } from "@/shared/hooks";
+import { useJobListings, useNavigation } from "@/shared/hooks";
 
 export const FindJobsPage = () => {
- const { jobListings, isLoading, error } = useFetchJobListings();
+ const { jobListings, isLoading, error } = useJobListings();
  const { goToJobDetails } = useNavigation();
 
  const handleDetails = (jobId: string | number) => {

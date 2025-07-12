@@ -8,7 +8,7 @@ export { FreelancerProfile } from "./organisms/FreelancerProfile";
 export { ClientProfile } from "./organisms/ClientProfile";
 export { JobPostForm } from "./organisms/JobPostForm";
 export { FreelancerTable } from "./organisms/FreelancerTable";
-export { AvailableJobsList } from "./organisms/AvailableJobsList";
+
 export { CompanySection } from "./organisms/CompanySection";
 export { ProfessionalSection } from "./organisms/ProfessionalSection";
 export { PortfolioSection } from "./organisms/PortfolioSection";

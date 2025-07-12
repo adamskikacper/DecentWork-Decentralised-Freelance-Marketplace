@@ -1,7 +1,5 @@
-import React from "react";
-import { MessageBubble } from "../../atoms/MessageBubble";
-import { MessageInput } from "../../molecules/MessageInput";
-import { DataSection } from "../../molecules/DataSection";
+import { MessageBubble } from "@/components/atoms";
+import { MessageInput, DataSection } from "@/components/molecules";
 import { ScrollArea } from "@/shared/ui";
 import { useMessageThread } from "@/shared/hooks";
 

@@ -1,6 +1,5 @@
 import React from "react";
-import { PageHeader } from "../../molecules/PageHeader";
-import { ContentSection } from "../../molecules/ContentSection";
+import { PageHeader, ContentSection } from "@/components/molecules";
 
 export interface ListingTemplateProps {
  title: string;

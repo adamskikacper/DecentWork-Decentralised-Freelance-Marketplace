@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { User, Calendar, Clock } from "lucide-react";
-import { useFetchJobDetails } from "@/shared/hooks";
+import { useJobDetails } from "@/shared/hooks";
 
 interface JobDetailsProps {
  onClose?: () => void;
@@ -9,7 +9,7 @@ interface JobDetailsProps {
 export const JobDetails = ({ onClose }: JobDetailsProps) => {
  const navigate = useNavigate();
  const { jobId } = useParams();
- const { job, isLoading, error } = useFetchJobDetails(jobId);
+ const { job, isLoading, error } = useJobDetails(jobId);
 
  const handleMessageClick = () => {
   if (job) {
@@ -95,7 +95,7 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
      </div>
      <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
       <div
-       className="h-full bg-primary rounded-full"
+       className="h-full bg-primary rounded-full transition-all duration-300"
        style={{ width: `${job.progress}%` }}
       ></div>
      </div>

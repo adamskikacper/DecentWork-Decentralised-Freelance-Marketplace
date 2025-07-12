@@ -146,7 +146,7 @@ export const deleteJob = async (jobId: string) => {
  return null;
 };
 
-export const getClientJobs = async (clientId: string) => {
+export const getClientJobsByUserId = async (clientId: string) => {
  return null;
 };
 

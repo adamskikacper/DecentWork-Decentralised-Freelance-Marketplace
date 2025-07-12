@@ -3,7 +3,7 @@ import { useAuth } from "@/app/providers/AuthProvider";
 import { getActiveJobs } from "@/shared/services/dashboard.service";
 import type { JobSummary } from "@/shared/models/dashboard";
 
-export const useFetchActiveJobs = () => {
+export const useActiveJobs = () => {
  const { userType } = useAuth();
  const [jobs, setJobs] = useState<JobSummary[]>([]);
  const [isLoading, setIsLoading] = useState(true);

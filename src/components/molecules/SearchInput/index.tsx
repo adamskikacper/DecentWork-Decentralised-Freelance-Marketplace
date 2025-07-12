@@ -1,7 +1,7 @@
 import React from "react";
 import { Search } from "lucide-react";
 import { Input } from "@/shared/ui";
-import { IconWrapper } from "../../atoms/IconWrapper";
+import { IconWrapper } from "@/components/atoms";
 
 export interface SearchInputProps {
  placeholder?: string;

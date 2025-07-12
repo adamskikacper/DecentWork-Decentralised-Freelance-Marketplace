@@ -4,13 +4,12 @@ import { Label } from "@/shared/ui/Label";
 import { Input } from "@/shared/ui/Input";
 import { Button } from "@/shared/ui/Button";
 import { Plus, X, ExternalLink } from "lucide-react";
+import { getDefaultPortfolioItems } from "@/shared/services/user.service";
 
 export const PortfolioSection = () => {
- const [portfolioItems, setPortfolioItems] = useState([
-  "https://github.com/username/project1",
-  "https://portfolio.com/project2",
-  "https://demo.example.com",
- ]);
+ const [portfolioItems, setPortfolioItems] = useState(
+  getDefaultPortfolioItems()
+ );
 
  const handleItemChange = (index: number, value: string) => {
   const newItems = [...portfolioItems];

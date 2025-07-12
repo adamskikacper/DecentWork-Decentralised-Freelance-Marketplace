@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavigationSidebar } from "../../organisms/NavigationSidebar";
+import { NavigationSidebar } from "@/components/organisms";
 import { useMobile } from "@/shared/hooks";
 
 export interface DashboardTemplateProps {

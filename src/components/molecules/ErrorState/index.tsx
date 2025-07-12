@@ -1,6 +1,5 @@
-import React from "react";
 import { AlertTriangle, RefreshCw } from "lucide-react";
-import { ActionButton } from "../../atoms/ActionButton";
+import { ActionButton } from "@/components/atoms";
 
 export interface ErrorStateProps {
  title?: string;

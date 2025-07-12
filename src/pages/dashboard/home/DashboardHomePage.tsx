@@ -6,25 +6,17 @@ import {
  DashboardStats,
  JobsList,
  FreelancerTable,
- AvailableJobsList,
 } from "@/components";
 import { PageLayout } from "@/components/templates";
 import { useAuth } from "@/app/providers/AuthProvider";
 import { DASHBOARD_LINKS } from "@/shared/constants";
+import { FileText, User, DollarSign, Briefcase } from "lucide-react";
 import {
- FileText,
- User,
- DollarSign,
- Briefcase,
- Star,
- Clock,
-} from "lucide-react";
-import {
- useFetchStats,
- useFetchActiveJobs,
- useFetchTopFreelancers,
- useFetchJobOpportunities,
+ useDashboardStats,
+ useActiveJobs,
+ useTopFreelancers,
 } from "@/shared/hooks";
+import { StatItem } from "@/components/organisms/DashboardStats";
 
 export interface DashboardHomePageProps {
  user?: {
@@ -46,60 +38,59 @@ export const DashboardHomePage = ({
  const { userType } = useAuth();
  const isClient = userType === "client";
 
- const { stats, isLoading: statsLoading, error: statsError } = useFetchStats();
+ const {
+  stats,
+  isLoading: statsLoading,
+  error: statsError,
+ } = useDashboardStats(userType as "client" | "freelancer");
 
- const getIconForStat = (title: string): React.ReactNode => {
-  switch (title) {
-   case "Active Jobs":
-    return <FileText className="w-5 h-5" />;
-   case "Hired Freelancers":
-    return <User className="w-5 h-5" />;
-   case "Total Spent":
-    return <DollarSign className="w-5 h-5" />;
-   case "Completed Jobs":
-    return <Briefcase className="w-5 h-5" />;
-   case "Current Balance":
-    return <DollarSign className="w-5 h-5" />;
-   case "Average Rating":
-    return <Star className="w-5 h-5" />;
-   default:
-    return <Clock className="w-5 h-5" />;
-  }
- };
+ const statsWithIcons: StatItem[] = useMemo(() => {
+  if (!stats) return [];
 
- const statsWithIcons = useMemo(() => {
-  return stats.map((stat) => ({
-   ...stat,
-   icon: getIconForStat(stat.title),
-  }));
- }, [stats]);
+  const allStats: StatItem[] = [
+   {
+    title: "Active Jobs",
+    value: stats.activeJobs,
+    icon: <FileText className="w-5 h-5" />,
+   },
+   {
+    title: "Completed Jobs",
+    value: stats.completedJobs,
+    icon: <Briefcase className="w-5 h-5" />,
+   },
+   {
+    title: isClient ? "Hired Freelancers" : "Pending Proposals",
+    value: isClient ? stats.totalFreelancers ?? 0 : stats.pendingProposals ?? 0,
+    icon: <User className="w-5 h-5" />,
+   },
+   {
+    title: isClient ? "Total Spent" : "Total Earnings",
+    value: `$${stats.totalEarnings.toLocaleString()}`,
+    icon: <DollarSign className="w-5 h-5" />,
+   },
+  ];
+
+  return allStats;
+ }, [stats, isClient]);
 
  const {
   jobs: activeJobs,
   isLoading: jobsLoading,
   error: jobsError,
- } = useFetchActiveJobs();
+ } = useActiveJobs();
 
  const {
   freelancers: topFreelancers,
   isLoading: freelancersLoading,
   error: freelancersError,
- } = useFetchTopFreelancers();
-
- const {
-  jobOpportunities,
-  isLoading: opportunitiesLoading,
-  error: opportunitiesError,
- } = useFetchJobOpportunities();
+ } = useTopFreelancers();
 
  const handleHireFreelancer = (freelancerId: string) => {
   console.log(`Hiring freelancer: ${freelancerId}`);
  };
 
- const isAnyLoading =
-  statsLoading || jobsLoading || freelancersLoading || opportunitiesLoading;
- const anyError =
-  statsError || jobsError || freelancersError || opportunitiesError;
+ const isAnyLoading = statsLoading || jobsLoading || freelancersLoading;
+ const anyError = statsError || jobsError || freelancersError;
 
  return (
   <PageLayout
@@ -163,21 +154,6 @@ export const DashboardHomePage = ({
        onMessage={onMessage}
        onView={onFreelancerDetails}
       />
-     </DashboardSection>
-    ) : null}
-
-    {!isClient && jobOpportunities && jobOpportunities.length > 0 ? (
-     <DashboardSection
-      title="Job Opportunities"
-      description="Recommended jobs based on your skills and experience"
-      action={
-       <Button variant="outline" size="sm" asChild>
-        <Link to={DASHBOARD_LINKS.FIND_JOBS}>View All</Link>
-       </Button>
-      }
-      isLoading={isAnyLoading}
-     >
-      <AvailableJobsList jobs={jobOpportunities} onDetails={onJobDetails} />
      </DashboardSection>
     ) : null}
    </div>

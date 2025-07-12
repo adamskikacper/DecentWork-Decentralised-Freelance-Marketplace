@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Upload, File, X } from "lucide-react";
-import { ActionButton } from "../../atoms/ActionButton";
+import { ActionButton } from "@/components/atoms";
 
 export interface FileDropzoneProps {
  onFilesSelect: (files: File[]) => void;

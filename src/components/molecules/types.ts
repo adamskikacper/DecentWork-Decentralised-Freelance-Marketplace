@@ -7,7 +7,6 @@ export type { FormSectionProps } from "./FormSection";
 export type { UserCardProps } from "./UserCard";
 export type { ActionButtonGroupProps, ActionItem } from "./ActionButtonGroup";
 export type { MetricCardProps } from "./MetricCard";
-export type { CategoryTagProps } from "./CategoryTag";
 
 export type { PageHeaderProps, BreadcrumbItem } from "./PageHeader";
 export type { ContentSectionProps } from "./ContentSection";

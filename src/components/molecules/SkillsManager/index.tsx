@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { X, Plus } from "lucide-react";
 import { Input } from "@/shared/ui";
 import { Badge } from "@/shared/ui";
-import { ActionButton } from "../../atoms/ActionButton";
+import { ActionButton } from "@/components/atoms";
 
 export interface SkillsManagerProps {
  skills: string[];

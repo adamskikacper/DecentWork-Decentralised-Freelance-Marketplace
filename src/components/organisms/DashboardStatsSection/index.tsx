@@ -1,8 +1,6 @@
 import React from "react";
 import { useDashboardStats } from "@/shared/hooks/data/useDashboardStats";
-import { MetricCard } from "../../molecules/MetricCard";
-import { ErrorState } from "../../molecules/ErrorState";
-import { LoadingState } from "../../molecules/LoadingState";
+import { MetricCard, ErrorState, LoadingState } from "@/components/molecules";
 import {
  Briefcase,
  CheckCircle,

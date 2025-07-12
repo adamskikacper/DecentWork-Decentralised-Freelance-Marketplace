@@ -11,7 +11,7 @@ export interface MyJobsHookResult {
  error: string | null;
 }
 
-export const useFetchMyJobs = (): MyJobsHookResult => {
+export const useMyJobs = (): MyJobsHookResult => {
  const { userType } = useAuth();
  const [jobsData, setJobsData] = useState<JobsData | null>(null);
  const [isLoading, setIsLoading] = useState(true);

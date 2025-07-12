@@ -9,7 +9,7 @@ export interface PaginationControlsProps {
  onPageChange: (page: number) => void;
  canGoPrevious: boolean;
  canGoNext: boolean;
- pageNumbers: number[];
+ pageNumbers: (number | string)[];
  className?: string;
 }
 
