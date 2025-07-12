@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/app/providers/AuthProvider";
-import { useMobile } from "@/shared/hooks";
-import { ActionButton } from "@/components/atoms";
 import { UserCard } from "@/components/molecules";
 import { DASHBOARD_LINKS } from "@/shared/constants";
 import {
@@ -12,11 +10,18 @@ import {
  Search,
  MessageCircle,
  Home as HomeIcon,
- ChevronLeft,
- ChevronRight,
  FileText,
- X,
 } from "lucide-react";
+import {
+ Sidebar,
+ SidebarContent,
+ SidebarHeader,
+ SidebarMenu,
+ SidebarMenuButton,
+ SidebarMenuItem,
+ SidebarFooter,
+ SidebarSeparator,
+} from "@/shared/ui";
 
 export interface NavigationItem {
  to: string;
@@ -26,28 +31,11 @@ export interface NavigationItem {
 
 export interface NavigationSidebarProps {
  className?: string;
- variant?: "desktop" | "mobile";
- isOpen?: boolean;
- onToggle?: () => void;
 }
 
-export const NavigationSidebar = ({
- className = "",
- variant = "desktop",
- isOpen = true,
- onToggle,
-}: NavigationSidebarProps) => {
+export const NavigationSidebar = ({ className }: NavigationSidebarProps) => {
  const { user, userType } = useAuth();
  const location = useLocation();
- const isMobile = useMobile();
-
- const [isCollapsed, setIsCollapsed] = useState(isMobile);
-
- useEffect(() => {
-  if (variant === "desktop") {
-   setIsCollapsed(isMobile);
-  }
- }, [isMobile, variant]);
 
  const getNavigationItems = (): NavigationItem[] => {
   const baseItems: NavigationItem[] = [
@@ -115,203 +103,44 @@ export const NavigationSidebar = ({
 
  const navigationItems = getNavigationItems();
 
- if (variant === "mobile") {
-  return (
-   <MobileSidebar
-    items={navigationItems}
-    user={user}
-    isOpen={isOpen}
-    onToggle={onToggle}
-    isLinkActive={isLinkActive}
-    className={className}
-   />
-  );
- }
-
  return (
-  <DesktopSidebar
-   items={navigationItems}
-   user={user}
-   isCollapsed={isCollapsed}
-   onToggle={() => setIsCollapsed(!isCollapsed)}
-   isLinkActive={isLinkActive}
-   className={className}
-  />
- );
-};
-
-interface DesktopSidebarProps {
- items: NavigationItem[];
- user: any;
- isCollapsed: boolean;
- onToggle: () => void;
- isLinkActive: (path: string) => boolean;
- className: string;
-}
-
-const DesktopSidebar = ({
- items,
- user,
- isCollapsed,
- onToggle,
- isLinkActive,
- className,
-}: DesktopSidebarProps) => {
- return (
-  <div
-   className={`
-        fixed left-0 top-0 h-full bg-white border-r border-gray-200 
-        transition-all duration-300 z-40
-        ${isCollapsed ? "w-16" : "w-64"}
-        ${className}
-      `}
-  >
-   {/* Header */}
-   <div className="p-4 border-b border-gray-200">
-    <div className="flex items-center justify-between">
-     {!isCollapsed && (
-      <h2 className="text-lg font-semibold text-gray-900">DecentWork</h2>
-     )}
-     <ActionButton
-      onClick={onToggle}
-      variant="ghost"
-      size="sm"
-      icon={isCollapsed ? ChevronRight : ChevronLeft}
-     >
-      {isCollapsed ? "" : ""}
-     </ActionButton>
+  <Sidebar className={className}>
+   <SidebarHeader className="border-b">
+    <div className="px-2 py-2">
+     <h2 className="text-lg font-semibold text-sidebar-foreground">DecentWork</h2>
     </div>
-   </div>
+   </SidebarHeader>
 
-   {/* User Profile */}
-   {!isCollapsed && (
-    <div className="p-4 border-b border-gray-200">
+   <SidebarContent>
+    <SidebarMenu>
+     {navigationItems.map((item) => {
+      const Icon = item.icon;
+      const active = isLinkActive(item.to);
+
+      return (
+       <SidebarMenuItem key={item.to}>
+        <SidebarMenuButton asChild isActive={active}>
+         <Link to={item.to}>
+          <Icon className="w-4 h-4" />
+          <span>{item.label}</span>
+         </Link>
+        </SidebarMenuButton>
+       </SidebarMenuItem>
+      );
+     })}
+    </SidebarMenu>
+   </SidebarContent>
+
+   <SidebarFooter className="border-t">
+    <SidebarSeparator />
+    <div className="p-2">
      <UserCard
       name={user?.name || "User"}
       title={user?.title || "Member"}
       variant="compact"
      />
     </div>
-   )}
-
-   {/* Navigation */}
-   <nav className="flex-1 p-4">
-    <ul className="space-y-2">
-     {items.map((item) => {
-      const Icon = item.icon;
-      const active = isLinkActive(item.to);
-
-      return (
-       <li key={item.to}>
-        <Link
-         to={item.to}
-         className={`
-                    flex items-center gap-3 px-3 py-2 rounded-lg transition-colors
-                    ${
-                     active
-                      ? "bg-primary text-primary-foreground"
-                      : "text-gray-700 hover:bg-gray-100"
-                    }
-                    ${isCollapsed ? "justify-center" : ""}
-                  `}
-         title={isCollapsed ? item.label : undefined}
-        >
-         <Icon className="w-5 h-5 flex-shrink-0" />
-         {!isCollapsed && <span className="font-medium">{item.label}</span>}
-        </Link>
-       </li>
-      );
-     })}
-    </ul>
-   </nav>
-  </div>
- );
-};
-
-interface MobileSidebarProps {
- items: NavigationItem[];
- user: any;
- isOpen: boolean;
- onToggle?: () => void;
- isLinkActive: (path: string) => boolean;
- className: string;
-}
-
-const MobileSidebar = ({
- items,
- user,
- isOpen,
- onToggle,
- isLinkActive,
- className,
-}: MobileSidebarProps) => {
- return (
-  <>
-   {/* Overlay */}
-   {isOpen && (
-    <div
-     className="fixed inset-0 bg-black bg-opacity-50 z-40"
-     onClick={onToggle}
-    />
-   )}
-
-   {/* Sidebar */}
-   <div
-    className={`
-          fixed left-0 top-0 h-full bg-white w-64 transform transition-transform z-50
-          ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          ${className}
-        `}
-   >
-    {/* Header */}
-    <div className="p-4 border-b border-gray-200">
-     <div className="flex items-center justify-between">
-      <h2 className="text-lg font-semibold text-gray-900">DecentWork</h2>
-      <ActionButton onClick={onToggle} variant="ghost" size="sm" icon={X}>
-       Close
-      </ActionButton>
-     </div>
-    </div>
-
-    {/* User Profile */}
-    <div className="p-4 border-b border-gray-200">
-     <UserCard
-      name={user?.name || "User"}
-      title={user?.title || "Member"}
-      variant="detailed"
-     />
-    </div>
-
-    {/* Navigation */}
-    <nav className="flex-1 p-4">
-     <ul className="space-y-2">
-      {items.map((item) => {
-       const Icon = item.icon;
-       const active = isLinkActive(item.to);
-
-       return (
-        <li key={item.to}>
-         <Link
-          to={item.to}
-          onClick={onToggle}
-          className={`
-                      flex items-center gap-3 px-3 py-2 rounded-lg transition-colors
-                      ${
-                       active
-                        ? "bg-primary text-primary-foreground"
-                        : "text-gray-700 hover:bg-gray-100"
-                      }
-                    `}
-         >
-          <Icon className="w-5 h-5 flex-shrink-0" />
-          <span className="font-medium">{item.label}</span>
-         </Link>
-        </li>
-       );
-      })}
-     </ul>
-    </nav>
-   </div>
-  </>
+   </SidebarFooter>
+  </Sidebar>
  );
 };

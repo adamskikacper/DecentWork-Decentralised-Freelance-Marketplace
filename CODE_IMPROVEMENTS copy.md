@@ -11,7 +11,7 @@ Code Inconsistencies and Areas for Improvement
    src/shared/services/auth.service.ts (30+ instances)
    src/app/providers/AuthProvider.tsx (15+ instances)
    Multiple other files
-   Fix: Replace with proper logging service or remove debug statements
+   Fix: remove debug statements
 3. Inline Styles
    Issue: Several components use inline style attributes instead of Tailwind classes
    Files affected:

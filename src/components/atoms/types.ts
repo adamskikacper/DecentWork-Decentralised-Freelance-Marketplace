@@ -1,9 +1,6 @@
 export type { StatusBadgeProps } from "./StatusBadge";
-export type { RatingStarsProps } from "./RatingStars";
-export type { ProgressBarProps } from "./ProgressBar";
 export type { ActionButtonProps } from "./ActionButton";
-export type { LoadingSpinnerProps } from "./LoadingSpinner";
-export type { IconWrapperProps } from "./IconWrapper";
+export type { MessageBubbleProps } from "./MessageBubble";
 
 export interface BaseAtomProps {
  className?: string;

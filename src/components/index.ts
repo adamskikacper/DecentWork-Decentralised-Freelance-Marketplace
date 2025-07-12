@@ -23,7 +23,6 @@ export {
  DashboardSidebar,
  ErrorPageTemplate,
  PageLayout,
- PublicPageLayout,
 } from "./templates";
 
 export type * from "./atoms/types";

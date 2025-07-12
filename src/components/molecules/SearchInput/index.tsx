@@ -1,7 +1,6 @@
 import React from "react";
 import { Search } from "lucide-react";
 import { Input } from "@/shared/ui";
-import { IconWrapper } from "@/components/atoms";
 
 export interface SearchInputProps {
  placeholder?: string;
@@ -29,7 +28,7 @@ export const SearchInput = ({
  return (
   <div className={`relative ${className}`}>
    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-    <IconWrapper icon={Search} size="sm" variant="muted" />
+    <Search className="h-4 w-4 text-muted-foreground" />
    </div>
    <Input
     type="text"
