@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { User, Calendar, Clock } from "lucide-react";
 import { useJobDetails } from "@/shared/hooks";
+import { Card, CardContent } from "@/shared/ui/Card";
 
 interface JobDetailsProps {
  onClose?: () => void;
@@ -71,54 +72,58 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
     )}
    </div>
 
-   <div className="space-y-6 rounded-xl glass-card p-6">
-    <div>
-     <h3 className="text-lg font-semibold mb-2">Job Details</h3>
-     <p className="text-muted-foreground">{job.description}</p>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-     <div className="flex items-center gap-2">
-      <Calendar className="h-4 w-4 text-primary" />
-      <span>Start: {job.startDate}</span>
-     </div>
-     <div className="flex items-center gap-2">
-      <Clock className="h-4 w-4 text-primary" />
-      <span>Due: {job.dueDate}</span>
-     </div>
-    </div>
-
-    <div>
-     <div className="flex justify-between text-sm mb-1">
-      <span className="text-muted-foreground">Progress</span>
-      <span className="font-medium">{job.progress}%</span>
-     </div>
-     <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
-      <div
-       className="h-full bg-primary rounded-full transition-all duration-300"
-       style={{ width: `${job.progress}%` }}
-      ></div>
-     </div>
-    </div>
-   </div>
-
-   <div className="rounded-xl glass-card p-6">
-    <div className="flex items-center gap-3 border-b pb-4 mb-4">
-     <div className="h-10 w-10 rounded-full bg-secondary flex items-center justify-center">
-      <User className="h-5 w-5" />
-     </div>
+   <Card>
+    <CardContent className="p-6 space-y-6">
      <div>
-      <p className="font-medium">{job.freelancer.name}</p>
-      <p className="text-sm text-muted-foreground">{job.freelancer.role}</p>
+      <h3 className="text-lg font-semibold mb-2">Job Details</h3>
+      <p className="text-muted-foreground">{job.description}</p>
      </div>
-     <button
-      onClick={handleMessageClick}
-      className="ml-auto px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-     >
-      Message
-     </button>
-    </div>
-   </div>
+
+     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="flex items-center gap-2">
+       <Calendar className="h-4 w-4 text-primary" />
+       <span>Start: {job.startDate}</span>
+      </div>
+      <div className="flex items-center gap-2">
+       <Clock className="h-4 w-4 text-primary" />
+       <span>Due: {job.dueDate}</span>
+      </div>
+     </div>
+
+     <div>
+      <div className="flex justify-between text-sm mb-1">
+       <span className="text-muted-foreground">Progress</span>
+       <span className="font-medium">{job.progress}%</span>
+      </div>
+      <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
+       <div
+        className="h-full bg-primary rounded-full transition-all duration-300"
+        style={{ width: `${job.progress}%` }}
+       ></div>
+      </div>
+     </div>
+    </CardContent>
+   </Card>
+
+   <Card>
+    <CardContent className="p-6">
+     <div className="flex items-center gap-3 border-b pb-4 mb-4">
+      <div className="h-10 w-10 rounded-full bg-secondary flex items-center justify-center">
+       <User className="h-5 w-5" />
+      </div>
+      <div>
+       <p className="font-medium">{job.freelancer.name}</p>
+       <p className="text-sm text-muted-foreground">{job.freelancer.role}</p>
+      </div>
+      <button
+       onClick={handleMessageClick}
+       className="ml-auto px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+      >
+       Message
+      </button>
+     </div>
+    </CardContent>
+   </Card>
   </div>
  );
 };

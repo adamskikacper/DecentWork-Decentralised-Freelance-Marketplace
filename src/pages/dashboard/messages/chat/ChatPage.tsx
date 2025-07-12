@@ -49,7 +49,7 @@ export const ChatPage = () => {
    isLoading={isLoading}
    error={error}
   >
-   <DashboardSection title="Conversation" description="Exchange messages">
+   <DashboardSection>
     <div className="space-y-4">
      <div className="max-h-96 overflow-y-auto space-y-4 p-4 border rounded-lg bg-background">
       {messages.map((message) => (

@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @layer base {
- /* Light Theme Variables */
  :root {
   --background: 0 0% 100%; /* White */
   --foreground: 224 71% 4%; /* Dark Blue-Gray */
@@ -120,11 +119,6 @@
 }
 
 @layer components {
- /* Updated Glass Card for better dark mode compatibility */
- .glass-card {
-  @apply bg-card/70 dark:bg-card/50 backdrop-blur-lg border border-border/20 shadow-lg rounded-lg;
- }
-
  /* Keep existing buttons, they use theme variables */
  .button-primary {
   @apply px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:brightness-110;

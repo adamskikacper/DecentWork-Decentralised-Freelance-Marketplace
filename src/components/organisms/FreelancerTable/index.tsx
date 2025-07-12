@@ -1,6 +1,7 @@
 import React from "react";
 import { FreelancerSummary } from "@/shared/models/dashboard";
 import { FreelancerCard } from "../FreelancerCard";
+import { Card } from "@/shared/ui/Card";
 
 interface FreelancerTableProps {
  freelancers: FreelancerSummary[];
@@ -22,7 +23,7 @@ export const FreelancerTable = ({
  onHire,
 }: FreelancerTableProps) => {
  return (
-  <div className="glass-card rounded-xl overflow-hidden">
+  <Card className="overflow-hidden">
    <div className="overflow-x-auto">
     <table className="w-full table-fixed">
      <thead>
@@ -58,6 +59,6 @@ export const FreelancerTable = ({
      </tbody>
     </table>
    </div>
-  </div>
+  </Card>
  );
 };
