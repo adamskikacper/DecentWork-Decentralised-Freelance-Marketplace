@@ -218,3 +218,8 @@ export const DASHBOARD_SIDEBAR = {
  BLUR_INTENSITY: "backdrop-blur-xl",
  GRADIENT_OPACITY: "bg-white/20",
 };
+
+export const THEME_MODES = {
+ LIGHT: "light",
+ DARK: "dark",
+};

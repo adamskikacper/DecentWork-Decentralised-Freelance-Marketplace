@@ -57,7 +57,7 @@ export const Navbar = () => {
  return (
   <header
    className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-    scrolled ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm" : "bg-transparent"
+    scrolled ? "bg-white/80 dark:bg-black/80 backdrop-blur-lg shadow-sm" : "bg-transparent"
    }`}
   >
    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -147,7 +147,7 @@ export const Navbar = () => {
      mobileMenuOpen
       ? "opacity-100 translate-y-0 h-auto"
       : "opacity-0 -translate-y-4 h-0 pointer-events-none"
-    } bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-md overflow-hidden`}
+    } bg-white/95 dark:bg-black/95 backdrop-blur-lg shadow-md overflow-hidden`}
    >
     <div className="px-4 py-8 space-y-6">
      <Link

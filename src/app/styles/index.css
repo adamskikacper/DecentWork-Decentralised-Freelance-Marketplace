@@ -60,8 +60,8 @@
   --popover-foreground: #fafafa;       /* Popover text */
   
   /* Primary Brand Colors */
-  --primary: #3b82f6;                  /* Modern bright blue */
-  --primary-foreground: #ffffff;       /* White on primary */
+  --primary: #f2f2f2;                  /* Light gray - consistent with light theme */
+  --primary-foreground: #070710;       /* Dark background on primary */
   
   /* Secondary Colors */
   --secondary: #141417;                /* Darker subtle gray */
@@ -82,16 +82,16 @@
   --success-foreground: #fafafa;       /* White on green */
   --warning: #f59e0b;                  /* Modern amber */
   --warning-foreground: #fafafa;       /* White on amber */
-  --info: #3b82f6;                     /* Modern blue (same as primary) */
-  --info-foreground: #fafafa;          /* White on blue */
+  --info: #f2f2f2;                     /* Light gray (consistent with primary) */
+  --info-foreground: #070710;          /* Dark on light gray */
   
   /* Border & Input Colors */
   --border: #1f1f23;                   /* Darker subtle border */
   --input: #1f1f23;                    /* Darker input border */
-  --ring: #3b82f6;                     /* Focus ring (primary color) */
+  --ring: #f2f2f2;                     /* Focus ring (consistent with primary) */
   
   /* Enhanced Accent Palette for Data Visualization */
-  --chart-1: #3b82f6;                  /* Primary blue */
+  --chart-1: #f2f2f2;                  /* Primary light gray */
   --chart-2: #16a34a;                  /* Success green */
   --chart-3: #f59e0b;                  /* Warning amber */
   --chart-4: #a855f7;                  /* Purple */
