@@ -101,12 +101,12 @@
   /* Sidebar Specific Colors */
   --sidebar-background: #070710;       /* Darker sidebar background */
   --sidebar-foreground: #f2f2f2;       /* Sidebar text */
-  --sidebar-primary: #3b82f6;          /* Sidebar primary */
-  --sidebar-primary-foreground: #ffffff; /* Sidebar primary text */
+  --sidebar-primary: #f2f2f2;          /* Sidebar primary - consistent with light theme */
+  --sidebar-primary-foreground: #070710; /* Sidebar primary text */
   --sidebar-accent: #141417;           /* Darker sidebar accent */
   --sidebar-accent-foreground: #f2f2f2; /* Sidebar accent text */
   --sidebar-border: #141417;           /* Darker sidebar border */
-  --sidebar-ring: #3b82f6;             /* Sidebar focus ring */
+  --sidebar-ring: #f2f2f2;             /* Sidebar focus ring - consistent */
   
   /* Shadow Colors for Depth */
   --shadow-light: rgba(5, 5, 16, 0.05);     /* Light shadow */
