@@ -4,104 +4,115 @@
 
 @layer base {
  :root {
-  --background: 0 0% 100%; /* White */
-  --foreground: 224 71% 4%; /* Dark Blue-Gray */
-
-  --card: 0 0% 100%;
-  --card-foreground: 224 71% 4%;
-
-  --popover: 0 0% 100%;
-  --popover-foreground: 224 71% 4%;
-
-  /* Using a vibrant blue as primary */
-  --primary: 217 91% 60%; /* Vibrant Blue HSL */
-  --primary-foreground: 0 0% 100%; /* White */
-
-  /* Slightly off-white secondary */
-  --secondary: 220 14% 96%; /* Light Gray */
-  --secondary-foreground: 224 71% 4%; /* Dark Blue-Gray */
-
-  --muted: 220 14% 96%; /* Light Gray */
-  --muted-foreground: 220 9% 46%; /* Medium Gray */
-
-  /* Using a subtle green as accent */
-  --accent: 142 76% 96%; /* Very Light Green */
-  --accent-foreground: 142 71% 15%; /* Dark Green */
-
-  --destructive: 0 84% 60%; /* Red */
-  --destructive-foreground: 0 0% 100%; /* White */
-
-  --border: 220 13% 91%; /* Light Gray Border */
-  --input: 220 13% 91%; /* Light Gray Input */
-  --ring: 217 91% 60%; /* Vibrant Blue Ring */
-
+  /* Light theme base colors */
+  --background: #ffffff;
+  --foreground: #0a0a0f;
+  
+  --card: #ffffff;
+  --card-foreground: #0a0a0f;
+  
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0f;
+  
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #18181b;
+  
   --radius: 0.75rem;
+  
+  /* Sidebar light theme */
+  --sidebar-background: #f4f4f5;
+  --sidebar-foreground: #18181b;
+  --sidebar-primary: #18181b;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #f4f4f5;
+  --sidebar-accent-foreground: #18181b;
+  --sidebar-border: #e4e4e7;
+  --sidebar-ring: #18181b;
 
-  /* Sidebar specific variables (can be adjusted further) */
-  --sidebar-background: 220 14% 98%; /* Slightly off-white */
-  --sidebar-foreground: 224 71% 4%;
-  --sidebar-primary: 217 91% 60%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 142 76% 96%;
-  --sidebar-accent-foreground: 142 71% 15%;
-  --sidebar-border: 220 13% 91%;
-  --sidebar-ring: 217 91% 60%;
-
-  /* Define hex colors as CSS variables for easier gradient use */
-  --color-vibrantBlue: #3b82f6;
-  --color-emeraldGreen: #10b981;
-  --color-sunnyYellow: #f59e0b;
-  --color-deepPurple: #8b5cf6;
  }
 
- /* Dark Theme Variables */
+ /* Modern Professional Dark Theme */
  .dark {
-  --background: 224 71% 4%; /* Dark Blue-Gray */
-  --foreground: 210 20% 98%; /* Very Light Gray */
-
-  --card: 224 71% 10%; /* Darker Blue-Gray */
-  --card-foreground: 210 20% 98%;
-
-  --popover: 224 71% 10%;
-  --popover-foreground: 210 20% 98%;
-
-  /* Keep vibrant blue primary */
-  --primary: 217 91% 60%;
-  --primary-foreground: 0 0% 100%;
-
-  /* Darker secondary */
-  --secondary: 224 71% 10%;
-  --secondary-foreground: 210 20% 98%;
-
-  --muted: 224 71% 10%;
-  --muted-foreground: 215 14% 65%; /* Lighter Gray */
-
-  /* Darker green accent */
-  --accent: 142 71% 15%;
-  --accent-foreground: 142 76% 96%;
-
-  --destructive: 0 63% 31%; /* Darker Red */
-  --destructive-foreground: 0 0% 100%;
-
-  --border: 215 28% 17%; /* Dark Gray Border */
-  --input: 215 28% 17%; /* Dark Gray Input */
-  --ring: 217 91% 60%; /* Keep Vibrant Blue Ring */
-
-  /* Sidebar dark theme */
-  --sidebar-background: 224 71% 6%; /* Even Darker Blue-Gray */
-  --sidebar-foreground: 210 20% 98%;
-  --sidebar-primary: 217 91% 60%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 142 71% 15%;
-  --sidebar-accent-foreground: 142 76% 96%;
-  --sidebar-border: 215 28% 17%;
-  --sidebar-ring: 217 91% 60%;
-
-  /* Hex colors remain the same, just used in dark context */
-  --color-vibrantBlue: #3b82f6;
-  --color-emeraldGreen: #10b981;
-  --color-sunnyYellow: #f59e0b;
-  --color-deepPurple: #8b5cf6;
+  /* Core Background Colors */
+  --background: #050510;               /* Very deep charcoal main background */
+  --foreground: #fafafa;               /* Pure white primary text */
+  
+  /* Card & Surface Colors */
+  --card: #0c0c14;                     /* Darker elevated card surface */
+  --card-foreground: #fafafa;          /* Card text */
+  --popover: #0f0f17;                  /* Darker popover/dropdown background */
+  --popover-foreground: #fafafa;       /* Popover text */
+  
+  /* Primary Brand Colors */
+  --primary: #3b82f6;                  /* Modern bright blue */
+  --primary-foreground: #ffffff;       /* White on primary */
+  
+  /* Secondary Colors */
+  --secondary: #141417;                /* Darker subtle gray */
+  --secondary-foreground: #e5e5e5;     /* Light gray text */
+  
+  /* Muted Colors */
+  --muted: #0f0f14;                    /* Darker muted background */
+  --muted-foreground: #a1a1aa;         /* Muted text */
+  
+  /* Accent Colors */
+  --accent: #1a1a1f;                   /* Darker accent background */
+  --accent-foreground: #f2f2f2;        /* Accent text */
+  
+  /* Status Colors */
+  --destructive: #dc2626;              /* Modern red */
+  --destructive-foreground: #fafafa;   /* White on red */
+  --success: #16a34a;                  /* Modern green */
+  --success-foreground: #fafafa;       /* White on green */
+  --warning: #f59e0b;                  /* Modern amber */
+  --warning-foreground: #fafafa;       /* White on amber */
+  --info: #3b82f6;                     /* Modern blue (same as primary) */
+  --info-foreground: #fafafa;          /* White on blue */
+  
+  /* Border & Input Colors */
+  --border: #1f1f23;                   /* Darker subtle border */
+  --input: #1f1f23;                    /* Darker input border */
+  --ring: #3b82f6;                     /* Focus ring (primary color) */
+  
+  /* Enhanced Accent Palette for Data Visualization */
+  --chart-1: #3b82f6;                  /* Primary blue */
+  --chart-2: #16a34a;                  /* Success green */
+  --chart-3: #f59e0b;                  /* Warning amber */
+  --chart-4: #a855f7;                  /* Purple */
+  --chart-5: #ec4899;                  /* Pink */
+  --chart-6: #f97316;                  /* Orange */
+  
+  /* Sidebar Specific Colors */
+  --sidebar-background: #070710;       /* Darker sidebar background */
+  --sidebar-foreground: #f2f2f2;       /* Sidebar text */
+  --sidebar-primary: #3b82f6;          /* Sidebar primary */
+  --sidebar-primary-foreground: #ffffff; /* Sidebar primary text */
+  --sidebar-accent: #141417;           /* Darker sidebar accent */
+  --sidebar-accent-foreground: #f2f2f2; /* Sidebar accent text */
+  --sidebar-border: #141417;           /* Darker sidebar border */
+  --sidebar-ring: #3b82f6;             /* Sidebar focus ring */
+  
+  /* Shadow Colors for Depth */
+  --shadow-light: rgba(5, 5, 16, 0.05);     /* Light shadow */
+  --shadow-medium: rgba(5, 5, 16, 0.1);     /* Medium shadow */
+  --shadow-heavy: rgba(5, 5, 16, 0.2);      /* Heavy shadow */
+  
  }
 
  * {
@@ -138,39 +149,6 @@
   @apply px-6 py-3 bg-gradient-to-r from-sunnyYellow to-deepPurple text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
  }
 
- /* Enhanced Input Field Style */
- .input-enhanced {
-  @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-300;
- }
-
- /* Card with Gradient Border */
- .card-gradient-border {
-  @apply relative rounded-lg border border-transparent bg-card p-6 shadow-sm;
-  /* Pseudo-element for border */
-  &::before {
-   content: "";
-   position: absolute;
-   inset: 0;
-   border-radius: inherit; /* Use parent's border radius */
-   padding: 1px; /* Border width */
-   background: linear-gradient(
-    to right,
-    var(--color-vibrantBlue),
-    var(--color-emeraldGreen)
-   );
-   -webkit-mask: linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-   -webkit-mask-composite: xor;
-   mask-composite: exclude;
-   z-index: -1; /* Place behind content */
-  }
- }
-
- /* Card with Accent Gradient Background */
- .card-accent-gradient {
-  @apply rounded-lg p-6 text-white shadow-lg bg-gradient-accent-highlight; /* Use gradient from config */
- }
 
  .page-container {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
@@ -212,10 +190,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
- background: hsl(var(--muted-foreground) / 0.3);
+ background: color-mix(in srgb, var(--muted-foreground) 30%, transparent);
  border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
- background: hsl(var(--muted-foreground) / 0.5);
+ background: color-mix(in srgb, var(--muted-foreground) 50%, transparent);
 }
