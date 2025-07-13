@@ -275,14 +275,15 @@ const SidebarTrigger = React.forwardRef<
 SidebarTrigger.displayName = "SidebarTrigger";
 
 const SidebarRail = React.forwardRef<
- HTMLButtonElement,
- React.ComponentProps<"button">
+ React.ElementRef<typeof Button>,
+ React.ComponentProps<typeof Button>
 >(({ className, ...props }, ref) => {
  const { toggleSidebar } = useSidebar();
 
  return (
-  <button
+  <Button
    ref={ref}
+   variant="ghost"
    data-sidebar="rail"
    aria-label="Toggle Sidebar"
    tabIndex={-1}

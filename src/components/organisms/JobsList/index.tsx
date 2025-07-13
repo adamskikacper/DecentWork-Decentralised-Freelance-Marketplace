@@ -1,6 +1,7 @@
 import React from "react";
 import { JobSummary } from "@/shared/models/dashboard";
 import { JobCard } from "@/components/organisms/JobCard";
+import { Button } from "@/shared/ui";
 
 interface JobsListProps {
  jobs: JobSummary[];
@@ -29,9 +30,9 @@ export const JobsList = ({
     <div className="flex justify-between items-center mb-6">
      {title && <h2 className="text-xl font-bold">{title}</h2>}
      {showViewAll && (
-      <button className="text-sm text-primary font-medium" onClick={onViewAll}>
+      <Button variant="ghost" className="text-sm text-primary font-medium" onClick={onViewAll}>
        View all
-      </button>
+      </Button>
      )}
     </div>
    )}

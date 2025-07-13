@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { User, Calendar, Clock } from "lucide-react";
 import { useJobDetails } from "@/shared/hooks";
 import { Card, CardContent } from "@/shared/ui/Card";
+import { Button } from "@/shared/ui";
 
 interface JobDetailsProps {
  onClose?: () => void;
@@ -34,12 +35,12 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
    <div className="flex justify-center items-center h-64">
     <div className="text-center">
      <p className="text-red-500 mb-2">Error: {error || "Job not found"}</p>
-     <button
+     <Button
       onClick={() => navigate(-1)}
-      className="px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+      className="text-sm font-medium"
      >
       Go Back
-     </button>
+     </Button>
     </div>
    </div>
   );
@@ -66,9 +67,9 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
      </div>
     </div>
     {onClose && (
-     <button onClick={onClose} className="p-2 rounded-md hover:bg-secondary">
+     <Button onClick={onClose} variant="ghost" size="icon">
       ×
-     </button>
+     </Button>
     )}
    </div>
 
@@ -115,12 +116,12 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
        <p className="font-medium">{job.freelancer.name}</p>
        <p className="text-sm text-muted-foreground">{job.freelancer.role}</p>
       </div>
-      <button
+      <Button
        onClick={handleMessageClick}
-       className="ml-auto px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+       className="ml-auto text-sm font-medium"
       >
        Message
-      </button>
+      </Button>
      </div>
     </CardContent>
    </Card>

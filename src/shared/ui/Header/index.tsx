@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/app/providers/AuthProvider";
 import { useToast } from "@/shared/hooks/ui/useToast";
 import { Home } from "lucide-react";
+import { Button } from "@/shared/ui";
 import {
  APP_NAME,
  NAV_LINKS,
@@ -83,12 +84,12 @@ export const Navbar = () => {
        </Link>
       )}
       {user ? (
-       <button
+       <Button
         onClick={handleLogout}
-        className="px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-medium"
+        className="text-sm font-medium"
        >
         Logout
-       </button>
+       </Button>
       ) : (
        <Link
         to={NAV_LINKS.LOGIN}
@@ -100,8 +101,10 @@ export const Navbar = () => {
      </nav>
 
      {/* Mobile Menu Button */}
-     <button
-      className="md:hidden flex items-center p-2 rounded-md"
+     <Button
+      variant="ghost"
+      size="icon"
+      className="md:hidden p-2"
       onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
      >
       <svg
@@ -129,7 +132,7 @@ export const Navbar = () => {
         />
        )}
       </svg>
-     </button>
+     </Button>
     </div>
    </div>
 
@@ -161,15 +164,15 @@ export const Navbar = () => {
       </Link>
      )}
      {user ? (
-      <button
+      <Button
        onClick={(e) => {
         setMobileMenuOpen(false);
         handleLogout(e);
        }}
-       className="block w-full px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 text-center"
+       className="block w-full text-center"
       >
        Logout
-      </button>
+      </Button>
      ) : (
       <Link
        to={NAV_LINKS.LOGIN}

@@ -1,6 +1,7 @@
 import { User } from "lucide-react";
 import { JobSummary } from "@/shared/models/dashboard";
 import { Card, CardContent } from "@/shared/ui/Card";
+import { Button } from "@/shared/ui";
 
 interface JobCardProps {
  job?: JobSummary;
@@ -31,8 +32,6 @@ export const JobCard = ({
 }: JobCardProps) => {
  const jobId = job?.id || id;
  const jobTitle = job?.title || title;
- const jobBudget = budget;
- const jobDueDate = postedDate;
  const jobTags = tags;
 
  return (
@@ -127,20 +126,21 @@ export const JobCard = ({
 
        <div className="flex gap-2">
         {onMessage && job.freelancer && (
-         <button
+         <Button
           onClick={() => onMessage(job.freelancer.id)}
-          className="px-4 py-2 text-sm font-medium rounded-md bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
+          variant="secondary"
+          className="text-sm font-medium"
          >
           Message
-         </button>
+         </Button>
         )}
         {onDetails && jobId && (
-         <button
+         <Button
           onClick={() => onDetails(jobId)}
-          className="px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          className="text-sm font-medium"
          >
           Details
-         </button>
+         </Button>
         )}
        </div>
       </div>
@@ -148,12 +148,12 @@ export const JobCard = ({
     )}
 
     {!job && onDetails && jobId && (
-     <button
+     <Button
       onClick={() => onDetails(jobId)}
-      className="w-full px-4 py-2 text-sm font-medium mt-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+      className="w-full text-sm font-medium mt-2"
      >
       View Details
-     </button>
+     </Button>
     )}
    </CardContent>
   </Card>

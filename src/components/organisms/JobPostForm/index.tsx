@@ -4,6 +4,7 @@ import {
  JobDuration,
  JobType,
 } from "@/shared/models/blockchain";
+import { Button } from "@/shared/ui";
 
 interface JobPostFormProps {
  onSubmit: (formData: {
@@ -144,13 +145,13 @@ export const JobPostForm = ({ onSubmit }: JobPostFormProps) => {
       value={skillInput}
       onChange={(e) => setSkillInput(e.target.value)}
      />
-     <button
+     <Button
       type="button"
-      className="px-4 py-2 rounded-md bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
+      variant="secondary"
       onClick={handleAddSkill}
      >
       Add
-     </button>
+     </Button>
     </div>
     {requiredSkills.length > 0 && (
      <div className="flex flex-wrap gap-2 mt-2">
@@ -160,13 +161,15 @@ export const JobPostForm = ({ onSubmit }: JobPostFormProps) => {
         className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary flex items-center gap-1"
        >
         {skill}
-        <button
+        <Button
          type="button"
-         className="text-primary hover:text-primary/80"
+         variant="ghost"
+         size="icon"
+         className="h-4 w-4 text-primary hover:text-primary/80"
          onClick={() => handleRemoveSkill(skill)}
         >
          ×
-        </button>
+        </Button>
        </span>
       ))}
      </div>
@@ -264,13 +267,15 @@ export const JobPostForm = ({ onSubmit }: JobPostFormProps) => {
           ({(file.size / 1024).toFixed(1)} KB)
          </span>
         </div>
-        <button
+        <Button
          type="button"
+         variant="ghost"
+         size="icon"
          onClick={() => handleRemoveFile(index)}
          className="text-muted-foreground hover:text-foreground"
         >
          ×
-        </button>
+        </Button>
        </div>
       ))}
      </div>
@@ -278,12 +283,11 @@ export const JobPostForm = ({ onSubmit }: JobPostFormProps) => {
    </div>
 
    <div className="flex justify-end">
-    <button
+    <Button
      type="submit"
-     className="px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
     >
      Post Job
-    </button>
+    </Button>
    </div>
   </form>
  );
