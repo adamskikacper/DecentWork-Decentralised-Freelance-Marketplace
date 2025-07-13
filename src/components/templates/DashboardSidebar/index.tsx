@@ -62,7 +62,6 @@ export const DashboardSidebar = ({
  const skipLinkRef = useRef<HTMLAnchorElement>(null);
 
  const [isCollapsed, setIsCollapsed] = useState(isMobile);
- const [hasInitialized, setHasInitialized] = useState(false);
  const [isKeyboardNavigating, setIsKeyboardNavigating] = useState(false);
 
  const isClient = userType === USER_TYPES.CLIENT;
@@ -92,7 +91,6 @@ export const DashboardSidebar = ({
    "(prefers-reduced-motion: reduce)"
   ).matches;
   if (preferReducedMotion) {
-   setHasInitialized(true);
    return;
   }
 
@@ -101,12 +99,6 @@ export const DashboardSidebar = ({
   } else {
    setIsCollapsed(false);
   }
-
-  const timer = setTimeout(() => {
-   setHasInitialized(true);
-  }, 50);
-
-  return () => clearTimeout(timer);
  }, [isMobile]);
 
  const navigationItems = [
