@@ -31,26 +31,28 @@ export const useDashboardStats = (
 
    const dashboardData = await getDashboardData(userType);
 
+   const jobs = dashboardData.activeJobs || [];
+
    const extractedStats: DashboardStats = {
-    totalJobs: dashboardData.jobs.length,
-    activeJobs: dashboardData.jobs.filter((job) => job.status === "Active")
-     .length,
-    completedJobs: dashboardData.jobs.filter(
-     (job) => job.status === "Completed"
+    totalJobs: jobs.length,
+    activeJobs: jobs.filter(
+     (job) => job.status === "In Progress" || job.status === "Just Started"
     ).length,
-    totalEarnings: dashboardData.jobs
+    completedJobs: jobs.filter((job) => job.status === "Completed").length,
+    totalEarnings: jobs
      .filter((job) => job.status === "Completed")
-     .reduce((sum, job) => sum + (job.budget || 0), 0),
+     .reduce((sum, job) => {
+      const cost = parseFloat(job.cost?.replace(/[^\d.]/g, "") || "0");
+      return sum + cost;
+     }, 0),
    };
 
    if (userType === "client") {
-    extractedStats.totalFreelancers = dashboardData.freelancers?.length || 0;
-    extractedStats.pendingProposals = dashboardData.jobs.reduce(
-     (sum, job) => sum + (job.proposalCount || 0),
-     0
-    );
+    extractedStats.totalFreelancers = dashboardData.topFreelancers?.length || 0;
+    extractedStats.pendingProposals = 0;
    } else {
-    extractedStats.pendingProposals = dashboardData.applications?.length || 0;
+    extractedStats.pendingProposals =
+     dashboardData.jobOpportunities?.length || 0;
    }
 
    setStats(extractedStats);

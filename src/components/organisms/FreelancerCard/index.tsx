@@ -1,6 +1,6 @@
 import React from "react";
 import { User } from "lucide-react";
-import { FreelancerSummary } from "@/types";
+import { FreelancerSummary } from "@/shared/models";
 import { Button, Badge } from "@/shared/ui";
 
 interface FreelancerCardProps {
@@ -28,7 +28,6 @@ export const FreelancerCard = ({
  onHire,
 }: FreelancerCardProps) => {
  const handleRowClick = (e: React.MouseEvent) => {
-  // Prevent row click if an action button was clicked
   if ((e.target as HTMLElement).closest("button")) return;
   if (onView) onView(freelancer.id);
  };

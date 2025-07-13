@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button, Input } from "@/shared/ui";
+import { Link } from "react-router-dom";
+import { Button } from "@/shared/ui";
+import { PageLayout } from "@/components/templates";
 import { DashboardSection, FreelancerTable } from "@/components";
-import { Breadcrumbs, LoadingScreen } from "@/shared/ui";
-import { useFetchFreelancers } from "@/shared/hooks";
-import { Search } from "lucide-react";
+import { SearchInput } from "@/components/molecules";
+import { useFreelancers, useNavigation } from "@/shared/hooks";
 
 export interface FreelancersPageProps {
  isLoading?: boolean;
@@ -12,134 +12,93 @@ export interface FreelancersPageProps {
  onFreelancerDetails?: (freelancerId: string) => void;
 }
 
-export const FreelancersPage: React.FC<FreelancersPageProps> = ({
+export const FreelancersPage = ({
  isLoading = false,
- onMessage,
- onFreelancerDetails,
-}) => {
+}: FreelancersPageProps) => {
  const [searchQuery, setSearchQuery] = useState("");
- const navigate = useNavigate();
+
  const {
-  freelancers: allFreelancers,
+  filteredFreelancers,
   isLoading: dataLoading,
   error,
- } = useFetchFreelancers();
- const filteredFreelancers = searchQuery
-  ? allFreelancers.filter(
-     (freelancer) =>
-      freelancer.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      freelancer.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      freelancer.specialty.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-  : allFreelancers;
+ } = useFreelancers({ searchQuery });
 
- const handleMessageFreelancer = (freelancerId: string) => {
-  navigate(`/dashboard/messages/${freelancerId}`);
- };
+ const { goToMessages, goToFreelancerDetails } = useNavigation();
 
- const handleViewFreelancer = (freelancerId: string) => {
-  navigate(`/dashboard/freelancers/${freelancerId}`);
- };
-
- if (dataLoading) {
-  return <LoadingScreen />;
- }
-
- if (error) {
-  return (
-   <div className="space-y-8">
-    <Breadcrumbs
-     items={[
-      { label: "Dashboard", path: "/dashboard" },
-      { label: "Freelancers" },
-     ]}
-    />
-    <div className="flex items-center justify-center min-h-[400px]">
-     <div className="text-center">
-      <h2 className="text-xl font-semibold text-destructive mb-2">
-       Error Loading Freelancers
-      </h2>
-      <p className="text-muted-foreground">{error}</p>
-     </div>
-    </div>
-   </div>
-  );
- }
+ const activeFreelancers = filteredFreelancers.filter(
+  (freelancer) => freelancer.hireHistory === "current"
+ );
+ const previousFreelancers = filteredFreelancers.filter(
+  (freelancer) => freelancer.hireHistory === "previous"
+ );
+ const browseFreelancers = filteredFreelancers.filter(
+  (freelancer) => freelancer.hireHistory === "never"
+ );
 
  return (
-  <div className="space-y-8">
-   <Breadcrumbs
-    items={[
-     { label: "Dashboard", path: "/dashboard" },
-     { label: "Freelancers" },
-    ]}
-   />
-   {/* Header */}
-   <DashboardSection
-    title="Freelancers"
-    description="View and manage your freelancers."
-    action={
-     <Button asChild>
-      <Link to="/dashboard/post-job">Post a Job</Link>
-     </Button>
-    }
-    isLoading={isLoading}
-   >
-    {/* Search and Filter */}
-    <div className="flex items-center gap-4">
-     <div className="relative flex-1">
-      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-      <Input
-       placeholder="Search freelancers..."
-       className="pl-10"
-       value={searchQuery}
-       onChange={(e) => setSearchQuery(e.target.value)}
-      />
-     </div>
-    </div>
-   </DashboardSection>
-   {/* Active Freelancers Section */}
-   <DashboardSection
-    title="Active Freelancers"
-    description="Freelancers currently working on your projects"
-    isLoading={isLoading}
-   >
-    <FreelancerTable
-     freelancers={filteredFreelancers.filter(
-      (freelancer) => freelancer.hireHistory === "current"
-     )}
-     onMessage={handleMessageFreelancer}
-     onView={handleViewFreelancer}
+  <PageLayout
+   title="Freelancers"
+   description="View and manage your freelancers."
+   breadcrumbs={[
+    { label: "Dashboard", href: "/dashboard" },
+    { label: "Freelancers" },
+   ]}
+   actions={
+    <Button asChild>
+     <Link to="/dashboard/post-job">Post a Job</Link>
+    </Button>
+   }
+   isLoading={dataLoading}
+   error={error}
+  >
+   <div className="space-y-8">
+    {/* Search */}
+    <SearchInput
+     placeholder="Search freelancers..."
+     value={searchQuery}
+     onChange={setSearchQuery}
+     disabled={isLoading}
     />
-   </DashboardSection>
-   {/* Previous Freelancers Section */}
-   <DashboardSection
-    title="Previous Freelancers"
-    description="Freelancers you've worked with before"
-    isLoading={isLoading}
-   >
-    <FreelancerTable
-     freelancers={filteredFreelancers.filter(
-      (freelancer) => freelancer.hireHistory === "previous"
-     )}
-     onMessage={handleMessageFreelancer}
-     onView={handleViewFreelancer}
-    />
-   </DashboardSection>
-   {/* Browse Freelancers Section */}
-   <DashboardSection
-    title="Browse Freelancers"
-    description="Discover and hire new talent for your projects"
-    isLoading={isLoading}
-   >
-    <FreelancerTable
-     freelancers={filteredFreelancers.filter(
-      (freelancer) => freelancer.hireHistory === "never"
-     )}
-     onMessage={handleMessageFreelancer}
-     onView={handleViewFreelancer}
-    />
-   </DashboardSection>
-  </div>
+
+    {/* Active Freelancers Section */}
+    <DashboardSection
+     title="Active Freelancers"
+     description="Freelancers currently working on your projects"
+     isLoading={isLoading}
+    >
+     <FreelancerTable
+      freelancers={activeFreelancers}
+      onMessage={goToMessages}
+      onView={goToFreelancerDetails}
+     />
+    </DashboardSection>
+
+    {/* Previous Freelancers Section */}
+    <DashboardSection
+     title="Previous Freelancers"
+     description="Freelancers you've worked with before"
+     isLoading={isLoading}
+    >
+     <FreelancerTable
+      freelancers={previousFreelancers}
+      onMessage={goToMessages}
+      onView={goToFreelancerDetails}
+     />
+    </DashboardSection>
+
+    {/* Browse Freelancers Section */}
+    <DashboardSection
+     title="Browse Freelancers"
+     description="Discover and hire new talent for your projects"
+     isLoading={isLoading}
+    >
+     <FreelancerTable
+      freelancers={browseFreelancers}
+      onMessage={goToMessages}
+      onView={goToFreelancerDetails}
+     />
+    </DashboardSection>
+   </div>
+  </PageLayout>
  );
 };

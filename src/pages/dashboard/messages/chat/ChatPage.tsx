@@ -1,104 +1,66 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
+import { PageLayout } from "@/components/templates";
 import { DashboardSection } from "@/components";
-import {
- Breadcrumbs,
- LoadingScreen,
- Button,
- Input,
- Avatar,
- AvatarFallback,
-} from "@/shared/ui";
-import {
- getMessageThread,
- sendMessage,
- type Message,
-} from "@/shared/services/message.service";
+import { MessageBubble } from "@/components/atoms/MessageBubble";
+import { MessageInput } from "@/components/molecules/MessageInput";
+import { useMessageThread } from "@/shared/hooks";
 
-export const ChatPage: React.FC = () => {
+export const ChatPage = () => {
  const { userId } = useParams<{ userId: string }>();
- const [messages, setMessages] = useState<Message[]>([]);
- const [loading, setLoading] = useState(true);
- const [newMessage, setNewMessage] = useState("");
- const [sending, setSending] = useState(false);
 
- useEffect(() => {
-  const fetchMessages = async () => {
-   if (!userId) return;
+ const { messages, isLoading, error, sendMessage, isSending } =
+  useMessageThread(userId);
 
-   try {
-    const data = await getMessageThread(userId);
-    setMessages(data);
-   } catch (error) {
-    console.error("Failed to fetch messages:", error);
-   } finally {
-    setLoading(false);
-   }
-  };
-
-  fetchMessages();
- }, [userId]);
-
- const handleSendMessage = async () => {
-  if (!newMessage.trim() || !userId || sending) return;
-
-  setSending(true);
+ const handleSendMessage = async (content: string) => {
   try {
-   const sentMessage = await sendMessage(userId, newMessage);
-   setMessages((prev) => [...prev, sentMessage]);
-   setNewMessage("");
-  } catch (error) {
-   console.error("Failed to send message:", error);
-  } finally {
-   setSending(false);
+   await sendMessage(content);
+  } catch (err) {
+   console.error("Failed to send message:", err);
   }
  };
 
- if (loading) {
-  return <LoadingScreen />;
+ if (!userId) {
+  return (
+   <PageLayout
+    title="Chat"
+    description="User not found"
+    breadcrumbs={[
+     { label: "Dashboard", href: "/dashboard" },
+     { label: "Messages", href: "/dashboard/messages" },
+     { label: "Chat" },
+    ]}
+    error="Invalid user ID"
+   >
+    <div />
+   </PageLayout>
+  );
  }
 
  return (
-  <div className="space-y-8">
-   <Breadcrumbs
-    items={[
-     { label: "Dashboard", path: "/dashboard" },
-     { label: "Messages", path: "/dashboard/messages" },
-     { label: `Chat` },
-    ]}
-   />
-
-   <DashboardSection title="Chat" description="Your conversation">
+  <PageLayout
+   title="Chat"
+   description="Your conversation"
+   breadcrumbs={[
+    { label: "Dashboard", href: "/dashboard" },
+    { label: "Messages", href: "/dashboard/messages" },
+    { label: "Chat" },
+   ]}
+   isLoading={isLoading}
+   error={error}
+  >
+   <DashboardSection>
     <div className="space-y-4">
-     <div className="max-h-96 overflow-y-auto space-y-4 p-4 border rounded-lg">
+     <div className="max-h-96 overflow-y-auto space-y-4 p-4 border rounded-lg bg-background">
       {messages.map((message) => (
-       <div
+       <MessageBubble
         key={message.id}
-        className={`flex items-start space-x-3 ${
-         message.senderId === "current-user" ? "justify-end" : "justify-start"
-        }`}
-       >
-        {message.senderId !== "current-user" && (
-         <Avatar className="h-8 w-8">
-          <AvatarFallback>{userId?.slice(0, 2).toUpperCase()}</AvatarFallback>
-         </Avatar>
-        )}
-        <div
-         className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
-          message.senderId === "current-user"
-           ? "bg-primary text-primary-foreground"
-           : "bg-muted"
-         }`}
-        >
-         <p className="text-sm">{message.content}</p>
-         <p className="text-xs opacity-70 mt-1">{message.timestamp}</p>
-        </div>
-        {message.senderId === "current-user" && (
-         <Avatar className="h-8 w-8">
-          <AvatarFallback>ME</AvatarFallback>
-         </Avatar>
-        )}
-       </div>
+        content={message.content}
+        timestamp={message.timestamp}
+        isOwn={message.senderId === "current-user"}
+        senderName={message.senderId}
+        senderAvatar=""
+       />
       ))}
       {messages.length === 0 && (
        <div className="text-center text-muted-foreground py-8">
@@ -107,23 +69,14 @@ export const ChatPage: React.FC = () => {
       )}
      </div>
 
-     <div className="flex space-x-2">
-      <Input
-       placeholder="Type a message..."
-       value={newMessage}
-       onChange={(e) => setNewMessage(e.target.value)}
-       onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
-       disabled={sending}
-      />
-      <Button
-       onClick={handleSendMessage}
-       disabled={sending || !newMessage.trim()}
-      >
-       {sending ? "Sending..." : "Send"}
-      </Button>
-     </div>
+     <MessageInput
+      onSendMessage={handleSendMessage}
+      disabled={!!error}
+      isSending={isSending}
+      placeholder="Type your message..."
+     />
     </div>
    </DashboardSection>
-  </div>
+  </PageLayout>
  );
 };

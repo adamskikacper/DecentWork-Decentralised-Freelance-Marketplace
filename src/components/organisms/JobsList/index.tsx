@@ -1,5 +1,5 @@
 import React from "react";
-import { JobSummary } from "@/types";
+import { JobSummary } from "@/shared/models/dashboard";
 import { JobCard } from "@/components/organisms/JobCard";
 
 interface JobsListProps {
@@ -13,7 +13,7 @@ interface JobsListProps {
  className?: string;
 }
 
-export const JobsList: React.FC<JobsListProps> = ({
+export const JobsList = ({
  jobs,
  onMessage,
  onDetails,
@@ -22,7 +22,7 @@ export const JobsList: React.FC<JobsListProps> = ({
  showViewAll = false,
  onViewAll,
  className = "",
-}) => {
+}: JobsListProps) => {
  return (
   <div className={`slide-in ${className}`}>
    {(title || showViewAll) && (

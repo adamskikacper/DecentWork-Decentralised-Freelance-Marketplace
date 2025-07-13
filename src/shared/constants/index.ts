@@ -1,19 +1,25 @@
 export const APP_NAME = "DecentWork";
 export const COPYRIGHT_YEAR = "2023";
 
+export enum UserRole {
+ FREELANCER = "freelancer",
+ CLIENT = "client",
+}
+
+export const USER_TYPES = {
+ FREELANCER: UserRole.FREELANCER,
+ CLIENT: UserRole.CLIENT,
+};
+
 export const NAV_LINKS = {
  HOME: "/",
- JOBS: "/jobs",
  DASHBOARD: "/dashboard",
- PROFILE: "/profile",
  LOGIN: "/login",
 };
 
 export const APP_ROUTES = {
  HOME: "/",
  HOME_REDIRECT: "/home",
- JOBS: "/jobs",
- JOB_DETAILS: "/jobs/:jobId",
  LOGIN: "/login",
  DASHBOARD: "/dashboard/*",
  NOT_FOUND: "*",
@@ -42,11 +48,6 @@ export const DASHBOARD_ROUTES = {
  MESSAGES: "messages",
  CHAT: "messages/chat/:userId",
  PROFILE: "profile",
-};
-
-export const USER_TYPES = {
- FREELANCER: "freelancer",
- CLIENT: "client",
 };
 
 export const DEFAULT_SKILLS = [
@@ -148,47 +149,8 @@ export const FEATURES_SECTION_DEFAULTS = {
  SUBTITLE: "Why Choose DecentWork",
 };
 
-export const HOW_IT_WORKS_DEFAULTS = {
- TITLE: "How DecentWork Operates",
- SUBTITLE:
-  "Our blockchain-powered platform ensures transparent, secure, and efficient freelance transactions.",
- STEPS: [
-  {
-   number: 1,
-   title: "Post a Job",
-   description:
-    "Clients create detailed job listings specifying requirements, timeline, and budget for their jobs.",
-   link: {
-    text: "Browse Jobs →",
-    url: "/jobs",
-   },
-  },
-  {
-   number: 2,
-   title: "Secure Payment",
-   description:
-    "When a bid is accepted, funds are securely locked in a smart contract escrow until job completion.",
-   link: {
-    text: "Payment Options →",
-    url: "#",
-   },
-  },
-  {
-   number: 3,
-   title: "Complete & Get Paid",
-   description:
-    "Submit work for approval and receive instant payment directly to your wallet once accepted.",
-   link: {
-    text: "Start Earning →",
-    url: "/dashboard",
-   },
-  },
- ],
-};
-
 export const FOOTER_CONTENT = {
  PLATFORM_LINKS: [
-  { text: "Find Work", url: "/jobs" },
   { text: "Dashboard", url: "/dashboard" },
   { text: "Profile", url: "/profile" },
   { text: "How It Works", url: "#" },

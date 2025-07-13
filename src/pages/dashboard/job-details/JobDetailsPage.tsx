@@ -1,18 +1,19 @@
 import React from "react";
-import { Breadcrumbs } from "@/shared/ui";
+import { PageLayout } from "@/components/templates";
 import { JobDetails as JobDetailsComponent } from "@/components";
 
-export const DashboardJobDetailsPage: React.FC = () => {
+export const DashboardJobDetailsPage = () => {
  return (
-  <div className="space-y-8">
-   <Breadcrumbs
-    items={[
-     { label: "Dashboard", path: "/dashboard" },
-     { label: "Jobs", path: "/dashboard/jobs" },
-     { label: "Job Details" },
-    ]}
-   />
+  <PageLayout
+   title="Job Details"
+   description="View the details of the job posting."
+   breadcrumbs={[
+    { label: "Dashboard", href: "/dashboard" },
+    { label: "Jobs", href: "/dashboard/jobs" },
+    { label: "Job Details" },
+   ]}
+  >
    <JobDetailsComponent />
-  </div>
+  </PageLayout>
  );
 };

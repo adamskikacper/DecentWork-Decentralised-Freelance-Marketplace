@@ -1,50 +1,107 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/Card";
-import { Label } from "@/shared/ui/Label";
+import { 
+  Form, 
+  FormControl, 
+  FormField, 
+  FormItem, 
+  FormLabel, 
+  FormMessage 
+} from "@/shared/ui/Form";
 import { Input } from "@/shared/ui/Input";
 import { Globe, Github, Linkedin } from "lucide-react";
+import { useForm } from "react-hook-form";
+
+interface ContactFormData {
+  portfolio: string;
+  github: string;
+  linkedin: string;
+}
 
 export const ContactSection = () => {
+  const form = useForm<ContactFormData>({
+    defaultValues: {
+      portfolio: "",
+      github: "",
+      linkedin: "",
+    },
+  });
+
+  const onSubmit = (data: ContactFormData) => {
+    console.log(data);
+  };
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>Socials</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="portfolio">Portfolio Website</Label>
-          <div className="relative">
-            <Globe className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-            <Input 
-              id="portfolio" 
-              placeholder="https://yourportfolio.com"
-              className="pl-10"
+      <CardContent>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <FormField
+              control={form.control}
+              name="portfolio"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Portfolio Website</FormLabel>
+                  <FormControl>
+                    <div className="relative">
+                      <Globe className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Input 
+                        placeholder="https://yourportfolio.com"
+                        className="pl-10"
+                        {...field}
+                      />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
-        </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="github">GitHub Profile</Label>
-          <div className="relative">
-            <Github className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-            <Input 
-              id="github" 
-              placeholder="https://github.com/yourusername"
-              className="pl-10"
+            <FormField
+              control={form.control}
+              name="github"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>GitHub Profile</FormLabel>
+                  <FormControl>
+                    <div className="relative">
+                      <Github className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Input 
+                        placeholder="https://github.com/yourusername"
+                        className="pl-10"
+                        {...field}
+                      />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
-        </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="linkedin">LinkedIn Profile</Label>
-          <div className="relative">
-            <Linkedin className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-            <Input 
-              id="linkedin" 
-              placeholder="https://linkedin.com/in/yourprofile"
-              className="pl-10"
+            <FormField
+              control={form.control}
+              name="linkedin"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>LinkedIn Profile</FormLabel>
+                  <FormControl>
+                    <div className="relative">
+                      <Linkedin className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Input 
+                        placeholder="https://linkedin.com/in/yourprofile"
+                        className="pl-10"
+                        {...field}
+                      />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
-        </div>
+          </form>
+        </Form>
       </CardContent>
     </Card>
   );

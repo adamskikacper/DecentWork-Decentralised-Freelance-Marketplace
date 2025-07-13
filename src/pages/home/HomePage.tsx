@@ -1,14 +1,26 @@
 import React from "react";
 import { Navbar } from "@/shared/ui/Header";
 import { Footer } from "@/shared/ui/Footer";
-import { Hero } from "./hero";
+import { HeroSection } from "@/components/organisms/HeroSection";
 
-export const HomePage: React.FC = () => {
+export const HomePage = () => {
+ const HERO_STATS = [
+  { value: "12k+", label: "Active Jobs" },
+  { value: "24k+", label: "Freelancers" },
+  { value: "$8M+", label: "Paid Out" },
+  { value: "99%", label: "Satisfaction" },
+ ];
+
+ const HERO_IMAGE = {
+  src: "/images/hero-freelancer.jpeg",
+  alt: "Developer working on a laptop with city skyline in the background",
+ };
+
  return (
   <div className="min-h-screen flex flex-col">
    <Navbar />
    <main className="flex-grow">
-    <Hero />
+    <HeroSection stats={HERO_STATS} heroImage={HERO_IMAGE} />
    </main>
    <Footer />
   </div>

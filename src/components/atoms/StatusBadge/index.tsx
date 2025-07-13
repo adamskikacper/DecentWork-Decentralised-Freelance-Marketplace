@@ -1,5 +1,7 @@
 import React from "react";
-import { STATUS_BADGE_VARIANTS, STATUS_BADGE_COLORS } from "@/shared/constants";
+import { Badge } from "@/shared/ui";
+import { STATUS_BADGE_VARIANTS } from "@/shared/constants";
+import { cn } from "@/shared/lib/utils";
 
 type StatusVariant =
  (typeof STATUS_BADGE_VARIANTS)[keyof typeof STATUS_BADGE_VARIANTS];
@@ -11,35 +13,40 @@ export interface StatusBadgeProps {
  className?: string;
 }
 
-export const StatusBadge: React.FC<StatusBadgeProps> = ({
+export const StatusBadge = ({
  status,
  variant = STATUS_BADGE_VARIANTS.DEFAULT,
  icon,
  className = "",
-}) => {
- const getColorClasses = () => {
+}: StatusBadgeProps) => {
+ const getVariantClasses = () => {
   switch (variant) {
    case STATUS_BADGE_VARIANTS.SUCCESS:
-    return STATUS_BADGE_COLORS.SUCCESS;
+    return "bg-green-100 text-green-800 border-green-200 hover:bg-green-200";
    case STATUS_BADGE_VARIANTS.WARNING:
-    return STATUS_BADGE_COLORS.WARNING;
+    return "bg-amber-100 text-amber-800 border-amber-200 hover:bg-amber-200";
    case STATUS_BADGE_VARIANTS.DANGER:
-    return STATUS_BADGE_COLORS.DANGER;
+    return "bg-red-100 text-red-800 border-red-200 hover:bg-red-200";
    case STATUS_BADGE_VARIANTS.INFO:
-    return STATUS_BADGE_COLORS.INFO;
+    return "bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200";
    case STATUS_BADGE_VARIANTS.PENDING:
-    return STATUS_BADGE_COLORS.PENDING;
+    return "bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200";
    default:
-    return STATUS_BADGE_COLORS.DEFAULT;
+    return "";
   }
  };
 
  return (
-  <span
-   className={`px-2 py-1 text-xs rounded-full flex items-center gap-1 w-fit ${getColorClasses()} ${className}`}
+  <Badge 
+   variant={variant === STATUS_BADGE_VARIANTS.DEFAULT ? "secondary" : "outline"}
+   className={cn(
+    "flex items-center gap-1 w-fit",
+    getVariantClasses(),
+    className
+   )}
   >
    {icon && icon}
    <span className="capitalize">{status.replace("_", " ")}</span>
-  </span>
+  </Badge>
  );
 };
