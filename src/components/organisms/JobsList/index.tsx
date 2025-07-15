@@ -1,6 +1,7 @@
 import React from "react";
 import { JobSummary } from "@/shared/models/dashboard";
 import { JobCard } from "@/components/organisms/JobCard";
+import { Button } from "@/shared/ui";
 
 interface JobsListProps {
  jobs: JobSummary[];
@@ -25,17 +26,6 @@ export const JobsList = ({
 }: JobsListProps) => {
  return (
   <div className={`slide-in ${className}`}>
-   {(title || showViewAll) && (
-    <div className="flex justify-between items-center mb-6">
-     {title && <h2 className="text-xl font-bold">{title}</h2>}
-     {showViewAll && (
-      <button className="text-sm text-primary font-medium" onClick={onViewAll}>
-       View all
-      </button>
-     )}
-    </div>
-   )}
-
    <div className="space-y-4">
     {jobs.map((job) => (
      <JobCard

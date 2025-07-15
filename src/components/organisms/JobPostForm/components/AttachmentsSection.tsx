@@ -1,4 +1,7 @@
 import { Label } from "@/shared/ui";
+import { X } from "lucide-react";
+
+import { Button } from "@/shared/ui";
 
 interface AttachmentsSectionProps {
  files: File[];
@@ -45,13 +48,15 @@ export const AttachmentsSection = ({
          ({(file.size / 1024).toFixed(1)} KB)
         </span>
        </div>
-       <button
+       <Button
         type="button"
+        variant="ghost"
+        size="icon"
         onClick={() => handleRemoveFile(index)}
-        className="text-muted-foreground hover:text-foreground"
+        className="h-6 w-6"
        >
-        ×
-       </button>
+        <X className="h-4 w-4" />
+       </Button>
       </div>
      ))}
     </div>

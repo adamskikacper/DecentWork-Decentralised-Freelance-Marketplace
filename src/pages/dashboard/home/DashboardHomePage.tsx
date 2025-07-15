@@ -123,7 +123,7 @@ export const DashboardHomePage = ({
      description="Your current and recently completed jobs"
      action={
       <Button variant="outline" size="sm" asChild>
-       <Link to={isClient ? "/dashboard/jobs" : "/dashboard/my-jobs"}>
+       <Link to={isClient ? DASHBOARD_LINKS.JOBS : DASHBOARD_LINKS.MY_JOBS}>
         View All
        </Link>
       </Button>

@@ -1,5 +1,6 @@
 import { User } from "lucide-react";
 import { JobSummary } from "@/shared/models/dashboard";
+import { Button } from "@/shared/ui";
 import { Card, CardContent } from "@/shared/ui/Card";
 
 interface JobCardProps {
@@ -31,8 +32,6 @@ export const JobCard = ({
 }: JobCardProps) => {
  const jobId = job?.id || id;
  const jobTitle = job?.title || title;
- const jobBudget = budget;
- const jobDueDate = postedDate;
  const jobTags = tags;
 
  return (
@@ -127,20 +126,15 @@ export const JobCard = ({
 
        <div className="flex gap-2">
         {onMessage && job.freelancer && (
-         <button
+         <Button
           onClick={() => onMessage(job.freelancer.id)}
-          className="px-4 py-2 text-sm font-medium rounded-md bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
+          variant="secondary"
          >
           Message
-         </button>
+         </Button>
         )}
         {onDetails && jobId && (
-         <button
-          onClick={() => onDetails(jobId)}
-          className="px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-         >
-          Details
-         </button>
+         <Button onClick={() => onDetails(jobId)}>Details</Button>
         )}
        </div>
       </div>
@@ -148,12 +142,9 @@ export const JobCard = ({
     )}
 
     {!job && onDetails && jobId && (
-     <button
-      onClick={() => onDetails(jobId)}
-      className="w-full px-4 py-2 text-sm font-medium mt-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-     >
+     <Button onClick={() => onDetails(jobId)} className="w-full mt-2">
       View Details
-     </button>
+     </Button>
     )}
    </CardContent>
   </Card>
