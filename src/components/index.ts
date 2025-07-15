@@ -8,7 +8,6 @@ export { FreelancerProfile } from "./organisms/FreelancerProfile";
 export { ClientProfile } from "./organisms/ClientProfile";
 export { JobPostForm } from "./organisms/JobPostForm";
 export { FreelancerTable } from "./organisms/FreelancerTable";
-
 export { CompanySection } from "./organisms/CompanySection";
 export { ProfessionalSection } from "./organisms/ProfessionalSection";
 export { PortfolioSection } from "./organisms/PortfolioSection";
@@ -18,12 +17,7 @@ export { ContactSection } from "./organisms/ProfileForm/ContactSection";
 export * from "./atoms";
 export * from "./molecules";
 export * from "./organisms";
-export {
- DashboardLayout,
- DashboardSidebar,
- ErrorPageTemplate,
- PageLayout,
-} from "./templates";
+export * from "./templates";
 
 export type * from "./atoms/types";
 export type * from "./molecules/types";
