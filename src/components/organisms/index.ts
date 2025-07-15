@@ -6,7 +6,6 @@ export { FreelancerProfile } from "./FreelancerProfile";
 export { ClientProfile } from "./ClientProfile";
 export { JobPostForm } from "./JobPostForm";
 export { FreelancerTable } from "./FreelancerTable";
-
 export { CompanySection } from "./CompanySection";
 export { DashboardStats } from "./DashboardStats";
 export { FreelancerCard } from "./FreelancerCard";
