@@ -16,5 +16,6 @@ export { PortfolioSection } from "./PortfolioSection";
 export { ProfessionalSection } from "./ProfessionalSection";
 export * from "./ProfileForm";
 export { HeroSection } from "./HeroSection";
+export { RemoteWorkSection } from "./RemoteWorkSection";
 
 export type * from "./types";
