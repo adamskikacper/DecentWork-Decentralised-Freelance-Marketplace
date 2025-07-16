@@ -4,18 +4,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface RemoteWorkSectionProps {
+ className?: string;
+}
+
 interface WorkEnvironment {
  id: string;
  title: string;
  description: string;
- imageSrc: string;
- imageAlt: string;
+ image: string;
+ alt: string;
 }
 
-export const RemoteWorkSection: React.FC = () => {
- const sectionRef = useRef<HTMLDivElement>(null);
- const textRef = useRef<HTMLDivElement>(null);
- const imageRef = useRef<HTMLDivElement>(null);
+export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
+ className = "",
+}) => {
+ const containerRef = useRef<HTMLDivElement>(null);
+ const sectionsRef = useRef<HTMLDivElement[]>([]);
+ const imagesRef = useRef<HTMLImageElement[]>([]);
 
  const workEnvironments: WorkEnvironment[] = useMemo(
   () => [
@@ -23,140 +29,126 @@ export const RemoteWorkSection: React.FC = () => {
     id: "home",
     title: "Work from Home",
     description:
-     "Create your perfect workspace in the comfort of your own home. Enjoy the flexibility and productivity of remote work.",
-    imageSrc: "/images/freelancer-home-office.png",
-    imageAlt: "Freelancer working from home office setup",
+     "Create your perfect workspace in the comfort of your own home. Set your own schedule and eliminate commute time.",
+    image: "/images/freelancer-home-office.png",
+    alt: "Freelancer working from home office",
    },
    {
     id: "coffee",
     title: "Work from Coffee Shop",
     description:
-     "Find inspiration in the buzzing atmosphere of your favorite coffee shop. Network while you work.",
-    imageSrc: "/images/freelancer-coffee-shop.png",
-    imageAlt: "Freelancer working from coffee shop",
+     "Enjoy the buzz of a coffee shop while staying productive. Perfect for those who thrive in social environments.",
+    image: "/images/freelancer-coffee-shop.png",
+    alt: "Freelancer working from coffee shop",
    },
    {
     id: "coworking",
     title: "Work from Coworking Space",
     description:
      "Collaborate with like-minded professionals in modern coworking spaces designed for productivity.",
-    imageSrc: "/images/freelancer-coworking.png",
-    imageAlt: "Freelancer working from coworking space",
+    image: "/images/freelancer-coworking.png",
+    alt: "Freelancer working from coworking space",
    },
    {
     id: "anywhere",
     title: "Work from Anywhere",
     description:
-     "The world is your office. Work from any location that inspires you and fits your lifestyle.",
-    imageSrc: "/images/hero-freelancer-generated.png",
-    imageAlt: "Freelancer working from anywhere",
+     "The world is your office. Co-working spaces, libraries, or any inspiring location that fuels your creativity.",
+    image: "/images/hero-freelancer-generated.png",
+    alt: "Freelancer working from anywhere",
    },
   ],
   []
  );
 
  useEffect(() => {
-  if (!sectionRef.current || !textRef.current || !imageRef.current) return;
+  const container = containerRef.current;
+  if (!container) return;
 
-  const section = sectionRef.current;
-  const textContainer = textRef.current;
-  const imageContainer = imageRef.current;
+  const sections = sectionsRef.current;
+  const images = imagesRef.current;
 
-  // Set up the scroll trigger animation
+  // Initialize all sections and images to be hidden except the first
+  sections.forEach((section, index) => {
+   if (index === 0) {
+    gsap.set(section, { opacity: 1 });
+    gsap.set(images[0], { opacity: 1 });
+   } else {
+    gsap.set(section, { opacity: 0 });
+    gsap.set(images[index], { opacity: 0 });
+   }
+  });
+
   const tl = gsap.timeline({
    scrollTrigger: {
-    trigger: section,
-    start: "top 0%",
-    end: "bottom 0%",
+    trigger: container,
+    start: "top top",
+    end: "bottom bottom",
     scrub: 1,
     pin: true,
     anticipatePin: 1,
-    onUpdate: (self) => {
-     const progress = self.progress;
-     const currentIndex = Math.floor(progress * workEnvironments.length);
-
-     if (currentIndex < workEnvironments.length) {
-      // Update text content
-      const currentEnv = workEnvironments[currentIndex];
-      const titleElement = textContainer.querySelector(".work-title");
-      const descElement = textContainer.querySelector(".work-description");
-
-      if (titleElement && descElement) {
-       titleElement.textContent = currentEnv.title;
-       descElement.textContent = currentEnv.description;
-      }
-
-      // Update image
-      const imageElement = imageContainer.querySelector(
-       ".work-image"
-      ) as HTMLImageElement;
-      if (imageElement && imageElement.src !== currentEnv.imageSrc) {
-       gsap.to(imageElement, {
-        opacity: 0,
-        duration: 0.3,
-        onComplete: () => {
-         imageElement.src = currentEnv.imageSrc;
-         imageElement.alt = currentEnv.imageAlt;
-         gsap.to(imageElement, { opacity: 1, duration: 0.3 });
-        },
-       });
-      }
-     }
-    },
    },
   });
 
+  // Create instant transitions between sections
+  sections.forEach((section, index) => {
+   if (index > 0) {
+    const prevSection = sections[index - 1];
+    const currentSection = section;
+    const prevImage = images[index - 1];
+    const currentImage = images[index];
+
+    // Calculate timing for each section transition
+    const transitionPoint = index / sections.length;
+
+    // Instant hide previous section and show current section
+    tl.set([prevSection, prevImage], { opacity: 0 }, transitionPoint)
+      .set([currentSection, currentImage], { opacity: 1 }, transitionPoint);
+   }
+  });
+
   return () => {
-   tl.kill();
    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   };
- }, [workEnvironments]);
+ }, []);
 
  return (
-  <section
-   ref={sectionRef}
-   className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center py-20"
-  >
-   <div className="container mx-auto px-4">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-     {/* Text Content */}
-     <div ref={textRef} className="space-y-6">
-      <div className="space-y-4">
-       <h2 className="work-title text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-        {workEnvironments[0].title}
-       </h2>
-       <p className="work-description text-lg text-gray-600 leading-relaxed">
-        {workEnvironments[0].description}
-       </p>
-      </div>
-
-      {/* Progress indicator */}
-      <div className="flex space-x-2">
-       {workEnvironments.map((_, index) => (
+  <div className={`relative ${className}`}>
+   <div ref={containerRef} className="h-[400vh] relative">
+    <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+     <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl">
+      <div className="relative h-[500px]">
+       {workEnvironments.map((env, index) => (
         <div
-         key={index}
-         className="h-1 bg-gray-300 rounded-full flex-1 overflow-hidden"
+         key={env.id}
+         ref={(el) => (sectionsRef.current[index] = el!)}
+         className="absolute inset-0 flex flex-col justify-center space-y-6"
         >
-         <div className="h-full bg-blue-600 rounded-full transition-all duration-300 w-0"></div>
+         <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+          {env.title}
+         </h2>
+         <p className="text-lg lg:text-xl text-muted-foreground max-w-lg leading-relaxed">
+          {env.description}
+         </p>
+         <div className="w-20 h-1 bg-primary rounded-full"></div>
         </div>
        ))}
       </div>
-     </div>
 
-     {/* Image Content */}
-     <div ref={imageRef} className="flex justify-center">
-      <div className="relative">
-       <img
-        src={workEnvironments[0].imageSrc}
-        alt={workEnvironments[0].imageAlt}
-        className="work-image max-w-full h-auto rounded-lg shadow-2xl object-cover"
-        style={{ maxHeight: "500px" }}
-       />
-       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
+      <div className="relative h-[500px] flex items-center justify-center">
+       {workEnvironments.map((env, index) => (
+        <img
+         key={env.id}
+         ref={(el) => (imagesRef.current[index] = el!)}
+         src={env.image}
+         alt={env.alt}
+         className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl"
+        />
+       ))}
       </div>
      </div>
     </div>
    </div>
-  </section>
+  </div>
  );
 };
