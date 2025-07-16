@@ -129,7 +129,7 @@ export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
   <div className={`relative ${className}`}>
    <div 
     ref={containerRef} 
-    className="h-[400vh] relative"
+    className="h-[500vh] md:h-[600vh] lg:h-[700vh] relative"
     style={{ 
      scrollSnapType: 'y mandatory',
      scrollBehavior: 'smooth'
