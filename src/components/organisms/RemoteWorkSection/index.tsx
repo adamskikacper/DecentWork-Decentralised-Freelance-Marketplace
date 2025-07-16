@@ -27,7 +27,7 @@ export const RemoteWorkSection = ({
   () => [
    {
     id: "home",
-    title: "Work from Home",
+    title: "Your Home Office",
     description:
      "Create your perfect workspace in the comfort of your own home. Set your own schedule and eliminate commute time.",
     image: "/images/freelancer-home-office.png",
@@ -35,7 +35,7 @@ export const RemoteWorkSection = ({
    },
    {
     id: "coffee",
-    title: "Work from Coffee Shop",
+    title: "Local Coffee Shops",
     description:
      "Enjoy the buzz of a coffee shop while staying productive. Perfect for those who thrive in social environments.",
     image: "/images/freelancer-coffee-shop.png",
@@ -43,7 +43,7 @@ export const RemoteWorkSection = ({
    },
    {
     id: "coworking",
-    title: "Work from Coworking Space",
+    title: "Coworking Spaces",
     description:
      "Collaborate with like-minded professionals in modern coworking spaces designed for productivity.",
     image: "/images/freelancer-coworking.png",
@@ -51,7 +51,7 @@ export const RemoteWorkSection = ({
    },
    {
     id: "anywhere",
-    title: "Work from Anywhere",
+    title: "Anywhere You Choose",
     description:
      "The world is your office. Co-working spaces, libraries, or any inspiring location that fuels your creativity.",
     image: "/images/hero-freelancer-generated.png",
@@ -133,7 +133,7 @@ export const RemoteWorkSection = ({
   <div className={`relative ${className}`}>
    <div
     ref={containerRef}
-    className="h-[200vh] md:h-[250vh] lg:h-[300vh] relative"
+    className="h-[200vh] md:h-[250vh] lg:h-[300vh] relative bg-gray-200"
     style={{
      scrollSnapType: "y mandatory",
      scrollBehavior: "smooth",
@@ -150,9 +150,12 @@ export const RemoteWorkSection = ({
          <div
           key={env.id}
           ref={(el) => (sectionsRef.current[index] = el!)}
-          className="absolute inset-0 flex flex-col justify-center space-y-4 md:space-y-6 px-2 sm:px-0"
+          className="absolute inset-0 flex flex-col space-y-4 md:space-y-6 px-2 sm:px-0"
          >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground animate-element leading-tight">
+           Work from
+          </h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-8xl font-bold text-foreground animate-element leading-tight">
            {env.title}
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed animate-element">
