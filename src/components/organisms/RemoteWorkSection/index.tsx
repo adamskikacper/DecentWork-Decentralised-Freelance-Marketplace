@@ -178,32 +178,6 @@ export const RemoteWorkSection = ({
      </div>
     </div>
    </div>
-
-   <div className="h-screen flex items-center justify-center">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-     <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-      <div className="relative h-[400px] md:h-[500px] w-full lg:max-w-2xl order-2 lg:order-1">
-       <div className="flex flex-col justify-center space-y-4 md:space-y-6 px-2 sm:px-0 h-full">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-         {workEnvironments[workEnvironments.length - 1].title}
-        </h2>
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
-         {workEnvironments[workEnvironments.length - 1].description}
-        </p>
-        <div className="w-16 sm:w-20 h-1 bg-primary rounded-full"></div>
-       </div>
-      </div>
-
-      <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full max-w-md lg:max-w-lg xl:max-w-xl flex items-center justify-center order-1 lg:order-2">
-       <img
-        src={workEnvironments[workEnvironments.length - 1].image}
-        alt={workEnvironments[workEnvironments.length - 1].alt}
-        className="w-full h-full object-cover rounded-2xl shadow-2xl"
-       />
-      </div>
-     </div>
-    </div>
-   </div>
   </div>
  );
 };
