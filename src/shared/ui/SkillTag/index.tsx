@@ -7,12 +7,7 @@ export interface SkillTagProps {
  onClick?: () => void;
 }
 
-export const SkillTag: React.FC<SkillTagProps> = ({
- skill,
- size = "md",
- className = "",
- onClick,
-}) => {
+export const SkillTag = ({ skill, size = "md", className = "", onClick }) => {
  const sizeClass = {
   sm: "px-2 py-0.5 text-xs",
   md: "px-3 py-1 text-sm",

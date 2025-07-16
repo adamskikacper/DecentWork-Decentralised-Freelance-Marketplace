@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/shared/lib/utils";
 import { useAuth } from "@/app/providers/AuthProvider";
 import { useMobile } from "@/shared/hooks/ui/useMobile";
-import { Button } from "@/shared/ui";
 import {
  DASHBOARD_LINKS,
  DASHBOARD_SIDEBAR,
@@ -18,9 +16,12 @@ import {
  Search,
  FileText,
  PlusCircle,
- Menu,
- X,
 } from "lucide-react";
+import {
+ SidebarNav,
+ SidebarUserPanel,
+ SidebarToggleButton,
+} from "./components";
 
 type IconMapType = {
  Home: typeof Home;
@@ -56,14 +57,10 @@ export const DashboardSidebar = ({
  reducedMotion = false,
 }: DashboardSidebarProps) => {
  const { user, userType } = useAuth();
- const location = useLocation();
  const isMobile = useMobile();
  const sidebarRef = useRef<HTMLElement>(null);
- const skipLinkRef = useRef<HTMLAnchorElement>(null);
-
  const [isCollapsed, setIsCollapsed] = useState(isMobile);
  const [isKeyboardNavigating, setIsKeyboardNavigating] = useState(false);
-
  const isClient = userType === USER_TYPES.CLIENT;
 
  useEffect(() => {
@@ -165,21 +162,6 @@ export const DashboardSidebar = ({
   },
  ];
 
- const isLinkActive = useCallback(
-  (linkPath: string) => {
-   if (linkPath === DASHBOARD_LINKS.HOME) {
-    return (
-     location.pathname === DASHBOARD_LINKS.HOME ||
-     location.pathname === DASHBOARD_LINKS.HOME + "/"
-    );
-   }
-   return (
-    location.pathname === linkPath || location.pathname === linkPath + "/"
-   );
-  },
-  [location.pathname]
- );
-
  const handleToggle = useCallback(() => {
   if (isMobile) {
    setIsCollapsed(!isCollapsed);
@@ -209,14 +191,6 @@ export const DashboardSidebar = ({
   [isMobile, isCollapsed]
  );
 
- const handleSkipToContent = useCallback(() => {
-  const mainContent =
-   document.querySelector("main") || document.querySelector('[role="main"]');
-  if (mainContent) {
-   (mainContent as HTMLElement).focus();
-  }
- }, []);
-
  const glassStyles = cn(
   "bg-white/90 dark:bg-gray-900/85",
   DASHBOARD_SIDEBAR.BLUR_INTENSITY,
@@ -225,22 +199,9 @@ export const DashboardSidebar = ({
   !reducedMotion && "transition-all duration-300 ease-in-out"
  );
 
- const focusStyles = isKeyboardNavigating
-  ? "focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:outline-none"
-  : "focus:outline-none";
-
  if (isMobile) {
   return (
    <>
-    <a
-     ref={skipLinkRef}
-     href="#main-content"
-     onClick={handleSkipToContent}
-     className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-primary text-primary-foreground px-4 py-2 rounded-md"
-    >
-     Skip to main content
-    </a>
-
     {!isCollapsed && (
      <div
       className="fixed inset-0 bg-black/50 z-40"
@@ -262,79 +223,22 @@ export const DashboardSidebar = ({
      aria-label="Dashboard navigation"
      onKeyDown={handleKeyDown}
     >
-     <Button
-      variant="default"
-      size="sm"
-      onClick={handleToggle}
-      className={cn(
-       "absolute -right-[40px] top-[50px] z-50 rounded-r-full w-10 h-10 flex items-center justify-center pr-4 pl-2",
-       "bg-primary text-primary-foreground shadow-lg",
-       focusStyles
-      )}
-      aria-label={isCollapsed ? "Open sidebar menu" : "Close sidebar menu"}
-      aria-expanded={!isCollapsed}
-      aria-controls="sidebar-content"
-     >
-      {isCollapsed ? (
-       <Menu className="w-5 h-5" aria-hidden="true" />
-      ) : (
-       <X className="w-5 h-5" aria-hidden="true" />
-      )}
-     </Button>
+     <SidebarToggleButton
+      isCollapsed={isCollapsed}
+      handleToggle={handleToggle}
+      isKeyboardNavigating={isKeyboardNavigating}
+     />
 
      <div
       id="sidebar-content"
       className="h-full flex flex-col p-6 overflow-y-auto"
      >
-      <div className="flex mb-6 flex-col items-center">
-       <div className="w-12 h-12 rounded-full bg-primary/20 dark:bg-primary/30 flex items-center justify-center mb-2 border border-primary/30">
-        <User className="h-6 w-6 text-primary" aria-hidden="true" />
-       </div>
-
-       <div className="text-center">
-        <h2 className="font-medium capitalize text-sm text-foreground">
-         {userType}
-        </h2>
-        {user?.email && (
-         <p className="text-xs text-muted-foreground truncate max-w-48">
-          {user.email}
-         </p>
-        )}
-       </div>
-      </div>
-
-      <nav className="flex-1" aria-label="Main navigation">
-       <ul className="space-y-1">
-        {navigationItems.map((item) => {
-         const IconComponent = iconMap[item.icon];
-         const isActive = isLinkActive(item.to);
-
-         return (
-          <li key={item.id}>
-           <Link
-            to={item.to}
-            className={cn(
-             "w-full flex items-center text-sm font-medium rounded-lg p-3 gap-3",
-             "relative group transition-colors duration-200",
-             focusStyles,
-             isActive
-              ? "bg-primary/20 dark:bg-primary/25 text-primary border border-primary/30"
-              : "text-foreground hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary border border-transparent"
-            )}
-            aria-label={item.ariaLabel}
-            aria-current={isActive ? "page" : undefined}
-           >
-            <div className="flex items-center justify-center shrink-0">
-             <IconComponent className="h-4 w-4" aria-hidden="true" />
-            </div>
-            <span className="truncate">{item.label}</span>
-            {isActive && <span className="sr-only">(current page)</span>}
-           </Link>
-          </li>
-         );
-        })}
-       </ul>
-      </nav>
+      <SidebarUserPanel userType={userType} userEmail={user?.email} />
+      <SidebarNav
+       navigationItems={navigationItems}
+       iconMap={iconMap}
+       isKeyboardNavigating={isKeyboardNavigating}
+      />
      </div>
     </aside>
    </>
@@ -354,55 +258,12 @@ export const DashboardSidebar = ({
    aria-label="Dashboard navigation"
   >
    <div className="flex flex-col p-6">
-    <div className="flex mb-6 flex-col items-center">
-     <div className="w-12 h-12 rounded-full bg-primary/20 dark:bg-primary/30 flex items-center justify-center mb-2 border border-primary/30">
-      <User className="h-6 w-6 text-primary" aria-hidden="true" />
-     </div>
-
-     <div className="text-center">
-      <h2 className="font-medium capitalize text-sm text-foreground">
-       {userType}
-      </h2>
-      {user?.email && (
-       <p className="text-xs text-muted-foreground truncate max-w-48">
-        {user.email}
-       </p>
-      )}
-     </div>
-    </div>
-
-    <nav className="flex-1" aria-label="Main navigation">
-     <ul className="space-y-1">
-      {navigationItems.map((item) => {
-       const IconComponent = iconMap[item.icon];
-       const isActive = isLinkActive(item.to);
-
-       return (
-        <li key={item.id}>
-         <Link
-          to={item.to}
-          className={cn(
-           "w-full flex items-center text-sm font-medium rounded-lg p-3 gap-3",
-           "relative group transition-colors duration-200",
-           focusStyles,
-           isActive
-            ? "bg-primary/20 dark:bg-primary/25 text-primary border border-primary/30"
-            : "text-foreground hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary border border-transparent"
-          )}
-          aria-label={item.ariaLabel}
-          aria-current={isActive ? "page" : undefined}
-         >
-          <div className="flex items-center justify-center shrink-0">
-           <IconComponent className="h-4 w-4" aria-hidden="true" />
-          </div>
-          <span className="truncate">{item.label}</span>
-          {isActive && <span className="sr-only">(current page)</span>}
-         </Link>
-        </li>
-       );
-      })}
-     </ul>
-    </nav>
+    <SidebarUserPanel userType={userType} userEmail={user?.email} />
+    <SidebarNav
+     navigationItems={navigationItems}
+     iconMap={iconMap}
+     isKeyboardNavigating={isKeyboardNavigating}
+    />
    </div>
   </aside>
  );
