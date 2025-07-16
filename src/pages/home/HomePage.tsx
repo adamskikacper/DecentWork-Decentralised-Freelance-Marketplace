@@ -1,6 +1,7 @@
 import { Navbar } from "@/shared/ui/Header";
 import { Footer } from "@/shared/ui/Footer";
 import { HeroSection } from "@/components/organisms/HeroSection";
+import { RemoteWorkSection } from "@/components/organisms/RemoteWorkSection";
 
 export const HomePage = () => {
  const HERO_STATS = [
@@ -20,6 +21,7 @@ export const HomePage = () => {
    <Navbar />
    <main className="flex-grow">
     <HeroSection stats={HERO_STATS} heroImage={HERO_IMAGE} />
+    <RemoteWorkSection />
    </main>
    <Footer />
   </div>
