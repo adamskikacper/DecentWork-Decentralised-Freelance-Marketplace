@@ -1,11 +1,16 @@
 import { PageLayout } from "@/components/templates";
 import { JobCard } from "@/components/organisms/JobCard";
 import { useJobListings, useNavigation } from "@/shared/hooks";
-import { Alert, AlertTitle, AlertDescription } from "@/shared/ui/alert";
-import { Card, CardContent, CardTitle, CardDescription } from "@/shared/ui/card";
-import { Button } from "@/shared/ui/button";
-import { Skeleton } from "@/shared/ui/skeleton";
-import { AlertTriangle, RefreshCw, Loader2 } from "lucide-react";
+import { Alert, AlertTitle, AlertDescription } from "@/shared/ui/Alert";
+import {
+ Card,
+ CardContent,
+ CardTitle,
+ CardDescription,
+} from "@/shared/ui/Card";
+import { Button } from "@/shared/ui/Button";
+import { Skeleton } from "@/shared/ui/Skeleton";
+import { AlertTriangle, RefreshCw } from "lucide-react";
 
 export const FindJobsPage = () => {
  const { jobListings, isLoading, error } = useJobListings();
@@ -39,10 +44,10 @@ export const FindJobsPage = () => {
       <AlertTitle>Something went wrong</AlertTitle>
       <AlertDescription>
        {error}
-       <Button 
-        onClick={() => window.location.reload()} 
-        variant="outline" 
-        size="sm" 
+       <Button
+        onClick={() => window.location.reload()}
+        variant="outline"
+        size="sm"
         className="mt-2"
        >
         <RefreshCw className="h-4 w-4 mr-2" />
@@ -56,7 +61,9 @@ export const FindJobsPage = () => {
      <Card className="text-center py-12">
       <CardContent>
        <CardTitle className="mb-2">No jobs found</CardTitle>
-       <CardDescription>Check back later for new opportunities.</CardDescription>
+       <CardDescription>
+        Check back later for new opportunities.
+       </CardDescription>
       </CardContent>
      </Card>
     )}

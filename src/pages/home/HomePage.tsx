@@ -1,4 +1,3 @@
-import React from "react";
 import { Navbar } from "@/shared/ui/Header";
 import { Footer } from "@/shared/ui/Footer";
 import { HeroSection } from "@/components/organisms/HeroSection";
