@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo } from "react";
+import React, { useEffect, useRef, useMemo, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -61,14 +61,21 @@ export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
   []
  );
 
- useEffect(() => {
+ const initializeAnimation = useCallback(() => {
   const container = containerRef.current;
   if (!container) return;
 
   const sections = sectionsRef.current;
   const images = imagesRef.current;
 
-  // Initialize all sections and images to be hidden except the first
+  // Validate refs
+  if (sections.length === 0 || images.length === 0) return;
+  if (!gsap || !ScrollTrigger) {
+   console.warn("GSAP or ScrollTrigger not available");
+   return;
+  }
+
+  // Initialize all sections and images
   sections.forEach((section, index) => {
    if (index === 0) {
     gsap.set(section, { opacity: 1 });
@@ -79,31 +86,33 @@ export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
    }
   });
 
-  const tl = gsap.timeline({
-   scrollTrigger: {
-    trigger: container,
-    start: "top top",
-    end: "bottom bottom",
-    scrub: 1,
-    pin: true,
-    anticipatePin: 1,
+  // Single ScrollTrigger with discrete sections
+  ScrollTrigger.create({
+   trigger: container,
+   start: "top top",
+   end: "bottom bottom",
+   pin: true,
+   anticipatePin: 1,
+   snap: {
+    snapTo: 1 / (sections.length - 1),
+    duration: { min: 0.2, max: 0.4 },
+    delay: 0.1,
+    ease: "power2.inOut"
    },
-  });
-
-  // Create instant transitions between sections
-  sections.forEach((section, index) => {
-   if (index > 0) {
-    const prevSection = sections[index - 1];
-    const currentSection = section;
-    const prevImage = images[index - 1];
-    const currentImage = images[index];
-
-    // Calculate timing for each section transition
-    const transitionPoint = index / sections.length;
-
-    // Instant hide previous section and show current section
-    tl.set([prevSection, prevImage], { opacity: 0 }, transitionPoint)
-      .set([currentSection, currentImage], { opacity: 1 }, transitionPoint);
+   onUpdate: (self) => {
+    const progress = self.progress;
+    const sectionIndex = Math.round(progress * (sections.length - 1));
+    
+    // Show only the current section
+    sections.forEach((section, index) => {
+     if (index === sectionIndex) {
+      gsap.to(section, { opacity: 1, duration: 0.2, ease: "power2.out" });
+      gsap.to(images[index], { opacity: 1, duration: 0.2, ease: "power2.out" });
+     } else {
+      gsap.to(section, { opacity: 0, duration: 0.2, ease: "power2.out" });
+      gsap.to(images[index], { opacity: 0, duration: 0.2, ease: "power2.out" });
+     }
+    });
    }
   });
 
@@ -112,10 +121,21 @@ export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
   };
  }, []);
 
+ useEffect(() => {
+  initializeAnimation();
+ }, [initializeAnimation]);
+
  return (
   <div className={`relative ${className}`}>
-   <div ref={containerRef} className="h-[400vh] relative">
-    <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+   <div 
+    ref={containerRef} 
+    className="h-[400vh] relative"
+    style={{ 
+     scrollSnapType: 'y mandatory',
+     scrollBehavior: 'smooth'
+    }}
+   >
+    <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden" style={{ scrollSnapAlign: 'start' }}>
      <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl">
       <div className="relative h-[500px]">
        {workEnvironments.map((env, index) => (
@@ -124,13 +144,13 @@ export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
          ref={(el) => (sectionsRef.current[index] = el!)}
          className="absolute inset-0 flex flex-col justify-center space-y-6"
         >
-         <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+         <h2 className="text-4xl lg:text-5xl font-bold text-foreground animate-element">
           {env.title}
          </h2>
-         <p className="text-lg lg:text-xl text-muted-foreground max-w-lg leading-relaxed">
+         <p className="text-lg lg:text-xl text-muted-foreground max-w-lg leading-relaxed animate-element">
           {env.description}
          </p>
-         <div className="w-20 h-1 bg-primary rounded-full"></div>
+         <div className="w-20 h-1 bg-primary rounded-full animate-element"></div>
         </div>
        ))}
       </div>
