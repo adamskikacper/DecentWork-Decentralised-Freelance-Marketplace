@@ -61,6 +61,8 @@ export const RemoteWorkSection = ({
   []
  );
 
+ const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
+
  const initializeAnimation = useCallback(() => {
   const container = containerRef.current;
   if (!container) return;
@@ -69,6 +71,11 @@ export const RemoteWorkSection = ({
   const images = imagesRef.current;
 
   if (sections.length === 0 || images.length === 0) return;
+
+  // Clean up existing trigger before creating new one
+  if (scrollTriggerRef.current) {
+   scrollTriggerRef.current.kill();
+  }
 
   sections.forEach((section, index) => {
    if (index === 0) {
@@ -80,15 +87,16 @@ export const RemoteWorkSection = ({
    }
   });
 
-  ScrollTrigger.create({
+  scrollTriggerRef.current = ScrollTrigger.create({
    trigger: container,
    start: "top top",
    end: "bottom bottom",
-   pin: true,
+   pin: ".pin-target",
    anticipatePin: 1,
+   pinSpacing: true,
    snap: {
     snapTo: 1 / (sections.length - 1),
-    duration: { min: 0.2, max: 0.4 },
+    duration: { min: 0.3, max: 0.6 },
     delay: 0.1,
     ease: "power2.inOut",
    },
@@ -98,37 +106,41 @@ export const RemoteWorkSection = ({
 
     sections.forEach((section, index) => {
      if (index === sectionIndex) {
-      gsap.to(section, { opacity: 1, duration: 0.2, ease: "power2.out" });
-      gsap.to(images[index], { opacity: 1, duration: 0.2, ease: "power2.out" });
+      gsap.to(section, { opacity: 1, duration: 0.3, ease: "power2.out" });
+      gsap.to(images[index], { opacity: 1, duration: 0.3, ease: "power2.out" });
      } else {
-      gsap.to(section, { opacity: 0, duration: 0.2, ease: "power2.out" });
-      gsap.to(images[index], { opacity: 0, duration: 0.2, ease: "power2.out" });
+      gsap.to(section, { opacity: 0, duration: 0.3, ease: "power2.out" });
+      gsap.to(images[index], { opacity: 0, duration: 0.3, ease: "power2.out" });
      }
     });
    },
   });
 
   return () => {
-   ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+   if (scrollTriggerRef.current) {
+    scrollTriggerRef.current.kill();
+    scrollTriggerRef.current = null;
+   }
   };
  }, []);
 
  useEffect(() => {
-  initializeAnimation();
+  const cleanup = initializeAnimation();
+  return cleanup;
  }, [initializeAnimation]);
 
  return (
   <div className={`relative ${className}`}>
    <div
     ref={containerRef}
-    className="h-[500vh] md:h-[600vh] lg:h-[700vh] relative"
+    className="h-[200vh] md:h-[250vh] lg:h-[300vh] relative"
     style={{
      scrollSnapType: "y mandatory",
      scrollBehavior: "smooth",
     }}
    >
     <div
-     className="sticky top-0 h-screen flex items-center justify-center overflow-hidden"
+     className="pin-target sticky top-0 h-screen flex items-center justify-center overflow-hidden"
      style={{ scrollSnapAlign: "start" }}
     >
      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -162,6 +174,32 @@ export const RemoteWorkSection = ({
          />
         ))}
        </div>
+      </div>
+     </div>
+    </div>
+   </div>
+
+   <div className="h-screen flex items-center justify-center">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+     <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="relative h-[400px] md:h-[500px] w-full lg:max-w-2xl order-2 lg:order-1">
+       <div className="flex flex-col justify-center space-y-4 md:space-y-6 px-2 sm:px-0 h-full">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+         {workEnvironments[workEnvironments.length - 1].title}
+        </h2>
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
+         {workEnvironments[workEnvironments.length - 1].description}
+        </p>
+        <div className="w-16 sm:w-20 h-1 bg-primary rounded-full"></div>
+       </div>
+      </div>
+
+      <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full max-w-md lg:max-w-lg xl:max-w-xl flex items-center justify-center order-1 lg:order-2">
+       <img
+        src={workEnvironments[workEnvironments.length - 1].image}
+        alt={workEnvironments[workEnvironments.length - 1].alt}
+        className="w-full h-full object-cover rounded-2xl shadow-2xl"
+       />
       </div>
      </div>
     </div>
