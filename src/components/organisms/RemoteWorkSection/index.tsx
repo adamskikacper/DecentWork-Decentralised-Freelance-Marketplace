@@ -24,7 +24,7 @@ export const RemoteWorkSection: React.FC = () => {
     title: "Work from Home",
     description:
      "Create your perfect workspace in the comfort of your own home. Enjoy the flexibility and productivity of remote work.",
-    imageSrc: "/images/hero-freelancer.jpeg",
+    imageSrc: "/images/freelancer-home-office.png",
     imageAlt: "Freelancer working from home office setup",
    },
    {
@@ -32,7 +32,7 @@ export const RemoteWorkSection: React.FC = () => {
     title: "Work from Coffee Shop",
     description:
      "Find inspiration in the buzzing atmosphere of your favorite coffee shop. Network while you work.",
-    imageSrc: "/images/hero-freelancer.jpeg",
+    imageSrc: "/images/freelancer-coffee-shop.png",
     imageAlt: "Freelancer working from coffee shop",
    },
    {
@@ -40,7 +40,7 @@ export const RemoteWorkSection: React.FC = () => {
     title: "Work from Coworking Space",
     description:
      "Collaborate with like-minded professionals in modern coworking spaces designed for productivity.",
-    imageSrc: "/images/hero-freelancer.jpeg",
+    imageSrc: "/images/freelancer-coworking.png",
     imageAlt: "Freelancer working from coworking space",
    },
    {
@@ -48,7 +48,7 @@ export const RemoteWorkSection: React.FC = () => {
     title: "Work from Anywhere",
     description:
      "The world is your office. Work from any location that inspires you and fits your lifestyle.",
-    imageSrc: "/images/hero-freelancer.jpeg",
+    imageSrc: "/images/hero-freelancer-generated.png",
     imageAlt: "Freelancer working from anywhere",
    },
   ],
