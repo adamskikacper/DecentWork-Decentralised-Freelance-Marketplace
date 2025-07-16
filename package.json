@@ -63,6 +63,7 @@
   "framer-motion": "^12.6.3",
   "gsap": "^3.13.0",
   "input-otp": "^1.1.0",
+  "lenis": "^1.3.6",
   "lucide-react": "^0.358.0",
   "next-themes": "^0.3.0",
   "nft.storage": "^7.1.1",

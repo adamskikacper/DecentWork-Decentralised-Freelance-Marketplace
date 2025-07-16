@@ -16,9 +16,9 @@ interface WorkEnvironment {
  alt: string;
 }
 
-export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
+export const RemoteWorkSection = ({
  className = "",
-}) => {
+}: RemoteWorkSectionProps) => {
  const containerRef = useRef<HTMLDivElement>(null);
  const sectionsRef = useRef<HTMLDivElement[]>([]);
  const imagesRef = useRef<HTMLImageElement[]>([]);
@@ -68,14 +68,8 @@ export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
   const sections = sectionsRef.current;
   const images = imagesRef.current;
 
-  // Validate refs
   if (sections.length === 0 || images.length === 0) return;
-  if (!gsap || !ScrollTrigger) {
-   console.warn("GSAP or ScrollTrigger not available");
-   return;
-  }
 
-  // Initialize all sections and images
   sections.forEach((section, index) => {
    if (index === 0) {
     gsap.set(section, { opacity: 1 });
@@ -86,7 +80,6 @@ export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
    }
   });
 
-  // Single ScrollTrigger with discrete sections
   ScrollTrigger.create({
    trigger: container,
    start: "top top",
@@ -97,13 +90,12 @@ export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
     snapTo: 1 / (sections.length - 1),
     duration: { min: 0.2, max: 0.4 },
     delay: 0.1,
-    ease: "power2.inOut"
+    ease: "power2.inOut",
    },
    onUpdate: (self) => {
     const progress = self.progress;
     const sectionIndex = Math.round(progress * (sections.length - 1));
-    
-    // Show only the current section
+
     sections.forEach((section, index) => {
      if (index === sectionIndex) {
       gsap.to(section, { opacity: 1, duration: 0.2, ease: "power2.out" });
@@ -113,7 +105,7 @@ export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
       gsap.to(images[index], { opacity: 0, duration: 0.2, ease: "power2.out" });
      }
     });
-   }
+   },
   });
 
   return () => {
@@ -127,44 +119,49 @@ export const RemoteWorkSection: React.FC<RemoteWorkSectionProps> = ({
 
  return (
   <div className={`relative ${className}`}>
-   <div 
-    ref={containerRef} 
+   <div
+    ref={containerRef}
     className="h-[500vh] md:h-[600vh] lg:h-[700vh] relative"
-    style={{ 
-     scrollSnapType: 'y mandatory',
-     scrollBehavior: 'smooth'
+    style={{
+     scrollSnapType: "y mandatory",
+     scrollBehavior: "smooth",
     }}
    >
-    <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden" style={{ scrollSnapAlign: 'start' }}>
-     <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl">
-      <div className="relative h-[500px]">
-       {workEnvironments.map((env, index) => (
-        <div
-         key={env.id}
-         ref={(el) => (sectionsRef.current[index] = el!)}
-         className="absolute inset-0 flex flex-col justify-center space-y-6"
-        >
-         <h2 className="text-4xl lg:text-5xl font-bold text-foreground animate-element">
-          {env.title}
-         </h2>
-         <p className="text-lg lg:text-xl text-muted-foreground max-w-lg leading-relaxed animate-element">
-          {env.description}
-         </p>
-         <div className="w-20 h-1 bg-primary rounded-full animate-element"></div>
-        </div>
-       ))}
-      </div>
+    <div
+     className="sticky top-0 h-screen flex items-center justify-center overflow-hidden"
+     style={{ scrollSnapAlign: "start" }}
+    >
+     <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+       <div className="relative h-[400px] md:h-[500px] w-full lg:max-w-2xl order-2 lg:order-1">
+        {workEnvironments.map((env, index) => (
+         <div
+          key={env.id}
+          ref={(el) => (sectionsRef.current[index] = el!)}
+          className="absolute inset-0 flex flex-col justify-center space-y-4 md:space-y-6 px-2 sm:px-0"
+         >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground animate-element leading-tight">
+           {env.title}
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed animate-element">
+           {env.description}
+          </p>
+          <div className="w-16 sm:w-20 h-1 bg-primary rounded-full animate-element"></div>
+         </div>
+        ))}
+       </div>
 
-      <div className="relative h-[500px] flex items-center justify-center">
-       {workEnvironments.map((env, index) => (
-        <img
-         key={env.id}
-         ref={(el) => (imagesRef.current[index] = el!)}
-         src={env.image}
-         alt={env.alt}
-         className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl"
-        />
-       ))}
+       <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full max-w-md lg:max-w-lg xl:max-w-xl flex items-center justify-center order-1 lg:order-2">
+        {workEnvironments.map((env, index) => (
+         <img
+          key={env.id}
+          ref={(el) => (imagesRef.current[index] = el!)}
+          src={env.image}
+          alt={env.alt}
+          className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl"
+         />
+        ))}
+       </div>
       </div>
      </div>
     </div>
