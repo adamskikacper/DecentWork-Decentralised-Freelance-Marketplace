@@ -26,17 +26,6 @@ export const JobsList = ({
 }: JobsListProps) => {
  return (
   <div className={`slide-in ${className}`}>
-   {(title || showViewAll) && (
-    <div className="flex justify-between items-center mb-6">
-     {title && <h2 className="text-xl font-bold">{title}</h2>}
-     {showViewAll && (
-      <Button variant="ghost" className="text-sm text-primary font-medium" onClick={onViewAll}>
-       View all
-      </Button>
-     )}
-    </div>
-   )}
-
    <div className="space-y-4">
     {jobs.map((job) => (
      <JobCard

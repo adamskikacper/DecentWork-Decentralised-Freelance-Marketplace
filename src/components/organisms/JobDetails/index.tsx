@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { User, Calendar, Clock } from "lucide-react";
+import { User, Calendar, Clock, X } from "lucide-react";
 import { useJobDetails } from "@/shared/hooks";
-import { Card, CardContent } from "@/shared/ui/Card";
 import { Button } from "@/shared/ui";
+import { Card, CardContent } from "@/shared/ui/Card";
 
 interface JobDetailsProps {
  onClose?: () => void;
@@ -35,12 +35,7 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
    <div className="flex justify-center items-center h-64">
     <div className="text-center">
      <p className="text-red-500 mb-2">Error: {error || "Job not found"}</p>
-     <Button
-      onClick={() => navigate(-1)}
-      className="text-sm font-medium"
-     >
-      Go Back
-     </Button>
+     <Button onClick={() => navigate(-1)}>Go Back</Button>
     </div>
    </div>
   );
@@ -68,7 +63,7 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
     </div>
     {onClose && (
      <Button onClick={onClose} variant="ghost" size="icon">
-      ×
+      <X className="h-4 w-4" />
      </Button>
     )}
    </div>
@@ -116,10 +111,7 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
        <p className="font-medium">{job.freelancer.name}</p>
        <p className="text-sm text-muted-foreground">{job.freelancer.role}</p>
       </div>
-      <Button
-       onClick={handleMessageClick}
-       className="ml-auto text-sm font-medium"
-      >
+      <Button onClick={handleMessageClick} className="ml-auto">
        Message
       </Button>
      </div>

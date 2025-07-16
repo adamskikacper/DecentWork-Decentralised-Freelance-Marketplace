@@ -1,7 +1,6 @@
 import { User } from "lucide-react";
 import { JobSummary } from "@/shared/models/dashboard";
-import { Card, CardContent } from "@/shared/ui/Card";
-import { Button } from "@/shared/ui";
+import { Button, Card, CardContent } from "@/shared/ui";
 
 interface JobCardProps {
  job?: JobSummary;
@@ -129,18 +128,12 @@ export const JobCard = ({
          <Button
           onClick={() => onMessage(job.freelancer.id)}
           variant="secondary"
-          className="text-sm font-medium"
          >
           Message
          </Button>
         )}
         {onDetails && jobId && (
-         <Button
-          onClick={() => onDetails(jobId)}
-          className="text-sm font-medium"
-         >
-          Details
-         </Button>
+         <Button onClick={() => onDetails(jobId)}>Details</Button>
         )}
        </div>
       </div>
@@ -148,10 +141,7 @@ export const JobCard = ({
     )}
 
     {!job && onDetails && jobId && (
-     <Button
-      onClick={() => onDetails(jobId)}
-      className="w-full text-sm font-medium mt-2"
-     >
+     <Button onClick={() => onDetails(jobId)} className="w-full mt-2">
       View Details
      </Button>
     )}

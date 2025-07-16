@@ -20,7 +20,7 @@ export interface HeroSectionProps {
  secondaryButtonLink?: string;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({
+export const HeroSection = ({
  stats,
  heroImage,
  title = "The Future of Work is Decentralised",
@@ -29,7 +29,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
  secondaryButtonText = "Find Talent",
  primaryButtonLink = "/dashboard",
  secondaryButtonLink = "/dashboard",
-}) => {
+}: HeroSectionProps) => {
  return (
   <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16">
    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
