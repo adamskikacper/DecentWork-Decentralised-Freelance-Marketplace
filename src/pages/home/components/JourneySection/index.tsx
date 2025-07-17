@@ -1,65 +1,22 @@
-import React, { useEffect, useRef, useMemo, useCallback } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { WorkEnvironment } from "../types";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface RemoteWorkSectionProps {
+interface JourneySectionProps {
+ workEnvironments: WorkEnvironment[];
  className?: string;
 }
 
-interface WorkEnvironment {
- id: string;
- title: string;
- description: string;
- image: string;
- alt: string;
-}
-
-export const RemoteWorkSection = ({
+export const JourneySection = ({
+ workEnvironments,
  className = "",
-}: RemoteWorkSectionProps) => {
+}: JourneySectionProps) => {
  const containerRef = useRef<HTMLDivElement>(null);
  const sectionsRef = useRef<HTMLDivElement[]>([]);
  const imagesRef = useRef<HTMLDivElement[]>([]);
-
- const workEnvironments: WorkEnvironment[] = useMemo(
-  () => [
-   {
-    id: "home",
-    title: "Your Home",
-    description:
-     "Work in ultimate comfort, turning your personal space into a focused, productive sanctuary.",
-    image: "/images/home.webp",
-    alt: "Freelancer working from home office",
-   },
-   {
-    id: "coffee",
-    title: "Local Cafes",
-    description:
-     "Tap into the vibrant energy of a cafe for fresh inspiration and casual connections.",
-    image: "/images/coffee-shop.webp",
-    alt: "Freelancer working from coffee shop",
-   },
-   {
-    id: "coworking",
-    title: "Coworking",
-    description:
-     "Boost productivity and connect with peers in a dedicated, growth-oriented environment.",
-    image: "/images/coworking.webp",
-    alt: "Freelancer working from coworking space",
-   },
-   {
-    id: "anywhere",
-    title: "Anywhere",
-    description:
-     "Experience total freedom, turning any stunning location into your office and truly redefining your life.",
-    image: "/images/camper-van.webp",
-    alt: "Freelancer working from anywhere",
-   },
-  ],
-  []
- );
 
  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
  const currentSectionRef = useRef<number>(0);

@@ -19,6 +19,12 @@ export default {
    },
   },
   extend: {
+   fontFamily: {
+    sans: ["Quicksand", "system-ui", "sans-serif"],
+    heading: ["Quicksand", "system-ui", "sans-serif"],
+    body: ["Quicksand", "system-ui", "sans-serif"],
+    quicksand: ["Quicksand", "system-ui", "sans-serif"],
+   },
    colors: {
     border: "var(--border)",
     input: "var(--input)",
@@ -63,8 +69,6 @@ export default {
      border: "var(--sidebar-border)",
      ring: "var(--sidebar-ring)",
     },
-    
-    // Enhanced status colors
     success: {
      DEFAULT: "var(--success)",
      foreground: "var(--success-foreground)",
@@ -77,8 +81,6 @@ export default {
      DEFAULT: "var(--info)",
      foreground: "var(--info-foreground)",
     },
-    
-    // Chart colors for data visualization
     chart: {
      1: "var(--chart-1)",
      2: "var(--chart-2)",
@@ -87,15 +89,11 @@ export default {
      5: "var(--chart-5)",
      6: "var(--chart-6)",
     },
-    
-    // Shadow utilities
     shadow: {
      light: "var(--shadow-light)",
      medium: "var(--shadow-medium)",
      heavy: "var(--shadow-heavy)",
     },
-    
-    // New Vibrant Palette
     vibrantBlue: "#3B82F6",
     emeraldGreen: "#10B981",
     sunnyYellow: "#F59E0B",
@@ -106,7 +104,6 @@ export default {
      "linear-gradient(to right, var(--color-vibrantBlue), var(--color-emeraldGreen))",
     "gradient-accent-highlight":
      "linear-gradient(to right, var(--color-sunnyYellow), var(--color-deepPurple))",
-    // Add more gradients as needed
    },
    borderRadius: {
     lg: "var(--radius)",
@@ -114,9 +111,9 @@ export default {
     sm: "calc(var(--radius) - 4px)",
    },
    boxShadow: {
-    'soft': '0 2px 8px var(--shadow-light)',
-    'medium': '0 4px 16px var(--shadow-medium)',
-    'strong': '0 8px 32px var(--shadow-heavy)',
+    soft: "0 2px 8px var(--shadow-light)",
+    medium: "0 4px 16px var(--shadow-medium)",
+    strong: "0 8px 32px var(--shadow-heavy)",
    },
    keyframes: {
     "accordion-down": {

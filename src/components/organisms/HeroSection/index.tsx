@@ -35,12 +35,7 @@ export const HeroSection = ({
    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
      <div className="max-w-2xl slide-in">
-      <h1 className="heading-1 mb-6">
-       {title.split("Decentralised")[0]}
-       <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-        Decentralised
-       </span>
-      </h1>
+      <h1 className="heading-1 mb-6">{title}</h1>
 
       <p className="body-text mb-8 max-w-xl">{subtitle}</p>
 

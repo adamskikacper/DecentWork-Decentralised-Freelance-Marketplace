@@ -1,7 +1,7 @@
 import { Navbar } from "@/shared/ui/Header";
 import { Footer } from "@/shared/ui/Footer";
 import { HeroSection } from "@/components/organisms/HeroSection";
-import { RemoteWorkSection } from "@/components/organisms/RemoteWorkSection";
+import { TitleSection, JourneySection, WorkEnvironment } from "./components";
 
 export const HomePage = () => {
  const HERO_STATS = [
@@ -16,12 +16,48 @@ export const HomePage = () => {
   alt: "Developer working on a laptop with city skyline in the background",
  };
 
+ const WORK_ENVIRONMENTS: WorkEnvironment[] = [
+  {
+   id: "home",
+   title: "Your Home",
+   description:
+    "Work in ultimate comfort, turning your personal space into a focused, productive sanctuary.",
+   image: "/images/home.webp",
+   alt: "Freelancer working from home office",
+  },
+  {
+   id: "coffee",
+   title: "Local Cafes",
+   description:
+    "Tap into the vibrant energy of a cafe for fresh inspiration and casual connections.",
+   image: "/images/coffee-shop.webp",
+   alt: "Freelancer working from coffee shop",
+  },
+  {
+   id: "coworking",
+   title: "Coworking",
+   description:
+    "Boost productivity and connect with peers in a dedicated, growth-oriented environment.",
+   image: "/images/coworking.webp",
+   alt: "Freelancer working from coworking space",
+  },
+  {
+   id: "anywhere",
+   title: "Anywhere",
+   description:
+    "Experience total freedom, turning any stunning location into your office and truly redefining your life.",
+   image: "/images/camper-van.webp",
+   alt: "Freelancer working from anywhere",
+  },
+ ];
+
  return (
   <div className="min-h-screen flex flex-col">
    <Navbar />
    <main className="flex-grow">
     <HeroSection stats={HERO_STATS} heroImage={HERO_IMAGE} />
-    <RemoteWorkSection />
+    <TitleSection title="You choose where you work from" />
+    <JourneySection workEnvironments={WORK_ENVIRONMENTS} />
    </main>
    <Footer />
   </div>
