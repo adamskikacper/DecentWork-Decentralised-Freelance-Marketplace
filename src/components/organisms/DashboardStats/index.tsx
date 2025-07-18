@@ -43,8 +43,8 @@ export const DashboardStats = React.forwardRef<
      <CardContent className="p-6">
       <div className="flex justify-between items-start mb-4">
        <div>
-        <p className="text-sm text-muted-foreground">{stat.title}</p>
-        <h3 className="text-2xl font-bold">{stat.value}</h3>
+        <p className="text-label-md text-muted-foreground">{stat.title}</p>
+        <h3 className="text-heading-2">{stat.value}</h3>
        </div>
        {stat.icon && (
         <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -53,7 +53,7 @@ export const DashboardStats = React.forwardRef<
        )}
       </div>
       {stat.change && (
-       <div className="flex items-center gap-2 text-sm">
+       <div className="flex items-center gap-2 text-label-md">
         <span
          className={cn(
           "inline-flex items-center",
@@ -82,7 +82,7 @@ export const DashboardStats = React.forwardRef<
          {stat.change.value}
         </span>
         {stat.change.label && (
-         <span className="text-muted-foreground">{stat.change.label}</span>
+         <span className="text-label-md text-muted-foreground">{stat.change.label}</span>
         )}
        </div>
       )}

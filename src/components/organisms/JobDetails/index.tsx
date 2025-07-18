@@ -1,6 +1,7 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { User, Calendar, Clock, X } from "lucide-react";
 import { useJobDetails } from "@/shared/hooks";
+import { useNavigation } from "@/shared/hooks/ui";
 import { Button } from "@/shared/ui";
 import { Card, CardContent } from "@/shared/ui/Card";
 
@@ -9,15 +10,9 @@ interface JobDetailsProps {
 }
 
 export const JobDetails = ({ onClose }: JobDetailsProps) => {
- const navigate = useNavigate();
+ const { goToMessages, goBack } = useNavigation();
  const { jobId } = useParams();
  const { job, isLoading, error } = useJobDetails(jobId);
-
- const handleMessageClick = () => {
-  if (job) {
-   navigate(`/messages/${job.freelancer.id}`);
-  }
- };
 
  if (isLoading) {
   return (
@@ -35,7 +30,7 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
    <div className="flex justify-center items-center h-64">
     <div className="text-center">
      <p className="text-red-500 mb-2">Error: {error || "Job not found"}</p>
-     <Button onClick={() => navigate(-1)}>Go Back</Button>
+     <Button onClick={goBack}>Go Back</Button>
     </div>
    </div>
   );
@@ -45,7 +40,7 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
   <div className="space-y-8">
    <div className="flex items-start justify-between">
     <div>
-     <h2 className="text-2xl font-bold mb-2">{job.title}</h2>
+     <h2 className="text-heading-2 mb-2">{job.title}</h2>
      <div className="flex items-center gap-2">
       <span
        className={`px-2.5 py-1 text-xs font-medium rounded-full ${
@@ -71,8 +66,8 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
    <Card>
     <CardContent className="p-6 space-y-6">
      <div>
-      <h3 className="text-lg font-semibold mb-2">Job Details</h3>
-      <p className="text-muted-foreground">{job.description}</p>
+      <h3 className="text-heading-4 mb-2">Job Details</h3>
+      <p className="text-body-md text-muted-foreground">{job.description}</p>
      </div>
 
      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -88,8 +83,8 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
 
      <div>
       <div className="flex justify-between text-sm mb-1">
-       <span className="text-muted-foreground">Progress</span>
-       <span className="font-medium">{job.progress}%</span>
+       <span className="text-label-md text-muted-foreground">Progress</span>
+       <span className="text-label-md">{job.progress}%</span>
       </div>
       <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
        <div
@@ -109,9 +104,14 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
       </div>
       <div>
        <p className="font-medium">{job.freelancer.name}</p>
-       <p className="text-sm text-muted-foreground">{job.freelancer.role}</p>
+       <p className="text-body-sm text-muted-foreground">
+        {job.freelancer.role}
+       </p>
       </div>
-      <Button onClick={handleMessageClick} className="ml-auto">
+      <Button
+       onClick={() => goToMessages(job.freelancer.id)}
+       className="ml-auto"
+      >
        Message
       </Button>
      </div>

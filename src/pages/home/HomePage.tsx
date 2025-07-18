@@ -4,50 +4,43 @@ import { HeroSection } from "@/components/organisms/HeroSection";
 import { TitleSection, JourneySection, WorkEnvironment } from "./components";
 
 export const HomePage = () => {
- const HERO_STATS = [
-  { value: "12k+", label: "Active Jobs" },
-  { value: "24k+", label: "Freelancers" },
-  { value: "$8M+", label: "Paid Out" },
-  { value: "99%", label: "Satisfaction" },
- ];
-
  const HERO_IMAGE = {
-  src: "/images/hero-freelancer.jpeg",
+  src: "/images/hero-freelancer.jpg",
   alt: "Developer working on a laptop with city skyline in the background",
  };
 
  const WORK_ENVIRONMENTS: WorkEnvironment[] = [
   {
-   id: "home",
-   title: "Your Home",
+   id: "profile-setup",
+   title: "Create Your Profile",
    description:
-    "Work in ultimate comfort, turning your personal space into a focused, productive sanctuary.",
+    "Set up your professional profile with skills, experience level, hourly rate, and showcase your portfolio to attract clients.",
    image: "/images/home.webp",
-   alt: "Freelancer working from home office",
+   alt: "Freelancer setting up profile",
   },
   {
-   id: "coffee",
-   title: "Local Cafes",
+   id: "find-jobs",
+   title: "Find Perfect Jobs",
    description:
-    "Tap into the vibrant energy of a cafe for fresh inspiration and casual connections.",
+    "Browse through available jobs, filter by categories like DeFi, Smart Contracts, NFTs, and apply to projects that match your expertise.",
    image: "/images/coffee-shop.webp",
-   alt: "Freelancer working from coffee shop",
+   alt: "Freelancer browsing job opportunities",
   },
   {
-   id: "coworking",
-   title: "Coworking",
+   id: "communicate",
+   title: "Connect & Collaborate",
    description:
-    "Boost productivity and connect with peers in a dedicated, growth-oriented environment.",
+    "Chat with clients, discuss project requirements, track progress, and manage all your active jobs from one dashboard.",
    image: "/images/coworking.webp",
-   alt: "Freelancer working from coworking space",
+   alt: "Freelancer communicating with clients",
   },
   {
-   id: "anywhere",
-   title: "Anywhere",
+   id: "get-paid",
+   title: "Get Paid in Crypto",
    description:
-    "Experience total freedom, turning any stunning location into your office and truly redefining your life.",
+    "Complete projects and receive secure payments directly in ETH. Track your earnings, build your reputation, and grow your decentralized career.",
    image: "/images/camper-van.webp",
-   alt: "Freelancer working from anywhere",
+   alt: "Freelancer receiving crypto payments",
   },
  ];
 
@@ -55,9 +48,10 @@ export const HomePage = () => {
   <div className="min-h-screen flex flex-col">
    <Navbar />
    <main className="flex-grow">
-    <HeroSection stats={HERO_STATS} heroImage={HERO_IMAGE} />
-    <TitleSection title="You choose where you work from" />
+    <HeroSection heroImage={HERO_IMAGE} />
+    <TitleSection title="Your Journey to Success" />
     <JourneySection workEnvironments={WORK_ENVIRONMENTS} />
+    <TitleSection title="Start earning in crypto today" />
    </main>
    <Footer />
   </div>

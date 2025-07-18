@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Input, Label, CardContent, CardFooter } from "@/shared/ui";
 import { useAuth } from "@/app/providers/AuthProvider";
 import { useToast } from "@/shared/hooks/ui/useToast";
-import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
  const [email, setEmail] = useState("");
@@ -10,7 +9,6 @@ export const LoginForm = () => {
  const [isSubmitting, setIsSubmitting] = useState(false);
  const { signIn } = useAuth();
  const { toast } = useToast();
- const navigate = useNavigate();
 
  const handleLogin = async (e: React.FormEvent) => {
   e.preventDefault();

@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
  darkMode: ["class"],
@@ -24,6 +23,112 @@ export default {
     heading: ["Quicksand", "system-ui", "sans-serif"],
     body: ["Quicksand", "system-ui", "sans-serif"],
     quicksand: ["Quicksand", "system-ui", "sans-serif"],
+   },
+   fontSize: {
+    // Display sizes
+    "display-lg": [
+     "4.5rem",
+     { lineHeight: "1.1", letterSpacing: "-0.025em", fontWeight: "700" },
+    ],
+    "display-md": [
+     "3.75rem",
+     { lineHeight: "1.1", letterSpacing: "-0.025em", fontWeight: "700" },
+    ],
+    "display-sm": [
+     "3rem",
+     { lineHeight: "1.2", letterSpacing: "-0.025em", fontWeight: "600" },
+    ],
+
+    // Heading sizes
+    "heading-1": [
+     "4rem",
+     { lineHeight: "1.2", letterSpacing: "-0.025em", fontWeight: "700" },
+    ],
+    "heading-2": [
+     "2.25rem",
+     { lineHeight: "1.25", letterSpacing: "-0.025em", fontWeight: "600" },
+    ],
+    "heading-3": [
+     "1.875rem",
+     { lineHeight: "1.3", letterSpacing: "0em", fontWeight: "600" },
+    ],
+    "heading-4": [
+     "1.5rem",
+     { lineHeight: "1.375", letterSpacing: "0em", fontWeight: "600" },
+    ],
+    "heading-5": [
+     "1.25rem",
+     { lineHeight: "1.4", letterSpacing: "0em", fontWeight: "500" },
+    ],
+    "heading-6": [
+     "1.125rem",
+     { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "500" },
+    ],
+
+    // Body text sizes
+    "body-lg": [
+     "1.125rem",
+     { lineHeight: "1.75", letterSpacing: "0em", fontWeight: "400" },
+    ],
+    "body-md": [
+     "1rem",
+     { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400" },
+    ],
+    "body-sm": [
+     "0.875rem",
+     { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400" },
+    ],
+
+    // Label sizes
+    "label-lg": [
+     "0.875rem",
+     { lineHeight: "1.25", letterSpacing: "0em", fontWeight: "500" },
+    ],
+    "label-md": [
+     "0.75rem",
+     { lineHeight: "1.25", letterSpacing: "0em", fontWeight: "500" },
+    ],
+    "label-sm": [
+     "0.6875rem",
+     { lineHeight: "1.25", letterSpacing: "0.025em", fontWeight: "500" },
+    ],
+
+    // Caption sizes
+    "caption-md": [
+     "0.75rem",
+     { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400" },
+    ],
+    "caption-sm": [
+     "0.6875rem",
+     { lineHeight: "1.5", letterSpacing: "0.025em", fontWeight: "400" },
+    ],
+   },
+   fontWeight: {
+    thin: "100",
+    extralight: "200",
+    light: "300",
+    normal: "400",
+    medium: "500",
+    semibold: "600",
+    bold: "700",
+    extrabold: "800",
+    black: "900",
+   },
+   lineHeight: {
+    none: "1",
+    tight: "1.25",
+    snug: "1.375",
+    normal: "1.5",
+    relaxed: "1.625",
+    loose: "2",
+   },
+   letterSpacing: {
+    tighter: "-0.05em",
+    tight: "-0.025em",
+    normal: "0em",
+    wide: "0.025em",
+    wider: "0.05em",
+    widest: "0.1em",
    },
    colors: {
     border: "var(--border)",
@@ -115,29 +220,7 @@ export default {
     medium: "0 4px 16px var(--shadow-medium)",
     strong: "0 8px 32px var(--shadow-heavy)",
    },
-   keyframes: {
-    "accordion-down": {
-     from: {
-      height: "0",
-     },
-     to: {
-      height: "var(--radix-accordion-content-height)",
-     },
-    },
-    "accordion-up": {
-     from: {
-      height: "var(--radix-accordion-content-height)",
-     },
-     to: {
-      height: "0",
-     },
-    },
-   },
-   animation: {
-    "accordion-down": "accordion-down 0.2s ease-out",
-    "accordion-up": "accordion-up 0.2s ease-out",
-   },
   },
  },
- plugins: [tailwindcssAnimate],
+ plugins: [],
 } satisfies Config;

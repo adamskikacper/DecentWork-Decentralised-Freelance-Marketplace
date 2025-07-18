@@ -1,13 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-export interface HeroStat {
- value: string;
- label: string;
-}
+import React, { useRef } from "react";
+import { Button } from "@/shared";
+import { useNavigation, useHeroAnimation } from "@/shared/hooks/ui";
 
 export interface HeroSectionProps {
- stats: HeroStat[];
  heroImage: {
   src: string;
   alt: string;
@@ -21,49 +16,63 @@ export interface HeroSectionProps {
 }
 
 export const HeroSection = ({
- stats,
  heroImage,
  title = "The Future of Work is Decentralised",
- subtitle = "Connect directly with clients and freelancers worldwide. No middlemen, secure payments via smart contracts, and complete ownership of your work.",
+ subtitle = "Connect directly with clients and freelancers worldwide. No middlemen, secure payments via cryptocurrencies, and complete ownership of your money.",
  primaryButtonText = "Start Earning",
  secondaryButtonText = "Find Talent",
- primaryButtonLink = "/dashboard",
- secondaryButtonLink = "/dashboard",
 }: HeroSectionProps) => {
+ const { goToDashboard } = useNavigation();
+
+ const textBoxRef = useRef<HTMLDivElement>(null);
+ const heroImgRef = useRef<HTMLImageElement>(null);
+ const titleRef = useRef<HTMLHeadingElement>(null);
+ const subtitleRef = useRef<HTMLParagraphElement>(null);
+ const buttonsRef = useRef<HTMLDivElement>(null);
+
+ useHeroAnimation({
+  textBoxRef,
+  heroImgRef,
+  titleRef,
+  subtitleRef,
+  buttonsRef,
+ });
+
  return (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16">
-   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-     <div className="max-w-2xl slide-in">
-      <h1 className="heading-1 mb-6">{title}</h1>
+  <section className="relative h-screen overflow-hidden ">
+   <div className="absolute inset-0">
+    <img
+     ref={heroImgRef}
+     src={heroImage.src}
+     alt={heroImage.alt}
+     className="w-full h-full object-cover"
+    />
+   </div>
 
-      <p className="body-text mb-8 max-w-xl">{subtitle}</p>
+   <div
+    ref={textBoxRef}
+    className="absolute top-0 left-0 w-full md:w-1/2 h-full bg-white dark:bg-gradient-to-br dark:from-sky-900 dark:to-slate-800 flex items-center justify-center z-10"
+    style={{ position: "relative" }}
+   >
+    <div className="absolute inset-0 -z-10"></div>
 
-      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-       <Link to={primaryButtonLink} className="button-primary text-center">
-        {primaryButtonText}
-       </Link>
-       <Link to={secondaryButtonLink} className="button-secondary text-center">
-        {secondaryButtonText}
-       </Link>
-      </div>
+    <div className="max-w-2xl px-4 sm:px-6 lg:px-8 pt-20 pb-8 lg:pt-0 lg:pb-0">
+     <h1 ref={titleRef} className="text-heading-1 mb-6">
+      {title}
+     </h1>
 
-      <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-       {stats.map((stat) => (
-        <div className="slide-up" key={stat.label}>
-         <div className="text-3xl font-bold">{stat.value}</div>
-         <div className="text-sm text-muted-foreground">{stat.label}</div>
-        </div>
-       ))}
-      </div>
-     </div>
+     <p
+      ref={subtitleRef}
+      className="text-body-md text-muted-foreground mb-8 max-w-xl"
+     >
+      {subtitle}
+     </p>
 
-     <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl blur-in">
-      <img
-       src={heroImage.src}
-       alt={heroImage.alt}
-       className="w-full rounded-2xl shadow-xl object-cover"
-      />
+     <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+      <Button variant="outline" onClick={goToDashboard}>
+       {primaryButtonText}
+      </Button>
+      <Button className="text-center">{secondaryButtonText}</Button>
      </div>
     </div>
    </div>

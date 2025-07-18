@@ -1,9 +1,6 @@
-import React, { useEffect, useRef, useCallback } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import { WorkEnvironment } from "../types";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useJourneyAnimation } from "@/shared/hooks/ui";
 
 interface JourneySectionProps {
  workEnvironments: WorkEnvironment[];
@@ -18,128 +15,17 @@ export const JourneySection = ({
  const sectionsRef = useRef<HTMLDivElement[]>([]);
  const imagesRef = useRef<HTMLDivElement[]>([]);
 
- const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
- const currentSectionRef = useRef<number>(0);
- const animationTimelinesRef = useRef<gsap.core.Timeline[]>([]);
-
- const initializeAnimation = useCallback(() => {
-  const container = containerRef.current;
-  if (!container) return;
-
-  const sections = sectionsRef.current;
-  const images = imagesRef.current;
-
-  if (sections.length === 0 || images.length === 0) return;
-
-  if (scrollTriggerRef.current) {
-   scrollTriggerRef.current.kill();
-  }
-
-  animationTimelinesRef.current.forEach((tl) => tl.kill());
-  animationTimelinesRef.current = [];
-
-  sections.forEach((section, index) => {
-   if (index === 0) {
-    gsap.set(section, { opacity: 1, y: 0 });
-    gsap.set(images[0], { opacity: 1, y: 0 });
-   } else {
-    gsap.set(section, { opacity: 0, y: 100 });
-    gsap.set(images[index], { opacity: 0, y: -50 });
-   }
-  });
-
-  currentSectionRef.current = 0;
-
-  scrollTriggerRef.current = ScrollTrigger.create({
-   trigger: container,
-   start: "top 5%",
-   end: "bottom bottom",
-   pin: ".pin-target",
-   anticipatePin: 1,
-   pinSpacing: true,
-
-   snap: {
-    snapTo: 1 / (sections.length - 1),
-    duration: { min: 0.3, max: 0.6 },
-    ease: "power4.inOut",
-   },
-   onUpdate: (self) => {
-    const progress = self.progress;
-    const sectionIndex = Math.round(progress * (sections.length - 1));
-
-    if (sectionIndex !== currentSectionRef.current) {
-     const previousIndex = currentSectionRef.current;
-     currentSectionRef.current = sectionIndex;
-
-     animationTimelinesRef.current.forEach((tl) => tl.kill());
-     animationTimelinesRef.current = [];
-
-     const tl = gsap.timeline();
-     animationTimelinesRef.current.push(tl);
-
-     tl
-      .to(sections[previousIndex], {
-       opacity: 0,
-       y: -50,
-       duration: 0.4,
-       ease: "sine.out",
-      })
-      .to(
-       images[previousIndex],
-       {
-        opacity: 0,
-        y: -50,
-        duration: 0.3,
-        ease: "sine.out",
-       },
-       "<"
-      )
-      .fromTo(
-       sections[sectionIndex],
-       { opacity: 0, y: 100 },
-       {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "sine.out",
-       },
-       "-=0.2"
-      )
-      .fromTo(
-       images[sectionIndex],
-       { opacity: 0, y: 50 },
-       {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: "sine.out",
-       },
-       "<+=0.1"
-      );
-    }
-   },
-  });
-
-  return () => {
-   if (scrollTriggerRef.current) {
-    scrollTriggerRef.current.kill();
-    scrollTriggerRef.current = null;
-   }
-   animationTimelinesRef.current.forEach((tl) => tl.kill());
-   animationTimelinesRef.current = [];
-  };
- }, []);
-
- useEffect(() => {
-  const cleanup = initializeAnimation();
-  return cleanup;
- }, [initializeAnimation]);
+ useJourneyAnimation({
+  containerRef,
+  sectionsRef,
+  imagesRef,
+ });
 
  return (
   <div className={`relative ${className}`}>
    <div
     ref={containerRef}
-    className="h-[200vh] md:h-[250vh] lg:h-[400vh] relative bg-gray-100 dark:bg-gray-900"
+    className="h-[200vh] md:h-[250vh] lg:h-[800vh] relative bg-gray-100 dark:bg-gray-900"
     style={{
      scrollSnapType: "y mandatory",
      scrollBehavior: "smooth",
@@ -156,7 +42,7 @@ export const JourneySection = ({
          <div
           key={env.id}
           ref={(el) => (sectionsRef.current[index] = el!)}
-          className="absolute inset-0 flex flex-col justify-center space-y-4 md:space-y-6 px-2 sm:px-0"
+          className="absolute inset-0 flex flex-col max-w-xl justify-center space-y-4 md:space-y-6 px-2 sm:px-0"
          >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-8xl font-bold text-foreground">
            {env.title}
@@ -164,10 +50,6 @@ export const JourneySection = ({
 
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
            {env.description}
-          </p>
-          <div className="w-16 sm:w-20 h-3 bg-primary rounded-full"></div>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
-           {index + 1} / {workEnvironments.length}
           </p>
          </div>
         ))}

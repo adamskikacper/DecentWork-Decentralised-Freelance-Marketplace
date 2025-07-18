@@ -100,40 +100,19 @@
  }
 
  * {
-  @apply border-border transition-colors duration-300 ease-in-out;
-  font-family: "Quicksand", system-ui, sans-serif;
+  @apply border-border transition-colors duration-300 ease-in-out font-sans;
   font-weight: 500;
  }
 
  body {
-  @apply bg-background text-foreground antialiased;
-  font-family: "Quicksand", system-ui, sans-serif;
+  @apply bg-background text-foreground antialiased font-sans;
   font-feature-settings: "kern" 1;
   font-variant-ligatures: common-ligatures;
   font-weight: 500;
  }
 
  html {
-  @apply scroll-smooth;
-  font-family: "Quicksand", system-ui, sans-serif;
- }
-
- h1,
- h2,
- h3,
- h4,
- h5,
- h6,
- p,
- span,
- div,
- a,
- button,
- input,
- textarea,
- select,
- label {
-  font-family: "Quicksand", system-ui, sans-serif;
+  @apply scroll-smooth font-sans;
  }
 
  p,
@@ -144,133 +123,25 @@
 }
 
 @layer components {
- .button-primary {
-  @apply px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:brightness-110;
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 600;
- }
-
- .button-secondary {
-  @apply px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:bg-accent;
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 600;
- }
-
- .button-vibrant {
-  @apply px-6 py-3 bg-gradient-to-r from-vibrantBlue to-emeraldGreen text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 600;
- }
-
- .button-accent-gradient {
-  @apply px-6 py-3 bg-gradient-to-r from-sunnyYellow to-deepPurple text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 600;
- }
-
- .page-container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
-  font-family: "Quicksand", system-ui, sans-serif;
- }
-
- .section {
-  @apply py-12 md:py-24;
-  font-family: "Quicksand", system-ui, sans-serif;
- }
-
- .heading-1 {
-  @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 700;
- }
-
- .heading-2 {
-  @apply text-3xl md:text-4xl font-bold tracking-tight;
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 700;
- }
-
- .heading-3 {
-  @apply text-2xl md:text-3xl font-bold tracking-tight;
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 700;
- }
-
- .body-text {
-  @apply text-base md:text-lg text-muted-foreground;
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 500;
-  line-height: 1.6;
- }
-
- .label-text {
-  @apply text-sm font-medium;
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 600;
- }
-
- .text-quicksand {
-  font-family: "Quicksand", system-ui, sans-serif;
- }
-
- .prose {
-  font-family: "Quicksand", system-ui, sans-serif;
-  line-height: 1.7;
- }
-
- .prose p {
-  margin-bottom: 1.25rem;
-  font-weight: 500;
-  font-family: "Quicksand", system-ui, sans-serif;
- }
-
- .prose h1,
- .prose h2,
- .prose h3,
- .prose h4,
- .prose h5,
- .prose h6 {
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
- }
-
- .nav-item {
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 600;
- }
-
- .card-title {
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 700;
- }
-
- .subtitle {
-  font-family: "Quicksand", system-ui, sans-serif;
-  font-weight: 500;
-  opacity: 0.8;
- }
-
  input,
  textarea,
  select,
  option {
-  font-family: "Quicksand", system-ui, sans-serif;
+  @apply font-sans;
   font-weight: 500;
  }
 
  table,
  th,
  td {
-  font-family: "Quicksand", system-ui, sans-serif;
+  @apply font-sans;
   font-weight: 500;
  }
 
  ul,
  ol,
  li {
-  font-family: "Quicksand", system-ui, sans-serif;
+  @apply font-sans;
   font-weight: 500;
  }
 }

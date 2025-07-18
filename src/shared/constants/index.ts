@@ -1,5 +1,6 @@
 export const APP_NAME = "DecentWork";
-export const COPYRIGHT_YEAR = "2023";
+export const COPYRIGHT_YEAR = "2025";
+export const AUTHOR = "Kacper Adamski";
 
 export enum UserRole {
  FREELANCER = "freelancer",
@@ -223,3 +224,39 @@ export const THEME_MODES = {
  LIGHT: "light",
  DARK: "dark",
 };
+
+export const TYPOGRAPHY_VARIANTS = {
+ DISPLAY: {
+  LARGE: "display-lg",
+  MEDIUM: "display-md",
+  SMALL: "display-sm",
+ },
+ HEADING: {
+  1: "heading-1",
+  2: "heading-2",
+  3: "heading-3",
+  4: "heading-4",
+  5: "heading-5",
+  6: "heading-6",
+ },
+ BODY: {
+  LARGE: "body-text-lg",
+  REGULAR: "body-text",
+  SMALL: "body-text-sm",
+ },
+ LABEL: {
+  LARGE: "label-text-lg",
+  REGULAR: "label-text",
+  SMALL: "label-text-sm",
+ },
+ CAPTION: {
+  REGULAR: "caption-text",
+  SMALL: "caption-text-sm",
+ },
+ SEMANTIC: {
+  HERO_TITLE: "hero-title",
+  SECTION_TITLE: "section-title",
+  CARD_TITLE: "card-title",
+  SUBTITLE: "subtitle",
+ },
+} as const;
