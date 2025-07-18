@@ -1,16 +1,12 @@
 import React from "react";
 import { JobSummary } from "@/shared/models/dashboard";
 import { JobCard } from "@/components/organisms/JobCard";
-import { Button } from "@/shared/ui";
 
 interface JobsListProps {
  jobs: JobSummary[];
  onMessage?: (userId: string) => void;
  onDetails?: (jobId: string) => void;
  showCreationDate?: boolean;
- title?: string;
- showViewAll?: boolean;
- onViewAll?: () => void;
  className?: string;
 }
 
@@ -19,9 +15,6 @@ export const JobsList = ({
  onMessage,
  onDetails,
  showCreationDate = false,
- title,
- showViewAll = false,
- onViewAll,
  className = "",
 }: JobsListProps) => {
  return (
