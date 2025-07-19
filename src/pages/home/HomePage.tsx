@@ -1,4 +1,4 @@
-import { Navbar } from "@/shared/ui/Header";
+import { Navbar } from "@/shared/ui/Navbar";
 import { Footer } from "@/shared/ui/Footer";
 import { HeroSection } from "@/components/organisms/HeroSection";
 import { TitleSection, JourneySection, WorkEnvironment } from "./components";

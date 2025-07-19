@@ -56,7 +56,7 @@ export const HeroSection = ({
    >
     <div className="absolute inset-0 -z-10"></div>
 
-    <div className="max-w-2xl px-4 sm:px-6 lg:px-8 pt-20 pb-8 lg:pt-0 lg:pb-0">
+    <div className="container mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 pt-20 pb-8 lg:pt-0 lg:pb-0">
      <h1 ref={titleRef} className="text-heading-1 mb-6">
       {title}
      </h1>
