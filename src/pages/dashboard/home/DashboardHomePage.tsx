@@ -15,6 +15,7 @@ import {
  useDashboardStats,
  useActiveJobs,
  useTopFreelancers,
+ useNavigation,
 } from "@/shared/hooks";
 import { StatItem } from "@/components/organisms/DashboardStats";
 
@@ -36,6 +37,7 @@ export const DashboardHomePage = ({
  onFreelancerDetails,
 }: DashboardHomePageProps) => {
  const { userType } = useAuth();
+ const { goToFreelancers } = useNavigation();
  const isClient = userType === "client";
 
  const {
@@ -142,8 +144,8 @@ export const DashboardHomePage = ({
       title="Top Rated Freelancers"
       description="Discover top talent for your projects"
       action={
-       <Button variant="outline" size="sm" asChild>
-        <Link to="/dashboard/freelancers">View All</Link>
+       <Button variant="outline" size="sm" onClick={goToFreelancers}>
+        View All
        </Button>
       }
       isLoading={isAnyLoading}

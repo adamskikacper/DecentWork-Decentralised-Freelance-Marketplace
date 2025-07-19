@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
  darkMode: ["class"],
@@ -19,91 +18,209 @@ export default {
    },
   },
   extend: {
+   fontFamily: {
+    sans: ["Quicksand", "system-ui", "sans-serif"],
+    heading: ["Quicksand", "system-ui", "sans-serif"],
+    body: ["Quicksand", "system-ui", "sans-serif"],
+    quicksand: ["Quicksand", "system-ui", "sans-serif"],
+   },
+   fontSize: {
+    // Display sizes
+    "display-lg": [
+     "4.5rem",
+     { lineHeight: "1.1", letterSpacing: "-0.025em", fontWeight: "700" },
+    ],
+    "display-md": [
+     "3.75rem",
+     { lineHeight: "1.1", letterSpacing: "-0.025em", fontWeight: "700" },
+    ],
+    "display-sm": [
+     "3rem",
+     { lineHeight: "1.2", letterSpacing: "-0.025em", fontWeight: "600" },
+    ],
+
+    // Heading sizes
+    "heading-1": [
+     "4rem",
+     { lineHeight: "1.2", letterSpacing: "-0.025em", fontWeight: "700" },
+    ],
+    "heading-2": [
+     "2.25rem",
+     { lineHeight: "1.25", letterSpacing: "-0.025em", fontWeight: "600" },
+    ],
+    "heading-3": [
+     "1.875rem",
+     { lineHeight: "1.3", letterSpacing: "0em", fontWeight: "600" },
+    ],
+    "heading-4": [
+     "1.5rem",
+     { lineHeight: "1.375", letterSpacing: "0em", fontWeight: "600" },
+    ],
+    "heading-5": [
+     "1.25rem",
+     { lineHeight: "1.4", letterSpacing: "0em", fontWeight: "500" },
+    ],
+    "heading-6": [
+     "1.125rem",
+     { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "500" },
+    ],
+
+    // Body text sizes
+    "body-lg": [
+     "1.125rem",
+     { lineHeight: "1.75", letterSpacing: "0em", fontWeight: "400" },
+    ],
+    "body-md": [
+     "1rem",
+     { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400" },
+    ],
+    "body-sm": [
+     "0.875rem",
+     { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400" },
+    ],
+
+    // Label sizes
+    "label-lg": [
+     "0.875rem",
+     { lineHeight: "1.25", letterSpacing: "0em", fontWeight: "500" },
+    ],
+    "label-md": [
+     "0.75rem",
+     { lineHeight: "1.25", letterSpacing: "0em", fontWeight: "500" },
+    ],
+    "label-sm": [
+     "0.6875rem",
+     { lineHeight: "1.25", letterSpacing: "0.025em", fontWeight: "500" },
+    ],
+
+    // Caption sizes
+    "caption-md": [
+     "0.75rem",
+     { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400" },
+    ],
+    "caption-sm": [
+     "0.6875rem",
+     { lineHeight: "1.5", letterSpacing: "0.025em", fontWeight: "400" },
+    ],
+   },
+   fontWeight: {
+    thin: "100",
+    extralight: "200",
+    light: "300",
+    normal: "400",
+    medium: "500",
+    semibold: "600",
+    bold: "700",
+    extrabold: "800",
+    black: "900",
+   },
+   lineHeight: {
+    none: "1",
+    tight: "1.25",
+    snug: "1.375",
+    normal: "1.5",
+    relaxed: "1.625",
+    loose: "2",
+   },
+   letterSpacing: {
+    tighter: "-0.05em",
+    tight: "-0.025em",
+    normal: "0em",
+    wide: "0.025em",
+    wider: "0.05em",
+    widest: "0.1em",
+   },
    colors: {
-    border: "hsl(var(--border))",
-    input: "hsl(var(--input))",
-    ring: "hsl(var(--ring))",
-    background: "hsl(var(--background))",
-    foreground: "hsl(var(--foreground))",
+    border: "var(--border)",
+    input: "var(--input)",
+    ring: "var(--ring)",
+    background: "var(--background)",
+    foreground: "var(--foreground)",
     primary: {
-     DEFAULT: "hsl(var(--primary))",
-     foreground: "hsl(var(--primary-foreground))",
+     DEFAULT: "var(--primary)",
+     foreground: "var(--primary-foreground)",
     },
     secondary: {
-     DEFAULT: "hsl(var(--secondary))",
-     foreground: "hsl(var(--secondary-foreground))",
+     DEFAULT: "var(--secondary)",
+     foreground: "var(--secondary-foreground)",
     },
     destructive: {
-     DEFAULT: "hsl(var(--destructive))",
-     foreground: "hsl(var(--destructive-foreground))",
+     DEFAULT: "var(--destructive)",
+     foreground: "var(--destructive-foreground)",
     },
     muted: {
-     DEFAULT: "hsl(var(--muted))",
-     foreground: "hsl(var(--muted-foreground))",
+     DEFAULT: "var(--muted)",
+     foreground: "var(--muted-foreground)",
     },
     accent: {
-     DEFAULT: "hsl(var(--accent))",
-     foreground: "hsl(var(--accent-foreground))",
+     DEFAULT: "var(--accent)",
+     foreground: "var(--accent-foreground)",
     },
     popover: {
-     DEFAULT: "hsl(var(--popover))",
-     foreground: "hsl(var(--popover-foreground))",
+     DEFAULT: "var(--popover)",
+     foreground: "var(--popover-foreground)",
     },
     card: {
-     DEFAULT: "hsl(var(--card))",
-     foreground: "hsl(var(--card-foreground))",
+     DEFAULT: "var(--card)",
+     foreground: "var(--card-foreground)",
     },
     sidebar: {
-     DEFAULT: "hsl(var(--sidebar-background))",
-     foreground: "hsl(var(--sidebar-foreground))",
-     primary: "hsl(var(--sidebar-primary))",
-     "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-     accent: "hsl(var(--sidebar-accent))",
-     "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-     border: "hsl(var(--sidebar-border))",
-     ring: "hsl(var(--sidebar-ring))",
+     DEFAULT: "var(--sidebar-background)",
+     foreground: "var(--sidebar-foreground)",
+     primary: "var(--sidebar-primary)",
+     "primary-foreground": "var(--sidebar-primary-foreground)",
+     accent: "var(--sidebar-accent)",
+     "accent-foreground": "var(--sidebar-accent-foreground)",
+     border: "var(--sidebar-border)",
+     ring: "var(--sidebar-ring)",
     },
-    // New Vibrant Palette
-    vibrantBlue: "#3B82F6", // Example Blue
-    emeraldGreen: "#10B981", // Example Green
-    sunnyYellow: "#F59E0B", // Example Yellow
-    deepPurple: "#8B5CF6", // Example Purple
+    success: {
+     DEFAULT: "var(--success)",
+     foreground: "var(--success-foreground)",
+    },
+    warning: {
+     DEFAULT: "var(--warning)",
+     foreground: "var(--warning-foreground)",
+    },
+    info: {
+     DEFAULT: "var(--info)",
+     foreground: "var(--info-foreground)",
+    },
+    chart: {
+     1: "var(--chart-1)",
+     2: "var(--chart-2)",
+     3: "var(--chart-3)",
+     4: "var(--chart-4)",
+     5: "var(--chart-5)",
+     6: "var(--chart-6)",
+    },
+    shadow: {
+     light: "var(--shadow-light)",
+     medium: "var(--shadow-medium)",
+     heavy: "var(--shadow-heavy)",
+    },
+    vibrantBlue: "#3B82F6",
+    emeraldGreen: "#10B981",
+    sunnyYellow: "#F59E0B",
+    deepPurple: "#8B5CF6",
    },
    backgroundImage: {
     "gradient-primary-secondary":
      "linear-gradient(to right, var(--color-vibrantBlue), var(--color-emeraldGreen))",
     "gradient-accent-highlight":
      "linear-gradient(to right, var(--color-sunnyYellow), var(--color-deepPurple))",
-    // Add more gradients as needed
    },
    borderRadius: {
     lg: "var(--radius)",
     md: "calc(var(--radius) - 2px)",
     sm: "calc(var(--radius) - 4px)",
    },
-   keyframes: {
-    "accordion-down": {
-     from: {
-      height: "0",
-     },
-     to: {
-      height: "var(--radix-accordion-content-height)",
-     },
-    },
-    "accordion-up": {
-     from: {
-      height: "var(--radix-accordion-content-height)",
-     },
-     to: {
-      height: "0",
-     },
-    },
-   },
-   animation: {
-    "accordion-down": "accordion-down 0.2s ease-out",
-    "accordion-up": "accordion-up 0.2s ease-out",
+   boxShadow: {
+    soft: "0 2px 8px var(--shadow-light)",
+    medium: "0 4px 16px var(--shadow-medium)",
+    strong: "0 8px 32px var(--shadow-heavy)",
    },
   },
  },
- plugins: [tailwindcssAnimate],
+ plugins: [],
 } satisfies Config;

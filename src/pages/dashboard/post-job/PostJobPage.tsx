@@ -27,7 +27,7 @@ export const PostJobPage = ({
  isLoading = false,
  onSubmit,
 }: PostJobPageProps) => {
- const { navigateTo } = useNavigation();
+ const { goToJobs } = useNavigation();
 
  const handleSubmit = (formData: {
   title: string;
@@ -45,7 +45,7 @@ export const PostJobPage = ({
   } else {
    console.log("Form submitted:", formData);
    setTimeout(() => {
-    navigateTo("/dashboard/jobs");
+    goToJobs();
    }, 1000);
   }
  };

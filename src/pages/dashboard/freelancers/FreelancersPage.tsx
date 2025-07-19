@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { Button } from "@/shared/ui";
 import { PageLayout } from "@/components/templates";
 import { DashboardSection, FreelancerTable } from "@/components";
@@ -23,7 +22,7 @@ export const FreelancersPage = ({
   error,
  } = useFreelancers({ searchQuery });
 
- const { goToMessages, goToFreelancerDetails } = useNavigation();
+ const { goToMessages, goToFreelancerDetails, goToPostJob } = useNavigation();
 
  const activeFreelancers = filteredFreelancers.filter(
   (freelancer) => freelancer.hireHistory === "current"
@@ -43,11 +42,7 @@ export const FreelancersPage = ({
     { label: "Dashboard", href: "/dashboard" },
     { label: "Freelancers" },
    ]}
-   actions={
-    <Button asChild>
-     <Link to="/dashboard/post-job">Post a Job</Link>
-    </Button>
-   }
+   actions={<Button onClick={goToPostJob}>Post a Job</Button>}
    isLoading={dataLoading}
    error={error}
   >

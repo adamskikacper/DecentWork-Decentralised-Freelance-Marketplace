@@ -1,7 +1,6 @@
 import { User } from "lucide-react";
 import { JobSummary } from "@/shared/models/dashboard";
-import { Button } from "@/shared/ui";
-import { Card, CardContent } from "@/shared/ui/Card";
+import { Button, Card, CardContent } from "@/shared/ui";
 
 interface JobCardProps {
  job?: JobSummary;
@@ -40,8 +39,8 @@ export const JobCard = ({
     {job ? (
      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
       <div>
-       <h3 className="text-lg font-semibold mb-1">{job.title}</h3>
-       <div className="flex items-center gap-2 text-sm text-muted-foreground">
+       <h3 className="text-heading-4 md:text-heading-3 mb-1">{job.title}</h3>
+       <div className="flex items-center gap-2 text-label-md text-muted-foreground">
         <span>Freelancer: {job.freelancer.name}</span>
         <span>•</span>
         <span>{job.dueDate}</span>
@@ -61,14 +60,14 @@ export const JobCard = ({
        >
         {job.status}
        </span>
-       <span className="text-sm font-medium">{job.cost}</span>
+       <span className="text-label-md">{job.cost}</span>
       </div>
      </div>
     ) : (
      <div className="flex flex-col gap-4 mb-4">
       <div>
-       <h3 className="text-lg font-semibold mb-1">{jobTitle}</h3>
-       <p className="text-sm text-muted-foreground line-clamp-2">
+       <h3 className="text-heading-4 md:text-heading-3 mb-1">{jobTitle}</h3>
+       <p className="text-body-sm text-muted-foreground line-clamp-2">
         {description}
        </p>
       </div>
@@ -76,18 +75,18 @@ export const JobCard = ({
        {jobTags?.map((tag, index) => (
         <span
          key={index}
-         className="px-2 py-1 text-xs font-medium rounded-full bg-secondary/50"
+         className="px-2 py-1 text-label-sm rounded-full bg-secondary/50"
         >
          {tag}
         </span>
        ))}
       </div>
-      <div className="flex justify-between items-center text-sm">
+      <div className="flex justify-between items-center text-label-md">
        <span>{postedDate}</span>
-       <span className="font-medium">{budget}</span>
+       <span className="text-label-md">{budget}</span>
       </div>
       {proposals !== undefined && (
-       <div className="text-sm text-muted-foreground">
+       <div className="text-label-md text-muted-foreground">
         Proposals: {proposals}
        </div>
       )}
@@ -98,8 +97,8 @@ export const JobCard = ({
      <div className="space-y-3">
       <div>
        <div className="flex justify-between text-sm mb-1">
-        <span className="text-muted-foreground">Progress</span>
-        <span className="font-medium">{job.progress}%</span>
+        <span className="text-label-md text-muted-foreground">Progress</span>
+        <span className="text-label-md">{job.progress}%</span>
        </div>
        <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
         <div
@@ -112,8 +111,8 @@ export const JobCard = ({
       <div className="flex justify-between items-center">
        {showCreationDate ? (
         <div className="flex">
-         <div className="text-sm text-muted-foreground">
-          Created: <span className="text-foreground">April 12, 2023</span>
+         <div className="text-label-md text-muted-foreground">
+          Created: <span className="text-label-md text-foreground">April 12, 2023</span>
          </div>
         </div>
        ) : (

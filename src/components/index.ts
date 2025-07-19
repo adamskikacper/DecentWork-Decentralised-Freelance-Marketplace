@@ -11,8 +11,8 @@ export { FreelancerTable } from "./organisms/FreelancerTable";
 export { CompanySection } from "./organisms/CompanySection";
 export { ProfessionalSection } from "./organisms/ProfessionalSection";
 export { PortfolioSection } from "./organisms/PortfolioSection";
-export { BasicInfoSection } from "./organisms/ProfileForm/BasicInfoSection";
-export { ContactSection } from "./organisms/ProfileForm/ContactSection";
+export { BasicInfoSection } from "./organisms/ProfileForm/components/BasicInfoSection";
+export { ContactSection } from "./organisms/ProfileForm/components/ContactSection";
 
 export * from "./atoms";
 export * from "./molecules";

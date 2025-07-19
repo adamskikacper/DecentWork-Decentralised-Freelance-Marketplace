@@ -1,0 +1,51 @@
+{
+ "permissions": {
+  "allow": [
+   "Bash(mkdir:*)",
+   "Bash(mv:*)",
+   "Bash(rmdir:*)",
+   "Bash(cp:*)",
+   "Bash(find:*)",
+   "Bash(npm run build:*)",
+   "Bash(true)",
+   "Bash(ls:*)",
+   "Bash(rm:*)",
+   "Bash(npm install:*)",
+   "Bash(grep:*)",
+   "Bash(npx tsc:*)",
+   "Bash(npm run dev:*)",
+   "Bash(node:*)",
+   "Bash(pkill:*)",
+   "Bash(timeout 10 npm run dev)",
+   "WebFetch(domain:docs.anthropic.com)",
+   "Bash(npm run storybook:*)",
+   "mcp__browsertools__takeScreenshot",
+   "mcp__browsertools__getConsoleLogs",
+   "Bash(chmod:*)",
+   "Bash(npm run lint)",
+   "mcp__browsertools__getConsoleErrors",
+   "mcp__browsertools__wipeLogs",
+   "mcp__browsertools__getNetworkErrors",
+   "mcp__browsertools__getNetworkLogs",
+   "Bash(npm cache clean:*)",
+   "Bash(npm run clean:*)",
+   "Bash(timeout 10s npm run dev)",
+   "Bash(brew tap:*)",
+   "Bash(brew install:*)",
+   "Bash(aerospace reload-config:*)"
+  ],
+  "deny": []
+ },
+ "hooks": {
+  "Stop": [
+   {
+    "hooks": [
+     {
+      "type": "command",
+      "command": "afplay /System/Library/Sounds/Glass.aiff"
+     }
+    ]
+   }
+  ]
+ }
+}

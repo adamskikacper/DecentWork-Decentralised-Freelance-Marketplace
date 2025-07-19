@@ -1,5 +1,5 @@
 import React from "react";
-import { SidebarNavItem } from "./SidebarNavItem";
+import { SidebarNavItem } from "../SidebarNavItem";
 import { useLocation } from "react-router-dom";
 import { DASHBOARD_LINKS } from "@/shared/constants";
 

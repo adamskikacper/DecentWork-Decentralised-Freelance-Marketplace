@@ -192,7 +192,7 @@ export const DashboardSidebar = ({
  );
 
  const glassStyles = cn(
-  "bg-white/90 dark:bg-gray-900/85",
+  "bg-white/90 dark:bg-black/85",
   DASHBOARD_SIDEBAR.BLUR_INTENSITY,
   "border border-white/20 dark:border-gray-700/30",
   "shadow-xl shadow-black/5 dark:shadow-black/20",

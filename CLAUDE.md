@@ -12,6 +12,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run lint` - Run ESLint
 - `npm run preview` - Preview production build
 
+### Smart Contract Development
+
+- `npm run compile` - Compile smart contracts
+- `npm run test:contracts` - Run smart contract tests
+- `npm run node` - Start local Hardhat network
+- `npm run deploy:local` - Deploy to local network
+- `npm run deploy:amoy` - Deploy to Polygon Amoy testnet
+- `npm run deploy:polygon` - Deploy to Polygon mainnet
+
 ### Documentation & Storybook
 
 - `npm run storybook` - Start Storybook development server
@@ -92,12 +101,180 @@ The application supports two user types: `freelancer` and `client`. Authenticati
 - Use TypeScript types consistently
 - Maintain the atomic design component structure
 
-### Code Organization & Structure
+## Component Architecture Guidelines
 
-- **File Naming**: Use kebab-case for files and PascalCase for React components
-- **Import Order**: Follow a consistent import order (React imports first, then third-party, then internal imports)
-- **Barrel Exports**: Always use index.ts files for clean exports from directories
-- **Component Structure**: Keep components in their own directories with index.tsx, stories, and types files
+### Atomic Design Structure
+
+- **Strict Hierarchy**: Components MUST follow atomic design principles with clear separation:
+  - `atoms/` - Basic UI elements (buttons, inputs, badges, icons)
+  - `molecules/` - Simple combinations of atoms (forms, cards, search inputs)
+  - `organisms/` - Complex UI sections (dashboards, forms, navigation)
+  - `templates/` - Page layout templates (layouts, page wrappers)
+
+### Component Directory Structure
+
+Each component follows this standardized structure:
+
+```
+ComponentName/
+├── index.tsx              # Main component implementation
+├── types.ts              # Component-specific types (if needed)
+├── components/           # Sub-components (for complex organisms)
+│   ├── SubComponent/
+│   │   └── index.tsx
+│   └── index.ts          # Barrel exports
+└── ComponentName.stories.tsx  # Storybook stories (reusable components only)
+```
+
+### Component Organization Rules
+
+- **Atomic Level Types**: Centralize shared types in `types.ts` at each atomic level
+- **Sub-components**: Complex organisms can have `components/` subdirectories for internal components
+- **Barrel Exports**: REQUIRED at every directory level for clean imports
+- **Single Responsibility**: Each component should have one clear purpose
+- **Composition Over Inheritance**: Prefer component composition patterns
+
+### Component Implementation Standards
+
+- **Props Interface**: Always define explicit prop interfaces/types
+- **Default Props**: Use TypeScript default parameters instead of defaultProps
+- **Forward Refs**: Implement ref forwarding for reusable UI components
+- **Error Boundaries**: Wrap complex organisms in error boundaries
+- **Accessibility**: Follow WCAG guidelines and include ARIA attributes
+
+### Smart vs Dumb Component Pattern
+
+- **Dumb Components (Atoms, Molecules, Organisms)**: MUST be stateless and receive all data via props
+
+  - No direct API calls or data fetching
+  - No internal state for business logic (UI state like form inputs is acceptable)
+  - No service imports or external dependencies
+  - Pure presentation components focused on rendering
+  - Should be easily testable and reusable
+
+- **Smart Components (Pages, Templates)**: Handle data fetching and state management
+  - Use custom hooks for data operations
+  - Manage application state and side effects
+  - Pass data down to dumb components via props
+  - Handle user interactions and callbacks
+
+```typescript
+// ✅ Dumb Component Example
+interface UserCardProps {
+ user: User;
+ onEdit: (userId: string) => void;
+ onDelete: (userId: string) => void;
+}
+
+export const UserCard = ({ user, onEdit, onDelete }: UserCardProps) => {
+ return (
+  <div className="card">
+   <h3>{user.name}</h3>
+   <Button onClick={() => onEdit(user.id)}>Edit</Button>
+   <Button onClick={() => onDelete(user.id)}>Delete</Button>
+  </div>
+ );
+};
+
+// ✅ Smart Component Example (Page/Template)
+export const UsersPage = () => {
+ const { users, updateUser, deleteUser } = useUsers();
+
+ const handleEdit = (userId: string) => {
+  // Handle edit logic
+ };
+
+ const handleDelete = (userId: string) => {
+  deleteUser(userId);
+ };
+
+ return (
+  <div>
+   {users.map((user) => (
+    <UserCard
+     key={user.id}
+     user={user}
+     onEdit={handleEdit}
+     onDelete={handleDelete}
+    />
+   ))}
+  </div>
+ );
+};
+```
+
+## File Organization Standards
+
+### Directory Naming Conventions
+
+- **Components**: Use PascalCase for component directories (`UserCard/`, `JobDetails/`)
+- **Files**: Use kebab-case for non-component files (`auth.service.ts`, `dashboard-stats.hook.ts`)
+- **Directories**: Use kebab-case for utility directories (`shared/`, `models/`, `constants/`)
+
+### File Naming Patterns
+
+- **Components**: `index.tsx` for main component, PascalCase for component names
+- **Types**: `types.ts` for component types, `model.ts` for data models
+- **Services**: `*.service.ts` for API services
+- **Hooks**: `*.hook.ts` or `use*.ts` for custom hooks
+- **Constants**: `index.ts` for constants, organized by domain
+- **Stories**: `ComponentName.stories.tsx` for Storybook files
+
+### Import/Export Standards
+
+#### Import Order (REQUIRED):
+
+1. React and React-related imports
+2. Third-party library imports (alphabetical)
+3. Internal imports (services, hooks, types)
+4. Relative imports (components, assets)
+
+```typescript
+// ✅ Correct import order
+import React, { useState, useEffect } from "react";
+import { Button } from "@radix-ui/react-button";
+import { toast } from "sonner";
+
+import { authService } from "@/shared/services";
+import { useAuth } from "@/shared/hooks";
+import { User } from "@/shared/models";
+
+import { UserCard } from "./components";
+```
+
+#### Barrel Export Requirements:
+
+- **MANDATORY**: Every directory with multiple files MUST have `index.ts`
+- **Selective Exports**: Only export what should be public API
+- **Re-exports**: Use barrel exports to flatten deep import paths
+
+```typescript
+// ✅ src/components/atoms/index.ts
+export { ActionButton } from "./ActionButton";
+export { StatusBadge } from "./StatusBadge";
+export { ThemeToggle } from "./ThemeToggle";
+
+// ✅ Usage
+import { ActionButton, StatusBadge } from "@/components/atoms";
+```
+
+### Path Alias Usage
+
+- **Primary Alias**: Use `@/` for all src/ imports
+- **Absolute Imports**: NEVER use relative imports beyond parent directory
+- **Consistent Paths**: Always use aliases for shared resources
+
+```typescript
+// ✅ Correct
+import { Button } from "@/shared/ui";
+import { useAuth } from "@/shared/hooks";
+
+// ❌ Incorrect
+import { Button } from "../../../shared/ui";
+import { useAuth } from "../../hooks/auth";
+```
+
+### Code Organization & Structure
 
 ### TypeScript Guidelines
 
@@ -115,14 +292,13 @@ The application supports two user types: `freelancer` and `client`. Authenticati
 
 ### Development Notes
 
-- The project is currently in migration - many old features are marked as deleted in git status
 - New component structure follows atomic design principles
 - Authentication flow handles both metadata and database user type synchronization
 - Dashboard routes are dynamically rendered based on user type
 
 ## Post-Task Console Validation
 
-**IMPORTANT**: After completing ALL tasks in a workflow, you MUST validate the browser console for errors:
+**IMPORTANT**: After completing ALL tasks in a to do list, you MUST validate the browser console for errors:
 
 1. **Always run after task completion**: Use browser MCP tools to check console logs when all todos are marked as completed
 2. **Use MCP browser tools**:

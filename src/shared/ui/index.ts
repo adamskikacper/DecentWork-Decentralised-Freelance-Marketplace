@@ -48,7 +48,7 @@ export * from "./ToggleGroup";
 export * from "./FormSelect";
 export * from "./LoadingScreen";
 export * from "./SkillTag";
-export { Navbar } from "./Header";
+export { Navbar } from "./Navbar";
 export { Footer } from "./Footer";
 export { Breadcrumbs } from "./Breadcrumbs";
 export { SectionHeader } from "./SectionHeader";

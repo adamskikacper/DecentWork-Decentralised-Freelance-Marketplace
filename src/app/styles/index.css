@@ -4,204 +4,148 @@
 
 @layer base {
  :root {
-  --background: 0 0% 100%; /* White */
-  --foreground: 224 71% 4%; /* Dark Blue-Gray */
+  --background: #ffffff;
+  --foreground: #0a0a0f;
 
-  --card: 0 0% 100%;
-  --card-foreground: 224 71% 4%;
+  --card: #ffffff;
+  --card-foreground: #0a0a0f;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 224 71% 4%;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0f;
 
-  /* Using a vibrant blue as primary */
-  --primary: 217 91% 60%; /* Vibrant Blue HSL */
-  --primary-foreground: 0 0% 100%; /* White */
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
 
-  /* Slightly off-white secondary */
-  --secondary: 220 14% 96%; /* Light Gray */
-  --secondary-foreground: 224 71% 4%; /* Dark Blue-Gray */
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
 
-  --muted: 220 14% 96%; /* Light Gray */
-  --muted-foreground: 220 9% 46%; /* Medium Gray */
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
 
-  /* Using a subtle green as accent */
-  --accent: 142 76% 96%; /* Very Light Green */
-  --accent-foreground: 142 71% 15%; /* Dark Green */
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
 
-  --destructive: 0 84% 60%; /* Red */
-  --destructive-foreground: 0 0% 100%; /* White */
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
 
-  --border: 220 13% 91%; /* Light Gray Border */
-  --input: 220 13% 91%; /* Light Gray Input */
-  --ring: 217 91% 60%; /* Vibrant Blue Ring */
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #18181b;
 
   --radius: 0.75rem;
 
-  /* Sidebar specific variables (can be adjusted further) */
-  --sidebar-background: 220 14% 98%; /* Slightly off-white */
-  --sidebar-foreground: 224 71% 4%;
-  --sidebar-primary: 217 91% 60%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 142 76% 96%;
-  --sidebar-accent-foreground: 142 71% 15%;
-  --sidebar-border: 220 13% 91%;
-  --sidebar-ring: 217 91% 60%;
-
-  /* Define hex colors as CSS variables for easier gradient use */
-  --color-vibrantBlue: #3b82f6;
-  --color-emeraldGreen: #10b981;
-  --color-sunnyYellow: #f59e0b;
-  --color-deepPurple: #8b5cf6;
+  --sidebar-background: #f4f4f5;
+  --sidebar-foreground: #18181b;
+  --sidebar-primary: #18181b;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #f4f4f5;
+  --sidebar-accent-foreground: #18181b;
+  --sidebar-border: #e4e4e7;
+  --sidebar-ring: #18181b;
  }
 
- /* Dark Theme Variables */
  .dark {
-  --background: 224 71% 4%; /* Dark Blue-Gray */
-  --foreground: 210 20% 98%; /* Very Light Gray */
+  --background: #050510;
+  --foreground: #fafafa;
 
-  --card: 224 71% 10%; /* Darker Blue-Gray */
-  --card-foreground: 210 20% 98%;
+  --card: #0c0c14;
+  --card-foreground: #fafafa;
+  --popover: #0f0f17;
+  --popover-foreground: #fafafa;
 
-  --popover: 224 71% 10%;
-  --popover-foreground: 210 20% 98%;
+  --primary: #f2f2f2;
+  --primary-foreground: #070710;
 
-  /* Keep vibrant blue primary */
-  --primary: 217 91% 60%;
-  --primary-foreground: 0 0% 100%;
+  --secondary: #141417;
+  --secondary-foreground: #e5e5e5;
 
-  /* Darker secondary */
-  --secondary: 224 71% 10%;
-  --secondary-foreground: 210 20% 98%;
+  --muted: #0f0f14;
+  --muted-foreground: #a1a1aa;
 
-  --muted: 224 71% 10%;
-  --muted-foreground: 215 14% 65%; /* Lighter Gray */
+  --accent: #1a1a1f;
+  --accent-foreground: #f2f2f2;
 
-  /* Darker green accent */
-  --accent: 142 71% 15%;
-  --accent-foreground: 142 76% 96%;
+  --destructive: #dc2626;
+  --destructive-foreground: #fafafa;
+  --success: #16a34a;
+  --success-foreground: #fafafa;
+  --warning: #f59e0b;
+  --warning-foreground: #fafafa;
+  --info: #f2f2f2;
+  --info-foreground: #070710;
 
-  --destructive: 0 63% 31%; /* Darker Red */
-  --destructive-foreground: 0 0% 100%;
+  --border: #1f1f23;
+  --input: #1f1f23;
+  --ring: #f2f2f2;
 
-  --border: 215 28% 17%; /* Dark Gray Border */
-  --input: 215 28% 17%; /* Dark Gray Input */
-  --ring: 217 91% 60%; /* Keep Vibrant Blue Ring */
+  --chart-1: #f2f2f2;
+  --chart-2: #16a34a;
+  --chart-3: #f59e0b;
+  --chart-4: #a855f7;
+  --chart-5: #ec4899;
+  --chart-6: #f97316;
 
-  /* Sidebar dark theme */
-  --sidebar-background: 224 71% 6%; /* Even Darker Blue-Gray */
-  --sidebar-foreground: 210 20% 98%;
-  --sidebar-primary: 217 91% 60%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 142 71% 15%;
-  --sidebar-accent-foreground: 142 76% 96%;
-  --sidebar-border: 215 28% 17%;
-  --sidebar-ring: 217 91% 60%;
+  --sidebar-background: #070710;
+  --sidebar-foreground: #f2f2f2;
+  --sidebar-primary: #f2f2f2;
+  --sidebar-primary-foreground: #070710;
+  --sidebar-accent: #141417;
+  --sidebar-accent-foreground: #f2f2f2;
+  --sidebar-border: #141417;
+  --sidebar-ring: #f2f2f2;
 
-  /* Hex colors remain the same, just used in dark context */
-  --color-vibrantBlue: #3b82f6;
-  --color-emeraldGreen: #10b981;
-  --color-sunnyYellow: #f59e0b;
-  --color-deepPurple: #8b5cf6;
+  --shadow-light: rgba(5, 5, 16, 0.05);
+  --shadow-medium: rgba(5, 5, 16, 0.1);
+  --shadow-heavy: rgba(5, 5, 16, 0.2);
  }
 
  * {
-  @apply border-border transition-colors duration-300 ease-in-out; /* Add smooth color transition */
+  @apply border-border transition-colors duration-300 ease-in-out font-sans;
+  font-weight: 500;
  }
 
  body {
-  @apply bg-background text-foreground antialiased;
-  font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  @apply bg-background text-foreground antialiased font-sans;
+  font-feature-settings: "kern" 1;
+  font-variant-ligatures: common-ligatures;
+  font-weight: 500;
  }
 
  html {
-  @apply scroll-smooth;
+  @apply scroll-smooth font-sans;
+ }
+
+ p,
+ span,
+ div {
+  font-weight: 600;
  }
 }
 
 @layer components {
- /* Keep existing buttons, they use theme variables */
- .button-primary {
-  @apply px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:brightness-110;
+ input,
+ textarea,
+ select,
+ option {
+  @apply font-sans;
+  font-weight: 500;
  }
 
- .button-secondary {
-  @apply px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:bg-accent;
+ table,
+ th,
+ td {
+  @apply font-sans;
+  font-weight: 500;
  }
 
- /* New Vibrant Button */
- .button-vibrant {
-  @apply px-6 py-3 bg-gradient-to-r from-vibrantBlue to-emeraldGreen text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
- }
-
- /* New Accent Button */
- .button-accent-gradient {
-  @apply px-6 py-3 bg-gradient-to-r from-sunnyYellow to-deepPurple text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
- }
-
- /* Enhanced Input Field Style */
- .input-enhanced {
-  @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-300;
- }
-
- /* Card with Gradient Border */
- .card-gradient-border {
-  @apply relative rounded-lg border border-transparent bg-card p-6 shadow-sm;
-  /* Pseudo-element for border */
-  &::before {
-   content: "";
-   position: absolute;
-   inset: 0;
-   border-radius: inherit; /* Use parent's border radius */
-   padding: 1px; /* Border width */
-   background: linear-gradient(
-    to right,
-    var(--color-vibrantBlue),
-    var(--color-emeraldGreen)
-   );
-   -webkit-mask: linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-   -webkit-mask-composite: xor;
-   mask-composite: exclude;
-   z-index: -1; /* Place behind content */
-  }
- }
-
- /* Card with Accent Gradient Background */
- .card-accent-gradient {
-  @apply rounded-lg p-6 text-white shadow-lg bg-gradient-accent-highlight; /* Use gradient from config */
- }
-
- .page-container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
- }
-
- .section {
-  @apply py-12 md:py-24;
- }
-
- .heading-1 {
-  @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
- }
-
- .heading-2 {
-  @apply text-3xl md:text-4xl font-bold tracking-tight;
- }
-
- .heading-3 {
-  @apply text-2xl md:text-3xl font-bold tracking-tight;
- }
-
- .body-text {
-  @apply text-base md:text-lg text-muted-foreground;
- }
-
- .label-text {
-  @apply text-sm font-medium;
+ ul,
+ ol,
+ li {
+  @apply font-sans;
+  font-weight: 500;
  }
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
  width: 8px;
  height: 8px;
@@ -212,10 +156,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
- background: hsl(var(--muted-foreground) / 0.3);
+ background: color-mix(in srgb, var(--muted-foreground) 30%, transparent);
  border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
- background: hsl(var(--muted-foreground) / 0.5);
+ background: color-mix(in srgb, var(--muted-foreground) 50%, transparent);
 }

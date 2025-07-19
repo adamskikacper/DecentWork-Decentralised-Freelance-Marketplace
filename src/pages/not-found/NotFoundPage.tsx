@@ -1,12 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigation } from "@/shared/hooks/ui";
 import { ErrorPageTemplate } from "@/components/templates";
 
 export const NotFoundPage = () => {
- const navigate = useNavigate();
+ const { goHome } = useNavigation();
 
- const handleGoHome = () => {
-  navigate("/");
- };
-
- return <ErrorPageTemplate statusCode={404} onGoHome={handleGoHome} />;
+ return <ErrorPageTemplate statusCode={404} onGoHome={goHome} />;
 };

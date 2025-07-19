@@ -7,10 +7,10 @@ import {
  ReactNode,
 } from "react";
 import { Session, User } from "@supabase/supabase-js";
-import { useNavigate } from "react-router-dom";
 import { auth } from "@/shared/services/auth.service";
 import { supabase } from "@/shared/services/supabase/client";
 import { useToast } from "@/shared/hooks/ui/useToast";
+import { useNavigation } from "@/shared/hooks/ui";
 
 type UserType = "freelancer" | "client" | null;
 
@@ -37,7 +37,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
  const [session, setSession] = useState<Session | null>(null);
  const [loading, setLoading] = useState(true);
  const [authInitialized, setAuthInitialized] = useState(false);
- const navigate = useNavigate();
+ const { goToDashboard, goHome } = useNavigation();
  const { toast } = useToast();
 
  const updateUserType = useCallback(
@@ -182,7 +182,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     await new Promise((resolve) => setTimeout(resolve, 100));
 
-    navigate("/dashboard");
+    goToDashboard();
    }
   } catch (error) {
    console.error("Error during sign in:", error);
@@ -231,7 +231,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
    setUser(null);
    setSession(null);
    setUserType(null);
-   navigate("/");
+   goHome();
    toast({
     title: "Logged Out",
     description: "You have been successfully logged out.",
@@ -252,8 +252,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
  const redirectToDashboard = useCallback(() => {
   console.log(`Redirecting with user type: ${userType}`);
 
-  navigate("/dashboard");
- }, [userType, navigate]);
+  goToDashboard();
+ }, [userType, goToDashboard]);
 
  const value = {
   user,
