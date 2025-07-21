@@ -48,7 +48,7 @@ export const MessageBubble = ({
    <div
     className={cn(
      "max-w-xs lg:max-w-md px-4 py-2 rounded-lg",
-     isOwn ? "bg-primary text-primary-foreground" : "bg-muted"
+     isOwn ? "bg-accent text-accent-foreground" : "bg-muted"
     )}
    >
     <p className="text-sm">{content}</p>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/shared/lib/utils";
-import { NavItem } from "./SidebarNav";
+import { NavItem } from "../SidebarNav";
 import {
  Home,
  Briefcase,
@@ -49,20 +49,30 @@ export const SidebarNavItem = ({
     to={item.to}
     className={cn(
      "w-full flex items-center text-sm font-medium rounded-lg p-3 gap-3",
-     "relative group transition-colors duration-200",
+
      focusStyles,
      isActive
-      ? "bg-primary/20 dark:bg-primary/25 text-primary border border-primary/30"
-      : "text-foreground hover:bg-black/5 dark:hover:bg-white/5 hover:text-primary border border-transparent"
+      ? "bg-accent text-accent-foreground border-accent/20 shadow-sm"
+      : "text-foreground hover:bg-gray-200 dark:hover:bg-gray-800 hover:border-accent/20 hover:shadow-sm border-transparent"
     )}
     aria-label={item.ariaLabel}
     aria-current={isActive ? "page" : undefined}
    >
-    <div className="flex items-center justify-center shrink-0">
+    <div
+     className={cn(
+      "flex items-center justify-center shrink-0 transition-colors duration-200",
+      isActive ? "text-accent-foreground" : "text-muted-foreground "
+     )}
+    >
      <IconComponent className="h-4 w-4" aria-hidden="true" />
     </div>
     <span className="truncate">{item.label}</span>
-    {isActive && <span className="sr-only">(current page)</span>}
+    {isActive && (
+     <>
+      <div className="w-1 h-1 rounded-full bg-accent-foreground ml-auto" />
+      <span className="sr-only">(current page)</span>
+     </>
+    )}
    </Link>
   </li>
  );

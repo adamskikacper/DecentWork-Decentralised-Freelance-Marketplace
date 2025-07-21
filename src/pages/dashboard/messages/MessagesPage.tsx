@@ -1,7 +1,7 @@
 import React from "react";
 import { PageLayout } from "@/components/templates";
 import { DashboardSection } from "@/components";
-import { Avatar, AvatarFallback, AvatarImage, Button } from "@/shared/ui";
+import { Avatar, AvatarFallback, AvatarImage, Button, Card } from "@/shared/ui";
 import { useConversations, useNavigation } from "@/shared/hooks";
 
 export const MessagesPage = () => {
@@ -27,7 +27,7 @@ export const MessagesPage = () => {
    <DashboardSection>
     <div className="space-y-4">
      {conversations.map((conversation) => (
-      <div
+      <Card
        key={conversation.id}
        className="flex items-center justify-between p-4 border rounded-lg hover:bg-accent/50 transition-colors"
       >
@@ -70,7 +70,7 @@ export const MessagesPage = () => {
        >
         View Chat
        </Button>
-      </div>
+      </Card>
      ))}
      {conversations.length === 0 && (
       <div className="p-6 text-center text-muted-foreground">
