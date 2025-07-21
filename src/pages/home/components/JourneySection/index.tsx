@@ -62,11 +62,10 @@ export const JourneySection = ({
           ref={(el) => (imagesRef.current[index] = el!)}
           className="absolute w-full h-full"
          >
-          <div className="absolute w-full h-full -translate-x-4 translate-y-4 bg-gradient-to-tr from-primary to-primary/10 rounded-2xl shadow-lg"></div>
           <img
            src={env.image}
            alt={env.alt}
-           className="absolute w-full h-full object-cover  rounded-2xl shadow-2xl z-10"
+           className="absolute w-full h-full object-cover rounded-2xl shadow-2xl z-10"
           />
          </div>
         ))}
