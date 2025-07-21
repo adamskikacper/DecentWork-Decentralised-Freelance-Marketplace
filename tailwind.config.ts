@@ -19,10 +19,10 @@ export default {
   },
   extend: {
    fontFamily: {
-    sans: ["Quicksand", "system-ui", "sans-serif"],
-    heading: ["Quicksand", "system-ui", "sans-serif"],
-    body: ["Quicksand", "system-ui", "sans-serif"],
-    quicksand: ["Quicksand", "system-ui", "sans-serif"],
+    sans: ["Inter", "system-ui", "sans-serif"],
+    heading: ["Inter", "system-ui", "sans-serif"],
+    body: ["Inter", "system-ui", "sans-serif"],
+    inter: ["Inter", "system-ui", "sans-serif"],
    },
    fontSize: {
     // Display sizes
