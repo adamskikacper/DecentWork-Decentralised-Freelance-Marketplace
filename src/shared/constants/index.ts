@@ -216,7 +216,7 @@ export const DASHBOARD_SIDEBAR = {
   },
  ],
  ANIMATION_DURATION: "300ms",
- BLUR_INTENSITY: "backdrop-blur-xl",
+
  GRADIENT_OPACITY: "bg-white/20",
 };
 

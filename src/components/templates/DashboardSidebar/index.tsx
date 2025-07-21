@@ -2,11 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { cn } from "@/shared/lib/utils";
 import { useAuth } from "@/app/providers/AuthProvider";
 import { useMobile } from "@/shared/hooks/ui/useMobile";
-import {
- DASHBOARD_LINKS,
- DASHBOARD_SIDEBAR,
- USER_TYPES,
-} from "@/shared/constants/index";
+import { DASHBOARD_LINKS, USER_TYPES } from "@/shared/constants/index";
 import {
  Home,
  Briefcase,
@@ -192,10 +188,9 @@ export const DashboardSidebar = ({
  );
 
  const glassStyles = cn(
-  "bg-white/90 dark:bg-black/85",
-  DASHBOARD_SIDEBAR.BLUR_INTENSITY,
-  "border border-white/20 dark:border-gray-700/30",
-  "shadow-xl shadow-black/5 dark:shadow-black/20",
+  "bg-gray-100 dark:bg-black/90",
+  "border border-gray-200/50 dark:border-gray-700/50",
+  "shadow-lg shadow-black/10 dark:shadow-black/30",
   !reducedMotion && "transition-all duration-300 ease-in-out"
  );
 

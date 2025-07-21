@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -24,8 +24,8 @@
   --muted: #f4f4f5;
   --muted-foreground: #71717a;
 
-  --accent: #f4f4f5;
-  --accent-foreground: #18181b;
+  --accent: #004643;
+  --accent-foreground: #ffffff;
 
   --destructive: #ef4444;
   --destructive-foreground: #fafafa;
@@ -40,8 +40,8 @@
   --sidebar-foreground: #18181b;
   --sidebar-primary: #18181b;
   --sidebar-primary-foreground: #fafafa;
-  --sidebar-accent: #f4f4f5;
-  --sidebar-accent-foreground: #18181b;
+  --sidebar-accent: #004643;
+  --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #e4e4e7;
   --sidebar-ring: #18181b;
  }
@@ -64,8 +64,8 @@
   --muted: #0f0f14;
   --muted-foreground: #a1a1aa;
 
-  --accent: #1a1a1f;
-  --accent-foreground: #f2f2f2;
+  --accent: #0081a7;
+  --accent-foreground: #ffffff;
 
   --destructive: #dc2626;
   --destructive-foreground: #fafafa;
@@ -91,8 +91,8 @@
   --sidebar-foreground: #f2f2f2;
   --sidebar-primary: #f2f2f2;
   --sidebar-primary-foreground: #070710;
-  --sidebar-accent: #141417;
-  --sidebar-accent-foreground: #f2f2f2;
+  --sidebar-accent: #0081a7;
+  --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #141417;
   --sidebar-ring: #f2f2f2;
 
