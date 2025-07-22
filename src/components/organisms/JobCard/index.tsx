@@ -39,13 +39,13 @@ export const JobCard = ({
  const jobId = job?.id || id;
 
  return (
-  <Card className="flex flex-col h-full min-h-[300px]">
+  <Card className="flex flex-col h-full">
    <CardContent className="p-6 flex flex-col h-full">
     <div className="space-y-4">
      {job ? (
       <>
        <JobHeader job={job} showFreelancerInfo={true} />
-       <ProgressSection progress={job.progress} />
+       <ProgressSection daysLeft={job.daysLeft} />
       </>
      ) : (
       <>

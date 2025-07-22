@@ -1,7 +1,5 @@
-import React from "react";
 import { JobSummary } from "@/shared/models/dashboard";
 import { JobCard } from "@/components/organisms/JobCard";
-import { Button } from "@/shared/ui";
 
 interface JobsListProps {
  jobs: JobSummary[];
@@ -19,9 +17,6 @@ export const JobsList = ({
  onMessage,
  onDetails,
  showCreationDate = false,
- title,
- showViewAll = false,
- onViewAll,
  className = "",
 }: JobsListProps) => {
  return (

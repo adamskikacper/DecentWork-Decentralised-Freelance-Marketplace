@@ -111,7 +111,7 @@ const jobDetailsMockData: JobDetails = {
  title: "Web3 Dashboard UI Design",
  status: "In Progress",
  budget: "2.5 ETH",
- progress: 65,
+ daysLeft: 12,
  description:
   "Design a modern and user-friendly dashboard for our Web3 application. The design should include wallet connection, transaction history, and asset management interfaces. We need a clean, intuitive design that makes complex blockchain data easy to understand.",
  startDate: "Mar 15, 2023",

@@ -35,10 +35,9 @@ export interface JobDetails {
  title: string;
  status: "In Progress" | "Completed" | "Pending";
  budget: string;
- progress: number;
+ daysLeft: number;
  description: string;
  startDate: string;
  dueDate: string;
-
  freelancer: JobFreelancer;
 }

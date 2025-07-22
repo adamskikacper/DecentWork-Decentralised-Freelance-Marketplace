@@ -1,8 +1,10 @@
-export * from "./dashboard-route";
-export * from "./freelancers";
-export * from "./find-jobs";
-export * from "./home";
-export * from "./job-details";
-export * from "./messages";
-export * from "./post-job";
-export * from "./profile";
+export { DashboardRoute } from "./dashboard-route/index";
+export { DashboardHomePage } from "./home/index";
+export { FindJobsPage } from "./find-jobs/index";
+export { FindJobsJobDetailsPage } from "./find-jobs/job-details/index";
+export { FreelancersPage } from "./freelancers/index";
+export { DashboardJobDetailsPage } from "./job-details/index";
+export { MessagesPage } from "./messages/index";
+export { ChatPage } from "./messages/chat/index";
+export { PostJobPage } from "./post-job/index";
+export { ProfilePage } from "./profile/index";

@@ -21,7 +21,7 @@ export interface JobSummary {
  dueDate: string;
  status: string;
  cost: string;
- progress: number;
+ daysLeft: number;
 }
 
 export interface FreelancerSummary {
@@ -70,7 +70,7 @@ export interface Job {
  dueDate: string;
  status: string;
  cost: string;
- progress: number;
+ daysLeft: number;
 }
 
 export interface JobsData {

@@ -131,7 +131,7 @@ const getClientDashboardData = async (): Promise<DashboardHomeData> => {
     dueDate: "Due in 8 days",
     status: "In Progress",
     cost: "3.5 ETH",
-    progress: 60,
+    daysLeft: 8,
    },
    {
     id: "job2",
@@ -143,7 +143,7 @@ const getClientDashboardData = async (): Promise<DashboardHomeData> => {
     dueDate: "Due in 15 days",
     status: "Just Started",
     cost: "5.0 ETH",
-    progress: 15,
+    daysLeft: 15,
    },
    {
     id: "job3",
@@ -155,7 +155,7 @@ const getClientDashboardData = async (): Promise<DashboardHomeData> => {
     dueDate: "Completed on April 2, 2023",
     status: "Completed",
     cost: "4.0 ETH",
-    progress: 100,
+    daysLeft: 0,
    },
   ],
   topFreelancers: await getDashboardTopFreelancers(),
@@ -218,7 +218,7 @@ const getFreelancerDashboardData = async (): Promise<DashboardHomeData> => {
     dueDate: "Due in 12 days",
     status: "In Progress",
     cost: "4.2 ETH",
-    progress: 45,
+    daysLeft: 12,
    },
    {
     id: "contract2",
@@ -230,7 +230,7 @@ const getFreelancerDashboardData = async (): Promise<DashboardHomeData> => {
     dueDate: "Due in 18 days",
     status: "Just Started",
     cost: "6.8 ETH",
-    progress: 10,
+    daysLeft: 18,
    },
    {
     id: "contract3",
@@ -242,7 +242,7 @@ const getFreelancerDashboardData = async (): Promise<DashboardHomeData> => {
     dueDate: "Due in 25 days",
     status: "In Progress",
     cost: "5.5 ETH",
-    progress: 75,
+    daysLeft: 25,
    },
   ],
   topFreelancers: [],

@@ -47,7 +47,6 @@ export const FreelancersPage = ({
    error={error}
   >
    <div className="space-y-8">
-    {/* Search */}
     <SearchInput
      placeholder="Search freelancers..."
      value={searchQuery}
@@ -55,7 +54,6 @@ export const FreelancersPage = ({
      disabled={isLoading}
     />
 
-    {/* Active Freelancers Section */}
     <DashboardSection
      title="Active Freelancers"
      description="Freelancers currently working on your projects"
@@ -68,7 +66,6 @@ export const FreelancersPage = ({
      />
     </DashboardSection>
 
-    {/* Previous Freelancers Section */}
     <DashboardSection
      title="Previous Freelancers"
      description="Freelancers you've worked with before"
@@ -81,7 +78,6 @@ export const FreelancersPage = ({
      />
     </DashboardSection>
 
-    {/* Browse Freelancers Section */}
     <DashboardSection
      title="Browse Freelancers"
      description="Discover and hire new talent for your projects"
