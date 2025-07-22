@@ -2,8 +2,9 @@ import { useParams } from "react-router-dom";
 import { User, Calendar, Clock, X } from "lucide-react";
 import { useJobDetails } from "@/shared/hooks";
 import { useNavigation } from "@/shared/hooks/ui";
-import { Button } from "@/shared/ui";
+import { Button, Progress } from "@/shared/ui";
 import { Card, CardContent } from "@/shared/ui/Card";
+import { calculateProgressPercentage } from "@/shared/lib/utils";
 
 interface JobDetailsProps {
  onClose?: () => void;
@@ -35,6 +36,8 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
    </div>
   );
  }
+
+ const progressPercentage = calculateProgressPercentage(job.daysLeft);
 
  return (
   <div className="space-y-8">
@@ -86,12 +89,7 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
        <span className="text-label-md text-muted-foreground">Progress</span>
        <span className="text-label-md">Due in {job.daysLeft} days</span>
       </div>
-      <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
-       <div
-        className="h-full bg-primary rounded-full transition-all duration-300"
-        style={{ width: `${job.daysLeft}%` }}
-       ></div>
-      </div>
+      <Progress value={progressPercentage} className="h-2" />
      </div>
     </CardContent>
    </Card>

@@ -1,4 +1,5 @@
 import { Progress } from "@/shared/ui";
+import { calculateProgressPercentage } from "@/shared/lib/utils";
 
 interface ProgressSectionProps {
  daysLeft?: number;
@@ -6,6 +7,8 @@ interface ProgressSectionProps {
 
 export const ProgressSection = ({ daysLeft }: ProgressSectionProps) => {
  if (daysLeft === undefined) return null;
+
+ const progressPercentage = calculateProgressPercentage(daysLeft);
 
  return (
   <div className="space-y-3">
@@ -15,7 +18,7 @@ export const ProgressSection = ({ daysLeft }: ProgressSectionProps) => {
      <span className="text-label-md font-medium">Due in {daysLeft} days</span>
     </div>
 
-    <Progress value={daysLeft} className="h-2" />
+    <Progress value={progressPercentage} className="h-2" />
    </div>
   </div>
  );
