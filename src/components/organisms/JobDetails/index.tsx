@@ -84,12 +84,12 @@ export const JobDetails = ({ onClose }: JobDetailsProps) => {
      <div>
       <div className="flex justify-between text-sm mb-1">
        <span className="text-label-md text-muted-foreground">Progress</span>
-       <span className="text-label-md">{job.progress}%</span>
+       <span className="text-label-md">Due in {job.daysLeft} days</span>
       </div>
       <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
        <div
         className="h-full bg-primary rounded-full transition-all duration-300"
-        style={{ width: `${job.progress}%` }}
+        style={{ width: `${job.daysLeft}%` }}
        ></div>
       </div>
      </div>

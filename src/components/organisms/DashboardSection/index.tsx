@@ -20,8 +20,6 @@ export const DashboardSection = React.forwardRef<
    description,
    action,
    isLoading = false,
-   glassEffect = true,
-   contentPadding = true,
    children,
    ...props
   },
