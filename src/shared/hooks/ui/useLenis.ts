@@ -1,21 +1,29 @@
 import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const useLenis = () => {
  const lenisRef = useRef<Lenis | null>(null);
+ const { pathname } = useLocation();
+ const isDashboardRoute = pathname.startsWith('/dashboard');
 
  useEffect(() => {
+  if (isDashboardRoute) {
+   if (lenisRef.current) {
+    lenisRef.current.destroy();
+    lenisRef.current = null;
+   }
+   return;
+  }
+
   const lenis = new Lenis({
    duration: 1.2,
    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-   orientation: "vertical",
-   gestureOrientation: "vertical",
    smoothWheel: true,
    wheelMultiplier: 0.7,
    touchMultiplier: 2,
-   infinite: false,
   });
 
   lenisRef.current = lenis;
@@ -26,16 +34,13 @@ export const useLenis = () => {
   }
 
   requestAnimationFrame(raf);
-
   lenis.on("scroll", ScrollTrigger.update);
-
-  gsap.ticker.lagSmoothing(0);
 
   return () => {
    lenis.destroy();
    lenisRef.current = null;
   };
- }, []);
+ }, [isDashboardRoute]);
 
  return lenisRef.current;
 };

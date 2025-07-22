@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { Navbar, Footer } from "@/shared/ui";
 import { DashboardSidebar } from "../DashboardSidebar";
 import { cn } from "@/shared/lib/utils";
-import { useMobile } from "@/shared/hooks/ui/useMobile";
+import { useMobile, useScrollToTop } from "@/shared/hooks/ui";
 
 export interface DashboardLayoutProps
  extends React.HTMLAttributes<HTMLDivElement> {
@@ -17,6 +17,7 @@ export const DashboardLayout = ({
  ...props
 }: DashboardLayoutProps) => {
  const isMobile = useMobile();
+ useScrollToTop();
 
  const [, setSidebarCollapsed] = useState(isMobile);
  const [, setHasInitialized] = useState(false);
