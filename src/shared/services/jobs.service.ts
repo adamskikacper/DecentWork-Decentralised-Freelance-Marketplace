@@ -12,7 +12,7 @@ const getClientJobsData = (): Job[] => {
    dueDate: "Due in 8 days",
    status: "In Progress",
    cost: "3.5 ETH",
-   daysLeft: 60,
+   daysLeft: 8,
   },
   {
    id: "job2",
@@ -36,7 +36,7 @@ const getClientJobsData = (): Job[] => {
    dueDate: "Completed on April 2, 2023",
    status: "Completed",
    cost: "4.0 ETH",
-   daysLeft: 100,
+   daysLeft: 0,
   },
   {
    id: "job4",
@@ -48,7 +48,7 @@ const getClientJobsData = (): Job[] => {
    dueDate: "Due in 20 days",
    status: "In Progress",
    cost: "6.0 ETH",
-   daysLeft: 35,
+   daysLeft: 20,
   },
   {
    id: "job5",
@@ -60,7 +60,7 @@ const getClientJobsData = (): Job[] => {
    dueDate: "Completed on March 15, 2023",
    status: "Completed",
    cost: "3.0 ETH",
-   daysLeft: 100,
+   daysLeft: 0,
   },
  ];
 };
@@ -89,7 +89,7 @@ const getFreelancerJobsData = (): Job[] => {
    dueDate: "Due in 18 days",
    status: "Just Started",
    cost: "6.8 ETH",
-   daysLeft: 10,
+   daysLeft: 18,
   },
   {
    id: "contract3",
@@ -101,7 +101,7 @@ const getFreelancerJobsData = (): Job[] => {
    dueDate: "Due in 25 days",
    status: "In Progress",
    cost: "5.5 ETH",
-   daysLeft: 75,
+   daysLeft: 25,
   },
   {
    id: "contract4",
@@ -113,7 +113,7 @@ const getFreelancerJobsData = (): Job[] => {
    dueDate: "Completed on March 28, 2023",
    status: "Completed",
    cost: "3.8 ETH",
-   daysLeft: 100,
+   daysLeft: 0,
   },
   {
    id: "contract5",
@@ -125,7 +125,7 @@ const getFreelancerJobsData = (): Job[] => {
    dueDate: "Completed on April 5, 2023",
    status: "Completed",
    cost: "8.2 ETH",
-   daysLeft: 100,
+   daysLeft: 0,
   },
   {
    id: "contract6",
@@ -137,7 +137,7 @@ const getFreelancerJobsData = (): Job[] => {
    dueDate: "Completed on February 15, 2023",
    status: "Completed",
    cost: "12.0 ETH",
-   daysLeft: 100,
+   daysLeft: 0,
   },
  ];
 };
