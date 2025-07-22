@@ -44,16 +44,8 @@ export const useNavigation = (options: UseNavigationOptions = {}) => {
   navigateTo(DASHBOARD_LINKS.JOBS);
  }, [navigateTo]);
 
- const goToMyJobs = useCallback(() => {
-  navigateTo(DASHBOARD_LINKS.MY_JOBS);
- }, [navigateTo]);
-
  const goToFreelancers = useCallback(() => {
   navigateTo(DASHBOARD_LINKS.FREELANCERS);
- }, [navigateTo]);
-
- const goToFindJobs = useCallback(() => {
-  navigateTo(DASHBOARD_LINKS.FIND_JOBS);
  }, [navigateTo]);
 
  const goToMessages = useCallback(
@@ -68,7 +60,7 @@ export const useNavigation = (options: UseNavigationOptions = {}) => {
 
  const goToJobDetails = useCallback(
   (jobId: string) => {
-   const path = `${DASHBOARD_LINKS.FIND_JOBS}/${jobId}`;
+   const path = `${DASHBOARD_LINKS.JOBS}/${jobId}`;
    navigateTo(path);
   },
   [navigateTo]
@@ -96,9 +88,7 @@ export const useNavigation = (options: UseNavigationOptions = {}) => {
   goToDashboard,
   goToPostJob,
   goToJobs,
-  goToMyJobs,
   goToFreelancers,
-  goToFindJobs,
   goToMessages,
   goToJobDetails,
   goToFreelancerDetails,

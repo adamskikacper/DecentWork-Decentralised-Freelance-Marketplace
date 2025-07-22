@@ -15,8 +15,6 @@ export const MessagesPage = () => {
 
  return (
   <PageLayout
-   title="Messages"
-   description="Your conversations"
    breadcrumbs={[
     { label: "Dashboard", href: "/dashboard" },
     { label: "Messages" },
@@ -24,7 +22,11 @@ export const MessagesPage = () => {
    isLoading={isLoading}
    error={error}
   >
-   <DashboardSection>
+   <DashboardSection
+    title="Messages"
+    description="Your conversations"
+    className="space-y-4"
+   >
     <div className="space-y-4">
      {conversations.map((conversation) => (
       <Card

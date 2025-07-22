@@ -123,24 +123,17 @@ export const DashboardSidebar = ({
        id: "jobs",
        to: DASHBOARD_LINKS.JOBS,
        icon: "Briefcase",
-       label: "My Jobs",
-       ariaLabel: "View your posted jobs",
+       label: "Jobs",
+       ariaLabel: "View your posted jobs and find new ones",
       },
      ]
    : [
       {
-       id: "find-jobs",
-       to: DASHBOARD_LINKS.FIND_JOBS,
-       icon: "Search",
-       label: "Find Jobs",
-       ariaLabel: "Search for available jobs",
-      },
-      {
-       id: "my-jobs",
-       to: DASHBOARD_LINKS.MY_JOBS,
-       icon: "FileText",
-       label: "My Jobs",
-       ariaLabel: "View your current jobs",
+       id: "jobs",
+       to: DASHBOARD_LINKS.JOBS,
+       icon: "Briefcase",
+       label: "Jobs",
+       ariaLabel: "Find jobs and manage your applications",
       },
      ]),
   {

@@ -5,6 +5,7 @@ export { useConversations } from "./useConversations";
 export { useActiveJobs } from "./useActiveJobs";
 export { useJobDetails } from "./useJobDetails";
 export { useJobListings } from "./useJobListings";
+export { useMyJobs } from "./useMyJobs";
 export { useTopFreelancers } from "./useTopFreelancers";
 
 export type * from "./types";

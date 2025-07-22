@@ -5,10 +5,8 @@ export { NotFoundPage } from "./not-found/index";
 export {
  DashboardRoute,
  DashboardHomePage,
- FindJobsPage,
- FindJobsJobDetailsPage,
+ JobsPage,
  FreelancersPage,
- DashboardJobDetailsPage,
  MessagesPage,
  ChatPage,
  PostJobPage,

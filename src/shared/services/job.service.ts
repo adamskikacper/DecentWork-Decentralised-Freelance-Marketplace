@@ -150,8 +150,37 @@ export const getClientJobsByUserId = async (clientId: string) => {
  return null;
 };
 
-export const getMyJobs = async (freelancerId: string) => {
- return null;
+const getMyJobsMockData = (): JobOpportunityWithCategory[] => {
+ return [
+  {
+   id: "my-job-1",
+   title: "E-commerce DApp Frontend",
+   description:
+    "We need a skilled frontend developer to build a decentralized e-commerce platform with React and Web3 integration. The application should include user authentication, product catalog, and shopping cart functionality with seamless blockchain integration.",
+   category: "Development",
+   budget: "3.5 ETH",
+   postedDate: "1 week ago",
+   proposals: 1,
+   tags: ["React", "Web3", "E-commerce", "TypeScript"],
+  },
+  {
+   id: "my-job-2",
+   title: "DeFi Protocol Smart Contract",
+   description:
+    "Looking for an experienced Solidity developer to create a yield farming smart contract with automated reward distribution and staking mechanisms. The contract must include security features and gas optimization for our DeFi protocol.",
+   category: "Smart Contracts",
+   budget: "8.0 ETH",
+   postedDate: "2 weeks ago",
+   proposals: 1,
+   tags: ["Solidity", "DeFi", "Smart Contracts", "Yield Farming"],
+  },
+ ];
+};
+
+export const getMyJobs = async (
+ freelancerId: string
+): Promise<JobOpportunityWithCategory[]> => {
+ return getMyJobsMockData();
 };
 
 export const updateJobStatus = async (jobId: string, status: string) => {

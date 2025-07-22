@@ -10,7 +10,7 @@ import {
 
 export const Footer = () => {
  return (
-  <footer className="bg-secondary/30 border-t border-border py-12">
+  <footer className="bg-secondary/30 border-t border-border py-12 bg-gray-100 dark:bg-gray-900">
    <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
     {/* Brand & Description */}
     <div className="flex flex-col items-start space-y-4">
