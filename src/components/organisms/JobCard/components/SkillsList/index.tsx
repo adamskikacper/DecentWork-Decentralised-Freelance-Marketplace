@@ -21,8 +21,8 @@ export const SkillsList = ({ skills, maxVisible = 3 }: SkillsListProps) => {
     {visibleSkills.map((skill, index) => (
      <Badge
       key={index}
-      variant="outline"
-      className="bg-gray-100 text-gray-700 border-gray-200"
+      variant="secondary"
+      className="bg-gray-200 text-gray-800 border-gray-200 text-body-xs dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
      >
       {skill}
      </Badge>

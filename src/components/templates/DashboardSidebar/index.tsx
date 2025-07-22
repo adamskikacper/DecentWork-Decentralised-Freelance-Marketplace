@@ -18,6 +18,7 @@ import {
  SidebarUserPanel,
  SidebarToggleButton,
 } from "./components";
+import { Card } from "@/shared";
 
 type IconMapType = {
  Home: typeof Home;
@@ -187,13 +188,6 @@ export const DashboardSidebar = ({
   [isMobile, isCollapsed]
  );
 
- const glassStyles = cn(
-  "bg-gray-100 dark:bg-black/90",
-  "border border-gray-200/50 dark:border-gray-700/50",
-  "shadow-lg shadow-black/10 dark:shadow-black/30",
-  !reducedMotion && "transition-all duration-300 ease-in-out"
- );
-
  if (isMobile) {
   return (
    <>
@@ -205,11 +199,9 @@ export const DashboardSidebar = ({
      />
     )}
 
-    <aside
-     ref={sidebarRef}
+    <Card
      className={cn(
-      "fixed top-0 left-0 mt-16 h-[calc(100vh-4rem)] z-50 w-[280px]",
-      glassStyles,
+      "fixed top-0 left-0 h-full z-50 w-[280px]",
       "rounded-r-xl",
       !reducedMotion && "transition-transform duration-300 ease-in-out",
       isCollapsed ? "-translate-x-full" : "translate-x-0",
@@ -235,22 +227,19 @@ export const DashboardSidebar = ({
        isKeyboardNavigating={isKeyboardNavigating}
       />
      </div>
-    </aside>
+    </Card>
    </>
   );
  }
 
  return (
-  <aside
-   ref={sidebarRef}
+  <Card
    className={cn(
-    "w-[280px] z-40 flex-shrink-0 h-fit",
-    glassStyles,
+    "w-[280px] z-40 flex-shrink-0 h-fit bg-gray-100 dark:bg-gray-900 shadow-lg shadow-black/10 dark:shadow-black/30",
     "rounded-xl",
     insideContainer ? "sticky top-28" : "fixed top-24 left-0",
     className
    )}
-   aria-label="Dashboard navigation"
   >
    <div className="flex flex-col p-6">
     <SidebarUserPanel userType={userType} userEmail={user?.email} />
@@ -260,6 +249,6 @@ export const DashboardSidebar = ({
      isKeyboardNavigating={isKeyboardNavigating}
     />
    </div>
-  </aside>
+  </Card>
  );
 };

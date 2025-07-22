@@ -78,6 +78,10 @@ export default {
      "0.875rem",
      { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400" },
     ],
+    "body-xs": [
+     "0.75rem",
+     { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400" },
+    ],
 
     // Label sizes
     "label-lg": [
