@@ -18,11 +18,6 @@ export const JobMeta = ({ postedDate, budget, proposals }: JobMetaProps) => {
     )}
     {budget && <span className="text-label-md font-medium">{budget}</span>}
    </div>
-   {proposals !== undefined && (
-    <div className="text-label-md text-muted-foreground">
-     Proposals: <span className="font-medium text-foreground">{proposals}</span>
-    </div>
-   )}
   </div>
  );
 };

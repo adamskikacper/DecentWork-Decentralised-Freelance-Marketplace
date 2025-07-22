@@ -18,7 +18,7 @@ export const JobActions = ({
  onDetails,
 }: JobActionsProps) => {
  return (
-  <div className="flex justify-between items-center pt-4 mt-auto border-t border-border">
+  <div className="flex justify-between items-center pt-4 mt-auto ">
    {job ? (
     <>
      {showCreationDate ? (

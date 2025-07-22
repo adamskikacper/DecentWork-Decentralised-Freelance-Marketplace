@@ -1,9 +1,8 @@
 export { DashboardRoute } from "./dashboard-route/index";
 export { DashboardHomePage } from "./home/index";
-export { FindJobsPage } from "./find-jobs/index";
-export { FindJobsJobDetailsPage } from "./find-jobs/job-details/index";
+export { JobsPage } from "./jobs/index";
 export { FreelancersPage } from "./freelancers/index";
-export { DashboardJobDetailsPage } from "./job-details/index";
+export { JobDetailsPage } from "./job-details/index";
 export { MessagesPage } from "./messages/index";
 export { ChatPage } from "./messages/chat/index";
 export { PostJobPage } from "./post-job/index";

@@ -3,8 +3,8 @@ import { useAuth } from "@/app/providers/AuthProvider";
 import {
  DashboardHomePage,
  FreelancersPage,
- FindJobsPage,
- FindJobsJobDetailsPage,
+ JobsPage,
+ JobDetailsPage,
  PostJobPage,
  MessagesPage,
  ChatPage,
@@ -23,25 +23,22 @@ export const DashboardRoutes = () => {
   <Routes>
    <Route index element={<DashboardHomePage />} />
    <Route path={DASHBOARD_ROUTES.HOME} element={<DashboardHomePage />} />
+
    {userType === USER_TYPES.CLIENT && (
     <>
      <Route path={DASHBOARD_ROUTES.FREELANCERS} element={<FreelancersPage />} />
      <Route path={DASHBOARD_ROUTES.POST_JOB} element={<PostJobPage />} />
+     <Route path={DASHBOARD_ROUTES.JOBS} element={<JobsPage />} />
     </>
    )}
+
    {userType === USER_TYPES.FREELANCER && (
     <>
-     <Route path={DASHBOARD_ROUTES.FIND_JOBS} element={<FindJobsPage />} />
-     <Route
-      path={`${DASHBOARD_ROUTES.FIND_JOBS}/:jobId`}
-      element={<FindJobsJobDetailsPage />}
-     />
-     <Route
-      path={DASHBOARD_ROUTES.MY_JOBS}
-      element={<div>My Jobs - Coming Soon</div>}
-     />
+     <Route path={DASHBOARD_ROUTES.JOBS} element={<JobsPage />} />
+     <Route path={DASHBOARD_ROUTES.JOBS_DETAILS} element={<JobDetailsPage />} />
     </>
    )}
+
    <Route path={DASHBOARD_ROUTES.MESSAGES} element={<MessagesPage />} />
    <Route path={DASHBOARD_ROUTES.CHAT} element={<ChatPage />} />
    <Route path={DASHBOARD_ROUTES.PROFILE} element={<ProfilePage />} />
