@@ -337,3 +337,13 @@ export const getJobsData = async (
   ? await getClientJobsOverview()
   : await getFreelancerJobsOverview();
 };
+
+export const getClientSatisfactionStats = async () => {
+ return {
+  satisfactionPercentage: 96,
+  averageRating: 4.8,
+  totalReviews: 23,
+  monthlyChange: 0.2,
+  recentFeedback: "Great communication and quality work!",
+ };
+};

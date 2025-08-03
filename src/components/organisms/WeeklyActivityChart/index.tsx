@@ -1,5 +1,5 @@
 import React from "react";
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 import {
  Card,
  CardHeader,
@@ -12,53 +12,48 @@ import {
  ChartContainer,
  ChartTooltip,
  ChartTooltipContent,
- ChartLegend,
- ChartLegendContent,
  type ChartConfig,
 } from "@/shared/ui/Chart";
 
 const chartConfig = {
- eth: {
-  label: "ETH",
+ activity: {
+  label: "Login Count",
   color: "var(--accent)",
- },
- usd: {
-  label: "USD",
-  color: "color-mix(in srgb, var(--accent) 60%, transparent)",
  },
 } satisfies ChartConfig;
 
-export interface EarningsData {
- month: string;
- eth: number;
- usd: number;
+export interface WeeklyActivityData {
+ day: string;
+ activity: number;
 }
 
-export interface EarningsAreaChartProps {
+export interface WeeklyActivityChartProps {
  className?: string;
  title: string;
  description: string;
- trendText: string;
- data: EarningsData[];
+ data: WeeklyActivityData[];
+ peakDay: string;
+ totalActivity: number;
  isLoading?: boolean;
  error?: string;
 }
 
-export const EarningsAreaChart = ({ 
- className, 
- title, 
- description, 
- trendText, 
+export const WeeklyActivityChart = ({
+ className,
+ title,
+ description,
  data,
+ peakDay,
+ totalActivity,
  isLoading,
- error 
-}: EarningsAreaChartProps) => {
+ error,
+}: WeeklyActivityChartProps) => {
  if (error) {
   return (
    <Card className={className}>
     <CardHeader>
      <CardTitle className="text-heading-3 md:text-heading-4">{title}</CardTitle>
-     <CardDescription>Unable to load earnings data</CardDescription>
+     <CardDescription>Unable to load activity data</CardDescription>
     </CardHeader>
     <CardContent>
      <div className="flex items-center justify-center h-[300px] text-muted-foreground">
@@ -84,6 +79,7 @@ export const EarningsAreaChart = ({
    </Card>
   );
  }
+
  return (
   <Card className={className}>
    <CardHeader>
@@ -92,7 +88,7 @@ export const EarningsAreaChart = ({
    </CardHeader>
    <CardContent>
     <ChartContainer config={chartConfig}>
-     <AreaChart
+     <BarChart
       accessibilityLayer
       data={data}
       margin={{
@@ -101,41 +97,21 @@ export const EarningsAreaChart = ({
       }}
      >
       <CartesianGrid vertical={false} />
-      <XAxis
-       dataKey="month"
-       tickLine={false}
-       axisLine={false}
-       tickMargin={8}
-       tickFormatter={(value) => value.slice(0, 3)}
-      />
+      <XAxis dataKey="day" tickLine={false} axisLine={false} tickMargin={8} />
       <YAxis hide />
-      <ChartTooltip
-       cursor={false}
-       content={<ChartTooltipContent indicator="line" />}
+      <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+      <Bar
+       dataKey="activity"
+       fill="var(--color-activity)"
+       radius={[4, 4, 0, 0]}
       />
-      <Area
-       dataKey="usd"
-       type="natural"
-       fill="var(--color-usd)"
-       fillOpacity={0.4}
-       stroke="var(--color-usd)"
-       stackId="a"
-      />
-      <Area
-       dataKey="eth"
-       type="natural"
-       fill="var(--color-eth)"
-       fillOpacity={0.6}
-       stroke="var(--color-eth)"
-       stackId="a"
-      />
-      <ChartLegend content={<ChartLegendContent />} />
-     </AreaChart>
+     </BarChart>
     </ChartContainer>
     <div className="flex items-center justify-center mt-4">
      <div className="text-center">
-      <div className="text-sm font-medium text-muted-foreground">
-       {trendText}
+      <div className="text-sm text-muted-foreground">Peak on {peakDay}</div>
+      <div className="text-xs text-muted-foreground">
+       {totalActivity} logins total
       </div>
      </div>
     </div>

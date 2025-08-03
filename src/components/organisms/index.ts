@@ -24,5 +24,6 @@ export { SkillsBarChart } from "./SkillsBarChart";
 export { ProgressRadialChart } from "./ProgressRadialChart";
 export { TrendsLineChart } from "./TrendsLineChart";
 export { EthPriceAreaChart } from "./EthPriceAreaChart";
+export { WeeklyActivityChart } from "./WeeklyActivityChart";
 
 export type * from "./types";

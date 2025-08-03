@@ -47,6 +47,7 @@ export { Toaster } from "./Toaster";
 export * from "./ToggleGroup";
 export * from "./FormSelect";
 export * from "./LoadingScreen";
+export * from "./Loader";
 export * from "./SkillTag";
 export { Navbar } from "./Navbar";
 export { Footer } from "./Footer";

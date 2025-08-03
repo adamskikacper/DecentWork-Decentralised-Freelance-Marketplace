@@ -7,6 +7,7 @@ import {
   CardDescription,
   CardContent,
 } from "@/shared/ui/Card";
+import { Loader } from "@/shared/ui";
 import {
   ChartContainer,
   ChartTooltip,
@@ -26,11 +27,9 @@ export interface EthPriceAreaChartProps {
   className?: string;
 }
 
-const formatTime = (timestamp: number) => {
-  return new Date(timestamp).toLocaleTimeString('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
+const formatDay = (timestamp: number) => {
+  return new Date(timestamp).toLocaleDateString('en-US', {
+    weekday: 'short',
   });
 };
 
@@ -48,7 +47,7 @@ export const EthPriceAreaChart = ({ className }: EthPriceAreaChartProps) => {
     return (
       <Card className={className}>
         <CardHeader>
-          <CardTitle>ETH Price</CardTitle>
+          <CardTitle className="text-heading-3 md:text-heading-4">ETH</CardTitle>
           <CardDescription>Unable to load price data</CardDescription>
         </CardHeader>
         <CardContent>
@@ -64,12 +63,12 @@ export const EthPriceAreaChart = ({ className }: EthPriceAreaChartProps) => {
     return (
       <Card className={className}>
         <CardHeader>
-          <CardTitle>ETH Price</CardTitle>
+          <CardTitle className="text-heading-3 md:text-heading-4">ETH</CardTitle>
           <CardDescription>Loading price data...</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex items-center justify-center h-[300px]">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+            <Loader />
           </div>
         </CardContent>
       </Card>
@@ -77,18 +76,18 @@ export const EthPriceAreaChart = ({ className }: EthPriceAreaChartProps) => {
   }
 
   const chartData = data.priceHistory.map(point => ({
-    time: formatTime(point.timestamp),
+    day: formatDay(point.timestamp),
     price: point.price,
     timestamp: point.timestamp,
   }));
 
-  const isPositive = data.priceChangePercentage24h >= 0;
+  const isPositive = data.priceChangePercentage7d >= 0;
 
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle className="flex items-center justify-between">
-          <span>ETH Price</span>
+        <CardTitle className="flex items-center justify-between text-heading-3 md:text-heading-4">
+          <span>ETH</span>
           <div className="text-right">
             <div className="text-2xl font-bold">
               {formatPrice(data.currentPrice)}
@@ -96,11 +95,11 @@ export const EthPriceAreaChart = ({ className }: EthPriceAreaChartProps) => {
             <div className={`text-sm font-medium ${
               isPositive ? 'text-green-600' : 'text-red-600'
             }`}>
-              {isPositive ? '+' : ''}{formatPrice(data.priceChange24h)} ({data.priceChangePercentage24h.toFixed(2)}%)
+              {isPositive ? '+' : ''}{formatPrice(data.priceChange7d)} ({data.priceChangePercentage7d.toFixed(2)}%)
             </div>
           </div>
         </CardTitle>
-        <CardDescription>Last 24 hours</CardDescription>
+        <CardDescription>Weekly price trend</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -114,11 +113,10 @@ export const EthPriceAreaChart = ({ className }: EthPriceAreaChartProps) => {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="time"
+              dataKey="day"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              interval="preserveStartEnd"
               tick={{ fontSize: 10 }}
             />
             <YAxis 
@@ -151,6 +149,13 @@ export const EthPriceAreaChart = ({ className }: EthPriceAreaChartProps) => {
             />
           </AreaChart>
         </ChartContainer>
+        <div className="flex items-center justify-center mt-4">
+          <div className="text-center">
+            <div className="text-sm font-medium text-muted-foreground">
+              {isPositive ? 'Up' : 'Down'} this week
+            </div>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );

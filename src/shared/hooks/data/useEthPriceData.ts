@@ -7,22 +7,23 @@ export interface EthPricePoint {
 
 export interface EthPriceData {
   currentPrice: number;
-  priceChange24h: number;
-  priceChangePercentage24h: number;
+  priceChange7d: number;
+  priceChangePercentage7d: number;
   priceHistory: EthPricePoint[];
 }
 
 const mockEthPriceData: EthPriceData = {
   currentPrice: 3245.67,
-  priceChange24h: 87.43,
-  priceChangePercentage24h: 2.77,
+  priceChange7d: 187.43,
+  priceChangePercentage7d: 6.13,
   priceHistory: [
-    { timestamp: Date.now() - 24 * 60 * 60 * 1000, price: 3158.24 },
-    { timestamp: Date.now() - 20 * 60 * 60 * 1000, price: 3186.12 },
-    { timestamp: Date.now() - 16 * 60 * 60 * 1000, price: 3201.45 },
-    { timestamp: Date.now() - 12 * 60 * 60 * 1000, price: 3167.89 },
-    { timestamp: Date.now() - 8 * 60 * 60 * 1000, price: 3189.34 },
-    { timestamp: Date.now() - 4 * 60 * 60 * 1000, price: 3223.56 },
+    { timestamp: Date.now() - 7 * 24 * 60 * 60 * 1000, price: 3058.24 },
+    { timestamp: Date.now() - 6 * 24 * 60 * 60 * 1000, price: 3126.12 },
+    { timestamp: Date.now() - 5 * 24 * 60 * 60 * 1000, price: 3101.45 },
+    { timestamp: Date.now() - 4 * 24 * 60 * 60 * 1000, price: 3167.89 },
+    { timestamp: Date.now() - 3 * 24 * 60 * 60 * 1000, price: 3189.34 },
+    { timestamp: Date.now() - 2 * 24 * 60 * 60 * 1000, price: 3223.56 },
+    { timestamp: Date.now() - 1 * 24 * 60 * 60 * 1000, price: 3234.12 },
     { timestamp: Date.now(), price: 3245.67 },
   ],
 };
@@ -41,7 +42,7 @@ export const useEthPriceData = () => {
         // Try to fetch from CoinGecko API
         try {
           const response = await fetch(
-            'https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=1&interval=hourly'
+            'https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=7&interval=daily'
           );
           
           if (!response.ok) {
@@ -57,13 +58,13 @@ export const useEthPriceData = () => {
 
           const currentPrice = priceHistory[priceHistory.length - 1]?.price || 0;
           const previousPrice = priceHistory[0]?.price || 0;
-          const priceChange24h = currentPrice - previousPrice;
-          const priceChangePercentage24h = previousPrice > 0 ? (priceChange24h / previousPrice) * 100 : 0;
+          const priceChange7d = currentPrice - previousPrice;
+          const priceChangePercentage7d = previousPrice > 0 ? (priceChange7d / previousPrice) * 100 : 0;
 
           setData({
             currentPrice,
-            priceChange24h,
-            priceChangePercentage24h,
+            priceChange7d,
+            priceChangePercentage7d,
             priceHistory,
           });
         } catch (apiError) {
