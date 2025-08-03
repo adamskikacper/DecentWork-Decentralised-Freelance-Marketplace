@@ -1,13 +1,12 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import Lenis from "lenis";
-import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const useLenis = () => {
  const lenisRef = useRef<Lenis | null>(null);
  const { pathname } = useLocation();
- const isDashboardRoute = pathname.startsWith('/dashboard');
+ const isDashboardRoute = pathname.startsWith("/dashboard");
 
  useEffect(() => {
   if (isDashboardRoute) {
@@ -22,8 +21,8 @@ export const useLenis = () => {
    duration: 1.2,
    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
    smoothWheel: true,
-   wheelMultiplier: 0.7,
-   touchMultiplier: 2,
+   wheelMultiplier: 1,
+   touchMultiplier: 1,
   });
 
   lenisRef.current = lenis;

@@ -1,17 +1,15 @@
 import { JobCard } from "@/components/organisms/JobCard";
+import { NoDataCard } from "@/components/atoms";
 import { useMyJobs, useNavigation } from "@/shared/hooks";
+import { NO_DATA_CONFIGS } from "@/shared/constants";
 import {
  Alert,
  AlertTitle,
  AlertDescription,
- Card,
- CardContent,
- CardTitle,
- CardDescription,
  Button,
  Skeleton,
 } from "@/shared/ui";
-import { AlertTriangle, RefreshCw } from "lucide-react";
+import { AlertTriangle, RefreshCw, Briefcase } from "lucide-react";
 
 export const MyJobsSection = () => {
  const { myJobs, isLoading, error } = useMyJobs();
@@ -51,14 +49,11 @@ export const MyJobsSection = () => {
    )}
 
    {!isLoading && !error && myJobs.length === 0 && (
-    <Card className="text-center py-12">
-     <CardContent>
-      <CardTitle className="mb-2">No jobs to display</CardTitle>
-      <CardDescription>
-       You have not posted or applied to any jobs yet.
-      </CardDescription>
-     </CardContent>
-    </Card>
+    <NoDataCard
+     title={NO_DATA_CONFIGS.MY_JOBS.title}
+     description={NO_DATA_CONFIGS.MY_JOBS.description}
+     icon={<Briefcase className="w-12 h-12" />}
+    />
    )}
 
    {!isLoading && !error && myJobs.length > 0 && (

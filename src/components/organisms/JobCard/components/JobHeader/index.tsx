@@ -20,8 +20,6 @@ export const JobHeader = ({
     <h3 className="text-heading-4 md:text-heading-5 mb-2">{jobTitle}</h3>
     {showFreelancerInfo && job && (
      <div className="flex items-center gap-2 text-label-md text-muted-foreground">
-      <span>Freelancer: {job.freelancer.name}</span>
-      <span>•</span>
       <span>{job.dueDate}</span>
      </div>
     )}

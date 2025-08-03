@@ -1,7 +1,9 @@
 import React from "react";
 import { FreelancerSummary } from "@/shared/models/dashboard";
 import { FreelancerCard } from "../FreelancerCard";
+import { NoDataCard } from "@/components/atoms";
 import { Card } from "@/shared/ui/Card";
+import { User } from "lucide-react";
 
 interface FreelancerTableProps {
  freelancers: FreelancerSummary[];
@@ -22,6 +24,16 @@ export const FreelancerTable = ({
  onMessage,
  onHire,
 }: FreelancerTableProps) => {
+ if (freelancers.length === 0) {
+  return (
+   <NoDataCard
+    title="No freelancers found"
+    description="There are no freelancers to display in this category."
+    icon={<User className="w-12 h-12" />}
+   />
+  );
+ }
+
  return (
   <Card className="overflow-hidden">
    <div className="overflow-x-auto">
