@@ -136,7 +136,10 @@ export default {
    },
    colors: {
     border: "var(--border)",
-    input: "var(--input)",
+    input: {
+     DEFAULT: "var(--input)",
+     background: "var(--input-background)",
+    },
     ring: "var(--ring)",
     background: "var(--background)",
     foreground: "var(--foreground)",
@@ -173,47 +176,11 @@ export default {
      foreground: "var(--sidebar-foreground)",
      primary: "var(--sidebar-primary)",
      "primary-foreground": "var(--sidebar-primary-foreground)",
-     accent: "var(--sidebar-accent)",
-     "accent-foreground": "var(--sidebar-accent-foreground)",
      border: "var(--sidebar-border)",
      ring: "var(--sidebar-ring)",
     },
-    success: {
-     DEFAULT: "var(--success)",
-     foreground: "var(--success-foreground)",
-    },
-    warning: {
-     DEFAULT: "var(--warning)",
-     foreground: "var(--warning-foreground)",
-    },
-    info: {
-     DEFAULT: "var(--info)",
-     foreground: "var(--info-foreground)",
-    },
-    chart: {
-     1: "var(--chart-1)",
-     2: "var(--chart-2)",
-     3: "var(--chart-3)",
-     4: "var(--chart-4)",
-     5: "var(--chart-5)",
-     6: "var(--chart-6)",
-    },
-    shadow: {
-     light: "var(--shadow-light)",
-     medium: "var(--shadow-medium)",
-     heavy: "var(--shadow-heavy)",
-    },
-    vibrantBlue: "#3B82F6",
-    emeraldGreen: "#10B981",
-    sunnyYellow: "#F59E0B",
-    deepPurple: "#8B5CF6",
    },
-   backgroundImage: {
-    "gradient-primary-secondary":
-     "linear-gradient(to right, var(--color-vibrantBlue), var(--color-emeraldGreen))",
-    "gradient-accent-highlight":
-     "linear-gradient(to right, var(--color-sunnyYellow), var(--color-deepPurple))",
-   },
+
    borderRadius: {
     lg: "var(--radius)",
     md: "calc(var(--radius) - 2px)",

@@ -29,7 +29,7 @@ export const FormSelect = ({
     name={name}
     value={value}
     onChange={onChange}
-    className="w-full px-4 py-2 rounded-md border border-border bg-background"
+    className="w-full px-4 py-2 rounded-md border border-input bg-input-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
    >
     {options.map((option) => (
      <option key={option.value} value={option.value}>

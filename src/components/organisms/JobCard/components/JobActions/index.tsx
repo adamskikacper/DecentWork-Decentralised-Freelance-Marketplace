@@ -27,10 +27,15 @@ export const JobActions = ({
        <span className="text-label-md">Created: April 12, 2023</span>
       </div>
      ) : (
-      <div className="flex -space-x-2">
+      <div className="flex items-center gap-2">
        <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center border-2 border-background">
         <User className="h-4 w-4" />
        </div>
+       {job.freelancer && (
+        <span className="text-sm font-medium text-foreground">
+         {job.freelancer.name}
+        </span>
+       )}
       </div>
      )}
 

@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import { getJobListings } from "@/shared/services/job.service";
-import type { JobOpportunityWithCategory } from "@/shared/models/dashboard";
+import { getAvailableJobs } from "@/shared/services/jobs.service";
+import type { JobOpportunity } from "@/shared/models/dashboard";
 
 export const useJobListings = () => {
- const [jobListings, setJobListings] = useState<JobOpportunityWithCategory[]>(
-  []
- );
+ const [jobListings, setJobListings] = useState<JobOpportunity[]>([]);
  const [isLoading, setIsLoading] = useState(true);
  const [error, setError] = useState<string | null>(null);
 
@@ -14,7 +12,7 @@ export const useJobListings = () => {
    try {
     setIsLoading(true);
     setError(null);
-    const jobsData = await getJobListings();
+    const jobsData = await getAvailableJobs();
     setJobListings(jobsData);
    } catch (err) {
     setError(

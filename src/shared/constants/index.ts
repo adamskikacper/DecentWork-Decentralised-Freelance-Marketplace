@@ -30,6 +30,8 @@ export const DASHBOARD_LINKS = {
  HOME: "/dashboard",
  FREELANCERS: "/dashboard/freelancers",
  JOBS: "/dashboard/jobs",
+ MY_JOBS: "/dashboard/jobs",
+ FIND_JOBS: "/dashboard/jobs",
  POST_JOB: "/dashboard/post-job",
  MESSAGES: "/dashboard/messages",
  CHATS: "/dashboard/chats",
@@ -256,5 +258,28 @@ export const TYPOGRAPHY_VARIANTS = {
   SECTION_TITLE: "section-title",
   CARD_TITLE: "card-title",
   SUBTITLE: "subtitle",
+ },
+} as const;
+
+export const NO_DATA_CONFIGS = {
+ MY_JOBS: {
+  title: "No jobs to display",
+  description: "You have not posted or applied to any jobs yet.",
+  icon: "Briefcase",
+ },
+ FIND_JOBS: {
+  title: "No jobs found",
+  description: "Check back later for new opportunities.",
+  icon: "Search",
+ },
+ ACTIVE_JOBS: {
+  title: "No active jobs",
+  description: "You don't have any jobs in progress at the moment.",
+  icon: "Calendar",
+ },
+ MESSAGES: {
+  title: "No messages",
+  description: "Start a conversation to see your messages here.",
+  icon: "MessageSquare",
  },
 } as const;

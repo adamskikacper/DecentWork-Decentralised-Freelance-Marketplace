@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getJobDetails } from "@/shared/services/job.service";
+import { getJobById } from "@/shared/services/jobs.service";
 import type { JobDetails } from "@/shared/models/job/model";
 
 export const useJobDetails = (jobId?: string) => {
@@ -18,7 +18,7 @@ export const useJobDetails = (jobId?: string) => {
    try {
     setIsLoading(true);
     setError(null);
-    const jobData = await getJobDetails(jobId);
+    const jobData = await getJobById(jobId);
     if (jobData) {
      setJob(jobData);
     } else {

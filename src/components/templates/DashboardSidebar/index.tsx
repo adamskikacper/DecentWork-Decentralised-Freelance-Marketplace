@@ -228,7 +228,7 @@ export const DashboardSidebar = ({
  return (
   <Card
    className={cn(
-    "w-[280px] z-40 flex-shrink-0 h-fit bg-gray-100 dark:bg-gray-900 shadow-lg shadow-black/10 dark:shadow-black/30",
+    "w-[280px] z-40 flex-shrink-0 h-fit shadow-lg shadow-black/10 dark:shadow-black/30",
     "rounded-xl",
     insideContainer ? "sticky top-28" : "fixed top-24 left-0",
     className

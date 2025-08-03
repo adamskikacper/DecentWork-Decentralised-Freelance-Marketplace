@@ -1,22 +1,22 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/app/providers/AuthProvider";
-import { getActiveJobs } from "@/shared/services/dashboard.service";
+import { getActiveJobs } from "@/shared/services/jobs.service";
 import type { JobSummary } from "@/shared/models/dashboard";
 
 export const useActiveJobs = () => {
- const { userType } = useAuth();
+ const { user, userType } = useAuth();
  const [jobs, setJobs] = useState<JobSummary[]>([]);
  const [isLoading, setIsLoading] = useState(true);
  const [error, setError] = useState<string | null>(null);
 
  useEffect(() => {
   const fetchJobs = async () => {
-   if (!userType) return;
+   if (!user || !userType) return;
 
    try {
     setIsLoading(true);
     setError(null);
-    const data = await getActiveJobs(userType);
+    const data = await getActiveJobs(user.id, userType);
     setJobs(data);
    } catch (err) {
     setError(
@@ -28,7 +28,7 @@ export const useActiveJobs = () => {
   };
 
   fetchJobs();
- }, [userType]);
+ }, [user, userType]);
 
  return {
   jobs,

@@ -14,7 +14,8 @@ export { JobsList } from "./JobsList";
 export { NavigationSidebar } from "./NavigationSidebar";
 export { PortfolioSection } from "./PortfolioSection";
 export { ProfessionalSection } from "./ProfessionalSection";
-export * from "./ProfileForm";
+export { BasicInfoSection } from "./ProfileForm/components/BasicInfoSection";
+export { ContactSection } from "./ProfileForm/components/ContactSection";
 export { HeroSection } from "./HeroSection";
 
 export type * from "./types";

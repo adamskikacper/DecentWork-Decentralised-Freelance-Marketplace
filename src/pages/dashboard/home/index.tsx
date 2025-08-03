@@ -4,7 +4,6 @@ import { Button } from "@/shared/ui";
 import {
  DashboardSection,
  DashboardStats,
- JobsList,
  FreelancerTable,
 } from "@/components";
 import { PageLayout } from "@/components/templates";
@@ -13,7 +12,6 @@ import { DASHBOARD_LINKS } from "@/shared/constants";
 import { FileText, User, DollarSign, Briefcase } from "lucide-react";
 import {
  useDashboardStats,
- useActiveJobs,
  useTopFreelancers,
  useNavigation,
 } from "@/shared/hooks";
@@ -33,7 +31,6 @@ export interface DashboardHomePageProps {
 export const DashboardHomePage = ({
  user,
  onMessage,
- onJobDetails,
  onFreelancerDetails,
 }: DashboardHomePageProps) => {
  const { userType } = useAuth();
@@ -76,12 +73,6 @@ export const DashboardHomePage = ({
  }, [stats, isClient]);
 
  const {
-  jobs: activeJobs,
-  isLoading: jobsLoading,
-  error: jobsError,
- } = useActiveJobs();
-
- const {
   freelancers: topFreelancers,
   isLoading: freelancersLoading,
   error: freelancersError,
@@ -91,8 +82,8 @@ export const DashboardHomePage = ({
   console.log(`Hiring freelancer: ${freelancerId}`);
  };
 
- const isAnyLoading = statsLoading || jobsLoading || freelancersLoading;
- const anyError = statsError || jobsError || freelancersError;
+ const isAnyLoading = statsLoading || freelancersLoading;
+ const anyError = statsError || freelancersError;
 
  return (
   <PageLayout
@@ -118,25 +109,12 @@ export const DashboardHomePage = ({
    error={anyError}
   >
    <div className="space-y-8">
-    <DashboardStats stats={statsWithIcons} isLoading={isAnyLoading} />
-
     <DashboardSection
-     title="Active Jobs"
-     description="Your current and recently completed jobs"
-     action={
-      <Button variant="outline" size="sm" asChild>
-       <Link to={isClient ? DASHBOARD_LINKS.JOBS : DASHBOARD_LINKS.MY_JOBS}>
-        View All
-       </Link>
-      </Button>
-     }
+     title="Your Statistics"
+     description="Overview of your key performance metrics"
      isLoading={isAnyLoading}
     >
-     <JobsList
-      jobs={activeJobs}
-      onMessage={onMessage}
-      onDetails={onJobDetails}
-     />
+     <DashboardStats stats={statsWithIcons} isLoading={isAnyLoading} />
     </DashboardSection>
 
     {isClient && topFreelancers && topFreelancers.length > 0 ? (
