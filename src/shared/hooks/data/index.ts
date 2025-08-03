@@ -7,5 +7,7 @@ export { useJobDetails } from "./useJobDetails";
 export { useJobListings } from "./useJobListings";
 export { useMyJobs } from "./useMyJobs";
 export { useTopFreelancers } from "./useTopFreelancers";
+export { useProjectStatusData } from "./useProjectStatusData";
+export { useEthPriceData } from "./useEthPriceData";
 
 export type * from "./types";

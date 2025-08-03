@@ -5,6 +5,11 @@ import {
  DashboardSection,
  DashboardStats,
  FreelancerTable,
+ BentoGrid,
+ ProjectStatusChart,
+ EarningsAreaChart,
+ SkillsBarChart,
+ EthPriceAreaChart,
 } from "@/components";
 import { PageLayout } from "@/components/templates";
 import { useAuth } from "@/app/providers/AuthProvider";
@@ -115,6 +120,18 @@ export const DashboardHomePage = ({
      isLoading={isAnyLoading}
     >
      <DashboardStats stats={statsWithIcons} isLoading={isAnyLoading} />
+    </DashboardSection>
+
+    <DashboardSection
+     title="Analytics Dashboard"
+     description="Visual insights into your project data"
+    >
+     <BentoGrid>
+      <EarningsAreaChart className="col-span-full md:col-span-2 lg:col-span-2" />
+      <ProjectStatusChart className="col-span-full md:col-span-1 lg:col-span-1" />
+      <SkillsBarChart className="col-span-full md:col-span-1 lg:col-span-1" />
+      <EthPriceAreaChart className="col-span-full md:col-span-2 lg:col-span-2" />
+     </BentoGrid>
     </DashboardSection>
 
     {isClient && topFreelancers && topFreelancers.length > 0 ? (
