@@ -17,5 +17,13 @@ export { ProfessionalSection } from "./ProfessionalSection";
 export { BasicInfoSection } from "./ProfileForm/components/BasicInfoSection";
 export { ContactSection } from "./ProfileForm/components/ContactSection";
 export { HeroSection } from "./HeroSection";
+export { BentoGrid } from "./BentoGrid";
+export { ProjectStatusChart } from "./ProjectStatusChart";
+export { EarningsAreaChart } from "./EarningsAreaChart";
+export { SkillsBarChart } from "./SkillsBarChart";
+export { ProgressRadialChart } from "./ProgressRadialChart";
+export { TrendsLineChart } from "./TrendsLineChart";
+export { EthPriceAreaChart } from "./EthPriceAreaChart";
+export { WeeklyActivityChart } from "./WeeklyActivityChart";
 
 export type * from "./types";

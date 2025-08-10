@@ -5,6 +5,11 @@ import {
  DashboardSection,
  DashboardStats,
  FreelancerTable,
+ BentoGrid,
+ ProjectStatusChart,
+ EarningsAreaChart,
+ WeeklyActivityChart,
+ EthPriceAreaChart,
 } from "@/components";
 import { PageLayout } from "@/components/templates";
 import { useAuth } from "@/app/providers/AuthProvider";
@@ -14,6 +19,10 @@ import {
  useDashboardStats,
  useTopFreelancers,
  useNavigation,
+ useEarningsData,
+ useWeeklyActivityData,
+ useProjectStatusDataAnalytics,
+ useEthPriceData,
 } from "@/shared/hooks";
 import { StatItem } from "@/components/organisms/DashboardStats";
 
@@ -78,6 +87,15 @@ export const DashboardHomePage = ({
   error: freelancersError,
  } = useTopFreelancers();
 
+ const earningsData = useEarningsData(userType as "client" | "freelancer");
+ const weeklyActivityData = useWeeklyActivityData(
+  userType as "client" | "freelancer"
+ );
+ const projectStatusData = useProjectStatusDataAnalytics(
+  userType as "client" | "freelancer"
+ );
+ const ethPriceData = useEthPriceData();
+
  const handleHireFreelancer = (freelancerId: string) => {
   console.log(`Hiring freelancer: ${freelancerId}`);
  };
@@ -115,6 +133,42 @@ export const DashboardHomePage = ({
      isLoading={isAnyLoading}
     >
      <DashboardStats stats={statsWithIcons} isLoading={isAnyLoading} />
+    </DashboardSection>
+
+    <DashboardSection
+     title="Analytics Dashboard"
+     description="Visual insights into your data"
+    >
+     <BentoGrid>
+      <EarningsAreaChart
+       className="col-span-full md:col-span-2 lg:col-span-4"
+       title={earningsData.title}
+       description={earningsData.description}
+       trendText={earningsData.trendText}
+       data={earningsData.data}
+       isLoading={earningsData.isLoading}
+       error={earningsData.error}
+      />
+      <ProjectStatusChart
+       className="col-span-full md:col-span-2 lg:col-span-2"
+       title={projectStatusData.title}
+       description={projectStatusData.description}
+       data={projectStatusData.data}
+       isLoading={projectStatusData.isLoading}
+       error={projectStatusData.error}
+      />
+      <WeeklyActivityChart
+       className="col-span-full md:col-span-1 lg:col-span-3"
+       title={weeklyActivityData.title}
+       description={weeklyActivityData.description}
+       data={weeklyActivityData.data}
+       peakDay={weeklyActivityData.peakDay}
+       totalActivity={weeklyActivityData.totalActivity}
+       isLoading={weeklyActivityData.isLoading}
+       error={weeklyActivityData.error}
+      />
+      <EthPriceAreaChart className="col-span-full md:col-span-1 lg:col-span-3" />
+     </BentoGrid>
     </DashboardSection>
 
     {isClient && topFreelancers && topFreelancers.length > 0 ? (
